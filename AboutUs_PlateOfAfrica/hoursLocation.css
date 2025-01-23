@@ -1,0 +1,349 @@
+
+
+.map-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 180px;
+    position: relative;
+}
+
+#location-header{
+    font-family: Lato;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 54.47px;
+    text-align: center;
+
+    
+}
+
+.map-container img {
+    max-width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+}
+
+
+
+body{
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+
+}
+
+
+
+.location-map-rectangle{
+    background-color: rgba(0, 0, 0, 0.68); 
+    border-radius: 20px; 
+    padding: 15px; 
+    width: 18%;
+    margin: 10px auto; 
+    text-align: left; 
+    position: absolute;
+    bottom: 13%;
+    right: 18%;
+    backdrop-filter: blur(16px)
+
+    
+   
+}
+
+.location-map-rectangle-content i{
+    
+    display: inline-block; 
+    background: linear-gradient(90deg, #F7EFC1 0%, #E0BC6B 100%);
+    padding: 10px; 
+    color: black; 
+    font-size: 24px; 
+    margin-bottom: 10px; 
+    border-radius: 60%;
+
+    
+}
+
+
+.location-map-rectangle-content p{
+    font-family: "Poppins";
+    font-size: 15px;
+    font-weight: 300;
+    
+
+
+
+}
+
+.location-map-rectangle-content{
+    margin-left: 10px;
+}
+
+
+.holiday-hours {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+.holiday-hours img {
+    width: 80%; 
+    height: auto;
+
+    /*display: block; */
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+.special-events {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-start;
+    align-items: center; 
+    margin: 5% 10%;
+    margin-top: 200px;
+    margin-bottom: 250px;
+    gap: 200px; 
+}
+
+.image-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.image-container img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+.text-container {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    text-align: left; 
+    margin-right: 30px;
+    max-width: 600px; 
+    
+}
+
+.reserve-heading {
+    font-family: "Lato";
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58px;
+    color: white; 
+    margin-bottom: 20px; 
+}
+
+.reserve-intro-description {
+    font-family: "Poppins";
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 27px;
+    color: rgba(255, 255, 255, 0.8); 
+    max-width: 600px; 
+}
+
+i {
+    margin-right: 10px;
+}
+
+h4{
+    font-family: "Poppins";
+    color: rgba(224, 188, 107, 1);
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.reserve-intro-description p {
+    margin-bottom: 20px;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+
+
+
+}
+
+p h4 {
+    font-family: "Poppins";
+    color: rgba(224, 188, 107, 1);
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+}
+
+
+
+
+.restaurant-hours{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 180px;
+    
+}
+
+
+#hours-background-image {
+    position: relative;
+    width: fit-content;
+    max-width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+}
+
+#hours-background-image img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+}
+
+
+.restaurant-hours #hours-info-image{
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+
+}
+
+
+#hours-info-image img {
+    max-width: 70%; 
+    height: auto; 
+}
+
+
+@media screen and (max-width: 768px) {
+    #hours-background-image img {
+        height: 35vh; 
+    }
+}
+
+
+
+
+
+
+
+
+.holiday-hours{
+    display: flex;;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 150px;
+    margin-top: 150px;
+}
+
+
+@media screen and (max-width: 768px){
+    .special-events{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container{
+        margin-bottom: 20px;
+    }
+
+    
+
+   
+}
+
+@media screen and (max-width: 768px){
+    .location-map-rectangle {
+        
+        position: relative; 
+        
+        bottom: auto; 
+        right: auto; 
+        
+        margin-top: 5px; 
+        width: 90%; 
+    }
+    #location-logo{
+        position: absolute;  
+        top: 37%;            
+        left: 55%;  
+    }
+}
+
+
+
+
+
+
+
+/** SCROLL BUTTON **/
+
+#scrolltotop-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0;
+    cursor:pointer;
+    display: none; 
+    z-index: 1000; 
+}
+
+#scrolltotop-button img {
+    width: 45px; 
+    height: 45px;
+}
+/*Animations*/
+@keyframes title-section {
+    from {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+  
+  #title-section {
+    animation: title-section 1.5s ease-out;
+    
+  }
+ 
