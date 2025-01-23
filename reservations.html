@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="reservations-hero-section.css">
+    
+        <link rel="stylesheet" href="footer.css">
+
+        <link rel="stylesheet" href="contact-form.css">
+        <link rel="stylesheet" href="reservations-form.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>Reservations</title>
+        
+    </head>
+    
+    <body>
+        <header>
+            <a href="index.html"><img class="logo" src="Plate of Africa Logo.png" alt="logo"></a>
+            <nav>
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </label>
+
+                <label id="overlay" for="sidebar-active"></label>
+                <div class="nav-links">
+                    <label for="sidebar-active" class="close-sidebar-button"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </label>
+                    <li><a href="AboutUs_Webmaster.html">About Us</a></li>
+                    <!--<li><a href="#">Menu</a></li>-->
+                    <li><a href="reservations.html">Reservations</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="OurApproachToVeganism.html">Sustainability</a></li>
+                    <li><a href="hoursLocation.html">Hours & Location</a></li>
+                    <li><a href="Employment.html">Employment</a></li>
+                </div>
+
+            </nav>
+            <a class="cta" href="contacts.html"><button>Contact Us</button></a>
+        </header>
+
+        <main>
+            <div id="title-area">
+                <br>
+                <h1 id="Main-title">
+                    RESERVATIONS
+                </h1>
+
+                <div id="Intro-text">
+                <p>
+                    Thank you for choosing Plate of Africa for your choice of fine dining. We look forward to providing you with the most memorable dining experience.
+                
+
+                <br> <br>
+
+                
+                    In order to make sure your visit is that of the highest quality, we offer online reservations. Using the form below, fill out the information requested below, including contact information.
+                </p>
+               </div>
+                <div id="rectangle-header">
+
+                </div>
+            </div>
+
+            <div class="reserve-intro">
+                <div id="reserve-a-table-section">
+                    <div id="reservation-section">
+                        <div>
+                            <img src="reservations-images.png">
+                        </div>
+
+
+
+
+                <div class="text-container">
+                    <h1 class="reserve-heading">
+                        RESERVE A TABLE
+                    </h1>
+    
+                    <p class="reserve-intro-description">
+                        Please complete the form below to make a reservation. We recommend booking in advance, particularly for peak dining hours, weekends, and special events.
+                    </p>
+                </div>
+                </div>
+
+                <br>
+
+            </div>
+
+                <div id="reservation-form">
+                    <div class="form-title">RESERVATION FORM</div>
+    
+                    <div class="content">
+                        <form action="https://api.web3forms.com/submit" method="post">
+    
+                            <input type="hidden" name="access_key" value="">
+                            
+    
+    
+                            <div class="input-box-inline">
+                                <label for="first-name"></label>
+                                <input type="text" id="first-name" name="first-name" placeholder="First Name*" required>
+                                <label for="last-name"></label>
+                                <input type="text" id="last-name" name="last-name" placeholder="Last Name*" required>
+                            </div>
+    
+                            <br>
+    
+                            <div class="input-box">
+                                <label for="email"></label>
+                                <input type="email" id="email" name="email" placeholder="Email*" required>
+                            </div>
+    
+                            <br>
+    
+                            <div class="input-box" >
+                                <label for="phone-number"></label>
+                                <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number*" required>
+                            </div>
+    
+                            <br>
+
+                            <div class="input-box-inline">
+                                <label for="date"></label>
+                                <input type="date" id="date" name="date" placeholder="Date of Reservation*" required>
+        
+                                <label for="time"></label>
+                                <input type="time" id="time" name="time" placeholder="Time*" required>
+                            </div>
+
+                            <br>
+
+                            <div class="input-box" >
+                                <label for="numberGuests"></label>
+                                <input type="number" id="numberGuests" name="numberGuests" placeholder="Number of Guests*" required>
+                            </div>
+
+                            <br>
+    
+                            <div class="input-box">
+                                <label for="message"></label>
+                                <textarea id="message" name="message" placeholder="Special Requests or Notes"></textarea>
+                            </div>
+    
+                            <br>
+    
+                            <div class="submit-button">
+                                <input type="submit" class="submit" placeholder="Make a Reservation">
+                            </div>
+    
+                        </form>
+                    </div>
+    
+                </div>
+
+                
+
+            </div>
+
+
+            <div class="group-dining-intro">
+                <h1>
+                    GROUP DINING
+                </h1>
+
+                <p id="group-dining-description">
+                    For groups of 8 or more, we require a special reservation made earlier than 5 days prior to the reservation date. In order to complete a reservation request, reach out directly through the number 908-441-9271.
+                </p>
+
+            </div>
+        </main>
+
+        <!--SCROLL BUTTON CODE-->
+        <div id="scrolltotop-button">
+            <img src="ScrollToTopButton.png" alt="scroll to top">
+        </div>
+
+        <script>
+            var scrolltotop = document.getElementById("scrolltotop-button");
+
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrolltotop.style.display = "block";
+                } 
+                else {
+                    scrolltotop.style.display = "none";
+                }
+            };
+
+            scrolltotop.onclick = function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            };
+        </script>
+
+        
+
+<footer>
+    <div class="row">
+        <div class="col">
+            <a href="index.html"><img src="Plate of Africa Logo.png" class="logo" alt="Plate of Africa Logo"></a>
+        </div>
+        <div class="col">
+            <h3>Quick Links</h3>
+            <a href="AboutUs_Webmaster.html">About Us</a><br>
+            <a href="reservations.html">Reservations</a><br>
+            <a href="#">Menu</a><br>
+            <a href="OurApproachToVeganism.html">Sustainability</a><br>
+            <a href="hoursLocation.html">Hours & Location</a><br>
+            <a href="Employment.html">Employment</a><br>
+            <a href="contacts.html">Contact Us</a><br>
+        </div>
+        <div class="col">
+            <h3>Contact Us</h3>
+            <div id="contact-items">
+                <p>
+                    <i class="fa-solid fa-phone"></i> 908-441-9271
+                    <br>
+                    <i class="fa-solid fa-envelope"></i> plateofafrica@gmail.com
+                    <br>
+                    <i class="fa-solid fa-location-dot"></i> 628 Cara Lodge Harbor Way, Seattle, Washington, 98154
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+                <i class="fa-brands fa-facebook"></i>
+
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+    <p class="copyright">Plate of Africa © Copyright 2024. All Rights Reserved</p>
+
+</footer>
+
+    </body>
+
+
+</html>

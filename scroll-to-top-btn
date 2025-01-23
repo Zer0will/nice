@@ -1,0 +1,44 @@
+<!--place the code in the indicated places to make the button-->
+
+<style>
+       #scrolltotop-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 0;
+            cursor:pointer;
+            display: none; 
+            z-index: 1000; 
+        }
+        
+    #scrolltotop-button img {
+            width: 45px; 
+            height: 45px;
+        }
+</style>
+
+<body>
+    <div id="scrolltotop-button">
+        <img src="ApproachPictures/ScrollToTopButton.png" alt="scroll to top">
+    </div>
+
+    <script>
+        var scrolltotop = document.getElementById("scrolltotop-button");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrolltotop.style.display = "block";
+            } 
+            else {
+                scrolltotop.style.display = "none";
+            }
+        };
+
+        scrolltotop.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+    </script>
+</body>
