@@ -45,6 +45,7 @@
     align-self: stretch;
     position: relative;
     text-transform: uppercase;
+    text-align:center;
   }
   .image-icon7 {
     flex: 1;
@@ -173,13 +174,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: var(--padding-5xl) 0px;
+    padding: var(--padding-5xl) 20px;
     gap: 2px;
     font-size: var(--h5-gilroy-web-size);
     font-family: var(--h5-gilroy-web);
   }
   .frame-parent {
-    width: 1292px;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -205,7 +206,7 @@
     height: 421px;
   }
   .appetizers2 {
-    width: 100%;
+    width: 90%;
     position: relative;
     background-color: var(--color-gray-300);
     height: 1163px;
@@ -242,4 +243,13 @@
   button.alcoholic-drinks:hover {
     background-color: var(--color-primary);
     color: var(--color-white);
+  }
+  .Menu-sections {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    
+    margin-top:1000px;
+    
   }
