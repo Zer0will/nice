@@ -31,7 +31,7 @@
     justify-content: space-between;
   }
   .frame-wrapper {
-    width: 80%;
+    width: 100%;
     border-radius: var(--br-13xl);
     background-color: #181818;
     display: flex;
@@ -115,7 +115,7 @@
     color: var(--color-gray-200);
   }
   .have-you-tastedugandan2 {
-    width: 80%;
+    width: 100%;
     position: relative;
     font-size: var(--special-paragraph-lignt-16-size);
     line-height: 30px;
@@ -124,7 +124,7 @@
     display: inline-block;
   }
   .frame-parent3 {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -140,7 +140,7 @@
     gap: var(--gap-3xs);
   }
   .frame-parent1 {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -180,7 +180,7 @@
     font-family: var(--h5-gilroy-web);
   }
   .frame-parent {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -192,7 +192,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 100%;
     height: auto;
     overflow: hidden;
   }
@@ -206,7 +206,7 @@
     height: 421px;
   }
   .appetizers2 {
-    width: 80%;
+    width: 100%;
     position: relative;
     background-color: var(--color-gray-300);
     height: 1163px;
