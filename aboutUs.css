@@ -1,0 +1,170 @@
+/* WHERE IT ALL STARTED */
+
+.whereItAllStarted{
+    margin-top: 250px;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 250px;
+}
+
+.startedIntro-textContainer{
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* WHAT MAKES US SPECIAL */
+
+.whatMakesUsSpecial{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 250px;
+    align-items: center;
+    gap: 150px;
+}
+
+
+.whatMakesUsSpecial-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.whatMakesUsSpecial-image img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+.whatMakesUsSpecial-text{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    text-align: left; 
+    max-width: 650px; 
+}
+
+/* OUR MISSION */
+
+
+.ourMissionImage1, .ourMissionImage2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.ourMissionImage1{
+    margin-right: 70px;
+}
+
+.ourMissionImage2{
+    margin-left: 70px;
+}
+
+.ourMission img {
+    max-width: 100%; 
+    height: auto; 
+}
+
+
+.ourMission{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 250px;
+    align-items: center;
+    align-content: center;
+    /**gap: 50px;**/
+    margin-bottom: 300px;
+}
+
+.ourMission-text{
+    max-width: 650px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+
+/* OUR COMMUNITY */
+
+.community-text{
+    
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 250px;
+
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+/** SCROLL BUTTON **/
+
+#scrolltotop-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0;
+    cursor:pointer;
+    display: none; 
+    z-index: 1000; 
+}
+
+#scrolltotop-button img {
+    width: 45px; 
+    height: 45px;
+}
+
+/** MEDIA QUERY **/
+
+@media (max-width: 1500px) {
+    .whatMakesUsSpecial {
+        flex-direction: column; 
+        gap: 30px; 
+    }
+
+    .whatMakesUsSpecial-image{
+        margin-bottom: 50px;
+    }
+
+    .ourMission{
+        flex-direction: column;
+        margin-bottom: 200px;
+    }
+
+    .ourMissionImage1{
+        margin-bottom: 60px;
+    }
+
+    .ourMissionImage2{
+        margin-top: 60px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .whatMakesUsSpecial-text{
+        margin-left: 40px;
+        margin-right: 40px;
+        text-align: center;
+    }
+
+    .whatMakesUsSpecial-image{
+        width: 70%;
+    }
+
+    .ourMission-text{
+        margin-left: 40px;
+        margin-right: 40px;
+        text-align: center;
+    }
+
+ 
+}

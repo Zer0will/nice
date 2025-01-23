@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "poppins";
+}
+
+
+
+footer{
+    width: 100%;
+    position: static;
+    bottom: 0;
+    background-color: #1E1E1E;
+    padding: 70px;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 40px;
+    text-align: left;
+
+}
+
+.row {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.col {
+
+    flex-basis: 25%;
+    
+    padding: 10px;
+}
+
+.logo{
+    width: 118px;
+    height: 118px;
+    margin-bottom: 30px;
+}
+
+.col h3{
+    width: fit-content;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.copyright {
+    text-align: center;
+}
+
+hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+
+#contact-items {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.social-icons, .fa-brands  {
+    display:flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    gap:35px;
+    font-size: 30px;
+}
+
+i{
+    margin-right: 8px;
+}
+
+@media screen and (max-width: 800px){
+    /**
+    footer{
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+    }
+    .row {
+        width: 100%; 
+        margin: 0;
+    }
+    **/
+    .row {
+        width: 100%; 
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        text-align: center;  
+        align-items: center;
+    }
+
+    .col {
+        flex-basis: auto; 
+        width: 100%; 
+        padding: 10px;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+        justify-content: center; 
+        
+    }
+
+    .col h3 {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center; 
+    }
+
+    .social-icons, .fa-brands {
+        width: 100%;
+
+    }
+
+
+    /** CANT SEEM TO LINE UP THE LOGO IN THE CENTER OF THE FOOTER
+    .col .logo{
+        max-width: 100%;
+        display: block;
+
+    }
+   **/
+
+}
