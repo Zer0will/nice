@@ -91,14 +91,14 @@
             <div id="aboutUs-textContainer show-animate">
 
             
-                <h2 class = "firstparttitle animate">About</h2> 
+                <h2 class = "slide-in">About</h2> 
             
                 <br>
         
-                <h1 class="animate">PLATE OF AFRICA</h1>
+                <h1 class="slide-in>PLATE OF AFRICA</h1>
                 <br>
             
-                <p class="animate">
+                <p class="slide-in">
                     Plate of Africa is an African restaurant that specializes in the diverse cuisines found throughout the African continent, through an entirely plant-based menu. We celebrate the culinary history found throughout Africa, recrafted into modern, health-conscious dining. Our dishes can be found throughout the continent, and include North, South, East, and West African cuisine.
                 </p> 
         
@@ -199,6 +199,18 @@
                 behavior: 'smooth'
             });
         };
+        const elements = document.querySelectorAll('.slide-in'); 
+
+        const onScroll = () => {
+            elements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                    el.classList.add('show');                 }
+            });
+        };
+
+        window.addEventListener('scroll', onScroll);
+        onScroll(); 
+
     </script>
 
 

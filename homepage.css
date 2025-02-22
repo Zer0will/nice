@@ -639,6 +639,17 @@ header button:hover {
 .rb button:hover{
     background: linear-gradient(90deg, #E0BC6B 0%, #F7EFC1 100%); 
 }
+.slide-in
+ { opacity: 0; 
+transform: translateX(-15%);
+ transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+ } 
+
+.show
+ { opacity: 1;
+ transform: translateX(0); 
+}
+
 
 
 /** SCROLL BUTTON **/
