@@ -187,6 +187,8 @@ body {
     justify-content: center; 
     align-items: center; 
     max-width:500px;
+    height:auto;
+    padding:10%;
 }
     
     /**
@@ -641,14 +643,21 @@ header button:hover {
 }
 .slide-in
  { opacity: 0; 
-transform: translateX(-15%);
- transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
  } 
 
 .show
  { opacity: 1;
  transform: translateX(0); 
 }
+.hoveranimation:hover {
+    transform: scale(1.1);
+    transform: translatey(-7%);
+    text-decoration:underline;
+  }
+
+
 
 
 
