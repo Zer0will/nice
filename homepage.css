@@ -28,7 +28,7 @@ body {
 
 
 #title-box{
-    background-image: url(organic-homemade-fried-green-okra-2023-11-27-05-05-02-utc@Homepageback.png);
+    
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -39,12 +39,17 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
-
-
-
+    animation: cycleImages 15s infinite;
    
-    
 }
+/*animations for homepage background **/
+@keyframes cycleImages {
+    0% { background-image: url('Group\ 352Employment.png'); }
+    33% { background-image: url('EmploymentImage1.png'); }
+    66% { background-image: url('NourishmentImage1.png'); }
+    100% { background-image: url('NourishmentImage2.png'); }
+}
+
 
 
 #rectangle-header {
