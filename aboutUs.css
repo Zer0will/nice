@@ -120,10 +120,22 @@
     width: 45px; 
     height: 45px;
 }
+/** fade in animation clases **/
+.slide-in
+ { opacity: 0; 
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+ } 
+
+.show
+ { opacity: 1;
+ transform: translateX(0); 
+}
+
 
 /** MEDIA QUERY **/
 
-@media (max-width: 1500px) {
+@media (max-width: 900px) {
     .whatMakesUsSpecial {
         flex-direction: column; 
         gap: 30px; 

@@ -46,7 +46,7 @@
         <!--About Us Background Image-->
         
         <div id="title-area">
-            <h1>
+            <h1 class="slide-in">
                 ABOUT US
             </h1>
             <div id="rectangle-header">
@@ -59,21 +59,21 @@
         <!--About Us Webpage Background-->
         <div class ="aboutusfullbackground-box">
             <div class="whereItAllStarted">
-                    <h1>WHERE IT ALL STARTED</h1><br>
+                    <h1 class="slide-in">WHERE IT ALL STARTED</h1><br>
                     <div class="startedIntro-textContainer">
-                        <p>
+                        <p class="slide-in">
                             When we decided to create Plate of Africa, we envisioned it as more than just a restaurant. Plate of Africa is a place where people of all cultures, and all backgrounds, can come together under the shared passion for culinary excellence. Plate of Africa was created simply by three men, each with a passion for cooking. Whether it be a medium rare steak, or a perfectly baked focaccia, these men were absolutely enthralled with the complexity of food. They found that food was not just about flavor or texture, but about the people you share the food with.
                         </p>
                         <br>
-                        <p>
+                        <p class="slide-in">
                             This passion led to these men deciding to pursue a culinary education at Auguste Escoffier School of Culinary Arts in Austin, Texas, earning a diploma in Plant-Based Culinary Arts.they began to  After graduating, they began to work as a chefs at La Lumiere Etoilee, their first professional career. However, despite their job stability, and skills, they felt a sense of emptiness. The food that they cooked always seemed to be missing something essential. As they traveled, they realized the essential thing they were missing was that of great simplicity: Community.
                         </p>
                         <br>
-                        <p>
+                        <p class="slide-in">
                             This realization drove them to create Plate of Africa, a place where people could combine culinary excellence and community can combine to bring an amazing experience. They decided to choose to specialize in African cuisine as it was the food they had been eating all of their lives. Specifically, they decided that a vegan restaurant would be the best, due to its many environmental and health benefits. This was the beginning of an idea that created the Plate of Africa you see today.
                         </p>
                         <br>
-                        <p>
+                        <p class="slide-in">
                             As Plate of Africa begins to move towards the future, we will continue to uphold the core values that founded us: that of culinary excellence, passion, and most of all, community. We are beyond thrilled to share with you our passion, and to create lasting memories one plate at a time.
                         </p>
                     
@@ -86,7 +86,7 @@
                 <div class ="whatMakesUsSpecial-image">
                     <img src="WhatMakesUsSpecial-PlateOfFood.png"> 
                 </div>
-                <div class ="whatMakesUsSpecial-text">
+                <div class ="whatMakesUsSpecial-text slide-in">
                     <h1>WHAT MAKES US SPECIAL</h1>
                     <br>
                     <p>What sets Plate of Africa apart from other restaurants is the diversity we bring to the table. The dishes served here are not from just one area or one region, but the entire continent. Whether it be the richness from West Africa stews, to the complex spices used in East African cuisine, our dishes encompass all different types of flavors, textures, and cooking methods. Our chef’s are committed to serving only the most authentic cuisine, using only the freshest ingredients. The recipes that make our dishes are recipes that have been used for generations, perfected and refined by each generation before.</p>
@@ -96,22 +96,22 @@
             </div>
             <br>
             <div class = "ourMission">
-                <div class="ourMissionImage1">
+                <div class="ourMissionImage1 slide-in">
                     <img src="OurMission-PlateOfFood1.png">
                 </div>
                 <div class ="ourMission-text">
-                    <h1>OUR MISSION</h1>
+                    <h1 class="slide-in">OUR MISSION</h1>
                     <br>
-                    <p>Our Mission at Plate of Africa is to foster community through the flavors of Africa using a plant-based lens. We hope that through the power of plant-based cooking, we can create a community that shares the same values of community. Every dish that we serve to our community is put together using love, source locally, and put together with sustainability in mind. We hope that through using plant-based cooking methods, we can create dishes that not only nourish the body, but also the soul.</p>
+                    <p class="slide-in">Our Mission at Plate of Africa is to foster community through the flavors of Africa using a plant-based lens. We hope that through the power of plant-based cooking, we can create a community that shares the same values of community. Every dish that we serve to our community is put together using love, source locally, and put together with sustainability in mind. We hope that through using plant-based cooking methods, we can create dishes that not only nourish the body, but also the soul.</p>
                 </div>
-                <div class="ourMissionImage2">
+                <div class="ourMissionImage2 slide-in">
                     <!--FIX LATER-->
                     <img src="OurMission-PlateOfFood2.png">
                 </div>
                 <br>
             </div>
             <br>
-            <div class="community-text">
+            <div class="community-text slide-in">
                 <h1>OUR COMMUNITY</h1><br>
                 <div>
                     <p>
@@ -137,6 +137,7 @@
     </div>
 
     <script>
+        //Scroll to Top Button
         var scrolltotop = document.getElementById("scrolltotop-button");
 
         window.onscroll = function() {
@@ -154,6 +155,20 @@
                 behavior: 'smooth'
             });
         };
+        //On Scroll fade in animation
+        const elements = document.querySelectorAll('.slide-in'); 
+
+const onScroll = () => {
+    elements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+            el.classList.add('show');                 }
+    });
+};
+
+window.addEventListener('scroll', onScroll);
+onScroll(); 
+
+
     </script>
 
 <footer>

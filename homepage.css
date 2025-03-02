@@ -31,6 +31,7 @@ body {
     
     background-size: cover;
     background-repeat: no-repeat;
+    background-image: url('organic-homemade-fried-green-okra-2023-11-27-05-05-02-utc\ \(3\).png');
     width: 100%;
     height: calc(100vh);
 
@@ -39,16 +40,11 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
-    animation: cycleImages 15s infinite;
+    
    
 }
 /*animations for homepage background **/
-@keyframes cycleImages {
-    0% { background-image: url('Group\ 352Employment.png'); }
-    33% { background-image: url('EmploymentImage1.png'); }
-    66% { background-image: url('NourishmentImage1.png'); }
-    100% { background-image: url('NourishmentImage2.png'); }
-}
+.
 
 
 
@@ -94,7 +90,18 @@ body {
     padding: 40px 0;
 
 
+}/*Glowing Animation **/
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
 }
+
+/* Apply this class to any existing button or element */
+.glow-effect {
+    animation: pulseGlow 1.5s infinite alternate;
+}
+
 
 
 
@@ -259,6 +266,15 @@ body {
     
 }
 
+.box {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-in-out;
+  }
+.box.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 #accordion{
     /*margin: 100px auto;*/

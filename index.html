@@ -74,7 +74,7 @@
                     </div>
                     <!--RESERVATION BUTTON-->
                     <div id="reservation-button">
-                    <a class="rb" href="reservations.html"><button class="hoveranimation">Make a Reservation</button></a>
+                    <a class="rb" href="reservations.html"><button class="hoveranimation glow-effect">Make a Reservation</button></a>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
             </div>
 
             <ul id="accordion">
-                <li>
+                <li class ="box">
                     <label for="first">
                         <p>01</p>Celebrating Diversity
                         <span>&#x3e;</span>
@@ -138,7 +138,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="box">
                     <label for="second">
                         <p>02</p>Plant-Based Excellence
                         <span>&#x3e;</span>
@@ -149,7 +149,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="box">
                     <label for="third">
                         <p>03</p>Seasonal Ingredients
                         <span>&#x3e;</span>
@@ -160,7 +160,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="box">
                     <label for="fourth">
                         <p>04</p>Heritage Keepers
                         <span>&#x3e;</span>
@@ -192,7 +192,7 @@
                 scrolltotop.style.display = "none";
             }
         };
-
+// on scroll animation code
         scrolltotop.onclick = function() {
             window.scrollTo({
                 top: 0,
@@ -210,6 +210,21 @@
 
         window.addEventListener('scroll', onScroll);
         onScroll(); 
+// FRQ and why veganism on scroll animations
+document.addEventListener("scroll", function() {
+      const boxes = document.querySelectorAll(".box");
+      const triggerBottom = window.innerHeight / 5 * 4;
+
+      boxes.forEach(function(box) {
+        const boxTop = box.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          box.classList.add("visible");
+        } else {
+          box.classList.remove("visible");
+        }
+      });
+    });
+
 
     </script>
 
