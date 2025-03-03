@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+  <style>
+    .footer {
+      background-color: #1e1e1e;
+      color: white;
+      position: relative;
+      z-index: 111;
+    }
+
+    .copyright {
+      color: #fff;
+      font-size: 14px;
+      background-color: black;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: 0%;
+      text-align: center;
+      padding: 15px 0px;
+      margin-bottom: 0px;
+    }
+
+    .headi {
+      font-family: "Poppins";
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 400;
+      margin-top: 119px;
+    }
+
+    .alignquick {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 128px;
+    }
+
+    .alignquick a {
+      color: white;
+      text-decoration: none;
+      font-family: "Poppins";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+    }
+
+    .alignquick>p>i {
+      color: white;
+      /* Icon color */
+      margin-right: 13.46px;
+      /* Space between icon and text */
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 11.3px;
+    }
+
+    .f-logo {
+      height: 118px;
+      margin-top: 75px;
+    }
+
+    @media (max-width: 786px) {
+      .alignquick {
+        margin-bottom: 40px;
+        /* Reduced margin */
+        align-items: center;
+      }
+
+      .headi {
+        margin-top: 0px;
+      }
+
+      .f-logo {
+        height: 102px;
+        margin-top: 60px;
+      }
+
+      .social-icons img {
+        height: 38px;
+      }
+    }
+  </style>
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="./assets/images/logo.png" alt="Logo" class="f-logo" />
+        </div>
+        <div class="col-md-3 alignquick">
+          <h5 class="headi">Quick Links</h5>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="col-md-3 alignquick">
+          <h5 class="headi">Contact Us</h5>
+          <p><i class="fas fa-phone-alt"></i> +123-456-789-99</p>
+          <p><i class="fas fa-envelope"></i> poa.@mail.com</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 1 Ardfrail ct Millbrook Rd
+            Oldcastle
+          </p>
+        </div>
+        <div class="col-md-3 alignquick">
+          <h5 class="headi">Follow Us</h5>
+          <div class="social-icons">
+            <img src="/assets/images/linkedin.png" alt="" />
+            <img src="/assets/images/facebook.png" alt="" />
+            <img src="/assets/images/insta.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© Copyright 2024. All Rights Reserved</p>
+  </footer>
+</body>
+
+</html>
