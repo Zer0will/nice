@@ -1,0 +1,263 @@
+.appetizers-container {
+    width: 80%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-13xl);
+    background: linear-gradient(90deg, #f7efc1, #e0bc6b);
+    border: 1px solid var(--color-black);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-8xs) var(--padding-5xl);
+    color: var(--color-black);
+  }
+  .main-courses-container {
+    border-radius: var(--br-13xl);
+    background-color: var(--color-darkslategray);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-8xs) var(--padding-5xl);
+  }
+  .non-alcoholic {
+    position: relative;
+    text-transform: capitalize;
+  }
+  .frame-group {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .frame-wrapper {
+    width: 100%;
+    border-radius: var(--br-13xl);
+    background-color: #181818;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px var(--padding-3xs);
+    box-sizing: border-box;
+  }
+  .appetizers4 {
+    align-self: stretch;
+    position: relative;
+    text-transform: uppercase;
+    text-align:center;
+  }
+  .image-icon7 {
+    flex: 1;
+    position: relative;
+    border-radius: var(--br-6xs);
+    max-width: 100%;
+    overflow: hidden;
+    height: 52px;
+    object-fit: cover;
+  }
+  .image-wrapper {
+    width: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--padding-5xs) 0px 0px;
+    box-sizing: border-box;
+  }
+  .ugandan-vegetarian-spring2 {
+    position: relative;
+    font-weight: 600;
+  }
+  .ugandan-vegetarian-spring-roll-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .frame-child11 {
+    width: 95.6px;
+    position: relative;
+    border-top: 0.6px dashed var(--color-white);
+    box-sizing: border-box;
+    height: 0.6px;
+  }
+  .div7 {
+    position: relative;
+    font-size: var(--subh4-poppins-regular-web-size);
+  }
+  .frame-parent4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-9xs);
+  }
+  .vegetables4 {
+    position: relative;
+    line-height: 30px;
+    font-weight: 300;
+  }
+  .frame-child12 {
+    width: 1px;
+    position: relative;
+    border-right: 1px solid var(--color-gray-100);
+    box-sizing: border-box;
+    height: 24px;
+  }
+  .vegetables-parent1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+    font-size: var(--paragraph-light-18-size);
+    color: var(--color-gray-200);
+  }
+  .have-you-tastedugandan2 {
+    width: 100%;
+    position: relative;
+    font-size: var(--special-paragraph-lignt-16-size);
+    line-height: 30px;
+    font-weight: 300;
+    color: var(--color-white);
+    display: inline-block;
+  }
+  .frame-parent3 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frame-parent2 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px var(--padding-9xs);
+    gap: var(--gap-3xs);
+  }
+  .frame-parent1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: var(--gap-13xl);
+  }
+  .frame-child20 {
+    width: 1px;
+    position: relative;
+    border-right: 1px solid var(--color-gray-400);
+    box-sizing: border-box;
+    height: 421px;
+  }
+  .frame-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-13xl);
+    text-align: left;
+    font-size: var(--subh6-poppins-regular-size);
+    color: var(--color-gold);
+    font-family: var(--special-text-footer);
+  }
+  .appetizers-group {
+    width: auto; 
+    max-width: 80%; 
+    margin: 0 auto;
+    border-radius: var(--br-21xl);
+    background-color: #191919;
+    border: 1px solid #bd9648;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-5xl) 20px;
+    gap: 2px;
+    font-size: var(--h5-gilroy-web-size);
+    font-family: var(--h5-gilroy-web);
+  }
+  
+  .frame-parent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 42px;
+  }
+  .frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  .appetizers-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--color-gray-400);
+    box-sizing: border-box;
+    width: 1px;
+    height: 421px;
+  }
+  .appetizers2 {
+    width: 80%;
+    position: relative;
+    background-color: var(--color-gray-300);
+    height: 1163px;
+    overflow: hidden;
+    text-align: center;
+    font-size: var(--subh6-poppins-regular-size);
+    color: var(--color-white);
+    font-family: var(--special-text-footer);
+  }
+  
+  button.appetizers,
+  button.main-courses,
+  button.desserts,
+  button.non-alcoholic,
+  button.alcoholic-drinks {
+    display: inline-block;
+    padding: 50px 10px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+  
+  button.appetizers:hover,
+  button.main-courses:hover,
+  button.desserts:hover,
+  button.non-alcoholic:hover,
+  button.alcoholic-drinks:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  .Menu-sections {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    flex-wrap:wrap;
+    
+    
+    
+    
+  }
+  #real-appetizers {
+    height:50%;
+  }

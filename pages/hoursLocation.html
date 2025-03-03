@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="../css/hoursLocation-hero-section.css">
+
+        <link rel="stylesheet" href="../css/hoursLocation.css">
+    
+        <link rel="stylesheet" href="../css/footer.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>Hours & Location</title>
+        
+    </head>
+    
+    <body>
+        <header>
+            <a href="index.html"><img class="logo" src="../images/Plate of Africa Logo.png" alt="logo"></a>
+            <nav>
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </label>
+
+                <label id="overlay" for="sidebar-active"></label>
+                <div class="nav-links">
+                    <label for="sidebar-active" class="close-sidebar-button"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </label>
+                    <li><a href="AboutUs_Webmaster.html">About Us</a></li>
+                    <!--<li><a href="#">Menu</a></li>-->
+                    <li><a href="reservations.html">Reservations</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="OurApproachToVeganism.html">Sustainability</a></li>
+                    <li><a href="hoursLocation.html">Hours & Location</a></li>
+                    <li><a href="Employment.html">Employment</a></li>
+                    <li><a href="references.html">References</a></li>
+                </div>
+
+            </nav>
+            <a class="cta" href="contacts.html"><button>Contact Us</button></a>
+        </header>
+
+        <main>
+            <div id="title-area">
+                <h1 id="title-section">
+                    HOURS & LOCATION
+                </h1>
+                <div id="rectangle-header">
+                </div>
+            </div>
+
+            <div class="map-container">
+                <h1 id="location-header">
+                    LOCATION
+                </h1>
+                <img src="../images/hoursLocation-map.png" alt="map">
+
+                
+
+
+            
+                <div class="location-map-rectangle">
+                    
+                    <div class="location-map-rectangle-content">
+                        <i class="fa-regular fa-clock"></i>
+                        <p>Hours</p>
+                        <p>Monday - Friday: 11:00 AM – 10:00 PM</p>
+                        <p>Saturday - Sunday: 9:00 AM – 11:00 PM</p>
+                    </div>
+                    
+                </div>
+
+            </div>
+    
+
+            
+            <div class="restaurant-hours">
+
+            
+            
+                <div id="hours-background-image">
+                    <img src="../images/regular-hours-images.png" alt="regular-hours">
+                </div>
+
+                <div id="hours-info-image">
+                    <img src="../images/HOURS.png">
+                </div>
+
+                
+            </div>
+        
+
+            <!--TEMPORARY CODE. WILL HAVE TO USE JAVASCRIPT FOR THIS!-->
+            <div class="holiday-hours">
+                <h1>
+                    HOLIDAY HOURS
+                </h1>
+                <img src="../images/temporary.png" alt="holiday hours">
+
+            </div>
+
+            
+            <div class="special-events">
+
+
+
+                <div class="image-container">
+                    <img src="../images/reservations-images.png" alt="reservation-images">
+                </div>
+
+
+
+                <div class="text-container">
+                    <h1 class="reserve-heading">
+                        SPECIAL EVENTS
+                    </h1>
+    
+                    <div class="reserve-intro-description">
+                        <h4>
+                            <i class="fa-solid fa-calendar"></i>  Mother's Day Brunch 
+                        </h4>
+                        <p>
+                            (2nd Sunday in May): 10:00 AM – 2:00 PM
+                        </p>
+
+                        <h4>
+                            <i class="fa-solid fa-calendar"></i>  Father's Day Dinner 
+                        </h4>
+
+                        <p>
+                            (3rd Sunday in June): 5:00 PM – 9:00 PM <br> Black Tie Charity Event
+                        </p>
+                        
+                    <div>
+                </div>
+
+            </div>
+
+        
+
+        </main>
+
+        <!--SCROLL BUTTON CODE-->
+        <div id="scrolltotop-button">
+            <img src="../images/ScrollToTopButton.png" alt="scroll to top">
+        </div>
+
+        <script>
+            var scrolltotop = document.getElementById("scrolltotop-button");
+
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrolltotop.style.display = "block";
+                } 
+                else {
+                    scrolltotop.style.display = "none";
+                }
+            };
+
+            scrolltotop.onclick = function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            };
+        </script>
+
+<footer>
+    <div class="row">
+        <div class="col">
+            <a href="index.html"><img src="../images/Plate of Africa Logo.png" class="logo" alt="Plate of Africa Logo"></a>
+        </div>
+        <div class="col">
+            <h3>Quick Links</h3>
+            <a href="AboutUs_Webmaster.html">About Us</a><br>
+            <a href="reservations.html">Reservations</a><br>
+            <a href="menu.html">Menu</a><br>
+            <a href="OurApproachToVeganism.html">Sustainability</a><br>
+            <a href="hoursLocation.html">Hours & Location</a><br>
+            <a href="Employment.html">Employment</a><br>
+            <a href="contacts.html">Contact Us</a><br>
+            <a href="references.html">References</a>
+        </div>
+        <div class="col">
+            <h3>Contact Us</h3>
+            <div id="contact-items">
+                <p>
+                    <i class="fa-solid fa-phone"></i> 908-441-9271
+                    <br>
+                    <i class="fa-solid fa-envelope"></i> plateofafrica@gmail.com
+                    <br>
+                    <i class="fa-solid fa-location-dot"></i> 628 Cara Lodge Harbor Way, Seattle, Washington, 98154
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+                <i class="fa-brands fa-facebook"></i>
+
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+    <p class="copyright">Plate of Africa © Copyright 2024. All Rights Reserved</p>
+
+</footer>
+
+
+    </body>
+
+
+
+
+
+</html>
