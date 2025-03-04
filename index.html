@@ -1,255 +1,1663 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/homepage.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script defer src="../js/homepage-transitions.js"></script>
 
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Plate of Africa</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/home.css" />
+  <!-- Slick Slider CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5rqnhtDZIleozIoAqid83iw5obTBO4&libraries=places"></script>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: white;
+    }
+
+    @font-face {
+      font-family: "Gilroy";
+      src: url("/assets//fonts/gilroy//Gilroy-Regular.ttf") format("woff2");
+    }
+
+    .faq-heading {
+      color: #fff;
+      font-family: "Gilroy";
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
+      margin-bottom: 46px;
+      text-align: center;
+    }
+
+    .home-hero-text {
+      max-width: 625px;
+      font-family: "Poppins";
+      font-size: 18px;
+      margin: 40px 0px;
+    }
+
+    .home-hero-heading {
+      font-size: 80px;
+      font-family: "Poppins";
+      line-height: 90px;
+    }
+
+    .home-hero-heading span {
+      font-weight: bold;
+    }
+
+    .reser-button {
+      border-radius: 24px;
+      background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+      display: inline-flex;
+      height: 44px;
+      padding: 6px 32px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: #232323;
+      font-family: "Poppins";
+      font-size: 18px;
+      width: fit-content;
+    }
+
+    .ab-small {
+      width: 280px;
+      height: 280px;
+    }
+
+    .ab-l {
+      width: 280px;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .testimonial-slider .slick-track {
+      display: flex;
+    }
+
+    .testimonial-slider {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.04);
+      /* Slight transparency */
+      border-radius: 36px;
+      padding: 20px;
+      /* Adjust padding as needed */
+      backdrop-filter: blur(35.9px) brightness(100%);
+      -webkit-backdrop-filter: blur(35.9px) brightness(100%);
+
+      /* Gradient border using box-shadow */
+      position: relative;
+
+      padding: 20px;
+      text-align: left;
+      color: white;
+      margin: 10px;
+      position: relative;
+      height: 100%;
+      min-height: 263px;
+    }
+
+    .testimonial-card::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: 36px;
+      padding: 1px;
+      background: linear-gradient(to bottom,
+          rgba(255, 255, 255, 0),
+          rgb(189, 150, 72));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+
+    .testimonial-card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .testimonial-username {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .testimonial-text {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .quote-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      color: #ffd700;
+    }
+
+    /* Slick Arrows */
+    .slick-prev,
+    .slick-next {
+      border-radius: 24px;
+      border: 1px solid #e3d17b;
+      background: linear-gradient(90deg, #e3d582 0%, #e6b035 100%);
+      width: 43px;
+      height: 263px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+      font-size: 24px;
+      color: black;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .faq-section {
+      background: #111;
+      /* padding: 20px; */
+      border-radius: 10px;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+    }
+
+    .faq-question:hover {
+      background: #1e1e1e;
+    }
+
+    .faq-question {
+      background: #1e1e1e;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      padding: 15px;
+      border-radius: 5px;
+      color: #fff;
+
+      /* SubH3-Gilroy */
+      font-family: "Gilroy";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .faq-answer {
+      background: #1e1e1e;
+      border-radius: 5px;
+      color: #fff;
+      /* Special/Paragraph Regular 16px */
+      font-family: "Poppins";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .slick-next {
+      right: -60px !important;
+    }
+
+    .slick-prev {
+      left: -60px !important;
+    }
+
+    .slick-next:hover,
+    .slick-prev:hover,
+    .slick-next:focus,
+    .slick-prev:focus {
+      background: #e3d582;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      font-weight: bold;
+    }
+
+    .menu-section {
+      padding: 50px 0;
+    }
+
+    .menu-title {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .filter-buttons .btn {
+      border-radius: 20px;
+      background-color: #222;
+      color: white;
+      padding: 8px 18px;
+      font-size: 14px;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .filter-buttons .btn.active {
+      background-color: #c8a253;
+      color: black;
+    }
+
+    .menu-card {
+      background-color: #1b1b1b;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 15px;
+      text-align: center;
+      transition: 0.3s;
+      min-height: 364px;
+      max-width: 400px;
+    }
+
+    .menu-card:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-card img {
+      width: 234px;
+      height: 234px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .menu-card h5 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .menu-card p {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .price {
+      font-size: 16px;
+      font-weight: 600;
+      color: #c8a253;
+    }
+
+    .explore-btn {
+      background-color: #c8a253;
+      color: black;
+      border-radius: 20px;
+      padding: 10px 25px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .explore-btn:hover {
+      background-color: #b08b42;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 400px;
+      margin: auto;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .info-window {
+      border-radius: 26px;
+      background: rgba(0, 0, 0, 0.68);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: left;
+      width: 317px;
+    }
+
+    .info-window h6 {
+      margin: 0;
+      font-size: 16px;
+      color: #c8a253;
+    }
+
+    .info-window p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .view-button {
+      background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+      color: black;
+      border: none;
+      padding: 7px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      border-radius: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+    }
+
+    .righ {
+      right: 100px;
+      cursor: pointer;
+
+      /* bottom: 100px; */
+    }
+
+    .bt {
+      /* margin-top: 100px; */
+      padding-bottom: 100px;
+    }
+
+    .hours {
+      color: #fff;
+      /* Special/Paragraph light 15px */
+      font-family: "Poppins";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+    }
+
+    .hover-content {
+      display: none;
+    }
+
+    .menu-item:hover .hover-content {
+      display: block;
+    }
+
+    .menu-item:hover .default-content {
+      display: none;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      position: sticky;
+      top: 0;
+      background: rgba(235, 235, 235, 0.04);
+      padding: 12px 20px;
+      z-index: 1000;
+      max-width: fit-content;
+      margin: auto;
+      margin-bottom: 35px;
+      border-radius: 47px;
+      margin-top: 35px;
+      flex-wrap: wrap;
+    }
+
+    .filter-buttons button {
+      background: #393939;
+      color: white;
+      border: none;
+      height: 41px;
+      border-radius: 37px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 20px;
+      min-width: 139px;
+      padding: 0px 20px;
+    }
+
+    .filter-buttons button.active {
+      background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+      color: black;
+    }
+
+    .aboutt-section {
+      max-width: 517px;
+      position: relative;
+    }
+
+    .aboutt-title {
+      text-align: left;
+      color: white;
+      font-size: 22px;
+      font-family: Poppins, sans-serif;
+      font-weight: 300;
+    }
+
+    .aboutt-heading {
+      color: white;
+      font-size: 44px;
+      font-family: "Gilroy", sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .aboutt-text {
+      max-width: 517px;
+      color: white;
+      font-size: 18px;
+      font-family: Poppins, sans-serif;
+      font-weight: 300;
+    }
+
+    .mt94 {
+      margin-top: 94px;
+    }
+
+    .pdf {
+      padding-top: 129px;
+    }
+
+    .accordion-container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .accordion-item {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      padding: 15px;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .accordion-number {
+      background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+      color: black;
+      padding: 5px 10px;
+      border-radius: 50px;
+      margin-right: 15px;
+    }
+
+    .accordion-title {
+      flex-grow: 1;
+    }
+
+    .accordion-icon {
+      font-size: 18px;
+      transition: transform 0.3s;
+    }
+
+    .arrow-up {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-down {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-body {
+      padding: 15px;
+      color: white;
+      font-size: 16px;
+    }
+
+    .downarrow {
+      position: absolute;
+      bottom: 100px;
+      right: 100px;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .ab-down {
+      position: absolute;
+      top: -46px;
+      right: 0px;
+      width: 171px;
+      height: 171px;
+      aspect-ratio: 57/73;
+    }
+
+    .ab-yellow {
+      position: absolute;
+      bottom: -236px;
+      right: 0px;
+      width: 271px;
+      height: 471px;
+      aspect-ratio: 57/73;
+    }
+
+    .found-leaf {
+      position: absolute;
+      top: 32px;
+      left: 0;
+      width: 171px;
+      height: 171px;
+      aspect-ratio: 57/73;
+    }
+
+    .rightleaf-found {
+      position: absolute;
+      bottom: -455px;
+      left: -116px;
+      width: 471px;
+      height: 471px;
+      aspect-ratio: 57/73;
+    }
+
+    .leftleaf-found {
+      position: absolute;
+      bottom: -255px;
+      /* left: -116px; */
+      width: 250px;
+      height: 250px;
+      aspect-ratio: 57/73;
+    }
+
+    .rightdot-found {
+      position: absolute;
+      bottom: -111px;
+      right: 0;
+      width: 171px;
+      height: 171px;
+      aspect-ratio: 57/73;
+    }
+
+    .yellow-explore {
+      border-radius: 295px;
+      background: linear-gradient(90deg,
+          rgba(247, 239, 193, 0.52) 0%,
+          rgba(224, 188, 107, 0.52) 100%);
+      filter: blur(178px);
+      width: 295px;
+      height: 295px;
+      position: absolute;
+      bottom: -196px;
+      right: 0px;
+    }
+
+    .rightleaf-explore {
+      position: absolute;
+      bottom: -111px;
+      right: 0;
+      width: 250px;
+      height: 250px;
+      aspect-ratio: 57/73;
+    }
+
+    .leftdot-explore {
+      position: absolute;
+      bottom: -256px;
+      left: 32px;
+      width: 250px;
+      height: 250px;
+      aspect-ratio: 57/73;
+    }
+
+    .location-yellow {
+      border-radius: 295px;
+      background: linear-gradient(90deg,
+          rgba(247, 239, 193, 0.52) 0%,
+          rgba(224, 188, 107, 0.52) 100%);
+      filter: blur(178px);
+      width: 295px;
+      height: 295px;
+      position: absolute;
+      bottom: 0px;
+    }
+
+    .mt100 {
+      margin-top: 200px;
+    }
+
+    .leftleaf-location {
+      position: absolute;
+      top: -150px;
+      left: 0px;
+      width: 250px;
+      height: 250px;
+      aspect-ratio: 57/73;
+    }
+
+    .leftdot-location {
+      position: absolute;
+      bottom: -381px;
+      left: 0px;
+      width: 250px;
+      height: 250px;
+      aspect-ratio: 57/73;
+    }
+
+    .rightleaf-location {
+      position: absolute;
+      bottom: -281px;
+      right: 0px;
+      width: 171px;
+      height: 171px;
+      aspect-ratio: 57/73;
+    }
+
+    .faq-yellow {
+      border-radius: 295px;
+      background: linear-gradient(90deg,
+          rgba(247, 239, 193, 0.52) 0%,
+          rgba(224, 188, 107, 0.52) 100%);
+      filter: blur(178px);
+      width: 295px;
+      height: 295px;
+      position: absolute;
+      bottom: -196px;
+      right: 0px;
+    }
+
+    @media (max-width: 1200px) {
+      .ab-small {
+        width: 200px;
+        height: 180px;
+      }
+
+      .ab-l {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .faq-heading {
+        color: #fff;
+        font-family: "Gilroy";
+        font-size: 28px;
+      }
+
+      .ab-small {
+        width: 260px;
+        height: 240px;
+      }
+
+      .ab-l {
+        width: 260px;
+      }
+
+      .home-hero-heading {
+        font-size: 40px;
+      }
+
+      .aboutt-title {
+        font-size: 20px;
+      }
+
+      .aboutt-heading {
+        font-size: 24px;
+      }
+
+      .aboutt-text {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 
+<body class="position-relative">
+  <section>
+    <div style="position: fixed; height: 100vh; width: 100%; z-index: 1223; pointer-events: none;" class="handledown">
+      <img src="assets/images/downarrow.png" alt="" class="downarrow"/>
+    </div>
+  </section>
+  <section>
+    <div class="home-hero-bg">
+      <!-- Header -->
+      <div id="header"></div>
 
+      <!-- Page Content -->
+      <div class="container mt-5">
+        <div class="home-hero-heading">
+          Welcome to <br />
+          <span>Plate of Africa</span>
+        </div>
+        <div class="home-hero-text">
+          Enjoy the convenience of ordering your favorite dishes online.
+          Explore our menu and indulge in a culinary experience like no other.
+        </div>
+        <!-- Added link to reservations.html page for the reservation button -->
+        <a href="reservations.html" style="text-decoration: none;">
+          <div class="reser-button">Make a Reservation</div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- About Section -->
+  <section>
+    <div class="d-flex flex-wrap gap-4 mx-4 mx-sm-0 mt-5 justify-content-center position-relative">
+      <img src="/assets/images/about-down-leaf.png" alt="" class="ab-down" />
+      <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" />
+      <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" style="bottom: -473px" />
+      <div class="d-flex gap-4 flex-column flex-lg-row col-lg-6">
+        <img src="/assets/images/about-1.png" alt="" class="ab-l" />
+        <div class="d-flex flex-column gap-4">
+          <img src="/assets/images/about-2.png" alt="" class="ab-small" />
+          <img src="/assets/images/about-3.png" alt="" class="ab-small" />
+        </div>
+      </div>
 
+      <div class="col-md-6 mt-5 aboutt-section">
+        <div class="aboutt-title">About</div>
+        <div class="aboutt-heading">Plate of Africa</div>
+        <div class="aboutt-text">
+          We celebrate the culinary history found throughout Africa, recrafted
+          into modern, health-conscious dining. Our dishes can be found
+          throughout the continent, and include North, South, East, and West
+          African cuisine.
+        </div>
+        <div class="aboutt-text">
+          We commit ourselves to a high standard of culinary excellence, and
+          invite you to experience the vast flavors that Africa has to offer.
+          Many ingredients used in the creation of our dishes are directly
+          shipped from the continent itself, prioritizing excellence without
+          compromise.
+        </div>
+        <div class="reser-button mt-5">Learn More</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="position-relative">
+      <img src="/assets/images/found-leaf.png" alt="" class="found-leaf" />
+      <img src="/assets/images/found-yellow-left.png" alt="" class="rightleaf-found" />
+      <img src="/assets/images/foundleft-leaf.png" alt="" class="leftleaf-found" />
+      <div>
+        <img src="/assets/images/rightdot-found.png" alt="" class="rightdot-found" />
+      </div>
 
-
-<body>
-    <header>
-        <a href="index.html"><img class="logo" src="../images/Plate of Africa Logo.png" alt="logo"></a>
-        <nav>
-            <input type="checkbox" id="sidebar-active">
-            <label for="sidebar-active" class="open-sidebar-button">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-            </label>
-
-            <label id="overlay" for="sidebar-active"></label>
-            <div class="nav-links">
-                <label for="sidebar-active" class="close-sidebar-button"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                </label>
-                <li><a href="AboutUs_Webmaster.html">About Us</a></li>
-                <!--<li><a href="#">Menu</a></li>-->
-                <li><a href="reservations.html">Reservations</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="OurApproachToVeganism.html">Sustainability</a></li>
-                <li><a href="hoursLocation.html">Hours & Location</a></li>
-                <li><a href="Employment.html">Employment</a></li>
-                <li><a href="references.html">References</a></li>
+      <div class="container pdf">
+        <div class="row justify-content-center mx-2 gap-5 gap-md-0 mx-sm-0 align-items-center">
+          <div class="col-md-4 aboutt-section">
+            <div class="aboutt-title mt94">Who Founded</div>
+            <div class="aboutt-heading">Plate of Africa</div>
+            <div class="aboutt-text">
+              Plate of Africa was founded to celebrate Africa’s rich culinary
+              heritage through a modern, plant-based approach. Created by
+              passionate chefs and cultural advocates, it combines authentic
+              flavors, sustainable practices, and innovation to honor the
+              continent’s vibrant traditions and diverse cuisines.
             </div>
 
-        </nav>
-        <a class="cta" href="contacts.html"><button>Contact Us</button></a>
-    </header>
-    
-    
-    <main >
-        <!--BACKGROUND IMAGE-->
-        <div id="title-box" >
-            <!--SHADED RECTANGLE-->
-            <div id="rectangle-header" >
-                <!--TITLE AREA-->
-                <div id="header-area">
-                    <!--TITLE-->
-                    <div id="title-area">
-                        <h1 class="first-title-part">Welcome to</h1> <br> 
-                        
-                        <h1 class="second-title-part">PLATE OF AFRICA</h1>
-                        
-                        
-                    </div>
-                    <!--DESCRIPTION-->
-                    <div id="description-header">
-                        <p>
-                            Plate of Africa is an African restaurant that specializes in the diverse cuisines found throughout the African continent, through an entirely plant-based menu. 
-                        </p>
-                    </div>
-                    <!--RESERVATION BUTTON-->
-                    <div id="reservation-button">
-                    <a class="rb" href="reservations.html"><button>Make a Reservation</button></a>
-                    </div>
+            <div class="reser-button mt-5">Learn More</div>
+          </div>
+          <div class="col-md-4">
+            <img src="/assets/images/whofound.png" alt="" class="ab-l" />
+          </div>
+          <div class="col-md-4">
+            <div class="accordion-container">
+              <div class="accordion-item">
+                <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item1">
+                  <span class="accordion-number">01</span>
+                  <span class="accordion-title">Celebrate Diversity:</span>
+                  <span class="accordion-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="12" viewBox="0 0 24 12" fill="none">
+                      <g clip-path="url(#clip0_1_1036)">
+                        <path
+                          d="M7.10053 9.05457C6.80755 9.34755 6.33252 9.34744 6.03968 9.05433C5.74708 8.76145 5.74715 8.28687 6.03984 7.99408L11.287 2.74512C11.3795 2.65197 11.4896 2.57804 11.6109 2.52759C11.7321 2.47714 11.8622 2.45117 11.9935 2.45117C12.1248 2.45117 12.2548 2.47714 12.3761 2.52759C12.4973 2.57804 12.6074 2.65197 12.7 2.74512L17.9499 7.99412C18.2426 8.28683 18.2427 8.76144 17.9499 9.05417C17.6572 9.34686 17.1827 9.34688 16.89 9.05422L12.7021 4.8671C12.3116 4.47664 11.6784 4.47666 11.2879 4.86716L7.10053 9.05457Z"
+                          fill="url(#paint0_linear_1_1036)" />
+                      </g>
+                      <defs>
+                        <linearGradient id="paint0_linear_1_1036" x1="11.995" y1="-3.50073" x2="11.995" y2="8.99927"
+                          gradientUnits="userSpaceOnUse">
+                          <stop offset="0.396347" stop-color="#F2D52C" />
+                          <stop offset="1" stop-color="#CB9E38" />
+                        </linearGradient>
+                        <clipPath id="clip0_1_1036">
+                          <rect width="12" height="24" fill="white" transform="translate(24) rotate(90)" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </span>
+                </button>
+                <div id="item1" class="collapse">
+                  <div class="accordion-body">
+                    Showcasing cuisines from North, South, East, and West.
+                  </div>
                 </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item2">
+                  <span class="accordion-number">02</span>
+                  <span class="accordion-title">Plant-Based Excellence</span>
+                  <span class="accordion-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="12" viewBox="0 0 24 12" fill="none">
+                      <g clip-path="url(#clip0_1_1036)">
+                        <path
+                          d="M7.10053 9.05457C6.80755 9.34755 6.33252 9.34744 6.03968 9.05433C5.74708 8.76145 5.74715 8.28687 6.03984 7.99408L11.287 2.74512C11.3795 2.65197 11.4896 2.57804 11.6109 2.52759C11.7321 2.47714 11.8622 2.45117 11.9935 2.45117C12.1248 2.45117 12.2548 2.47714 12.3761 2.52759C12.4973 2.57804 12.6074 2.65197 12.7 2.74512L17.9499 7.99412C18.2426 8.28683 18.2427 8.76144 17.9499 9.05417C17.6572 9.34686 17.1827 9.34688 16.89 9.05422L12.7021 4.8671C12.3116 4.47664 11.6784 4.47666 11.2879 4.86716L7.10053 9.05457Z"
+                          fill="url(#paint0_linear_1_1036)" />
+                      </g>
+                      <defs>
+                        <linearGradient id="paint0_linear_1_1036" x1="11.995" y1="-3.50073" x2="11.995" y2="8.99927"
+                          gradientUnits="userSpaceOnUse">
+                          <stop offset="0.396347" stop-color="#F2D52C" />
+                          <stop offset="1" stop-color="#CB9E38" />
+                        </linearGradient>
+                        <clipPath id="clip0_1_1036">
+                          <rect width="12" height="24" fill="white" transform="translate(24) rotate(90)" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </span>
+                </button>
+                <div id="item2" class="collapse">
+                  <div class="accordion-body">
+                    Prioritizing a vegan and vegetarian menu.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item3">
+                  <span class="accordion-number">03</span>
+                  <span class="accordion-title">Authentic Ingredients</span>
+                  <span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="12"
+                      viewBox="0 0 24 12" fill="none">
+                      <g clip-path="url(#clip0_1_1036)">
+                        <path
+                          d="M7.10053 9.05457C6.80755 9.34755 6.33252 9.34744 6.03968 9.05433C5.74708 8.76145 5.74715 8.28687 6.03984 7.99408L11.287 2.74512C11.3795 2.65197 11.4896 2.57804 11.6109 2.52759C11.7321 2.47714 11.8622 2.45117 11.9935 2.45117C12.1248 2.45117 12.2548 2.47714 12.3761 2.52759C12.4973 2.57804 12.6074 2.65197 12.7 2.74512L17.9499 7.99412C18.2426 8.28683 18.2427 8.76144 17.9499 9.05417C17.6572 9.34686 17.1827 9.34688 16.89 9.05422L12.7021 4.8671C12.3116 4.47664 11.6784 4.47666 11.2879 4.86716L7.10053 9.05457Z"
+                          fill="url(#paint0_linear_1_1036)" />
+                      </g>
+                      <defs>
+                        <linearGradient id="paint0_linear_1_1036" x1="11.995" y1="-3.50073" x2="11.995" y2="8.99927"
+                          gradientUnits="userSpaceOnUse">
+                          <stop offset="0.396347" stop-color="#F2D52C" />
+                          <stop offset="1" stop-color="#CB9E38" />
+                        </linearGradient>
+                        <clipPath id="clip0_1_1036">
+                          <rect width="12" height="24" fill="white" transform="translate(24) rotate(90)" />
+                        </clipPath>
+                      </defs>
+                    </svg></span>
+                </button>
+                <div id="item3" class="collapse">
+                  <div class="accordion-body">
+                    Source locally and sustainability
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item4">
+                  <span class="accordion-number">04</span>
+                  <span class="accordion-title">Heritage Keepers</span>
+                  <span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="12"
+                      viewBox="0 0 24 12" fill="none">
+                      <g clip-path="url(#clip0_1_1036)">
+                        <path
+                          d="M7.10053 9.05457C6.80755 9.34755 6.33252 9.34744 6.03968 9.05433C5.74708 8.76145 5.74715 8.28687 6.03984 7.99408L11.287 2.74512C11.3795 2.65197 11.4896 2.57804 11.6109 2.52759C11.7321 2.47714 11.8622 2.45117 11.9935 2.45117C12.1248 2.45117 12.2548 2.47714 12.3761 2.52759C12.4973 2.57804 12.6074 2.65197 12.7 2.74512L17.9499 7.99412C18.2426 8.28683 18.2427 8.76144 17.9499 9.05417C17.6572 9.34686 17.1827 9.34688 16.89 9.05422L12.7021 4.8671C12.3116 4.47664 11.6784 4.47666 11.2879 4.86716L7.10053 9.05457Z"
+                          fill="url(#paint0_linear_1_1036)" />
+                      </g>
+                      <defs>
+                        <linearGradient id="paint0_linear_1_1036" x1="11.995" y1="-3.50073" x2="11.995" y2="8.99927"
+                          gradientUnits="userSpaceOnUse">
+                          <stop offset="0.396347" stop-color="#F2D52C" />
+                          <stop offset="1" stop-color="#CB9E38" />
+                        </linearGradient>
+                        <clipPath id="clip0_1_1036">
+                          <rect width="12" height="24" fill="white" transform="translate(24) rotate(90)" />
+                        </clipPath>
+                      </defs>
+                    </svg></span>
+                </button>
+                <div id="item4" class="collapse">
+                  <div class="accordion-body">
+                    Maintaining traditional recipes with a vegan twist.
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const accordionButtons =
+                document.querySelectorAll(".accordion-header");
 
-        </div>
+              accordionButtons.forEach((button) => {
+                const targetId = button.getAttribute("data-bs-target");
+                const targetElement = document.querySelector(targetId);
+                const icon = button.querySelector(".accordion-icon svg");
 
-        <div class="aboutUs">
-            
-            <div id="aboutUsImages"> 
-                <img src="../images/Group 355AboutUS.png"> 
-            </div>
-            
-            
-            <div id="aboutUs-textContainer show-animate">
+                button.addEventListener("click", function () {
+                  // Close any other open accordion items
+                  document
+                    .querySelectorAll(".collapse.show")
+                    .forEach((openItem) => {
+                      if (openItem.id !== targetId.replace("#", "")) {
+                        new bootstrap.Collapse(openItem, { toggle: true });
 
-            
-                <h2 class = "firstparttitle animate">About</h2> 
-            
-                <br>
-        
-                <h1 class="animate">PLATE OF AFRICA</h1>
-                <br>
-            
-                <p class="animate">
-                    Plate of Africa is an African restaurant that specializes in the diverse cuisines found throughout the African continent, through an entirely plant-based menu. We celebrate the culinary history found throughout Africa, recrafted into modern, health-conscious dining. Our dishes can be found throughout the continent, and include North, South, East, and West African cuisine.
-                </p> 
-        
-                <br>
-                <p class="">
-                    We commit ourselves to a high standard of culinary excellence, and invite you to experience the vast flavors that Africa has to offer. Many ingredients used in the creation of our dishes are sourced locally, prioritizing excellence without compromise.
-                
-                </p>
-                  
-            </div>
-        </div>
-        
-        <div id="ourMissionSection">
-            <div id="ourMission-textContainer">
-                <h2 class="firstparttitle">Our</h2> 
-                <br>
-                <h1>Mission</h1>
-                <br>
-                <p>
-                    Our Mission at Plate of Africa is to foster community through the flavors of Africa using a plant-based lens. We hope that through the power of plant-based cooking, we can create a community that shares the same values of community. Every dish that we serve to our community is put together using love, source locally, and put together with sustainability in mind. We hope that through using plant-based cooking methods, we can create dishes that not only nourish the body, but also the soul.
-                </p>
-            </div>
-        
-            <div id="missionImages"> 
-                <img src="../images/Group 257Foundedhomepage (1).png"> 
-            </div>
+                        // Reset icon rotation for closed items
+                        const openButton = document.querySelector(
+                          `[data-bs-target="#${openItem.id}"]`
+                        );
+                        if (openButton) {
+                          const openIcon = openButton.querySelector(
+                            ".accordion-icon svg"
+                          );
+                          if (openIcon)
+                            openIcon.style.transform = "rotate(0deg)";
+                        }
+                      }
+                    });
 
-            <ul id="accordion">
-                <li>
-                    <label for="first">
-                        <p>01</p>Celebrating Diversity
-                        <span>&#x3e;</span>
-                    </label>
-                    <input type="radio" name="accordion" id="first" checked>
-                    <div class="content">
-                        <p>Showcasting cuisines from North, South, East, and West Africa.</p>
-                    </div>
-                </li>
+                  // Toggle the clicked accordion item
+                  const isExpanded = targetElement.classList.contains("show");
+                  const collapseInstance = new bootstrap.Collapse(
+                    targetElement,
+                    {
+                      toggle: true,
+                    }
+                  );
 
-                <li>
-                    <label for="second">
-                        <p>02</p>Plant-Based Excellence
-                        <span>&#x3e;</span>
-                    </label>
-                    <input type="radio" name="accordion" id="second" >
-                    <div class="content">
-                        <p>Prioritizing a vegan and vegetarian menu. </p>
-                    </div>
-                </li>
-
-                <li>
-                    <label for="third">
-                        <p>03</p>Seasonal Ingredients
-                        <span>&#x3e;</span>
-                    </label>
-                    <input type="radio" name="accordion" id="third" >
-                    <div class="content">
-                        <p>Source locally and sustainability.</p>
-                    </div>
-                </li>
-
-                <li>
-                    <label for="fourth">
-                        <p>04</p>Heritage Keepers
-                        <span>&#x3e;</span>
-                    </label>
-                    <input type="radio" name="accordion" id="fourth" >
-                    <div class="content">
-                        <p>Maintaining traditional recipes with a vegan twist.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    
-    </main>
-
-
-    <!--SCROLL BUTTON CODE-->
-    <div id="scrolltotop-button">
-        <img src="../images/ScrollToTopButton.png" alt="scroll to top">
-    </div>
-
-    <script>
-        var scrolltotop = document.getElementById("scrolltotop-button");
-
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrolltotop.style.display = "block";
-            } 
-            else {
-                scrolltotop.style.display = "none";
-            }
-        };
-
-        scrolltotop.onclick = function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+                  // Handle icon rotation
+                  if (!isExpanded) {
+                    icon.style.transform = "rotate(180deg)"; // Arrow points down for opened item
+                  } else {
+                    icon.style.transform = "rotate(0deg)"; // Arrow resets for closed item
+                  }
+                });
+              });
             });
-        };
-    </script>
-
-
-<footer>
-    <div class="row">
-        <div class="col">
-            <a href="index.html"><img src="../images/Plate of Africa Logo.png" class="logo" alt="Plate of Africa Logo"></a>
+          </script>
         </div>
-        <div class="col">
-            <h3>Quick Links</h3>
-            <a href="AboutUs_Webmaster.html">About Us</a><br>
-            <a href="reservations.html">Reservations</a><br>
-            <a href="menu.html">Menu</a><br>
-            <a href="OurApproachToVeganism.html">Sustainability</a><br>
-            <a href="hoursLocation.html">Hours & Location</a><br>
-            <a href="Employment.html">Employment</a><br>
-            <a href="contacts.html">Contact Us</a><br>
-            <a href="references.html">References</a>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="position-relative">
+      <img src="/assets/images/explore-leaf.png" alt="" class="rightleaf-explore" />
+      <img src="/assets/images/exploreleft-dot.png" alt="" class="leftdot-explore" />
+      <img src="/assets/images/explore-dot.png" alt="" class="rightleaf-explore" style="bottom: -230px" />
+      <div class="yellow-explore"></div>
+      <div
+        class="container menu-section align-items-center justify-content-center position-relative d-flex flex-column">
+        <h2 class="menu-title">EXPLORE OUR MENU</h2>
+
+        <div class="d-flex justify-content-center filter-buttons my-4">
+          <button class="btn active mx-2" onclick="filterMenu('all')">
+            All
+          </button>
+          <button class="btn mx-2" onclick="filterMenu('appetizers')">
+            Appetizers
+          </button>
+          <button class="btn mx-2" onclick="filterMenu('entrees')">
+            Entrees
+          </button>
+          <button class="btn mx-2" onclick="filterMenu('main-courses')">
+            Main Courses
+          </button>
         </div>
-        <div class="col">
-            <h3>Contact Us</h3>
-            <div id="contact-items">
-                <p>
-                    <i class="fa-solid fa-phone"></i> 908-441-9271
-                    <br>
-                    <i class="fa-solid fa-envelope"></i> plateofafrica@gmail.com
-                    <br>
-                    <i class="fa-solid fa-location-dot"></i> 628 Cara Lodge Harbor Way, Seattle, Washington, 98154
-                </p>
+
+        <div class="row justify-content-center w-100" id="menu-container">
+          <!-- Menu Items -->
+          <div class="col-md-4 menu-item" data-category="appetizers">
+            <div class="menu-card default-content">
+              <img src="/assets/images/dish2.png" alt="Bunny Chow" />
+              <h5>Bunny Chow</h5>
             </div>
-        </div>
-        <div class="col">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-tiktok"></i>
-                <i class="fa-brands fa-facebook"></i>
-
+            <div class="menu-card hover-content">
+              <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
+              <div class="d-flex justify-content-between align-items-center">
+                <h5>Vegetable Skewers</h5>
+                <p class="price mb-0">$50.42</p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p style="color: #9f9f9f">Flavor Harmony</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                </svg>
+              </div>
             </div>
+          </div>
+
+          <div class="col-md-4 menu-item" data-category="entrees">
+            <div class="menu-card default-content">
+              <img src="/assets/images/dish2.png" alt="Bunny Chow" />
+              <h5>Bunny Chow</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
+              <div class="d-flex justify-content-between align-items-center">
+                <h5>Vegetable Skewers</h5>
+                <p class="price mb-0">$50.42</p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p style="color: #9f9f9f">Flavor Harmony</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 menu-item" data-category="main-courses">
+            <div class="menu-card default-content">
+              <img src="/assets/images/dish3.png" alt="Peanut Soup" />
+              <h5>Peanut Soup</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
+              <div class="d-flex justify-content-between align-items-center">
+                <h5>Vegetable Skewers</h5>
+                <p class="price mb-0">$50.42</p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p style="color: #9f9f9f">Flavor Harmony</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
 
+        <button class="btn reser-button mx-auto mt-4 buttonn">
+          Explore More
+        </button>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.querySelector(".buttonn").addEventListener("click", function () {
+      const menuContainer = document.getElementById("menu-container");
+
+      const newItems = `
+    <div class="col-md-4 menu-item" data-category="appetizers">
+      <div class="menu-card default-content">
+        <img src="/assets/images/dish2.png" alt="New Dish" />
+        <h5>New Dish</h5>
+      </div>
+      <div class="menu-card hover-content">
+        <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
+         <div class="d-flex justify-content-between align-items-center">
+            <h5>Vegetable Skewers</h5>
+            <p class="price mb-0">$50.42</p>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <p style="color: #9f9f9f">Flavor Harmony</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+            </svg>
+          </div>
+      </div>
     </div>
 
-    <hr>
-    <p class="copyright">Plate of Africa © Copyright 2024. All Rights Reserved</p>
+    <div class="col-md-4 menu-item" data-category="entrees">
+      <div class="menu-card default-content">
+        <img src="/assets/images/dish3.png" alt="Another Dish" />
+        <h5>Another Dish</h5>
+      </div>
+      <div class="menu-card hover-content">
+        <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
+         <div class="d-flex justify-content-between align-items-center">
+            <h5>Vegetable Skewers</h5>
+            <p class="price mb-0">$50.42</p>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <p style="color: #9f9f9f">Flavor Harmony</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+            </svg>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-4 menu-item" data-category="entrees">
+      <div class="menu-card default-content">
+        <img src="/assets/images/dish2.png" alt="Another Dish" />
+        <h5>Another Dish</h5>
+      </div>
+      <div class="menu-card hover-content">
+        <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
+         <div class="d-flex justify-content-between align-items-center">
+            <h5>Vegetable Skewers</h5>
+            <p class="price mb-0">$50.42</p>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <p style="color: #9f9f9f">Flavor Harmony</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+            </svg>
+          </div>
+      </div>
+    </div>
+  `;
 
-</footer>
+      menuContainer.innerHTML += newItems; // Append new menu items
+    });
+
+    function filterMenu(category) {
+      const items = document.querySelectorAll(".menu-item");
+      items.forEach((item) => {
+        if (category === "all" || item.dataset.category === category) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      // Update active button
+      document
+        .querySelectorAll(".filter-buttons .btn")
+        .forEach((btn) => btn.classList.remove("active"));
+      event.target.classList.add("active");
+    }
+  </script>
+  <section>
+    <div class="faq-heading mt-5">WHAT PEOPLE SAY ABOUT US</div>
+
+    <div class="testimonial-slider">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User" />
+          <div>
+            <div class="testimonial-name">John Wellberg</div>
+            <div class="testimonial-username">@WellbergJ</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "Absolutely amazing food, I come here every time I'm looking for a
+          good meal. Plate of Africa has a variety of food options that leave
+          you satisfied and great staff!"
+        </p>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="User" />
+          <div>
+            <div class="testimonial-name">Nettie Hardin</div>
+            <div class="testimonial-username">@netti3</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "Plate of Africa just nails it every time! So many great vegan
+          options to choose from and a staff that is very attentive and nice!
+          10/10 experience."
+        </p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User" />
+          <div>
+            <div class="testimonial-name">Stella Gallegos</div>
+            <div class="testimonial-username">@stellag</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          “Plate of Africa just nails it every time! I could not think of a
+          better place to go to. Seriously an experience of a lifetime! So
+          many great vegan options to choose from and a staff that is very
+          attentive and nice! 10/10 experience!”
+        </p>
+      </div>
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User" />
+          <div>
+            <div class="testimonial-name">John Wellberg</div>
+            <div class="testimonial-username">@WellbergJ</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "Absolutely amazing food, I come here every time I'm looking for a
+          good meal. Plate of Africa has a variety of food options that leave
+          you satisfied and great staff!"
+        </p>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="User" />
+          <div>
+            <div class="testimonial-name">Nettie Hardin</div>
+            <div class="testimonial-username">@netti3</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "Plate of Africa just nails it every time! So many great vegan
+          options to choose from and a staff that is very attentive and nice!
+          10/10 experience."
+        </p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User" />
+          <div>
+            <div class="testimonial-name">Stella Gallegos</div>
+            <div class="testimonial-username">@stellag</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "So grateful for this restaurant to have opened near where I live!
+          Whenever I'm craving something good, this is the first place I think
+          of!"
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Slick Slider JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".testimonial-slider").slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true,
+        dots: false,
+        prevArrow: '<button type="button" class="slick-prev">❮</button>',
+        nextArrow: '<button type="button" class="slick-next">❯</button>',
+        responsive: [
+          {
+            breakpoint: 1000,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              autoplay: true, // Force autoplay on mobile
+              arrows: false, // Hide arrows on mobile
+              autoplaySpeed: 1000,
+            },
+          },
+        ],
+      });
+    });
+  </script>
+  <section>
+    <div class="position-relative">
+      <div class="location-yellow"></div>
+      <img src="assets/images/location-leaf.png" alt="" class="leftleaf-location" />
+      <img src="assets/images/leftdot-location.png" alt="" class="leftdot-location" />
+      <img src="assets/images/location-rightleaf.png" alt="" class="rightleaf-location" />
+      <div class="faq-heading mt100">OUR MULTIPLE LOCATIONS</div>
+      <div class="container">
+        <div class="map-container">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="position-relative">
+      <div class="faq-yellow"></div>
+      <div class="container my-5">
+        <div class="faq-heading mt100">Frequently Asked Questions</div>
+        <div class="faq-section">
+          <div class="faq-item">
+            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq1">
+              What type of cuisine does Plate of Africa serve?
+              <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
+            </button>
+            <div id="faq1" class="collapse">
+              <div class="faq-answer p-3 text-white">
+                An AI agent (Artificial Intelligence agent) is a computer system
+                or software entity that can perceive its environment...
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Where do you source your ingredients from?
+              <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
+            </button>
+            <div id="faq2" class="collapse">
+              <div class="faq-answer p-3 text-white">
+                Our ingredients are sourced from the finest local farmers and
+                suppliers to ensure top quality.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq3">
+              Do you offer takeout or delivery services?
+              <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
+            </button>
+            <div id="faq3" class="collapse">
+              <div class="faq-answer p-3 text-white">
+                Yes! We offer both takeout and delivery options.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq4">
+              Where do you source your ingredients from?
+              <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
+            </button>
+            <div id="faq4" class="collapse">
+              <div class="faq-answer p-3 text-white">
+                Our ingredients are sourced from the finest local farmers and
+                suppliers to ensure top quality.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq5">
+              Do you offer takeout or delivery services?
+              <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
+            </button>
+            <div id="faq5" class="collapse">
+              <div class="faq-answer p-3 text-white">
+                Yes! We offer both takeout and delivery options.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+
+    <div class="position-relative bt">
+      <img src="assets/images/movetop.png" class="position-absolute righ scroll-to-top" />
+    </div>
+  </section>
+  <!-- Footer -->
+  <section>
+    <div id="footer"></div>
+  </section>
+  <script>
+    $(document).ready(function () {
+      $(".scroll-to-top").on("click", function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+      });
+    });
+    $(document).ready(function () {
+      $(".downarrow").on("mouseenter", function () {
+        $(".handledown").css("z-index", "9999"); // Increase z-index on hover
+      });
+
+      $(".downarrow").on("mouseleave", function () {
+        $(".handledown").css("z-index", "1"); // Reset z-index when mouse leaves
+      });
+    });
+
+    $(document).ready(function () {
+      $(".downarrow").on("click", function () {
+        let currentScroll = $(window).scrollTop();
+        let sections = $("section"); // Get all sections
+        let nextSection = null;
+
+        sections.each(function () {
+          let sectionTop = $(this).offset().top;
+          if (sectionTop > currentScroll + 10) { // Add small offset to prevent stuck behavior
+            nextSection = $(this);
+            return false; // Break the loop
+          }
+        });
+
+        if (nextSection) {
+          $(window).scrollTop(nextSection.offset().top);
+        }
+      });
+    });
 
 
-    
+
+
+    $(document).ready(function () {
+      $(".faq-question").click(function () {
+        let elements = document.getElementsByClassName("faq-question");
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].style.borderBottomLeftRadius = "0px";
+          elements[i].style.borderBottomRightRadius = "0px";
+        }
+        let elementsA = document.getElementsByClassName("faq-answer");
+        for (let i = 0; i < elementsA.length; i++) {
+          elementsA[i].style.borderTopLeftRadius = "0px";
+          elementsA[i].style.borderTopRightRadius = "0px";
+        }
+        // Toggle the icon between plus and minus
+        $(this)
+          .find(".icon")
+          .text($(this).next().hasClass("show") ? "" : "");
+
+        // Close other opened FAQs and reset their icons
+        $(".faq-item .collapse")
+          .not($(this).next())
+          .collapse("hide")
+          .prev()
+          .find(".icon")
+          .html('<img style="" src="/assets/images/plus.png" alt="">');
+      });
+
+      // When an FAQ is closed, reset its icon to '+'
+      $(".faq-item .collapse").on("hidden.bs.collapse", function () {
+        $(this)
+          .prev()
+          .find(".icon")
+          .html('<img style="" src="/assets/images/plus.png" alt="">');
+      });
+
+      // When an FAQ is opened, set its icon to '-'
+      $(".faq-item .collapse").on("shown.bs.collapse", function () {
+        $(this)
+          .prev()
+          .find(".icon")
+          .html(
+            '<div style="    background: #E0BC6B;width: 20px;height: 3px;margin-top: 15px;border-radius: 35px;"></div>'
+          );
+      });
+    });
+  </script>
+  <script>
+    let activeInfoWindow = null;
+    let isHoveringInfoWindow = false; // Track hover state
+
+    function initMap() {
+      const locations = [
+        {
+          name: "Branch A",
+          lat: 40.73061,
+          lng: -73.935242,
+          address: "Monday - Friday: 11:00 AM – 10:00 PM",
+          timings: "Saturday - Sunday: 9:00 AM – 11:00 PM",
+          link: "menu.html",
+        },
+        {
+          name: "Branch B",
+          lat: 40.74061,
+          lng: -73.925242,
+          address: "Monday - Friday: 11:00 AM – 10:00 PM",
+          timings: "Saturday - Sunday: 9:00 AM – 11:00 PM",
+          link: "menu.html",
+        },
+        {
+          name: "Branch C",
+          lat: 40.75061,
+          lng: -73.915242,
+          address: "Monday - Friday: 11:00 AM – 10:00 PM",
+          timings: "Saturday - Sunday: 9:00 AM – 11:00 PM",
+          link: "menu.html",
+        },
+      ];
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: { lat: 40.73061, lng: -73.935242 },
+        disableDefaultUI: true,
+        keyboardShortcuts: false, // Disables keyboard shortcuts
+        mapTypeControl: false, // Hides map type (Map/Satellite) selector
+        fullscreenControl: false, // Hides fullscreen button
+        styles: [
+          { elementType: "geometry", stylers: [{ color: "#1b1b1b" }] },
+          { elementType: "labels.icon", stylers: [{ visibility: "off" }] }, // Hide place icons
+          {
+            elementType: "labels.text.fill",
+            stylers: [{ visibility: "off" }],
+          }, // Hide place names
+          {
+            elementType: "labels.text.stroke",
+            stylers: [{ visibility: "off" }],
+          }, // Hide stroke around text
+          {
+            featureType: "road",
+            elementType: "geometry",
+            stylers: [{ color: "#222" }],
+          },
+          { featureType: "poi", stylers: [{ visibility: "off" }] }, // Hide points of interest
+          { featureType: "transit", stylers: [{ visibility: "off" }] }, // Hide transit labels
+          { featureType: "administrative", stylers: [{ visibility: "off" }] }, // Hide admin labels
+          {
+            featureType: "water",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }],
+          }, // Hide water labels
+        ],
+      });
+      document
+        .querySelectorAll(".gmnoprint, .gm-style-cc")
+        .forEach((el) => el.remove());
+
+      locations.forEach((loc) => {
+        const marker = new google.maps.Marker({
+          position: { lat: loc.lat, lng: loc.lng },
+          map,
+          icon: {
+            url: "/assets/images/logo.png",
+            scaledSize: new google.maps.Size(40, 40),
+          },
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+          content: `<div class="info-window" 
+                          onmouseover="isHoveringInfoWindow = true" 
+                          onmouseleave="closeWindow()">
+                          <img src="/assets/images/calander.png" style="width: 40px; height: 40px; border-radius: 50%; display: block;">
+                          <br>
+                          <div class="hours">Hours</div>
+                          <div class="hours">${loc.address}</div>
+                           <div class="hours">${loc.timings}</div>
+                          <button class="view-button" onclick="goToBranch('${loc.link}')">View Menu</button>
+                      </div>`,
+        });
+
+        marker.addListener("mouseover", () => {
+          if (activeInfoWindow) activeInfoWindow.close();
+          infoWindow.open(map, marker);
+          activeInfoWindow = infoWindow;
+        });
+
+        marker.addListener("mouseout", () => {
+          setTimeout(() => {
+            if (!isHoveringInfoWindow) {
+              infoWindow.close();
+              activeInfoWindow = null;
+            }
+          }, 300);
+        });
+
+        google.maps.event.addListener(infoWindow, "domready", () => {
+          const infoEl = document.querySelector(".info-window");
+          if (infoEl) {
+            infoEl.addEventListener(
+              "mouseover",
+              () => (isHoveringInfoWindow = true)
+            );
+            infoEl.addEventListener("mouseleave", () => closeWindow());
+          }
+        });
+      });
+    }
+    function closeWindow() {
+      setTimeout(() => {
+        if (!isHoveringInfoWindow) {
+          if (activeInfoWindow) {
+            activeInfoWindow.close();
+            activeInfoWindow = null;
+          }
+        }
+      }, 300);
+    }
+
+    function goToBranch(link) {
+      window.location.href = link;
+    }
+    window.onload = initMap;
+  </script>
+  <script src="script.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </body>
-
-
-
-
 
 </html>
