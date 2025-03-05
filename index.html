@@ -745,6 +745,49 @@
         font-size: 16px;
       }
     }
+    /*Button hover animation **/
+    .btn {
+  transition: transform 0.3s ease, text-decoration 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1) translateY(-10%);
+  text-decoration: underline;
+}
+/*Constant glow effect for Make a reservation button **/
+@keyframes pulseGlow 
+{ 0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } 
+50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.9); } 
+100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } }
+ 
+ .glow-effect 
+{ animation: pulseGlow 1.5s infinite alternate; }
+ /* on scroll animation for most things besides the frq and why veganism sections **/
+ .slide-in
+ { opacity: 0; 
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+ } 
+
+.show
+ { opacity: 1;
+ transform: translateX(0); 
+}
+/* on scroll animation for frq and why veganism section **/
+.box {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.5s ease-out;
+    }
+.box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+   
+    
+
+
+
   </style>
 </head>
 
@@ -761,17 +804,17 @@
 
       <!-- Page Content -->
       <div class="container mt-5">
-        <div class="home-hero-heading">
+        <div class="home-hero-heading slide-in">
           Welcome to <br />
           <span>Plate of Africa</span>
         </div>
-        <div class="home-hero-text">
+        <div class="home-hero-text slide-in">
           Enjoy the convenience of ordering your favorite dishes online.
           Explore our menu and indulge in a culinary experience like no other.
         </div>
         <!-- Added link to reservations.html page for the reservation button -->
         <a href="reservations.html" style="text-decoration: none;">
-          <div class="reser-button">Make a Reservation</div>
+          <div class="reser-button btn glow-effect  ">Make a Reservation</div>
         </a>
       </div>
     </div>
@@ -783,30 +826,30 @@
       <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" />
       <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" style="bottom: -473px" />
       <div class="d-flex gap-4 flex-column flex-lg-row col-lg-6">
-        <img src="/assets/images/about-1.png" alt="" class="ab-l" />
+        <img src="/assets/images/about-1.png" alt="" class="ab-l slide-in" />
         <div class="d-flex flex-column gap-4">
-          <img src="/assets/images/about-2.png" alt="" class="ab-small" />
-          <img src="/assets/images/about-3.png" alt="" class="ab-small" />
+          <img src="/assets/images/about-2.png" alt="" class="ab-small slide-in" />
+          <img src="/assets/images/about-3.png" alt="" class="ab-small slide-in" />
         </div>
       </div>
 
       <div class="col-md-6 mt-5 aboutt-section">
-        <div class="aboutt-title">About</div>
-        <div class="aboutt-heading">Plate of Africa</div>
-        <div class="aboutt-text">
+        <div class="aboutt-title slide-in">About</div>
+        <div class="aboutt-heading slide-in">Plate of Africa</div>
+        <div class="aboutt-text slide-in">
           We celebrate the culinary history found throughout Africa, recrafted
           into modern, health-conscious dining. Our dishes can be found
           throughout the continent, and include North, South, East, and West
           African cuisine.
         </div>
-        <div class="aboutt-text">
+        <div class="aboutt-text slide-in">
           We commit ourselves to a high standard of culinary excellence, and
           invite you to experience the vast flavors that Africa has to offer.
           Many ingredients used in the creation of our dishes are directly
           shipped from the continent itself, prioritizing excellence without
           compromise.
         </div>
-        <div class="reser-button mt-5">Learn More</div>
+        <div class="reser-button mt-5 btn slide-in ">Learn More</div>
       </div>
     </div>
   </section>
@@ -822,9 +865,9 @@
       <div class="container pdf">
         <div class="row justify-content-center mx-2 gap-5 gap-md-0 mx-sm-0 align-items-center">
           <div class="col-md-4 aboutt-section">
-            <div class="aboutt-title mt94">Who Founded</div>
-            <div class="aboutt-heading">Plate of Africa</div>
-            <div class="aboutt-text">
+            <div class="aboutt-title mt94 slide-in">Who Founded</div>
+            <div class="aboutt-heading slide-in">Plate of Africa</div>
+            <div class="aboutt-text slide-in">
               Plate of Africa was founded to celebrate Africa’s rich culinary
               heritage through a modern, plant-based approach. Created by
               passionate chefs and cultural advocates, it combines authentic
@@ -832,15 +875,15 @@
               continent’s vibrant traditions and diverse cuisines.
             </div>
 
-            <div class="reser-button mt-5">Learn More</div>
+            <div class="reser-button mt-5 btn slide-in ">Learn More</div>
           </div>
           <div class="col-md-4">
-            <img src="/assets/images/whofound.png" alt="" class="ab-l" />
+            <img src="/assets/images/whofound.png" alt="" class="ab-l slide-in" />
           </div>
-          <div class="col-md-4">
-            <div class="accordion-container">
-              <div class="accordion-item">
-                <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item1">
+          <div class="col-md-4 ">
+            <div class="accordion-container ">
+              <div class="accordion-item box">
+                <button class="accordion-header " data-bs-toggle="collapse" data-bs-target="#item1">
                   <span class="accordion-number">01</span>
                   <span class="accordion-title">Celebrate Diversity:</span>
                   <span class="accordion-icon">
@@ -864,13 +907,13 @@
                   </span>
                 </button>
                 <div id="item1" class="collapse">
-                  <div class="accordion-body">
+                  <div class="accordion-body ">
                     Showcasing cuisines from North, South, East, and West.
                   </div>
                 </div>
               </div>
 
-              <div class="accordion-item">
+              <div class="accordion-item box">
                 <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item2">
                   <span class="accordion-number">02</span>
                   <span class="accordion-title">Plant-Based Excellence</span>
@@ -901,7 +944,7 @@
                 </div>
               </div>
 
-              <div class="accordion-item">
+              <div class="accordion-item box">
                 <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item3">
                   <span class="accordion-number">03</span>
                   <span class="accordion-title">Authentic Ingredients</span>
@@ -931,7 +974,7 @@
                 </div>
               </div>
 
-              <div class="accordion-item">
+              <div class="accordion-item box">
                 <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item4">
                   <span class="accordion-number">04</span>
                   <span class="accordion-title">Heritage Keepers</span>
@@ -1012,6 +1055,34 @@
                 });
               });
             });
+            //On-scroll fade in animations for non-frq and why veganism section
+            const elements = document.querySelectorAll('.slide-in'); 
+
+const onScroll = () => {
+    elements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+            el.classList.add('show');                 }
+    });
+};
+
+window.addEventListener('scroll', onScroll);
+onScroll(); 
+
+// On-scroll fade in animation for frq and why veganism section
+document.addEventListener("scroll", function() {
+      const boxes = document.querySelectorAll(".box");
+      const triggerBottom = window.innerHeight / 5 * 4;
+
+      boxes.forEach(function(box) {
+        const boxTop = box.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          box.classList.add("visible");
+        } else {
+          box.classList.remove("visible");
+        }
+      });
+    });
+
           </script>
         </div>
       </div>
@@ -1025,26 +1096,46 @@
       <div class="yellow-explore"></div>
       <div
         class="container menu-section align-items-center justify-content-center position-relative d-flex flex-column">
-        <h2 class="menu-title">EXPLORE OUR MENU</h2>
+        <h2 class="menu-title box">EXPLORE OUR MENU</h2>
 
         <div class="d-flex justify-content-center filter-buttons my-4">
-          <button class="btn active mx-2" onclick="filterMenu('all')">
+          <button class="btn active mx-2 box " onclick="filterMenu('all')">
             All
           </button>
-          <button class="btn mx-2" onclick="filterMenu('appetizers')">
+          <button class="btn mx-2 box " onclick="filterMenu('appetizers')">
             Appetizers
           </button>
-          <button class="btn mx-2" onclick="filterMenu('entrees')">
+          <button class="btn mx-2 box " onclick="filterMenu('entrees')">
             Entrees
           </button>
-          <button class="btn mx-2" onclick="filterMenu('main-courses')">
+          <button class="btn mx-2 box" onclick="filterMenu('main-courses')">
             Main Courses
           </button>
         </div>
 
         <div class="row justify-content-center w-100" id="menu-container">
           <!-- Menu Items -->
-          <div class="col-md-4 menu-item" data-category="appetizers">
+          <div class="col-md-4 menu-item box" data-category="appetizers">
+            <div class="menu-card default-content ">
+              <img src="/assets/images/dish2.png" alt="Bunny Chow" />
+              <h5>Bunny Chow</h5>
+            </div>
+            <div class="menu-card hover-content ">
+              <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
+              <div class="d-flex justify-content-between align-items-center">
+                <h5>Vegetable Skewers</h5>
+                <p class="price mb-0">$50.42</p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <p style="color: #9f9f9f">Flavor Harmony</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 menu-item box" data-category="entrees">
             <div class="menu-card default-content">
               <img src="/assets/images/dish2.png" alt="Bunny Chow" />
               <h5>Bunny Chow</h5>
@@ -1064,27 +1155,7 @@
             </div>
           </div>
 
-          <div class="col-md-4 menu-item" data-category="entrees">
-            <div class="menu-card default-content">
-              <img src="/assets/images/dish2.png" alt="Bunny Chow" />
-              <h5>Bunny Chow</h5>
-            </div>
-            <div class="menu-card hover-content">
-              <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
-              <div class="d-flex justify-content-between align-items-center">
-                <h5>Vegetable Skewers</h5>
-                <p class="price mb-0">$50.42</p>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <p style="color: #9f9f9f">Flavor Harmony</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                  <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 menu-item" data-category="main-courses">
+          <div class="col-md-4 menu-item box" data-category="main-courses">
             <div class="menu-card default-content">
               <img src="/assets/images/dish3.png" alt="Peanut Soup" />
               <h5>Peanut Soup</h5>
@@ -1199,18 +1270,18 @@
   <section>
     <div class="faq-heading mt-5">WHAT PEOPLE SAY ABOUT US</div>
 
-    <div class="testimonial-slider">
+    <div class="testimonial-slider ">
       <!-- Testimonial 1 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card ">
         <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
-        <div class="testimonial-header">
+        <div class="testimonial-header ">
           <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User" />
           <div>
             <div class="testimonial-name">John Wellberg</div>
             <div class="testimonial-username">@WellbergJ</div>
           </div>
         </div>
-        <p class="testimonial-text">
+        <p class="testimonial-text box">
           "Absolutely amazing food, I come here every time I'm looking for a
           good meal. Plate of Africa has a variety of food options that leave
           you satisfied and great staff!"
@@ -1227,7 +1298,7 @@
             <div class="testimonial-username">@netti3</div>
           </div>
         </div>
-        <p class="testimonial-text">
+        <p class="testimonial-text box">
           "Plate of Africa just nails it every time! So many great vegan
           options to choose from and a staff that is very attentive and nice!
           10/10 experience."
@@ -1244,7 +1315,7 @@
             <div class="testimonial-username">@stellag</div>
           </div>
         </div>
-        <p class="testimonial-text">
+        <p class="testimonial-text box">
           “Plate of Africa just nails it every time! I could not think of a
           better place to go to. Seriously an experience of a lifetime! So
           many great vegan options to choose from and a staff that is very
@@ -1261,7 +1332,7 @@
             <div class="testimonial-username">@WellbergJ</div>
           </div>
         </div>
-        <p class="testimonial-text">
+        <p class="testimonial-text box">
           "Absolutely amazing food, I come here every time I'm looking for a
           good meal. Plate of Africa has a variety of food options that leave
           you satisfied and great staff!"
@@ -1278,7 +1349,7 @@
             <div class="testimonial-username">@netti3</div>
           </div>
         </div>
-        <p class="testimonial-text">
+        <p class="testimonial-text box">
           "Plate of Africa just nails it every time! So many great vegan
           options to choose from and a staff that is very attentive and nice!
           10/10 experience."
@@ -1295,7 +1366,7 @@
             <div class="testimonial-username">@stellag</div>
           </div>
         </div>
-        <p class="testimonial-text">
+        <p class="testimonial-text box">
           "So grateful for this restaurant to have opened near where I live!
           Whenever I'm craving something good, this is the first place I think
           of!"
@@ -1360,20 +1431,19 @@
         <div class="faq-heading mt100">Frequently Asked Questions</div>
         <div class="faq-section">
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq1">
+            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq1">
               What type of cuisine does Plate of Africa serve?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>
             <div id="faq1" class="collapse">
               <div class="faq-answer p-3 text-white">
-                An AI agent (Artificial Intelligence agent) is a computer system
-                or software entity that can perceive its environment...
+                Plate of Africa serves a wide variety of African cuisine spanning across the continent, all with a vegan perspective.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq2">
+            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq2">
               Where do you source your ingredients from?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>
@@ -1386,7 +1456,7 @@
           </div>
 
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq3">
+            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq3">
               Do you offer takeout or delivery services?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>
@@ -1397,7 +1467,7 @@
             </div>
           </div>
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq4">
+            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq4">
               Where do you source your ingredients from?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>
@@ -1410,7 +1480,7 @@
           </div>
 
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faq5">
+            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq5">
               Do you offer takeout or delivery services?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>
