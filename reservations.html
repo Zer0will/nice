@@ -72,7 +72,7 @@
 
             <div class="reserve-intro">
                 
-                        <div>
+                        <div class="slide-in">
                             <img src="../images/reservations-images.png">
                         </div>
                     
@@ -81,11 +81,11 @@
 
 
                 <div class="text-container">
-                    <h1 class="reserve-heading">
+                    <h1 class="reserve-heading slide-in">
                         RESERVE A TABLE
                     </h1>
     
-                    <p class="reserve-intro-description">
+                    <p class="reserve-intro-description slide-in">
                         Please complete the form below to make a reservation. We recommend booking in advance, particularly for peak dining hours, weekends, and special events.
                     </p>
                 </div>
@@ -96,9 +96,9 @@
             </div>
 
                 <div id="reservation-form">
-                    <div class="form-title">RESERVATION FORM</div>
+                    <div class="form-title slide-in">RESERVATION FORM</div>
     
-                    <div class="content">
+                    <div class="content slide-in">
                         <!--POP-UP REQUIRED NOW-->
                         <form action="" method="post">
     
@@ -166,12 +166,12 @@
         </div>
 
 
-            <div class="group-dining-intro">
+            <div class="group-dining-intro slide-in">
                 <h1>
                     GROUP DINING
                 </h1>
 
-                <p id="group-dining-description">
+                <p id="group-dining-description" class="slide-in">
                     For groups of 8 or more, we require a special reservation made earlier than 5 days prior to the reservation date. In order to complete a reservation request, reach out directly through the number 908-441-9271.
                 </p>
 
@@ -201,6 +201,19 @@
                     behavior: 'smooth'
                 });
             };
+            // on scroll fade in animation
+            const elements = document.querySelectorAll('.slide-in'); 
+
+const onScroll = () => {
+    elements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+            el.classList.add('show');                 }
+    });
+};
+
+window.addEventListener('scroll', onScroll);
+onScroll(); 
+
         </script>
 
         

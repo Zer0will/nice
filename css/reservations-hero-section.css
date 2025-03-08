@@ -315,3 +315,14 @@ header button:hover {
     text-decoration:underline;
     text-decoration-color:#E0BC6B;
 }
+/* on scroll animations **/
+.slide-in
+ { opacity: 0; 
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+ } 
+
+.show
+ { opacity: 1;
+ transform: translateX(0); 
+}
