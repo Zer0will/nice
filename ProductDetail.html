@@ -122,6 +122,18 @@
                 font-size: 40px;
             }
         }
+        /* on scroll animations **/
+        .slide-in
+ { opacity: 0; 
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+ } 
+
+.show
+ { opacity: 1;
+ transform: translateX(0); 
+}
+
     </style>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
 </head>
@@ -132,7 +144,7 @@
         <div id="header"></div>
 
 
-        <div class="heroSection">
+        <div class="heroSection slide-in">
             <div class="heroInner">
                 <div class="heroImgSection">
                     <img src="./assets/images/reviewImg10.png" class="mainImgProps" id="mainImg" alt="">
@@ -458,6 +470,20 @@
                 // document.querySelector(".heroSection").innerHTML = "<h2>Item not found</h2>";
             }
         });
+        // on scroll animation
+        const elements = document.querySelectorAll('.slide-in'); 
+
+        const onScroll = () => {
+            elements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                    el.classList.add('show');                 }
+            });
+        };
+
+        window.addEventListener('scroll', onScroll);
+        onScroll(); 
+
+
     </script>
 
 </body>

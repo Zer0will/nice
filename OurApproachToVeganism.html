@@ -55,9 +55,9 @@
         </div>
         
         <div class="approachfullbackground-box">
-            <div class="whereItAllStarted">
+            <div class="whereItAllStarted slide-in">
                     <h1>SUSTAINABILITY</h1>
-                    <div class="sustainabilityIntro-textContainer">
+                    <div class="sustainabilityIntro-textContainer slide-in">
                         <p>
                             Sustainability is one of the core principles that we attempt to uphold here at Plate of Africa. We understand that sustainability is the backbone to not just our restaurant, but to the world as a whole. Through the lens of a plant-based approach, we can reduce our carbon footprint greatly, as the resources required to create plants are much less than that of animal products. By implementing a vegan menu, we greatly decrease the amount of greenhouse gas we emit, water we use, and cut down on deforestation.
                         </p>
@@ -69,25 +69,25 @@
             </div>
             <div class="farmToTable">
                 
-                <div class ="farmImage">
+                <div class ="farmImage slide-in">
                     <img src="../images/farmToTablePhoto.png"> 
                 </div>
-                <div class ="farmToTable-text">
+                <div class ="farmToTable-text slide-in">
                     <h1>FROM FARM TO TABLE</h1>
                     <p>Our process from farm to table begins with our farmers. We have long-standing relationships with the local farmers in the area, certifying that the ingredients present in the kitchen are that of the highest quality. From our legumes to our hearty greens, all ingredients have been carefully selected with our patrons' palette in mind. From the farm, our food is directly shipped towards our locations, with no shipping lasting longer than two days, in order to ensure prompt delivery, freshness, and quality. These ingredients are directly used in our kitchen, with our highly-trained staff highlighting its natural flavor and intensity. In order to prioritize freshness and sustainability, our menu shifts with the seasons, guaranteeing maximum quality. After this, our chefs create the culinary masterpieces that you see before you today. This model of farm-to-table dining not only prioritizes quality, but also our commitment to sustainable business, economic, and environmental practices. Through this transparency, we hope you feel proud eating at Plate of Africa, knowing that every bite is from that of ethical farming and environmental wellness in mind.</p><br>
                 </div>
             </div>
             
             <div class = "nourishment">
-                <div class="nourishmentImage1">
+                <div class="nourishmentImage1 slide-in">
                     <img src="../images/Group 150Nourishment1.png">
                 </div>
-                <div class ="nourishment-text">
+                <div class ="nourishment-text slide-in">
                     <h1>NOURISHMENT FOR THE BODY AND SOUL</h1>
                     <br>
                     <p>Veganism is not simply about care for the environment, but also care for the individual. The dishes we served are not only packed with flavor, but of nutrients as well. A plant-based diet is a diet that is growing in popularity among medical groups due to its vast physical and psychological benefits. Plant-based diets are typically higher in Vitamins C, D, and A than that of meat-based diets, contributing to healthier bones, skin, and a stronger immune system.</p>
                 </div>
-                <div class="nourishmentImage2">
+                <div class="nourishmentImage2 slide-in">
                     <img src="../images/Group 149Nourishment2.png">
                 </div>
                 <br>
@@ -118,6 +118,19 @@
                 behavior: 'smooth'
             });
         };
+        // on scroll animations
+        const elements = document.querySelectorAll('.slide-in'); 
+
+const onScroll = () => {
+    elements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+            el.classList.add('show');                 }
+    });
+};
+
+window.addEventListener('scroll', onScroll);
+onScroll(); 
+
     </script>
 
 <footer>

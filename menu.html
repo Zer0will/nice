@@ -525,6 +525,18 @@
         z-index: -1;
       }
     }
+    /* on scroll animations **/
+    .slide-in
+ { opacity: 0; 
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+ } 
+
+.show
+ { opacity: 1;
+ transform: translateX(0); 
+}
+
   </style>
 </head>
 
@@ -562,8 +574,8 @@
       <div id="header"></div>
       <div class="container">
         <div class="d-flex flex-column justify-content-center align-items-center min-h">
-          <div class="text-main">Menu</div>
-          <div class="text-h">
+          <div class="text-main slide-in">Menu</div>
+          <div class="text-h slide-in">
             At Plate of Africa, we pride ourselves on crafting a unique dining
             experience by offering the best flavors from Africa. Each dish was
             deliberately chosen to provide an authentic, bold, and unforgettable
@@ -1155,6 +1167,19 @@
         );
         window.location.href = "ProductDetail.html";
       }
+      //on scroll animations
+      const elements = document.querySelectorAll('.slide-in'); 
+
+        const onScroll = () => {
+            elements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                    el.classList.add('show');                 }
+            });
+        };
+
+        window.addEventListener('scroll', onScroll);
+        onScroll(); 
+
     </script>
     <script src="script.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
