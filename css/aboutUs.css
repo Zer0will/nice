@@ -1,0 +1,277 @@
+/* WHERE IT ALL STARTED */
+
+.whereItAllStarted{
+    margin-top: 250px;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 250px;
+    text-align: center;
+}
+
+.startedIntro-textContainer{
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* WHAT MAKES US SPECIAL */
+
+.whatMakesUsSpecial{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 250px;
+    align-items: center;
+    gap: 70px;
+    padding: 0 50px;
+}
+
+
+.whatMakesUsSpecial-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+
+.whatMakesUsSpecial-image img{
+    max-width: 100%;
+    height: auto;
+    padding-left: 10%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.whatMakesUsSpecial-image img:hover {
+    transform: scale(1.03);
+}
+
+.whatMakesUsSpecial-text{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    text-align: left; 
+    max-width: 100%; 
+    padding-right: 7%;
+    flex: 1;
+}
+
+/* OUR MISSION */
+.ourMission {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 250px;
+    margin-bottom: 250px;
+    padding: 0 190px;
+}
+
+.ourMission-image1, .ourMission-image2 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ourMission-image1 img {
+    padding-left: 15%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.ourMission-image2 img {
+    float: right;
+    padding-right: 15%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.ourMission-image1 img:hover, .ourMission-image2 img:hover {
+    transform: scale(1.03);
+}
+
+.ourMission-text {
+    text-align: center;
+    padding-left: 7%;
+    padding-right: 7%;
+    max-width: 650px;
+    flex: 1.5;
+}
+
+/* OUR COMMUNITY */
+.ourCommunity {
+    margin-top: 250px;
+    margin-bottom: 250px;
+}
+
+.ourCommunity-textContainer {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ANIMATIONS */
+@keyframes title-section {
+    from {
+        transform: translateY(-30%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+#Main-title {
+    animation: title-section 1.5s ease-out;
+    position: relative;
+}
+
+/* TITLE AREA */
+#title-area h1 {
+    font-family: Lato;
+    font-size: 75px;
+    color: white;
+    text-align: center;
+}
+
+/** SCROLL BUTTON **/
+
+#scrolltotop-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0;
+    cursor:pointer;
+    display: none; 
+    z-index: 1000; 
+}
+
+#scrolltotop-button img {
+    width: 45px; 
+    height: 45px;
+}
+
+/* on scroll animations */
+.slide-in { 
+    opacity: 0; 
+    transform: translateX(-8%);
+    transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+} 
+
+.show { 
+    opacity: 1;
+    transform: translateX(0); 
+}
+
+/** MEDIA QUERY **/
+
+@media (max-width: 992px) {
+    .whatMakesUsSpecial, .ourMission {
+        gap: 50px;
+        padding: 0 30px;
+    }
+    
+    .whatMakesUsSpecial-image img {
+        padding-left: 5%;
+    }
+    
+    .ourMission-image1 img {
+        padding-left: 5%;
+    }
+    
+    .ourMission-image2 img {
+        padding-right: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .whatMakesUsSpecial {
+        flex-direction: column; 
+        gap: 30px; 
+        padding: 0 20px;
+    }
+
+    .whatMakesUsSpecial-image{
+        margin-bottom: 50px;
+        width: 100%;
+    }
+    
+    .whatMakesUsSpecial-image img {
+        padding-left: 0;
+    }
+
+    .ourMission{
+        flex-direction: column;
+        margin-bottom: 200px;
+        padding: 0 20px;
+    }
+    
+    .ourMission-image1 img {
+        padding-left: 0;
+    }
+    
+    .ourMission-image2 img {
+        padding-right: 0;
+    }
+
+    .ourMission-image1{
+        margin-bottom: 60px;
+        width: 100%;
+    }
+
+    .ourMission-image2{
+        margin-top: 60px;
+        width: 100%;
+    }
+    
+    .startedIntro-textContainer, .ourCommunity-textContainer {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .whatMakesUsSpecial-text{
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .ourMission-text{
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+    
+    #title-area h1 {
+        font-size: 50px;
+    }
+    
+    h1 {
+        font-size: 36px;
+    }
+    
+    .whatMakesUsSpecial-text h1::after,
+    .ourMission-text h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

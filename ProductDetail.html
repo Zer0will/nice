@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <title>Product Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/ReviewPage.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: #0f0f0f;
+            color: white;
+        }
+
+        .home-hero-text {
+            max-width: 625px;
+            font-family: "Poppins";
+            font-size: 18px;
+            margin: 40px 0px;
+        }
+
+        .home-hero-heading {
+            font-size: 80px;
+            font-family: "Poppins";
+            line-height: 90px;
+        }
+
+        .home-hero-heading span {
+            font-weight: bold;
+        }
+
+        .reser-button {
+            border-radius: 24px;
+            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+            display: inline-flex;
+            height: 44px;
+            padding: 6px 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: #232323;
+            font-family: "Poppins";
+            font-size: 18px;
+            width: fit-content;
+        }
+
+        .ab-small {
+            width: 320px;
+            height: 280px;
+        }
+
+        .ab-l {
+            width: 320px;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            /* Transparent background initially */
+            border: 2px solid white;
+            /* White border */
+            cursor: pointer;
+            position: relative;
+            border-radius: 4px;
+            /* Optional: Rounded corners */
+        }
+
+        /* Style for the checked state */
+        input[type="checkbox"]:checked {
+            background-color: yellow;
+            /* Yellow background when checked */
+            border-color: black;
+            /* Black border when checked */
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: "✔";
+            /* Unicode for checkmark */
+            font-size: 14px;
+            color: black;
+            /* Black checkmark */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* Center the checkmark */
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 1200px) {
+            .ab-small {
+                width: 200px;
+                height: 180px;
+            }
+
+            .ab-l {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ab-small {
+                width: 260px;
+                height: 240px;
+            }
+
+            .ab-l {
+                width: 260px;
+            }
+
+            .home-hero-heading {
+                font-size: 40px;
+            }
+        }
+        /* on scroll animations **/
+        .slide-in
+ { opacity: 0; 
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+ } 
+
+.show
+ { opacity: 1;
+ transform: translateX(0); 
+}
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
+</head>
+
+<body>
+    <div class="home-hero-bg">
+        <!-- Header -->
+        <div id="header"></div>
+
+
+        <div class="heroSection slide-in">
+            <div class="heroInner">
+                <div class="heroImgSection">
+                    <img src="./assets/images/reviewImg10.png" class="mainImgProps" id="mainImg" alt="">
+                    <div class="imagesPOuter">
+                        <img src="./assets/images/reviewImg6.png" class="imgNeedTo" alt=""
+                            onclick="changeImage('./images/reviewImg6.png', this)">
+                        <img src="./assets/images/reviewImg10.png" class="imgNeedTo" alt=""
+                            onclick="changeImage('./assets/images/reviewImg10.png', this)">
+                        <img src="./assets/images/reviewImg8.png" class="imgNeedTo" alt=""
+                            onclick="changeImage('./assets/images/reviewImg8.png', this)">
+                        <img src="./assets/images/reviewImg9.png" class="imgNeedTo" alt=""
+                            onclick="changeImage('./assets/images/reviewImg9.png', this)">
+                    </div>
+                </div>
+                <div class="productDetailSection">
+                    <div class="nameSection">
+                        <div class="nameText">Liberian Fried Okra</div>
+                        <div class="heartOuter" onclick="toggleHeart(this)" style="cursor: pointer;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="heartInner" fill="none"
+                                stroke="white" stroke-width="2">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+                        </div>
+
+                        <script>
+                            function toggleHeart(element) {
+                                let heart = element.querySelector(".heartInner");
+                                if (heart.getAttribute("fill") === "red") {
+                                    heart.setAttribute("fill", "none");
+                                } else {
+                                    heart.setAttribute("fill", "red");
+                                }
+                            }
+                        </script>
+
+
+                    </div>
+                    <div class="productprice">$50.42</div>
+                    <div class="productDetail">
+                        Lorem ipsum dolor sit amet consectetur. Netus magnis penatibus facilisi in sagittis leo lorem.
+                        Massa aenean nunc.
+                    </div>
+                    <div class="ingreText">Ingredients</div>
+                    <div class="ingreOuter">
+                        <div class="okraText">Okra</div>
+                        <div class="okraText">Tomato Paste</div>
+                        <div class="okraText">Ginger Paste</div>
+                    </div>
+                    <div class="ingreText">Shipping Details</div>
+                    <div class="shippingOuter">
+                        <div class="optionDiv">
+                            <img src="./assets/images/ship1.png" class="shipImg" alt="">
+                            <div class="optionText">Shipping Options <br> and Costs</div>
+                        </div>
+                        <div class="optionDiv">
+                            <img src="./assets/images/ship2.png" class="shipImg" alt="">
+                            <div class="optionText">Delivery Times <br> and Tracking</div>
+                        </div>
+                        <div class="optionDiv">
+                            <img src="./assets/images/ship3.png" class="shipImg" alt="">
+                            <div class="optionText">Shipping Policies <br> and Restrictions</div>
+                        </div>
+                    </div>
+                    <div class="countSection">
+                        <div class="minusDiu" onclick="decrement()">-</div>
+                        <div class="SectedDiu" id="productQuantity">1</div>
+                        <div class="plusDiu" onclick="increment()">+</div>
+                    </div>
+                    <button class="cartBtn">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!--  <div class="heroSection"> -->
+        <div class="reviewOuter">
+            <div class="reviewListSection">
+                <div class="remainHeading">
+                    <div class="reviewTextArea">
+                        <div class="reviewText">REVIEWS</div>
+                        <div class="showingText">Showing 1849 review</div>
+                    </div>
+                    <button class="writeReviewBtn">Write Review</button>
+                </div>
+                <div class="remainSection" id="remainSection">
+                    <!-- <div class="reviewOuterMain">
+                        <div class="reviewUserSection">
+                            <div class="userNameSection">
+                                <img src="./assets/images/user1.png" alt="">
+                                <div class="nameMainOuter">
+                                    <div class="userName">Marvin McKinney</div>
+                                    <img src="./assets/images/reviewStars.png" class="reviewStars" alt="">
+                                </div>
+                            </div>
+                            <div class="daysText">2 days ago</div>
+                        </div>
+                        <div class="reviewTextDetail">
+                            I love this store's shirt! It's so comfortable and easy to wear with anything. I ended
+                            up buying one in every color during their sale. The quality is great too. Thank you!
+                        </div>
+                    </div>
+                    <div class="reviewOuterMain">
+                        <div class="reviewUserSection">
+                            <div class="userNameSection">
+                                <img src="./assets/images/user2.jpg" class="userImg" alt="">
+                                <div class="nameMainOuter">
+                                    <div class="userName">SAVANNAH NGUYEN</div>
+                                    <img src="./assets/images/reviewStars.png" class="reviewStars" alt="">
+                                </div>
+                            </div>
+                            <div class="daysText">19 days ago</div>
+                        </div>
+                        <div class="reviewTextDetail">
+                            I'm so impressed with the customer service at this store! The staff was friendly and
+                            helpful, and I found the perfect shirt. It looks and feels amazing. I'll definitely be
+                            shopping here again.
+                        </div>
+                    </div>
+                    <div class="reviewOuterMain">
+                        <div class="reviewUserSection">
+                            <div class="userNameSection">
+                                <img src="./assets/images/user3.jpg" class="userImg" alt="">
+                                <div class="nameMainOuter">
+                                    <div class="userName">EMMA JOHNSON</div>
+                                    <img src="./assets/images/reviewStars.png" class="reviewStars" alt="">
+                                </div>
+                            </div>
+                            <div class="daysText">22 days ago</div>
+                        </div>
+                        <div class="reviewTextDetail">
+                            This store has become my go-to for casual wear! The shirts are not only stylish but also
+                            incredibly comfortable. I recently bought a few during their sale, and I’m already
+                            planning my next purchase. Highly recommend!
+                        </div>
+                    </div>
+                    <div class="reviewOuterMain">
+                        <div class="reviewUserSection">
+                            <div class="userNameSection">
+                                <img src="./assets/images/user4.jpg" class="userImg" alt="">
+                                <div class="nameMainOuter">
+                                    <div class="userName">LIAM SMITH</div>
+                                    <img src="./assets/images/reviewStars.png" class="reviewStars" alt="">
+                                </div>
+                            </div>
+                            <div class="daysText">26 days ago</div>
+                        </div>
+                        <div class="reviewTextDetail">
+                            I had an amazing shopping experience here. The staff was very attentive and helped me
+                            pick out the perfect fit. The quality of the shirts is outstanding, and they’ve held up
+                            really well after multiple washes.
+                        </div>
+                    </div> -->
+                    <div class="scrollLine"></div>
+                    <div class="overlayClass"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviewOuter">
+            <div class="reviewSection">
+                <div class="reviewModal">
+                    <button class="closeBtn">✕</button>
+                    <div class="reviewText">REVIEW</div>
+                    <div class="shareText">SHARE YOUR OPINION</div>
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <textarea placeholder="Enter your message" class="reviewTextAreaModal"></textarea>
+                    <button class="sendBtn">Send</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="reviewOuter1">
+            <div class="reviewSuccess">
+                <div class="reviewModal1">
+                    <button class="closeBtn">✕</button>
+                    <img src="./assets/images/successmark.png" class="sucessmark" alt="">
+                    <div class="thankuText">Thank You</div>
+                    <div class="forText">For submitting a review</div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="slidSection position-relative">
+        <div class="overlayClass"></div>
+        <div class="slidOuter">
+            <div class="sililarText">Similar Foods</div>
+
+            <div class="testimonial-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <img src="./assets/images/simifood1.png" class="simifood1" alt="">
+                    <div class="foofDeatilSection">
+                        <div class="vegtabText">Vegetable Skewers</div>
+                        <div class="foodPrice">$50.42</div>
+                    </div>
+                    <div class="flavourDeatilSection">
+                        <div class="flavText">Vegetable Skewers</div>
+                        <img src="./assets/images/rightarrow.png" alt="">
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="slimicardinner">
+                        <img src="./assets/images/simifood2.png" class="simifood2" alt="">
+                        <div class="bunnyChow">Bunny Chow</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="slimicardinner">
+                        <img src="./assets/images/simifood3.png" class="simifood2" alt="">
+                        <div class="bunnyChow1">Peanut Soup</div>
+                    </div>
+                </div>
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <img src="./assets/images/simifood1.png" class="simifood1" alt="">
+                    <div class="foofDeatilSection">
+                        <div class="vegtabText">Vegetable Skewers</div>
+                        <div class="foodPrice">$50.42</div>
+                    </div>
+                    <div class="flavourDeatilSection">
+                        <div class="flavText">Vegetable Skewers</div>
+                        <img src="./assets/images/rightarrow.png" alt="">
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="slimicardinner">
+                        <img src="./assets/images/simifood2.png" class="simifood2" alt="">
+                        <div class="bunnyChow">Bunny Chow</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="slimicardinner">
+                        <img src="./assets/images/simifood3.png" class="simifood2" alt="">
+                        <div class="bunnyChow1" style="margin-top: 10px;">Peanut Soup</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Slick Slider JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".testimonial-slider").slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                dots: false,
+                prevArrow: '<button type="button" class="slick-prev">❮</button>',
+                nextArrow: '<button type="button" class="slick-next">❯</button>',
+                responsive: [
+                    {
+                        breakpoint: 1000,
+                        settings: {
+                            slidesToShow: 2,
+                        },
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                ],
+            });
+        });
+    </script>
+
+    <div class="orderbgLoweer">
+        <img src="./assets/images/moveupArrow.png" class="moveupArrow" alt="Move Up Arrow">
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/ReviewPage.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
+
+            if (selectedItem) {
+                document.querySelector(".nameText").innerText = selectedItem.name;
+                document.querySelector(".productprice").innerText = selectedItem.price;
+                document.querySelector(".productDetail").innerText = selectedItem.description;
+                // document.getElementById("mainImg").src = selectedItem.image;
+
+                // Update ingredients dynamically
+                document.querySelector(".ingreOuter").innerHTML = selectedItem.ingredients
+                    .map(ingredient => `<div class="okraText">${ingredient}</div>`)
+                    .join("");
+            } else {
+                // document.querySelector(".heroSection").innerHTML = "<h2>Item not found</h2>";
+            }
+        });
+        // on scroll animation
+        const elements = document.querySelectorAll('.slide-in'); 
+
+        const onScroll = () => {
+            elements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                    el.classList.add('show');                 }
+            });
+        };
+
+        window.addEventListener('scroll', onScroll);
+        onScroll(); 
+
+
+    </script>
+
+</body>
+
+</html>

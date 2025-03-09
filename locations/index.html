@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLATE OF AFRICA - Our Locations</title>
+    <!-- Google Fonts: Gilroy and Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/locations.css">
+    <style>
+        /* Basic styles for the page */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #1E1E1E;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .page-content {
+            padding-top: 100px; /* Space for fixed navbar */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header id="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/PlateOfAfricaLogo.png" alt="PLATE OF AFRICA Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../reservations.html">Reservations</a></li>
+                    <li><a href="../menu.html">Menu</a></li>
+                    <li><a href="../sustainability.html">Sustainability</a></li>
+                    <li><a href="../location.html" class="active">Hours & Location</a></li>
+                    <li><a href="../employment.html">Employment</a></li>
+                </ul>
+            </nav>
+            <div class="contact-btn">
+                <a href="../contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <!-- Locations Section -->
+        <section id="locations">
+            <div class="container">
+                <h1>OUR MULTIPLE LOCATIONS</h1>
+                <p>Plate of Africa is proud to serve you at three convenient locations across the city.</p>
+                
+                <div class="map-container">
+                    <img src="../images/hoursLocation-map.png" alt="Restaurant Locations Map" class="location-map">
+                    <!-- Location info container (bottom right) -->
+                    <div class="location-info-container" id="location-info-container">
+                        <div class="location-info" id="info-downtown" data-location="Downtown">
+                            <h3>Downtown</h3>
+                            <p>123 Main Street<br>Open: 11am - 10pm</p>
+                        </div>
+                        <div class="location-info" id="info-westside" data-location="Westside">
+                            <h3>Westside</h3>
+                            <p>456 Park Avenue<br>Open: 11am - 11pm</p>
+                        </div>
+                        <div class="location-info" id="info-eastside" data-location="Eastside">
+                            <h3>Eastside</h3>
+                            <p>789 River Road<br>Open: 12pm - 10pm</p>
+                        </div>
+                    </div>
+                    <!-- Location markers -->
+                    <div class="location-marker marker-1" data-location="Downtown"></div>
+                    <div class="location-marker marker-2" data-location="Westside"></div>
+                    <div class="location-marker marker-3" data-location="Eastside"></div>
+                </div>
+                
+                <div class="main-location">
+                    <p>Main Location: 123 Main Street, Downtown • Phone: 555-123-4567 • Open: 11am - 10pm</p>
+                </div>
+                
+                <h2>Location Details</h2>
+                
+                <div class="location-details">
+                    <div class="location-card">
+                        <h3>Downtown</h3>
+                        <p><strong>Address:</strong> 123 Main Street, Downtown</p>
+                        <p><strong>Hours:</strong> 11am - 10pm (Mon-Sun)</p>
+                        <p><strong>Phone:</strong> 555-123-4567</p>
+                        <p><strong>Email:</strong> downtown@plateofafrica.com</p>
+                        <p>Our flagship location in the heart of downtown, featuring our full menu and a beautiful rooftop dining area.</p>
+                    </div>
+                    
+                    <div class="location-card">
+                        <h3>Westside</h3>
+                        <p><strong>Address:</strong> 456 Park Avenue, Westside</p>
+                        <p><strong>Hours:</strong> 11am - 11pm (Mon-Sun)</p>
+                        <p><strong>Phone:</strong> 555-789-0123</p>
+                        <p><strong>Email:</strong> westside@plateofafrica.com</p>
+                        <p>Our newest location with extended evening hours, perfect for dinner and late-night dining.</p>
+                    </div>
+                    
+                    <div class="location-card">
+                        <h3>Eastside</h3>
+                        <p><strong>Address:</strong> 789 River Road, Eastside</p>
+                        <p><strong>Hours:</strong> 12pm - 10pm (Mon-Sun)</p>
+                        <p><strong>Phone:</strong> 555-456-7890</p>
+                        <p><strong>Email:</strong> eastside@plateofafrica.com</p>
+                        <p>Our cozy eastside location with a focus on lunch and dinner service in a relaxed atmosphere.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 Plate of Africa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/locations.js"></script>
+</body>
+</html> 

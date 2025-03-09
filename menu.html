@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Menu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      position: sticky;
+      top: 0;
+      background: rgba(235, 235, 235, 0.04);
+      padding: 12px 20px;
+      z-index: 1000;
+      max-width: fit-content;
+      margin: auto;
+      margin-bottom: 35px;
+      border-radius: 47px;
+      margin-top: 35px;
+      flex-wrap: wrap;
+    }
+
+    .filter-buttons button {
+      background: #393939;
+      color: white;
+      border: none;
+      height: 41px;
+      border-radius: 37px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 20px;
+      min-width: 139px;
+      padding: 0px 20px;
+    }
+
+    .filter-buttons button.active {
+      background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+      color: black;
+    }
+
+    /* Sections */
+    .menu-section {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-top: 80px;
+    }
+
+    .menu-section {
+      display: none;
+      /* Hide all sections initially */
+    }
+
+    .menu-section.active {
+      display: block;
+      /* Show only the active section */
+    }
+
+    .menu-section h2 {
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 65px;
+    }
+
+    /* Menu Items */
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(300px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .menu-card {
+      /* background: #222; */
+      padding: 15px;
+      border-radius: 10px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-card:hover {
+      /* background: #333; */
+    }
+
+    .menu-card img {
+      width: 40px;
+      height: 40px;
+      border-radius: 7px;
+      object-fit: cover;
+      margin-right: 12px;
+    }
+
+    .menu-card h5 {
+      margin: 0;
+      font-size: 16px;
+      color: gold;
+    }
+
+    .menu-card p {
+      margin: 5px 0;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .menu-card .price {
+      color: gold;
+      font-weight: bold;
+    }
+
+    .menu-hero-bg {
+      background: url("/assets/images/menu-hero.png") no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .min-h {
+      min-height: calc(100vh - 128px);
+      gap: 30px;
+    }
+
+    .text-h {
+      color: #fff;
+      text-align: center;
+      /* Paragraph light 18px */
+      font-family: "Poppins";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      max-width: 1034px;
+    }
+
+    .text-main {
+      color: #fff;
+      text-align: center;
+
+      /* H3-Gilroy web */
+      font-family: Gilroy;
+      font-size: 52px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffc107;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .menu-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 7px;
+      object-fit: cover;
+      margin-right: 12px;
+    }
+
+    .dots {
+      flex-grow: 1;
+      border-bottom: 1px dashed #fff;
+      /* Adjust color as needed */
+      margin: 0 10px;
+    }
+
+    .name {
+      white-space: nowrap;
+    }
+
+    .price {
+      white-space: nowrap;
+    }
+
+    .ingredients-list {
+      display: flex;
+      gap: 10px;
+      font-size: 18px;
+      color: white;
+      flex-wrap: wrap;
+      margin-left: 52px;
+    }
+
+    .separator {
+      color: gray;
+      /* Adjust separator color */
+    }
+
+    .dish {
+      font-family: "Poppins";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      text-align: left;
+      margin-left: 52px;
+    }
+
+    .menu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .lineb {
+      border-right: 1px solid rgba(255, 255, 255, 0.21);
+    }
+
+    .sepra {
+      background: rgba(255, 255, 255, 0.29);
+      width: 100%;
+      height: 1px;
+    }
+
+    .mb5 {
+      margin-bottom: 112px;
+    }
+
+    #appetizers {
+      position: relative;
+    }
+
+    .apiImage {
+      position: absolute;
+      bottom: -50px;
+      right: 0px;
+      height: 495px;
+      width: 495px;
+      z-index: -1;
+    }
+
+    .apiImage1 {
+      position: absolute;
+      top: -50px;
+      left: 0px;
+      height: 495px;
+      width: 495px;
+      z-index: -1;
+    }
+
+    .apiDot {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      height: 200px;
+      width: 200px;
+      z-index: -1;
+    }
+
+    #entrees {
+      position: relative;
+    }
+
+    .entreesImage {
+      position: absolute;
+      top: -130px;
+      right: 0px;
+      height: 200px;
+      width: 200px;
+      z-index: -1;
+    }
+
+    #drinks {
+      position: relative;
+    }
+
+    #ndrinks {
+      position: relative;
+    }
+
+    .drinksImage {
+      position: absolute;
+      top: -100px;
+      left: 0px;
+      height: 200px;
+      width: 200px;
+      z-index: -1;
+    }
+
+    .drinksDot {
+      position: absolute;
+      top: -112px;
+      right: 0px;
+      height: 200px;
+      width: 200px;
+      z-index: -1;
+    }
+
+    .drinksImage1 {
+      position: absolute;
+      top: -210px;
+      left: 0px;
+      height: 495px;
+      width: 495px;
+      z-index: -1;
+    }
+
+    .cart-btn {
+      position: fixed;
+      top: 120px;
+      right: 20px;
+      background-color: black;
+      color: white;
+      /* padding: 10px 20px; */
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1050;
+      border-radius: 360px;
+      background: #030303;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      /* flex-shrink: 0; */
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Offcanvas Custom Styling */
+    .offcanvas {
+      background-color: #0a0a0a;
+      color: white;
+      width: 400px;
+      --bs-offcanvas-zindex: 1200;
+      /* Adjust width to match design */
+    }
+
+    .offcanvas-header {
+      border-bottom: 1px solid #222;
+    }
+
+    .offcanvas-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    /* Product Section */
+    .cart-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #222;
+      justify-content: space-between;
+    }
+
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+      background-color: #444;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-price {
+      font-weight: bold;
+      color: gold;
+    }
+
+    .cart-item-title {
+      color: #fff;
+      font-family: "Poppins";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+    }
+
+    .offcanvas-title {
+      color: #fff;
+      font-family: "Poppins";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+    }
+
+    /* Quantity Buttons */
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      /* border: 1px solid #444; */
+      border-radius: 5px;
+      /* overflow: hidden; */
+      max-width: 130px;
+      gap: 5px;
+    }
+
+    .quantity-controls button {
+      background: none;
+      color: white;
+      line-height: 20px;
+      min-width: 22px;
+      border-radius: 4px;
+      border: 1px solid #393939;
+      font-size: 18px;
+    }
+
+    .quantity-controls input {
+      width: 100% !important;
+      text-align: center;
+      border-radius: 4px;
+      border: 1px solid #393939;
+      line-height: 20px;
+      background: none;
+      color: white;
+    }
+
+    /* Footer Section */
+    .cart-footer {
+      border-top: 1px solid #222;
+      padding-top: 10px;
+    }
+
+    .checkout-btn {
+      background: linear-gradient(to right, #f5c66e, #d9a543);
+      color: black;
+      font-weight: bold;
+      width: 100%;
+      border-radius: 10px;
+      padding: 12px;
+      border: none;
+    }
+
+    .bg {
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(17.950000762939453px);
+      padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .apiImage {
+        position: absolute;
+        bottom: -50px;
+        right: 0px;
+        /* height: 200px; */
+        width: 60%;
+        z-index: -1;
+      }
+
+      .apiImage1 {
+        position: absolute;
+        top: -50px;
+        left: 0px;
+        /* height: 200px; */
+        width: 60%;
+        z-index: -1;
+      }
+
+      .apiDot {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        /* height: 100px; */
+        width: 60%;
+        z-index: -1;
+      }
+
+      .entreesImage {
+        position: absolute;
+        top: -130px;
+        right: 0px;
+        /* height: 200px; */
+        width: 50%;
+        z-index: -1;
+      }
+
+      .drinksImage {
+        position: absolute;
+        top: -100px;
+        left: 0px;
+        /* height: 200px; */
+        width: 50%;
+        z-index: -1;
+      }
+
+      .drinksDot {
+        position: absolute;
+        top: -112px;
+        right: 0px;
+        /* height: 200px; */
+        width: 50%;
+        z-index: -1;
+      }
+
+      .drinksImage1 {
+        position: absolute;
+        top: -210px;
+        left: 0px;
+        /* height: 495px; */
+        width: 50%;
+        z-index: -1;
+      }
+    }
+    /* on scroll animations **/
+    .slide-in
+ { opacity: 0; 
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+ } 
+
+.show
+ { opacity: 1;
+ transform: translateX(0); 
+}
+
+  </style>
+</head>
+
+<body class="position-relative">
+  <div data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" class="cart-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M8.405 20C7.90954 20 7.48555 19.8434 7.13302 19.5304C6.78049 19.2173 6.60393 18.8405 6.60333 18.4C6.60273 17.9594 6.77929 17.5829 7.13302 17.2704C7.48675 16.9578 7.91074 16.801 8.405 16.8C8.89925 16.7989 9.32354 16.9557 9.67787 17.2704C10.0322 17.585 10.2085 17.9616 10.2067 18.4C10.2049 18.8384 10.0286 19.2152 9.67787 19.5304C9.32715 19.8456 8.90286 20.0021 8.405 20ZM17.4133 20C16.9179 20 16.4939 19.8434 16.1413 19.5304C15.7888 19.2173 15.6123 18.8405 15.6117 18.4C15.6111 17.9594 15.7876 17.5829 16.1413 17.2704C16.4951 16.9578 16.9191 16.801 17.4133 16.8C17.9076 16.7989 18.3319 16.9557 18.6862 17.2704C19.0405 17.585 19.2168 17.9616 19.215 18.4C19.2132 18.8384 19.0369 19.2152 18.6862 19.5304C18.3355 19.8456 17.9112 20.0021 17.4133 20ZM6.7835 5.6H20.0708C20.4161 5.6 20.6788 5.7368 20.859 6.0104C21.0392 6.284 21.0467 6.56053 20.8815 6.84L17.6836 11.96C17.5184 12.2267 17.2971 12.4333 17.0197 12.58C16.7422 12.7267 16.438 12.8 16.1071 12.8H9.39591L8.405 14.4H18.3141C18.5694 14.4 18.7835 14.4768 18.9564 14.6304C19.1294 14.784 19.2156 14.9739 19.215 15.2C19.2144 15.4261 19.1279 15.6163 18.9555 15.7704C18.7832 15.9245 18.5694 16.001 18.3141 16H8.405C7.72937 16 7.2189 15.7368 6.87358 15.2104C6.52826 14.684 6.51325 14.1605 6.82854 13.64L8.04466 11.68L4.80167 5.6H3.90084C3.6456 5.6 3.4318 5.5232 3.25944 5.3696C3.08708 5.216 3.0006 5.02613 3 4.8C2.9994 4.57387 3.08588 4.384 3.25944 4.2304C3.433 4.0768 3.6468 4 3.90084 4H5.36469C5.52984 4 5.68749 4.04 5.83762 4.12C5.98776 4.2 6.10037 4.31333 6.17544 4.46L6.7835 5.6Z"
+        fill="#FFF3F3" />
+    </svg>
+  </div>
+
+  <!-- Offcanvas Sidebar -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Your Cart</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div id="cart-container"></div>
+      <!-- Footer -->
+      <div class="cart-footer">
+        <div class="d-flex justify-content-between">
+          <span>Total</span>
+          <strong class="cart-item-price"><span id="total-price"></span></strong>
+        </div>
+        <a href="/Order.html">
+          <button class="checkout-btn mt-3">PROCEED TO CHECKOUT</button>
+      </a>
+       </div>
+      </div>
+    </div>
+    <div class="menu-hero-bg">
+      <div id="header"></div>
+      <div class="container">
+        <div class="d-flex flex-column justify-content-center align-items-center min-h">
+          <div class="text-main slide-in">Menu</div>
+          <div class="text-h slide-in">
+            At Plate of Africa, we pride ourselves on crafting a unique dining
+            experience by offering the best flavors from Africa. Each dish was
+            deliberately chosen to provide an authentic, bold, and unforgettable
+            experience. In line with our sustainability and ethical dining
+            policies, we pride ourselves on 100% vegan-certified offerings. From
+            our love for plant-based food, we can create something adventurous
+            that strays away from what is mainstream, yet always healthy and in harmony with
+            nature. Step into the world of Africa and experience traditional
+            meals, redefined with a contemporary, plant-based flair.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Navigation Buttons -->
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="active" onclick="scrollToSection('appetizers')">
+          Appetizers
+        </button>
+        <button onclick="scrollToSection('main-courses')">Main Courses</button>
+        <button onclick="scrollToSection('desserts')">Desserts</button>
+        <button onclick="scrollToSection('drinks')">
+          Drinks
+        </button>
+        <button onclick="scrollToSection('ndrinks')">Alcoholic Drinks</button>
+      </div>
+    </div>
+
+    <!-- Appetizers Section -->
+    <div class="menu-section active" id="appetizers">
+      <img src="/assets/images/yellow.png" alt="" class="apiImage" />
+      <img src="/assets/images/yellowleft.png" alt="" class="apiImage1" />
+      <img src="/assets/images/dotbottom.png" alt="" class="apiDot" />
+      <div class="container bg">
+        <h2>APPETIZERS</h2>
+        <div class="menu-ite ms">
+          <div id="menu" class="row"></div>
+
+          <!-- <div class="menu-item">
+                <img src="/assets/images/dish.png" alt="Dish" />
+                <span class="name">Ugandan Vegetarian Spring Rolls</span>
+                <span class="dots"></span>
+                <span class="price">$25</span>
+            </div>
+            <div class="ingredients-list" id="ingredients"></div>
+            <div class="dish">
+                Lorem ipsum dolor sit amet consectetur. Gravida ultrices.
+            </div> -->
+
+          <!-- <div class="sepra"></div> -->
+        </div>
+      </div>
+    </div>
+    <!-- Entrees Section -->
+    
+
+    <!-- Main Courses Section -->
+    <div class="menu-section" id="main-courses">
+      <div class="container bg">
+        <h2>MAIN COURSES</h2>
+        <div id="maincourses" class="row"></div>
+        <!-- <div class="sepra"></div> -->
+      </div>
+    </div>
+
+    <!-- Desserts Section -->
+    <div class="menu-section" id="desserts">
+      <div class="container bg">
+        <h2>DESSERTS</h2>
+        <div id="dessertsd" class="row"></div>
+        <!-- <div class="sepra"></div> -->
+      </div>
+    </div>
+
+    <!-- Drinks Section -->
+    <div class="menu-section" id="drinks">
+      <img src="/assets/images/rightdot.png" alt="" class="drinksDot" />
+      <img src="/assets/images/upleaf.png" alt="" class="drinksImage" />
+      <img src="/assets/images/yellowleft.png" alt="" class="drinksImage1" />
+      <img src="/assets/images/yellow.png" alt="" class="apiImage" />
+      <div class="container bg">
+        <h2>DRINKS</h2>
+        <div id="drinksd" class="row"></div>
+        <!-- <div class="sepra"></div> -->
+      </div>
+    </div>
+    <div class="menu-section" id="ndrinks">
+      <img src="/assets/images/dotbottom.png" alt="" class="drinksImage" />
+      <img src="/assets/images/upleafright.png" alt="" class="drinksDot" />
+      <img src="/assets/images/yellowleft.png" alt="" class="apiDot" />
+      <div class="container bg">
+        <h2>ALCOHOLIC DRINKS</h2>
+        <div id="ndrinksd" class="row"></div>
+        <!-- <div class="sepra"></div> -->
+      </div>
+    </div>
+    <div id="footer"></div>
+    <script>
+      let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      console.log(cartItems, "cartItems");
+
+      function renderCart() {
+        let cartContainer = document.getElementById("cart-container");
+        let totalPriceElement = document.getElementById("total-price");
+        let totalPrice = 0;
+        cartContainer.innerHTML = ""; // Clear previous cart items
+
+        cartItems.forEach((item, index) => {
+          let price = parseFloat(item.price.replace("$", "")) || 0;
+          let itemTotal = price * item.productQuantity; // Calculate total for this item
+          totalPrice += itemTotal; // Add to total price
+
+          let cartItem = document.createElement("div");
+          cartItem.classList.add("cart-item");
+
+          cartItem.innerHTML = `
+                <div class="d-flex gap-2">
+                    <img src="${item.image}" alt="Product">
+                    <div>
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">$${price?.toFixed(
+            2
+          )}</div>
+                        <div class="quantity-controls">
+                            <button class="btn-qty" onclick="updateQuantity(${index}, -1)">-</button>
+                            <input type="text" value="${item?.productQuantity
+            }" readonly style="width: 40px; text-align: center;">
+                            <button class="btn-qty" onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-sm" onclick="removeItem(${index})">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 12 15" fill="none">
+                        <path d="M12 0.833333H9L8.14286 0H3.85714L3 0.833333H0V2.5H12M0.857143 13.3333C0.857143 13.7754 1.03775 14.1993 1.35925 14.5118C1.68074 14.8244 2.11677 15 2.57143 15H9.42857C9.88323 15 10.3193 14.8244 10.6408 14.5118C10.9622 14.1993 11.1429 13.7754 11.1429 13.3333V3.33333H0.857143V13.3333Z" fill="#D9D9D9"/>
+                    </svg>
+                </button>
+            `;
+
+          cartContainer.appendChild(cartItem);
+        });
+        totalPriceElement.innerText = `$${totalPrice.toFixed(2)}`;
+
+      }
+
+      function updateQuantity(index, change) {
+        cartItems[index].productQuantity = Math.max(
+          1,
+          cartItems[index].productQuantity + change
+        ); // Prevent quantity < 1
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        renderCart(); // Re-render the cart
+      }
+
+      function removeItem(index) {
+        cartItems.splice(index, 1);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        renderCart(); // Re-render after deletion
+      }
+
+      renderCart(); // Initial render
+    </script>
+    <script>
+      function scrollToSection(sectionId) {
+        document.querySelectorAll(".menu-section").forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        // Show the selected section
+        document.getElementById(sectionId).classList.add("active");
+
+        // Update active button styling
+        document
+          .querySelectorAll(".filter-buttons button")
+          .forEach((button) => {
+            button.classList.remove("active");
+          });
+
+        // Set active button
+        document
+          .querySelector(
+            `.filter-buttons button[onclick="scrollToSection('${sectionId}')"]`
+          )
+          .classList.add("active");
+      }
+      const ingredients = ["Chicken", "Okra", "Tomato Paste", "Cayenne Pepper"];
+
+      const ingredientsContainer = document.getElementById("ingredients");
+
+      // Map the ingredients and join them with a separator
+      ingredientsContainer.innerHTML = ingredients
+        .map((item) => `<span>${item}</span>`)
+        .join('<span class="separator"> | </span>');
+    </script>
+    <script>
+      const menuItems = [
+        {
+          id: 1,
+          name: "Liberian Fried Okra",
+          image: "/images/LiberianFriedOkraImage.png",
+          price: "$25",
+          ingredients: ["Okra", "African Spices", "Oil"],
+          description: "Fresh tender okra, seasoned lightly with African spices and deep-fried until crispy."
+        },
+        {
+          id: 2,
+          name: "Ugandan Vegetarian Spring Rolls",
+          image: "/images/Ugandan Vegetarian Spring Rolls.png",
+          price: "$25.",
+          ingredients: ["Vegetables", "Herbs", "Spring Roll Wrapper"],
+          description: "Crispy rolls with a mixture of cooked, seasoned vegetables and herbs, served with a sour dip."
+        },
+        {
+          id: 3,
+          name: "African Spice Grilled Vegetable Skewers",
+          image: "/images/AfricanSpiceGrilledSkewers.jpg",
+          price: "$28",
+          ingredients: ["Zucchini", "Peppers", "African Marinade"],
+          description: "A mixture of marinated vegetables grilled with a subtle smokey, savory flavor."
+        },
+        {
+          id: 4,
+          name: "Sambusas",
+          image: "/images/SambusaImage.png",
+          price: "$28",
+          ingredients: ["Lentils", "Vegetables", "Flour Dough"],
+          description: "Crunchy and golden pastries stuffed with cooked vegetables and lentils, deep-fried to create a crispy shell filled with seasoning."
+        },
+        {
+          id: 5,
+          name: "Vegetarian Puff Puff",
+          image: "/images/VegetarianPuffPuffImage.png",
+          price: "$25",
+          ingredients: ["Flour", "Sugar", "Yeast"],
+          description: "A West African street food classic delight, fluffy, and sweet dough balls fried to golden brown perfection."
+        },
+        {
+          id: 6,
+          name: "Kachumbari",
+          image: "/images/KachumbariImage.png",
+          price: "$25",
+          ingredients: ["Tomatoes", "Onions", "Cilantro"],
+          description: "A popular East African salad made from chopped tomatoes, onions, and cilantro, typically seasoned in a lime dressing."
+        },
+      ];
+
+      const mainCoursesMenu = [
+        {
+          name: "Gomen",
+          image: "/images/GomenImage.png",
+          price: "$30",
+          ingredients: ["Collard greens", "Garlic", "Spices"],
+          description: "Ethiopian dish consisting of collard greens cooked slowly with garlic, ginger, and spices. Served with injera."
+        },
+        {
+          name: "Misir Wat",
+          image: "/images/MisirWatImage.png",
+          price: "$32",
+          ingredients: ["Red Lentils", "Berbere", "Injera"],
+          description: "A thick, spicy Ethiopian lentil stew created with berbere seasoning. Served with injera."
+        },
+        {
+          name: "Coconut Curry",
+          image: "/images/CoconutCurryImage.png",
+          price: "$32",
+          ingredients: ["Coconut milk", "Vegetables", "Spices"],
+          description: "A fragrant and creamy curry with tender vegetables simmered in fresh coconut milk with South African spices."
+        },
+        {
+          name: "Jollof Rice",
+          image: "/images/JollofRiceImage.png",
+          price: "$27",
+          ingredients: ["Rice", "Tomatoes", "Bell Peppers"],
+          description: "A staple pot of West African rice prepared with tomatoes, onions, and bell peppers for an incredibly smoky, spicy taste."
+        },{
+          name: "Moroccan Tagine",
+          image: "/images/MorrocanTangineImage.jpg",
+          price: "$35",
+          ingredients: ["Seasonal Vegetables", "Dry Fruits", "Moroccan Spices"],
+          description: "A delicious, slow-cooked stew featuring seasonal vegetables and dry fruits, seasoned with a variety of Moroccan spices."
+        },
+        {
+          name: "Red Lentil Stew",
+          image: "/images/EthiopianLentilStewImage.png",
+          price: "$30",
+          ingredients: ["Red Lentils", "Turmeric", "Berbere"],
+          description: "A hearty stew of red lentils, prepared with turmeric, garlic, and the mixed spices known as berbere, served on injera."
+        },
+      ];
+      const desertMenu = [
+        {
+          name: "Malva Pudding",
+          image: "/images/MalavaPuddingImage.png",
+          price: "$25",
+          ingredients: ["Sugar", "Apricot Jam", "Caramel Sauce"],
+          description: "A classic South African dessert that is sweet, creamy, and spongy, soaked in a delicious caramel sauce, enjoyed warm."
+        },
+        {
+          name: "Akara",
+          image: "/images/AkaraImage.png",
+          price: "$28",
+          ingredients: ["Black-eyed Peas", "Onions", "Spices"],
+          description: "A fried bean cake containing black-eyed peas, onions, and multiple spices. Served with honey."
+        },
+        {
+          name: "Bourra",
+          image: "/images/BourraImage.png",
+          price: "$30",
+          ingredients: ["Almonds", "Sugar", "Cashew Milk"],
+          description: "Traditional Moroccan dessert consisting of almonds, sugar, and honey."
+        },
+      ];
+      const drinksMenu = [
+        {
+          name: "Chai Tea",
+          image: "/images/ChaiTeaImage.png",
+          price: "$14",
+          ingredients: ["Cinnamon", "Cardamom", "Ginger"],
+          description: "A soothing, spiced tea blend with flavors of cinnamon, cardamom, and ginger that will make you feel cozy inside."
+        },
+        {
+          name: "Ethiopian Coffee",
+          image: "/images/EthiopianCoffeeImage.png",
+          price: "$15",
+          ingredients: ["Ethiopian Coffee Beans", "Water", "Silk Milk"],
+          description: "Traditional Ethiopian-style coffee made using traditional Ethiopian coffee beans."
+        },
+        {
+          name: "Zobo",
+          image: "/images/ZoboImage.png",
+          price: "$16",
+          ingredients: ["Hibiscus Flowers", "Spices", "Sugar"],
+          description: "A refreshing blend of hibiscus flowers and various spices, creating a tangy, refreshing beverage."
+        },
+        {
+          name: "Mango Juice",
+          image: "/images/MangoJuiceImage2.jpg",
+          price: "$25",
+          ingredients: ["Mango", "Water", "Sugar"],
+          description: "Simply squeezed mango juice."
+        },
+      ];
+      const alcoholicDrinksMenu = [
+        {
+          name: "Amarula",
+          image: "/images/ArumalaImage.png",
+          price: "$30",
+          ingredients: ["Marula fruit", "Cream", "Sugar"],
+          description: "A South African liqueur that is smooth, velvety, and creamy in texture, produced from the fruit of the marula tree with a sweet and rich flavor."
+        },
+        {
+          name: "Chibuku",
+          image: "/images/ChibukuImage.png",
+          price: "$18",
+          ingredients: ["Sorghum", "Yeast", "Water"],
+          description: "A traditional African sorghum-based fermented beverage with a mild sour taste and slight carbonation."
+        },
+        {
+          name: "De Beaurepaire Wines",
+          image: "/assets/images/dish.png",
+          price: "$45",
+          ingredients: ["South African wine varietals", "Sugar", "Yeast"],
+          description: "Premium wines made in South Africa, showcasing complexity and elegance. For more information, feel free to consult our sommelier."
+        },
+        {
+          name: "Banana Beer",
+          image: "/assets/images/dish.png",
+          price: "$27",
+          ingredients: ["Bananas", "Yeast", "Water"],
+          description: "A thirst-quenching, low-alcohol drink made from fermented bananas that bestows an immensely unique flavor with mild sweetness."
+        },
+      ];
+
+      const menuContainer = document.getElementById("menu");
+      const mainCourseContainer = document.getElementById("maincourses");
+      const desertContainer = document.getElementById("dessertsd");
+      const nonAlcoholicContainer = document.getElementById("drinksd");
+      const alcoholicContainer = document.getElementById("ndrinksd");
+      // <div class="menu-item">
+      //     <img src="/assets/images/dish.png" alt="Dish" />
+      //     <span class="name">Ugandan Vegetarian Spring Rolls</span>
+      //     <span class="dots"></span>
+      //     <span class="price">$25</span>
+      // </div>
+      // <div class="ingredients-list" id="ingredients"></div>
+      // <div class="dish">
+      //     Lorem ipsum dolor sit amet consectetur. Gravida ultrices.
+      // </div>
+      menuItems.forEach((item, ind) => {
+        console.log(ind, "ind");
+
+        let brea = ind % 2 == 0 ? "lineb" : null;
+        let menuCard = document.createElement("div");
+        menuCard.classList.add(
+          "col-lg-6",
+          menuItems.length - 2 == ind ? "mb5" : "pb-5",
+          brea
+        );
+
+        menuCard.innerHTML = `
+                <div style="cursor:pointer;" onclick="openDetailPage(${ind})">
+        <div class="menu-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <span class="name">${item.name}</span>
+            <span class="dots"></span>
+            <span class="price">${item.price}</span>
+            </div>
+            <div class="ingredients-list">
+                ${item.ingredients
+            .map(
+              (ingredient, index) => `
+                    <span>${ingredient}${index < item.ingredients.length - 1 ? " | " : ""
+                }</span>
+                `
+            )
+            .join("")}
+            </div>
+            <div class="dish">${item.description}</div>
+        </div>
+        </div>
+    `;
+
+        menuContainer.appendChild(menuCard);
+      });
+
+      mainCoursesMenu.forEach((item, ind) => {
+        let brea = ind % 2 == 0 ? "lineb" : null;
+        let menuCard = document.createElement("div");
+        menuCard.classList.add(
+          "col-lg-6",
+          mainCoursesMenu.length - 2 == ind ? "mb5" : "pb-5",
+          brea
+        );
+
+        menuCard.innerHTML = `
+                <div style="cursor:pointer;" onclick="openDetailPageC(${ind})">
+        <div class="menu-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <span class="name">${item.name}</span>
+            <span class="dots"></span>
+            <span class="price">${item.price}</span>
+            </div>
+            <div class="ingredients-list">
+                ${item.ingredients
+            .map(
+              (ingredient, index) => `
+                    <span>${ingredient}${index < item.ingredients.length - 1 ? " | " : ""
+                }</span>
+                `
+            )
+            .join("")}
+            </div>
+            <div class="dish">${item.description}</div>
+        </div>
+        </div>
+    `;
+
+        mainCourseContainer.appendChild(menuCard);
+      });
+
+      desertMenu.forEach((item, ind) => {
+        let brea = ind % 2 == 0 ? "lineb" : null;
+        let menuCard = document.createElement("div");
+        menuCard.classList.add(
+          "col-lg-6",
+          desertMenu.length - 2 == ind ? "mb5" : "pb-5",
+          brea
+        );
+
+        menuCard.innerHTML = `
+                <div style="cursor:pointer;" onclick="openDetailPageD(${ind})">
+        <div class="menu-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <span class="name">${item.name}</span>
+            <span class="dots"></span>
+            <span class="price">${item.price}</span>
+            </div>
+            <div class="ingredients-list">
+                ${item.ingredients
+            .map(
+              (ingredient, index) => `
+                    <span>${ingredient}${index < item.ingredients.length - 1 ? " | " : ""
+                }</span>
+                `
+            )
+            .join("")}
+            </div>
+            <div class="dish">${item.description}</div>
+        </div>
+        </div>
+    `;
+
+        desertContainer.appendChild(menuCard);
+      });
+
+      drinksMenu.forEach((item, ind) => {
+        let brea = ind % 2 == 0 ? "lineb" : null;
+        let menuCard = document.createElement("div");
+        menuCard.classList.add(
+          "col-lg-6",
+          drinksMenu.length - 2 == ind ? "mb5" : "pb-5",
+          brea
+        );
+
+        menuCard.innerHTML = `
+                <div style="cursor:pointer;" onclick="openDetailPageN(${ind})">
+        <div class="menu-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <span class="name">${item.name}</span>
+            <span class="dots"></span>
+            <span class="price">${item.price}</span>
+            </div>
+            <div class="ingredients-list">
+                ${item.ingredients
+            .map(
+              (ingredient, index) => `
+                    <span>${ingredient}${index < item.ingredients.length - 1 ? " | " : ""
+                }</span>
+                `
+            )
+            .join("")}
+            </div>
+            <div class="dish">${item.description}</div>
+        </div>
+        </div>
+    `;
+
+        nonAlcoholicContainer.appendChild(menuCard);
+      });
+      alcoholicDrinksMenu.forEach((item, ind) => {
+        let brea = ind % 2 == 0 ? "lineb" : null;
+        let menuCard = document.createElement("div");
+        menuCard.classList.add(
+          "col-lg-6",
+          alcoholicDrinksMenu.length - 2 == ind ? "mb5" : "pb-5",
+          brea
+        );
+
+        menuCard.innerHTML = `
+                <div style="cursor:pointer;" onclick="openDetailPageAl(${ind})">
+        <div class="menu-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <span class="name">${item.name}</span>
+            <span class="dots"></span>
+            <span class="price">${item.price}</span>
+            </div>
+            <div class="ingredients-list">
+                ${item.ingredients
+            .map(
+              (ingredient, index) => `
+                    <span>${ingredient}${index < item.ingredients.length - 1 ? " | " : ""
+                }</span>
+                `
+            )
+            .join("")}
+            </div>
+            <div class="dish">${item.description}</div>
+        </div>
+        </div>
+    `;
+
+        alcoholicContainer.appendChild(menuCard);
+      });
+      function openDetailPage(index) {
+        localStorage.setItem("selectedItem", JSON.stringify(menuItems[index]));
+        window.location.href = "ProductDetail.html";
+      }
+      function openDetailPageD(index) {
+        localStorage.setItem("selectedItem", JSON.stringify(desertMenu[index]));
+        window.location.href = "ProductDetail.html";
+      }
+      function openDetailPageC(index) {
+        localStorage.setItem(
+          "selectedItem",
+          JSON.stringify(mainCoursesMenu[index])
+        );
+        window.location.href = "ProductDetail.html";
+      }
+      function openDetailPageN(index) {
+        localStorage.setItem(
+          "selectedItem",
+          JSON.stringify(drinksMenu[index])
+        );
+        window.location.href = "ProductDetail.html";
+      }
+      function openDetailPageAl(index) {
+        localStorage.setItem(
+          "selectedItem",
+          JSON.stringify(alcoholicDrinksMenu[index])
+        );
+        window.location.href = "ProductDetail.html";
+      }
+      //on scroll animations
+      const elements = document.querySelectorAll('.slide-in'); 
+
+        const onScroll = () => {
+            elements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                    el.classList.add('show');                 }
+            });
+        };
+
+        window.addEventListener('scroll', onScroll);
+        onScroll(); 
+
+    </script>
+    <script src="script.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+</body>
+
+</html>

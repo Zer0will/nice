@@ -1,0 +1,147 @@
+/* 
+ * header1.css
+ * Styles for the header component
+ * Extracted from header1.html for better code organization
+ */
+
+/* Base Styles */
+:root {
+    --primary-gradient: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+    --dark-bg: #0f0f0f;
+    --header-transition: all 0.5s ease;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Header & Navigation */
+  header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: var(--header-transition);
+    top: 0;
+    background-color: transparent;
+  }
+  
+  header.scrolled {
+    background-color: rgba(15, 15, 15, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  header.hidden {
+    transform: translateY(-100%);
+  }
+  
+  .logo {
+    width: 100px;
+    height: auto;
+    transition: var(--header-transition);
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+  
+  .nav-link {
+    color: #fff;
+    margin: 0 15px;
+    font-weight: 400;
+    position: relative;
+    transition: var(--header-transition);
+  }
+  
+  .nav-link:hover {
+    color: #e0bc6b;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .cta-button {
+    background: var(--primary-gradient);
+    color: #0f0f0f;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: var(--header-transition);
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(224, 188, 107, 0.4);
+  }
+  
+  .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: var(--header-transition);
+  }
+  
+  .navbar-toggler:hover {
+    border-color: #e0bc6b;
+    box-shadow: 0 0 10px rgba(224, 188, 107, 0.7);
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    transition: var(--header-transition);
+  }
+  
+  .navbar-toggler:hover .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28224, 188, 107, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1400px) {
+    /* Remove box-sizing at 1400px */
+    * {
+      box-sizing: content-box;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    /* Switch to hamburger menu at 1200px */
+    .navbar-collapse {
+      background-color: rgba(15, 15, 15, 0.95);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  
+    .nav-link {
+      padding: 10px 0;
+      margin: 5px 0;
+    }
+  
+    .nav-link::after {
+      bottom: 0;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .logo {
+      width: 80px;
+    }
+    
+    header {
+      padding: 15px 0;
+    }
+  } 

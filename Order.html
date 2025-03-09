@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/OnlineOrder.css" />
+    <style>
+        body {
+            background: #0f0f0f;
+            color: white;
+        }
+
+        .home-hero-text {
+            max-width: 625px;
+            font-family: "Poppins";
+            font-size: 18px;
+            margin: 40px 0px;
+        }
+
+        .home-hero-heading {
+            font-size: 80px;
+            font-family: "Poppins";
+            line-height: 90px;
+        }
+
+        .home-hero-heading span {
+            font-weight: bold;
+        }
+
+        .reser-button {
+            border-radius: 24px;
+            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+            display: inline-flex;
+            height: 44px;
+            padding: 6px 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: #232323;
+            font-family: "Poppins";
+            font-size: 18px;
+            width: fit-content;
+        }
+
+        .ab-small {
+            width: 320px;
+            height: 280px;
+        }
+
+        .ab-l {
+            width: 320px;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            /* Transparent background initially */
+            border: 2px solid white;
+            /* White border */
+            cursor: pointer;
+            position: relative;
+            border-radius: 4px;
+            /* Optional: Rounded corners */
+        }
+
+        /* Style for the checked state */
+        input[type="checkbox"]:checked {
+            background-color: yellow;
+            /* Yellow background when checked */
+            border-color: black;
+            /* Black border when checked */
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: "✔";
+            /* Unicode for checkmark */
+            font-size: 14px;
+            color: black;
+            /* Black checkmark */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* Center the checkmark */
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 1200px) {
+            .ab-small {
+                width: 200px;
+                height: 180px;
+            }
+
+            .ab-l {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ab-small {
+                width: 260px;
+                height: 240px;
+            }
+
+            .ab-l {
+                width: 260px;
+            }
+
+            .home-hero-heading {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home-hero-bg">
+        <!-- Header -->
+        <div id="header"></div>
+
+
+        <!-- Page Content -->
+        <div class="heroContainer">
+            <div class="welcome-heading">
+                Welcome to Plate of Africa Online Ordering
+            </div>
+            <div class="enjoyText">
+                Enjoy the convenience of ordering your favorite dishes online. Explore our menu and indulge in a
+                culinary experience like no other.
+            </div>
+        </div>
+
+        <div class="heroContainer">
+            <div class="sumaryMainOuter">
+                <div class="sumaryMain">
+                    <div class="summaryText">Summary</div>
+                    <div class="productMainOuter">
+                        <img src="./assets/images/productListing.png" class="productListing-Image" alt="">
+                        <div class="productMainSection">
+                            <img src="./assets/images//product1.png" class="productImg" alt="">
+                            <div class="productDetailSection">
+
+
+                                <div class="productNameouter">
+                                    <div class="productName">Liberian Fried Okra</div>
+                                    <input type="checkbox" checked>
+                                </div>
+                                <div class="productDetailText">
+                                    Lorem ipsum dolor sit amet consectetur. Dolor enim faucibus porttitor a fringilla.
+                                    Placerat malesuada facilisis sed sed a
+                                </div>
+                                <div class="priceSection">
+                                    <div class="priceText">100.84 US$</div>
+                                    <div class="selectedNumber">
+                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="SelectedDiv" id="counter">2</div>
+                                        <div class="plusDiv" onclick="increment()">+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productMainOuter">
+                        <img src="./assets/images/productListing.png" class="productListing-Image" alt="">
+                        <div class="productMainSection">
+                            <img src="./assets/images//product2.png" class="productImg" alt="">
+                            <div class="productDetailSection">
+
+
+                                <div class="productNameouter">
+                                    <div class="productName">African Spice Grilled Vegetable Skewers</div>
+                                    <input type="checkbox" checked>
+                                </div>
+                                <div class="productDetailText">
+                                    Lorem ipsum dolor sit amet consectetur. Dolor enim faucibus porttitor a fringilla.
+                                    Placerat malesuada facilisis sed sed a
+                                </div>
+                                <div class="priceSection">
+                                    <div class="priceText">100.84 US$</div>
+                                    <div class="selectedNumber">
+                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="SelectedDiv" id="counter">2</div>
+                                        <div class="plusDiv" onclick="increment()">+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productMainOuter">
+                        <img src="./assets/images/productListing.png" class="productListing-Image" alt="">
+                        <div class="productMainSection">
+                            <img src="./assets/images//product3.png" class="productImg" alt="">
+                            <div class="productDetailSection">
+
+
+                                <div class="productNameouter">
+                                    <div class="productName">unny Chow</div>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="productDetailText">
+                                    Lorem ipsum dolor sit amet consectetur. Dolor enim faucibus porttitor a fringilla.
+                                    Placerat malesuada facilisis sed sed a
+                                </div>
+                                <div class="priceSection">
+                                    <div class="priceText">100.84 US$</div>
+                                    <div class="selectedNumber">
+                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="SelectedDiv" id="counter">2</div>
+                                        <div class="plusDiv" onclick="increment()">+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productMainOuter">
+                        <img src="./assets/images/productListing.png" class="productListing-Image" alt="">
+                        <div class="productMainSection">
+                            <img src="./assets/images//product4.png" class="productImg" alt="">
+                            <div class="productDetailSection">
+
+
+                                <div class="productNameouter">
+                                    <div class="productName">Liberian Fried Okra</div>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="productDetailText">
+                                    Lorem ipsum dolor sit amet consectetur. Dolor enim faucibus porttitor a fringilla.
+                                    Placerat malesuada facilisis sed sed a
+                                </div>
+                                <div class="priceSection">
+                                    <div class="priceText">100.84 US$</div>
+                                    <div class="selectedNumber">
+                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="SelectedDiv" id="counter">2</div>
+                                        <div class="plusDiv" onclick="increment()">+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="orderSectionOuter">
+                    <div class="ordertEXT">Order Summary</div>
+                    <div id="dynamicCartItems"></div>
+                    <!-- <div class="productLisOuter">
+                        <div class="liberianText">Liberian Fried Okra</div>
+                        <div class="abountTxet">100.84 US$</div>
+                    </div>
+                    <div class="productLisOuter">
+                        <div class="liberianText">African Spice Grilled Vege...</div>
+                        <div class="abountTxet">100.84 US$</div>
+                    </div>
+                    <div class="productLisOuter">
+                        <div class="liberianText">unny Chow</div>
+                        <div class="abountTxet">100.84 US$</div>
+                    </div> -->
+                    <!-- <div class="productLisOuter">
+                        <div class="liberianText">Liberian Fried Okra</div>
+                    </div> -->
+                    <div class="totalASection">
+                        <div class="productLisOuter">
+                            <div class="liberianText">Total</div>
+                            <div class="abountTxet" id="totalAmount">403.84 US$</div>
+                        </div>
+                    </div>
+                    <div class="paytext">Payment</div>
+                    <div class="payBtnsouter">
+                        <div class="paypalBtnSelected" id="paypalBtn">
+                            <img src="./assets/images/paypalLogo.png" alt="PayPal Logo">
+                            <img src="./assets/images/paypalTextBlack.png" alt="PayPal Text Black"
+                                class="paypalTextBlack">
+                            <img src="./assets/images/paypalTextWhite.png" alt="PayPal Text White"
+                                class="paypalTextWhite">
+                        </div>
+                        <div class="paypalBtnUnselected" alt="Visa" id="visaBtn">
+                            <img src="./assets/images/visaTextBlue.png">
+                            <img src="./assets/images/visaLogo.png">
+                        </div>
+                        <button class="cashBtn">Cash on delivery</button>
+                        <button class="OtherBtn">Other</button>
+                    </div>
+                    <div class="visaSection" id="visaSection">
+                        <div class="cardHolderText">Cardholder’s Name</div>
+                        <input type="text" class="cardHolderInput" placeholder="Cardholder’s Name">
+                        <div class="cardHolderText">Card Number</div>
+                        <input type="text" class="cardHolderInput" placeholder="Card Number">
+                        <div class="cardexpirySection">
+                            <div class="cardexpirySectionOuter">
+                                <div class="cardHolderText">Card Number</div>
+                                <input type="date" class="cardHolderInput" placeholder="Expiration date (MM /YY)">
+                            </div>
+                            <div class="cardexpirySectionOuter">
+                                <div class="cardHolderText">CVC</div>
+                                <input type="text" class="cardHolderInput" placeholder="CVC">
+                            </div>
+                        </div>
+                        <div class="cardHolderText">Discount Code</div>
+                        <div class="dicountSection">
+                            <input type="text" class="cardHolderInput" placeholder="CHIKAMSO-20-OFF">
+                            <div class="applytext">Apply</div>
+                        </div>
+                    </div>
+                    <div class="payPalSection" id="paypalSection">
+                        <div class="cardexpirySection">
+                            <div class="cardexpirySectionOuter">
+                                <div class="cardHolderText">Fast Name</div>
+                                <input type="text" class="cardHolderInput" placeholder="Fast Name">
+                            </div>
+                            <div class="cardexpirySectionOuter">
+                                <div class="cardHolderText">Last Name</div>
+                                <input type="text" class="cardHolderInput" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="cardHolderText">Card Number</div>
+                        <input type="text" class="cardHolderInput" placeholder="Enter Card Number">
+                        <div class="cardHolderText">Email</div>
+                        <input type="text" class="cardHolderInput" placeholder="Email">
+                    </div>
+                    <div class="paytext">Delivery Today With</div>
+                    <div class="collectBtns">
+                        <button class="ClickBtn">click and collect</button>
+                        <button class="SkinnyBtn">Skinny Express</button>
+                    </div>
+                    <button class="checkOutBtn">Checkout</button>
+                    <div class="BackMenuText">Back to Menu</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="orderbgLoweer">
+            <img src="./assets//images/orderPageBg.png" class="orderPageBg" alt="">
+            <img src="./assets/images/moveupArrow.png" class="moveupArrow" alt="Move Up Arrow">
+        </div>
+
+        <!-- Footer -->
+        <div id="footer"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/Order.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+</body>
+
+</html>
