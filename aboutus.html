@@ -3,145 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Plate of Africa</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/aboutUs.css">
+    <link rel="stylesheet" href="css/aboutUs-hero-section.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>About Us - Plate of Africa</title>
     <style>
-        /* Base Styles */
-        body {
-            background-color: #0f0f0f;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
+        /* Additional styles to fix compatibility issues */
+        .approachfullbackground-box {
+            padding-bottom: 100px;
         }
-
-        h1, h2, h3 {
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: background-color 0.3s ease;
-        }
-
-        header.scrolled {
-            background-color: rgba(15, 15, 15, 0.9);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo {
-            width: 100px;
-            height: auto;
-        }
-
-        .nav-link {
-            color: #fff;
-            margin: 0 15px;
-            font-weight: 400;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #e0bc6b;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .cta-button {
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
-            color: #0f0f0f;
-            border: none;
-            border-radius: 30px;
-            padding: 10px 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(224, 188, 107, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background-image: url('images/AboutUsBackgroundImage.png');
-            background-size: cover;
-            background-position: center;
-            position: relative;
+        
+        .whereItAllStarted {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            margin-top: 150px;
+            margin-bottom: 150px;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+        
+        .whatMakesUsSpecial {
+            margin-bottom: 150px;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 20px;
+        
+        .ourMission {
+            margin-bottom: 150px;
         }
-
-        .hero-title {
-            font-size: 4.5rem;
-            margin-bottom: 20px;
-            animation: fadeInUp 1.2s ease;
+        
+        .ourCommunity {
+            margin-bottom: 100px;
         }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
+        
+        /* Fix image sizing */
+        .whatMakesUsSpecial-image img, 
+        .ourMission-image1 img, 
+        .ourMission-image2 img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .whatMakesUsSpecial-image img:hover, 
+        .ourMission-image1 img:hover, 
+        .ourMission-image2 img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Improve text readability */
+        .startedIntro-textContainer,
+        .whatMakesUsSpecial-text,
+        .ourMission-text,
+        .ourCommunity-textContainer {
+            line-height: 1.8;
+        }
+        
+        /* Enhance section headings */
+        h1 {
             margin-bottom: 30px;
-            animation: fadeInUp 1.5s ease;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 100px 0;
             position: relative;
         }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
+        
+        h1::after {
             content: '';
             position: absolute;
             width: 80px;
@@ -151,586 +79,203 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
-        .story-section {
-            background-color: rgba(30, 30, 30, 0.3);
-            border-radius: 20px;
-            padding: 80px 0;
-            margin: 0 20px;
-        }
-
-        .story-image {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.5s ease;
-        }
-
-        .story-image:hover {
-            transform: scale(1.03);
-        }
-
-        .story-image img {
-            width: 100%;
-            height: auto;
-            transition: all 0.5s ease;
-        }
-
-        .story-content {
-            padding: 0 30px;
-        }
-
-        /* Special Section */
-        .special-section {
-            background: url('images/AboutUsBlackBackground.png');
-            background-size: cover;
-            background-attachment: fixed;
-            padding: 120px 0;
-        }
-
-        .special-card {
-            background-color: rgba(30, 30, 30, 0.7);
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .special-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .special-icon {
-            font-size: 3rem;
-            color: #e0bc6b;
-            margin-bottom: 20px;
-        }
-
-        /* Mission Section */
-        .mission-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mission-image {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .mission-image img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
-        }
-
-        .mission-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .mission-content {
-            background-color: rgba(30, 30, 30, 0.7);
-            padding: 50px;
-            border-radius: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Community Section */
-        .community-section {
-            background: linear-gradient(rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 0.9)), url('images/Group 355AboutUS.png');
-            background-size: cover;
-            background-position: center;
-            padding: 120px 0;
-        }
-
-        .community-card {
-            background-color: rgba(30, 30, 30, 0.7);
-            border-radius: 15px;
-            padding: 40px;
-            height: 100%;
-            transition: transform 0.3s ease;
-        }
-
-        .community-card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1a1a1a;
-            padding: 70px 0 20px;
-        }
-
-        .footer-logo {
-            width: 120px;
-            margin-bottom: 20px;
-        }
-
-        .footer-heading {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .footer-heading::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
-            bottom: -10px;
-            left: 0;
-        }
-
-        .footer-link {
-            color: #ccc;
-            display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: #e0bc6b;
-            text-decoration: none;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
-            transform: translateY(-5px);
-        }
-
-        .social-icon i {
-            color: #fff;
-            font-size: 1.2rem;
-        }
-
-        .social-icon:hover i {
-            color: #0f0f0f;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            margin-top: 50px;
-            color: #999;
-        }
-
-        /* Scroll to Top Button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0f0f0f;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .scroll-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-            
-            .section {
-                padding: 80px 0;
-            }
-            
-            .story-content, .mission-content {
-                padding: 30px 15px;
-                margin-top: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .special-card, .community-card {
-                padding: 30px;
-            }
-            
-            .mission-content {
-                margin-top: 40px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
+        
+        .whatMakesUsSpecial-text h1::after,
+        .ourMission-text h1::after 
     </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/Plate of Africa Logo.png" alt="Plate of Africa" class="logo">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="aboutus.html">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="reservations.html">Reservations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="menu.html">Menu</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="OurApproachToVeganism.html">Sustainability</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="hoursLocation.html">Hours & Location</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Employment.html">Employment</a>
-                            </li>
-                        </ul>
-                        <a href="contacts.html" class="ms-lg-3">
-                            <button class="cta-button">Contact Us</button>
-                        </a>
-                    </div>
+    <header>
+        <a href="index.html"><img class="logo" src="images/Plate of Africa Logo.png" alt="logo"></a>
+            <nav>
+                <input type="checkbox" id="sidebar-active">
+                <label for="sidebar-active" class="open-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </label>
+
+                <label id="overlay" for="sidebar-active"></label>
+                <div class="nav-links">
+                    <label for="sidebar-active" class="close-sidebar-button"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </label>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="reservations.html">Reservations</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="OurApproachToVeganism.html">Sustainability</a></li>
+                    <li><a href="hoursLocation.html">Hours & Location</a></li>
+                    <li><a href="Employment.html">Employment</a></li>
+                    <li><a href="references.html">References</a></li>
                 </div>
+
             </nav>
-        </div>
+            <a class="cta" href="contacts.html"><button>Contact Us</button></a>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">OUR STORY</h1>
-            <p class="hero-subtitle">Discover the passion, culture, and community behind Plate of Africa</p>
-        </div>
-    </section>
-
-    <!-- Where It All Started Section -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">WHERE IT ALL STARTED</h2>
-            </div>
-            <div class="row align-items-center story-section">
-                <div class="col-lg-6 fade-in">
-                    <div class="story-image">
-                        <img src="images/Aboutusimage1.png" alt="Our Beginning">
-                    </div>
-                </div>
-                <div class="col-lg-6 fade-in">
-                    <div class="story-content">
-                        <p>When we decided to create Plate of Africa, we envisioned it as more than just a restaurant. Plate of Africa is a place where people of all cultures, and all backgrounds, can come together under the shared passion for culinary excellence.</p>
-                        
-                        <p>Plate of Africa was created simply by 3 men, each with a passion for cooking. Whether it be a medium rare steak, or a perfectly baked focaccia, these men were absolutely enthralled with the complexity of food. They found that food was not just about flavor or texture, but about the people you share the food with.</p>
-                        
-                        <p>This passion led to these men deciding to pursue a culinary education at Auguste Escoffier School of Culinary Arts in Austin, Texas, earning a diploma in Plant-Based Culinary Arts. After graduating, they began to work as chefs at La Lumiere Etoilee, their first professional career.</p>
-                        
-                        <p>However, despite their job stability and skills, they felt a sense of emptiness. The food that they cooked always seemed to be missing something essential. As they traveled, they realized the essential thing they were missing was that of great simplicity: <strong>Community</strong>.</p>
-                    </div>
-                </div>
+    <main>
+        
+        <div id="title-area">
+            <h1 id="Main-title">
+                ABOUT US
+            </h1>
+            <div id="rectangle-header">
             </div>
         </div>
-    </section>
+        
+        <div class="approachfullbackground-box">
+            <div class="whereItAllStarted">
+                <h1 class="slide-in">WHERE IT ALL STARTED</h1>
+                <div class="startedIntro-textContainer slide-in">
+                    <p>
+                        When we decided to create Plate of Africa, we envisioned it as more than just a restaurant. Plate of Africa is a place where people of all cultures, and all backgrounds, can come together under the shared passion for culinary excellence. Plate of Africa was created simply by 3 men, each with a passion for cooking. Whether it be a medium rare steak, or a perfectly baked focaccia, these men were absolutely enthralled with the complexity of food. They found that food was not just about flavor or texture, but about the people you share the food with.
+                    </p>
+                    <br>
+                    <p>
+                        This passion led to these men deciding to pursue a culinary education at Auguste Escoffier School of Culinary Arts in Austin, Texas, earning a diploma in Plant-Based Culinary Arts. After graduating, they began to work as chefs at La Lumiere Etoilee, their first professional career. However, despite their job stability, and skills, they felt a sense of emptiness. The food that they cooked always seemed to be missing something essential. As they traveled, they realized the essential thing they were missing was that of great simplicity: Community.
+                    </p>
+                    <br>
+                    <p>
+                        This realization drove them to create Plate of Africa, a place where people could combine culinary excellence and community can combine to bring an amazing experience. They decided to choose to specialize in African cuisine as it was the food they had been eating all of their lives. Specifically, they decided that a vegan restaurant would be the best, due to its many environmental and health benefits. This was the beginning of an idea that created the Plate of Africa you see today.
+                    </p>
+                    <br>
+                    <p>
+                        As Plate of Africa begins to move towards the future, we will continue to uphold the core values that founded us: that of culinary excellence, passion, and most of all, community. We are beyond thrilled to share with you our passion, and to create lasting memories one plate at a time.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="whatMakesUsSpecial">
+                <div class="whatMakesUsSpecial-image slide-in">
+                    <img src="images/WhatMakesUsSpecial-PlateOfFood.png" alt="What Makes Us Special"> 
+                </div>
+                <div class="whatMakesUsSpecial-text slide-in">
+                    <h1>WHAT MAKES US SPECIAL</h1>
+                    <p>
+                        What sets Plate of Africa apart from other restaurants is the diversity we bring to the table. The dishes served here are not from just one area or one region, but the entire continent. Whether it be the richness from West Africa stews, to the complex spices used in East African cuisine, our dishes encompass all different types of flavors, textures, and cooking methods. Our chef’s are committed to serving only the most authentic cuisine, using only the freshest ingredients. The recipes that make our dishes are recipes that have been used for generations, perfected and refined by each generation before.                     </p>
+                    <br>
+                    <p>
+                        However, the thing that truly makes the Plate of Africa different is the community it creates through its food. Every dish is not just food, but a gateway towards a whole different world that you may not be familiar with. It is a way to explore different cultures, and create connections through the shared values of food. Our diversity is not simply limited to our menu, but extends to the environment we create.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="ourMission">
+                <div class="ourMission-image1 slide-in">
+                    <img src="images/OurMission-PlateOfFood1.png" alt="Our Mission Image 1">
+                </div>
+                <div class="ourMission-text slide-in">
+                    <h1>OUR MISSION</h1>
+                    <p>
+                        Our Mission at Plate of Africa is to foster community through the flavors of Africa using a plant-based lens. We hope that through the power of plant-based cooking, we can create a community that shares the same values of community. Every dish that we serve to our community is put together using love, source locally, and put together with sustainability in mind. We hope that through using plant-based cooking methods, we can create dishes that not only nourish the body, but also the soul.
+                    </p>
+                </div>
+                <div class="ourMission-image2 slide-in">
+                    <img src="images/OurMission-PlateOfFood2.png" alt="Our Mission Image 2">
+                </div>
+            </div>
 
-    <!-- What Makes Us Special Section -->
-    <section class="section special-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">WHAT MAKES US SPECIAL</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-4 fade-in">
-                    <div class="special-card text-center">
-                        <div class="special-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h3>Authentic Cuisine</h3>
-                        <p>Our dishes are not from just one area or region, but the entire continent. We bring you the richness of West African stews and the complex spices of East African cuisine.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-in">
-                    <div class="special-card text-center">
-                        <div class="special-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3>Plant-Based Focus</h3>
-                        <p>We've reimagined traditional African dishes through a plant-based lens, creating sustainable and delicious meals that honor both tradition and innovation.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-in">
-                    <div class="special-card text-center">
-                        <div class="special-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Community Spirit</h3>
-                        <p>What truly makes Plate of Africa different is the community it creates through food. Every dish is a gateway to a different world and culture.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-8 mx-auto fade-in">
-                    <div class="story-image">
-                        <img src="images/WhatMakesUsSpecial-PlateOfFood.png" alt="Special Dish">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Mission Section -->
-    <section class="section mission-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">OUR MISSION</h2>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-5 fade-in">
-                    <div class="mission-image">
-                        <img src="assets/images/dish2.png" alt="Our Mission">
-                    </div>
-                </div>
-                <div class="col-lg-7 fade-in">
-                    <div class="mission-content">
-                        <p>Our Mission at Plate of Africa is to foster community through the flavors of Africa using a plant-based lens. We hope that through the power of plant-based cooking, we can create a community that shares the same values of community.</p>
-                        
-                        <p>Every dish that we serve to our community is put together using love, sourced locally, and created with sustainability in mind. We hope that through using plant-based cooking methods, we can create dishes that not only nourish the body, but also the soul.</p>
-                        
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <div class="mission-image">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="ourCommunity">
+                <div class="ourCommunity-textContainer slide-in">
+                    <h1>OUR COMMUNITY</h1>
+                    <p>
+                        Community drives everything we do here at Plate of Africa. Our restaurant is more than just a place to eat, it is a space where people come together to share food, stories, and connection. We are dedicated to cultivating an inclusive community, a friendly and welcoming space where everyone feels at home; we're into establishing relationships that go beyond the meal.
+                    </p>
+                    <br>
+                    <p>
+                        To help give back, Plate of Africa works proudly alongside a charity called African Horizons. African Horizons aims to assist the less fortunate across Africa. African Horizons strives to deliver essential services such as education, healthcare, and food security across underserved regions. In order to assist their global mission, that is where 7% of all revenue generated goes directly towards supporting that impact we want to create.
+                    </p>
+                    <br>
+                    <p>
+                        By dining with us, you are not only enjoying authentic African deliciousness — but you are also helping to build pathways for a better and sustainable future in communities that need all the help they can get. We at Plate of Africa believe that nothing unites people like great food, and as a collective, we can create an impact.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Our Community Section -->
-    <section class="section community-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">OUR COMMUNITY</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-4 fade-in">
-                    <div class="community-card">
-                        <h3>Inclusive Space</h3>
-                        <p>Community drives everything we do here at Plate of Africa. Our restaurant is more than just a place to eat, it is a space where people come together to share food, stories, and connection.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4 fade-in">
-                    <div class="community-card">
-                        <h3>Giving Back</h3>
-                        <p>Plate of Africa works proudly alongside a charity called African Horizons. 7% of all revenue generated goes directly towards supporting education, healthcare, and food security across underserved regions in Africa.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4 fade-in">
-                    <div class="community-card">
-                        <h3>Creating Impact</h3>
-                        <p>By dining with us, you are not only enjoying authentic African deliciousness — but you are also helping to build pathways for a better and sustainable future in communities that need all the help they can get.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-8 mx-auto text-center fade-in">
-                    <p>We at Plate of Africa believe that nothing unites people like great food, and as a collective, we can create an impact that extends far beyond our dining room.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <img src="images/Plate of Africa Logo.png" alt="Plate of Africa" class="footer-logo">
-                    <p>A unique dining experience offering the best flavors from Africa with a plant-based approach.</p>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h3 class="footer-heading">Quick Links</h3>
-                    <a href="aboutus.html" class="footer-link">About Us</a>
-                    <a href="reservations.html" class="footer-link">Reservations</a>
-                    <a href="menu.html" class="footer-link">Menu</a>
-                    <a href="OurApproachToVeganism.html" class="footer-link">Sustainability</a>
-                    <a href="hoursLocation.html" class="footer-link">Hours & Location</a>
-                    <a href="Employment.html" class="footer-link">Employment</a>
-                    <a href="references.html" class="footer-link">References</a>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <h3 class="footer-heading">Contact Us</h3>
-                    <p><i class="fas fa-phone me-2"></i> 425-754-8797</p>
-                    <p><i class="fas fa-envelope me-2"></i> plateofafrica@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt me-2"></i> 1600 Pennsylvania Street, Washington D.C.</p>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="footer-heading">Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>Plate of Africa © Copyright 2024. All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
+    </main>
+    
+    <div id="scrolltotop-button">
+        <img src="images/ScrollToTopButton.png" alt="scroll to top">
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        var scrolltotop = document.getElementById("scrolltotop-button");
 
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('active');
-            } else {
-                scrollTopBtn.classList.remove('active');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrolltotop.style.display = "block";
+            } 
+            else {
+                scrolltotop.style.display = "none";
             }
-        });
-        
-        scrollTopBtn.addEventListener('click', function() {
+        };
+
+        scrolltotop.onclick = function() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        });
-
-        // Fade-in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
+        };
         
-        function checkFade() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
+        // on scroll animations
+        const elements = document.querySelectorAll('.slide-in'); 
+
+        const onScroll = () => {
+            elements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                    el.classList.add('show');                 
                 }
             });
-        }
-        
-        // Initial check
-        checkFade();
-        
-        // Check on scroll
-        window.addEventListener('scroll', checkFade);
+        };
+
+        window.addEventListener('scroll', onScroll);
+        onScroll(); 
     </script>
+
+    <footer>
+        <div class="row">
+            <div class="col">
+                <a href="index.html"><img src="images/Plate of Africa Logo.png" class="logo" alt="Plate of Africa Logo"></a>
+                
+            </div>
+            <div class="col">
+                <h3>Quick Links</h3>
+                <a href="aboutus.html">About Us</a><br>
+                <a href="reservations.html">Reservations</a><br>
+                <a href="menu.html">Menu</a><br>
+                <a href="OurApproachToVeganism.html">Sustainability</a><br>
+                <a href="hoursLocation.html">Hours & Location</a><br>
+                <a href="Employment.html">Employment</a><br>
+                <a href="contacts.html">Contact Us</a><br>
+                <a href="references.html">References</a>
+            </div>
+            <div class="col">
+                <h3>Contact Us</h3>
+                <div id="contact-items">
+                    <p>
+                        <i class="fa-solid fa-phone"></i> 908-441-9271
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-envelope"></i> plateofafrica@gmail.com
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                         628 Cara Lodge Harbor Way,
+                         <br>
+                          Seattle, Washington, 98154
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <h3>Stay Connected</h3>
+                <div class="social-icons">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-tiktok"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <p class="copyright">Plate of Africa © Copyright 2024. All Rights Reserved</p>
+    </footer>
 </body>
-</html> 
+</html>

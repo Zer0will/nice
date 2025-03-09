@@ -7,126 +7,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/footer.css" />
 </head>
 
 <body>
-  <style>
-    .footer {
-      background-color: #1e1e1e;
-      color: white;
-      position: relative;
-      z-index: 111;
-    }
-
-    .copyright {
-      color: #fff;
-      font-size: 14px;
-      background-color: black;
-      color: white;
-      font-family: "Poppins", sans-serif;
-      font-weight: 300;
-      font-size: 18px;
-      line-height: 27px;
-      letter-spacing: 0%;
-      text-align: center;
-      padding: 15px 0px;
-      margin-bottom: 0px;
-    }
-
-    .headi {
-      font-family: "Poppins";
-      font-size: 26px;
-      font-style: normal;
-      font-weight: 400;
-      margin-top: 119px;
-    }
-
-    .alignquick {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-start;
-      margin-bottom: 128px;
-    }
-
-    .alignquick a {
-      color: white;
-      text-decoration: none;
-      font-family: "Poppins";
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 300;
-    }
-
-    .alignquick>p>i {
-      color: white;
-      /* Icon color */
-      margin-right: 13.46px;
-      /* Space between icon and text */
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 11.3px;
-    }
-
-    .f-logo {
-      height: 118px;
-      margin-top: 75px;
-    }
-
-    @media (max-width: 786px) {
-      .alignquick {
-        margin-bottom: 40px;
-        /* Reduced margin */
-        align-items: center;
-      }
-
-      .headi {
-        margin-top: 0px;
-      }
-
-      .f-logo {
-        height: 102px;
-        margin-top: 60px;
-      }
-
-      .social-icons img {
-        height: 38px;
-      }
-    }
-  </style>
-  <footer class="footer text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <img src="./assets/images/logo.png" alt="Logo" class="f-logo" />
-        </div>
-        <div class="col-md-3 alignquick">
-          <h5 class="headi">Quick Links</h5>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="col-md-3 alignquick">
-          <h5 class="headi">Contact Us</h5>
-          <p><i class="fas fa-phone-alt"></i> +908-441-9271</p>
-          <p><i class="fas fa-envelope"></i> plateofafrica@gmail.com</p>
+  <footer>
+    <div class="row">
+      <div class="col">
+        <a href="index.html"><img src="images/Plate of Africa Logo.png" class="logo" alt="Plate of Africa Logo"></a>
+      </div>
+      <div class="col">
+        <h3>Quick Links</h3>
+        <a href="aboutus.html">About Us</a><br>
+        <a href="reservations.html">Reservations</a><br>
+        <a href="menu.html">Menu</a><br>
+        <a href="OurApproachToVeganism.html">Sustainability</a><br>
+        <a href="hoursLocation.html">Hours & Location</a><br>
+        <a href="Employment.html">Employment</a><br>
+        <a href="contacts.html">Contact Us</a><br>
+        <a href="references.html">References</a>
+      </div>
+      <div class="col">
+        <h3>Contact Us</h3>
+        <div id="contact-items">
           <p>
-            <i class="fas fa-map-marker-alt"></i> 628 Cara Lodge Harbor Way, Seattle, Washington, 98154
+            <i class="fa-solid fa-phone"></i> 908-441-9271
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i> plateofafrica@gmail.com
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"> </i>
+             628 Cara Lodge Harbor Way,
+              Seattle, Washington, 98154
           </p>
         </div>
-        <div class="col-md-3 alignquick">
-          <h5 class="headi">Follow Us</h5>
-          <div class="social-icons">
-            <img src="/assets/images/linkedin.png" alt="" />
-            <img src="/assets/images/facebook.png" alt="" />
-            <img src="/assets/images/insta.png" alt="" />
-          </div>
+      </div>
+      <div class="col">
+        <h3>Stay Connected</h3>
+        <div class="social-icons">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-tiktok"></i>
+          <i class="fa-brands fa-facebook"></i>
         </div>
       </div>
     </div>
-    <p class="copyright">© Copyright 2024. All Rights Reserved</p>
+
+    <hr>
+    <p class="copyright">Plate of Africa © Copyright 2024. All Rights Reserved</p>
   </footer>
 </body>
 
