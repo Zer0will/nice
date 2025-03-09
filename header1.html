@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="css/header1.css">
+</head>
+<header id="header"></header>
+<body>
+  <!-- Header -->
+    <style>
+        /* Black background for the entire page */
+        body {
+            background-color: #000000;
+            color: #ffffff; /* Setting text color to white for better contrast */
+        }
+        
+        /* Ensuring the header also has black background */
+        header {
+            background-color: #000000;
+        }
+        
+        /* Making sure the navbar has black background */
+        .navbar {
+            background-color: #000000 !important; /* Using !important to override Bootstrap styles */
+        }
+        
+        /* Adjusting navbar-dark to ensure proper contrast with black background */
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #e0bc6b; /* Keeping the hover color consistent with existing styles */
+        }
+        
+        /* Ensuring the toggler (hamburger menu) is visible against black background */
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+    <div class="container">
+      <nav class="navbar navbar-expand-xl navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/Plate of Africa Logo.png" alt="Plate of Africa" class="logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="reservations.html">Reservations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="OurApproachToVeganism.html">Sustainability</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="hoursLocation.html">Hours & Location</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Employment.html">Employment</a>
+              </li>
+            </ul>
+            <a href="contacts.html" class="ms-lg-3">
+              <button class="cta-button">Contact Us</button>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Link to external JavaScript file -->
+  <script src="js/header1.js"></script>
+</body>
+
+</html>
