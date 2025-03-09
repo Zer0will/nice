@@ -100,7 +100,7 @@
     
                     <div class="content slide-in">
                         <!--POP-UP REQUIRED NOW-->
-                        <form action="" method="post">
+                        <form id="reservation-form-element" action="" method="post">
     
                             
     
@@ -216,7 +216,150 @@ onScroll();
 
         </script>
 
-        
+        <!-- Thank You Popup Modal -->
+        <div id="successModal" class="success-modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close-button">&times;</span>
+                <img src="images/Plate of Africa Logo.png" alt="Plate of Africa Logo" class="modal-logo">
+                <h2>Thank You!</h2>
+                <p>Your reservation request has been submitted successfully.</p>
+                <p>We will confirm your reservation via email or phone within 24 hours.</p>
+                <p>If you have any questions, please contact us at 908-441-9271.</p>
+                <button id="closeModalButton">Close</button>
+            </div>
+        </div>
+
+        <style>
+            /* Modal Styles */
+            .success-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* Slide-in Animation */
+            .slide-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .slide-in.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .modal-content {
+                background-color: #1a1a1a;
+                padding: 40px;
+                border-radius: 10px;
+                max-width: 500px;
+                text-align: center;
+                position: relative;
+                border: 1px solid #e0bc6b;
+            }
+
+            .modal-logo {
+                width: 120px;
+                margin-bottom: 20px;
+            }
+
+            .close-button {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 24px;
+                cursor: pointer;
+                color: #e0bc6b;
+            }
+
+            .modal-content h2 {
+                color: #e0bc6b;
+                margin-bottom: 20px;
+                font-size: 28px;
+            }
+
+            .modal-content p {
+                margin-bottom: 15px;
+                color: #fff;
+                font-size: 16px;
+            }
+
+            #closeModalButton {
+                background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+                color: #000;
+                border: none;
+                padding: 10px 30px;
+                border-radius: 30px;
+                font-weight: bold;
+                cursor: pointer;
+                margin-top: 20px;
+                transition: all 0.3s ease;
+            }
+
+            #closeModalButton:hover {
+                transform: scale(1.05);
+            }
+        </style>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get the form, modal, and close button elements
+                const reservationForm = document.querySelector("#reservation-form-element");
+                const successModal = document.getElementById("successModal");
+                const closeModal = document.getElementById("closeModal");
+                const closeModalButton = document.getElementById("closeModalButton");
+                
+                // Add submit event listener to the form
+                reservationForm.addEventListener("submit", function(event) {
+                    event.preventDefault(); // Prevent the form from actually submitting
+                    
+                    // Validate form fields
+                    let allFieldsValid = true;
+                    const requiredFields = reservationForm.querySelectorAll("[required]");
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            allFieldsValid = false;
+                        }
+                    });
+                    
+                    if (allFieldsValid) {
+                        // Show the success modal
+                        successModal.style.display = "flex";
+                        
+                        // Optional: Reset the form
+                        reservationForm.reset();
+                    }
+                });
+                
+                // Close the modal when the close button is clicked
+                closeModal.addEventListener("click", function() {
+                    successModal.style.display = "none";
+                });
+                
+                // Close the modal when the close button is clicked
+                closeModalButton.addEventListener("click", function() {
+                    successModal.style.display = "none";
+                    // Optional: Redirect to home page
+                    // window.location.href = "index.html";
+                });
+                
+                // Close the modal if the user clicks outside of it
+                window.addEventListener("click", function(event) {
+                    if (event.target === successModal) {
+                        successModal.style.display = "none";
+                    }
+                });
+            });
+        </script>
 
 <footer>
     <div class="row">

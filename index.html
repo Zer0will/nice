@@ -559,6 +559,21 @@
       right: 100px;
       cursor: pointer;
       pointer-events: auto;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 5px rgba(224, 188, 107, 0.5));
+    }
+    
+    .downarrow:hover {
+      filter: drop-shadow(0 0 8px rgba(224, 188, 107, 0.8));
+      transform: scale(1.1);
+    }
+    
+    .rotate-arrow {
+      transform: rotate(180deg);
+    }
+    
+    .rotate-arrow:hover {
+      transform: rotate(180deg) scale(1.1);
     }
 
     .ab-down {
@@ -868,11 +883,11 @@ transform: translateX(-8%);
             <div class="aboutt-title mt94 slide-in">Who Founded</div>
             <div class="aboutt-heading slide-in">Plate of Africa</div>
             <div class="aboutt-text slide-in">
-              Plate of Africa was founded to celebrate Africa’s rich culinary
+              Plate of Africa was founded to celebrate Africa's rich culinary
               heritage through a modern, plant-based approach. Created by
               passionate chefs and cultural advocates, it combines authentic
               flavors, sustainable practices, and innovation to honor the
-              continent’s vibrant traditions and diverse cuisines.
+              continent's vibrant traditions and diverse cuisines.
             </div>
 
             <div class="reser-button mt-5 btn slide-in ">Learn More</div>
@@ -1316,10 +1331,9 @@ document.addEventListener("scroll", function() {
           </div>
         </div>
         <p class="testimonial-text box">
-          “Plate of Africa just nails it every time! I could not think of a
-          better place to go to. Seriously an experience of a lifetime! So
-          many great vegan options to choose from and a staff that is very
-          attentive and nice! 10/10 experience!”
+          "So grateful for this restaurant to have opened near where I live!
+          Whenever I'm craving something good, this is the first place I think
+          of!"
         </p>
       </div>
       <!-- Testimonial 1 -->
@@ -1495,10 +1509,7 @@ document.addEventListener("scroll", function() {
     </div>
   </section>
   <section>
-
-    <div class="position-relative bt">
-      <img src="assets/images/movetop.png" class="position-absolute righ scroll-to-top" />
-    </div>
+    
   </section>
   <!-- Footer -->
   <section>
@@ -1518,27 +1529,95 @@ document.addEventListener("scroll", function() {
       $(".downarrow").on("mouseleave", function () {
         $(".handledown").css("z-index", "1"); // Reset z-index when mouse leaves
       });
-    });
-
-    $(document).ready(function () {
-      $(".downarrow").on("click", function () {
+      
+      // Add scroll event listener to change arrow direction based on scroll position
+      $(window).on("scroll", function() {
         let currentScroll = $(window).scrollTop();
+        let windowHeight = $(window).height();
+        let documentHeight = $(document).height();
+        let footerPosition = $("#footer").offset().top;
+        
+        // Check if we're near the footer (within 80% of document height)
+        let nearFooter = currentScroll > (documentHeight * 0.8) || 
+                         currentScroll > (footerPosition - windowHeight);
+        
+        if (nearFooter) {
+          $(".downarrow").addClass("rotate-arrow");
+        } else {
+          $(".downarrow").removeClass("rotate-arrow");
+        }
+      });
+      
+      // Down arrow click functionality
+      $(".downarrow").on("click", function () {
+        let debug = false; // Set to true to enable console logging for debugging
+        let currentScroll = $(window).scrollTop();
+        let windowHeight = $(window).height();
+        let documentHeight = $(document).height();
+        let footerPosition = $("#footer").offset().top;
         let sections = $("section"); // Get all sections
         let nextSection = null;
-
-        sections.each(function () {
+        let scrollOffset = 150; // Increased offset to show more of the next section
+        
+        // Check if we're near the footer (within 80% of document height)
+        let nearFooter = currentScroll > (documentHeight * 0.8) || 
+                         currentScroll > (footerPosition - windowHeight);
+        
+        if (debug) {
+          console.log("Current scroll position:", currentScroll);
+          console.log("Window height:", windowHeight);
+          console.log("Document height:", documentHeight);
+          console.log("Footer position:", footerPosition);
+          console.log("Near footer:", nearFooter);
+        }
+        
+        // If near footer, scroll to top
+        if (nearFooter) {
+          // Scroll to top
+          $('html, body').animate({
+            scrollTop: 0
+          }, 800);
+          return; // Exit the function
+        }
+        
+        // Normal down arrow functionality for rest of the page
+        sections.each(function (index) {
           let sectionTop = $(this).offset().top;
-          if (sectionTop > currentScroll + 10) { // Add small offset to prevent stuck behavior
+          let sectionHeight = $(this).outerHeight();
+          
+          if (debug) {
+            console.log("Section", index, "- Top:", sectionTop, "Height:", sectionHeight);
+          }
+          
+          // Skip very small sections (likely not meant to be scrolled to)
+          if (sectionHeight < 200) {
+            return true; // Continue to next section
+          }
+          
+          // Check if the section is below the current viewport (with a smaller buffer)
+          if (sectionTop > currentScroll + (windowHeight * 0.2)) { 
             nextSection = $(this);
+            if (debug) {
+              console.log("Selected next section:", index);
+            }
             return false; // Break the loop
           }
         });
 
         if (nextSection) {
-          $(window).scrollTop(nextSection.offset().top);
+          // Smooth scroll to the next section with offset
+          $('html, body').animate({
+            scrollTop: nextSection.offset().top - scrollOffset
+          }, 100); // 800ms animation duration for smooth scrolling
+        } else {
+          // If no next section found, scroll to the bottom of the page
+          $('html, body').animate({
+            scrollTop: $(document).height() - $(window).height()
+          }, 800);
         }
       });
     });
+
 
 
 
