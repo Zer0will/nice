@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/employ.css" />
+    <!-- <link rel="stylesheet" href="assets/employ-enhanced.css" /> -->
     <!-- <link rel="stylesheet" href="assets/ReviewPage.css" /> -->
 
   </head>
@@ -30,6 +31,9 @@ transform: translateX(-8%);
 
   </style>
   <body>
+    <!-- Confetti background for celebration animation -->
+    <div class="confetti-bg" id="confettiBg"></div>
+    
     <div class="employbg">
       <!-- Header -->
       <div id="header"></div>
@@ -68,7 +72,7 @@ transform: translateX(-8%);
                 </div>
                 <div class="communtext">
                   Join an Inclusive Community: As a Plate of Africa employee,
-                  you’re not just an employee, but a member of our family.
+                  you're not just an employee, but a member of our family.
                 </div>
               </div>
               <div class="mt-3 borderjoin slide-in"></div>
@@ -192,7 +196,7 @@ transform: translateX(-8%);
                   />
                 </div>
                 <div class="stongtext ablitext">
-                  Food Handler’s License (Required for both front and back of
+                  Food Handler's License (Required for both front and back of
                   the house staff)
                 </div>
               </div>
@@ -257,8 +261,10 @@ transform: translateX(-8%);
                 <input
                   required
                   class="inputtext required-field"
-                  type="number"
+                  type="tel"
                   placeholder="Enter Phone Number"
+                  pattern="[0-9]{10}"
+                  title="Please enter a 10-digit phone number"
                 />
               </div>
             </div>
@@ -287,9 +293,32 @@ transform: translateX(-8%);
               <div class="inputname">
                 <select class="inputtext required-field custom-select" required>
                   <option value="">Position Applying For</option>
-                  <option value="option1">Manager</option>
-                  <option value="option2">Waiter</option>
-                  <option value="option3">Rider</option>
+                  <optgroup label="Kitchen Staff">
+                    <option value="head_chef">Head Chef</option>
+                    <option value="sous_chef">Sous Chef</option>
+                    <option value="line_cook">Line Cook</option>
+                    <option value="prep_cook">Prep Cook</option>
+                    <option value="pastry_chef">Pastry Chef</option>
+                    <option value="dishwasher">Dishwasher</option>
+                  </optgroup>
+                  <optgroup label="Front of House">
+                    <option value="host">Host/Hostess</option>
+                    <option value="server">Server</option>
+                    <option value="bartender">Bartender</option>
+                    <option value="busser">Busser</option>
+                    <option value="food_runner">Food Runner</option>
+                  </optgroup>
+                  <optgroup label="Management">
+                    <option value="general_manager">General Manager</option>
+                    <option value="assistant_manager">Assistant Manager</option>
+                    <option value="floor_manager">Floor Manager</option>
+                    <option value="kitchen_manager">Kitchen Manager</option>
+                  </optgroup>
+                  <optgroup label="Other">
+                    <option value="delivery_driver">Delivery Driver</option>
+                    <option value="administrative">Administrative Staff</option>
+                    <option value="other">Other (Specify in Additional Information)</option>
+                  </optgroup>
                 </select>
               </div>
               <div class="inputname">
@@ -303,13 +332,15 @@ transform: translateX(-8%);
               </div>
             </div>
             <div class="mt-3">
-              <div class="inputname parttimejob">
-                <input
-                  class="inputtext required-field"
-                  type="text"
-                  required
-                  placeholder="Full-Time/Part-Time"
-                />
+              <div class="inputname">
+                <select class="inputtext required-field custom-select" required>
+                  <option value="">Employment Type</option>
+                  <option value="full_time">Full-Time</option>
+                  <option value="part_time">Part-Time</option>
+                  <option value="seasonal">Seasonal</option>
+                  <option value="temporary">Temporary</option>
+                  <option value="internship">Internship</option>
+                </select>
               </div>
             </div>
           </div>
@@ -325,7 +356,6 @@ transform: translateX(-8%);
       </div>
 
       <!-- Form 2 -->
-
       <div class="aplcinbg" id="form2" style="display: none">
         <div class="formtext">Application Form</div>
 
@@ -340,18 +370,27 @@ transform: translateX(-8%);
         </div>
 
         <div class="formdetail">
+          <!-- Back button -->
+          <div class="back-button" id="back1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            <span>Back</span>
+          </div>
+          
           <div>
             <div class="personalinfo">Experience & Skills</div>
             <div class="mt-4">
+              <div class="mb-3">Do you have previous experience in the restaurant or hospitality industry?</div>
               <form class="d-flex gap-3">
                 <label class="radio-label">
-                  <input type="radio" name="option" value="yes" checked />
+                  <input type="radio" name="experience" value="yes" checked />
                   <span class="custom-radio"></span>
                   <span class="radio-label">Yes</span>
                 </label>
 
                 <label class="radio-label">
-                  <input type="radio" name="option" value="no" />
+                  <input type="radio" name="experience" value="no" />
                   <span class="custom-radio"></span>
                   <span class="radio-label">No</span>
                 </label>
@@ -361,7 +400,7 @@ transform: translateX(-8%);
             <div class="inputname mt-4 parttimejob textareah first-textarea">
               <textarea
                 class="inputtext texthiht"
-                placeholder="Do you have previous experience in the restaurant or hospitality industry? Enter Details"
+                placeholder="Please describe your previous restaurant or hospitality experience, including positions held and duration."
               ></textarea>
             </div>
             <div class="inputname mt-3 parttimejob textareah">
@@ -379,63 +418,103 @@ transform: translateX(-8%);
           </div>
           <div class="mt-5">
             <div class="personalinfo">Availability</div>
-            <div class="mt-2 profes"></div>
+            <div class="mt-2 mb-3">Please select the days you are available to work:</div>
 
             <div class="mt-4">
-              <form class="d-flex flex-wrap gap-3">
-                <label class="radio-label">
-                  <input type="checkbox" name="option" value="saturday" />
-                  <span class="custom-radio"></span>
-                  <span class="radio-label">Saturday</span>
+              <div class="availability-grid">
+                <label class="day-checkbox">
+                  <input type="checkbox" name="availability[]" value="monday" />
+                  <span class="day-box">
+                    <span class="day-name">Monday</span>
+                  </span>
                 </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="availability[]" value="tuesday" />
+                  <span class="day-box">
+                    <span class="day-name">Tuesday</span>
+                  </span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="availability[]" value="wednesday" />
+                  <span class="day-box">
+                    <span class="day-name">Wednesday</span>
+                  </span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="availability[]" value="thursday" />
+                  <span class="day-box">
+                    <span class="day-name">Thursday</span>
+                  </span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="availability[]" value="friday" />
+                  <span class="day-box">
+                    <span class="day-name">Friday</span>
+                  </span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="availability[]" value="saturday" />
+                  <span class="day-box">
+                    <span class="day-name">Saturday</span>
+                  </span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="availability[]" value="sunday" />
+                  <span class="day-box">
+                    <span class="day-name">Sunday</span>
+                  </span>
+                </label>
+              </div>
+            </div>
 
-                <label class="radio-label">
-                  <input type="checkbox" name="option" value="sunday" />
-                  <span class="custom-radio"></span>
-                  <span class="radio-label">Sunday</span>
+            <div class="mt-4">
+              <div class="personalinfo">Preferred Shifts</div>
+              <div class="shift-options mt-3">
+                <label class="shift-checkbox">
+                  <input type="checkbox" name="shifts[]" value="breakfast" />
+                  <span class="shift-box">
+                    <span class="shift-time">Breakfast</span>
+                    <span class="shift-hours">7AM-11AM</span>
+                  </span>
                 </label>
-
-                <label class="radio-label">
-                  <input type="checkbox" name="option" value="monday" />
-                  <span class="custom-radio"></span>
-                  <span class="radio-label">Monday</span>
+                <label class="shift-checkbox">
+                  <input type="checkbox" name="shifts[]" value="lunch" />
+                  <span class="shift-box">
+                    <span class="shift-time">Lunch</span>
+                    <span class="shift-hours">11AM-3PM</span>
+                  </span>
                 </label>
-                <label class="radio-label">
-                  <input type="checkbox" name="option" value="tuesday" />
-                  <span class="custom-radio"></span>
-                  <span class="radio-label">Tuesday</span>
+                <label class="shift-checkbox">
+                  <input type="checkbox" name="shifts[]" value="dinner" />
+                  <span class="shift-box">
+                    <span class="shift-time">Dinner</span>
+                    <span class="shift-hours">5PM-10PM</span>
+                  </span>
                 </label>
-                <label class="radio-label">
-                  <input type="checkbox" name="option" value="wednesday" />
-                  <span class="custom-radio"></span>
-                  <span class="radio-label">Wednesday</span>
+                <label class="shift-checkbox">
+                  <input type="checkbox" name="shifts[]" value="weekend_brunch" />
+                  <span class="shift-box">
+                    <span class="shift-time">Weekend Brunch</span>
+                    <span class="shift-hours">10AM-2PM</span>
+                  </span>
                 </label>
-                <label class="radio-label">
-                  <input type="checkbox" name="option" value="thursday" />
-                  <span class="custom-radio"></span>
-                  <span class="radio-label">Thursday</span>
-                </label>
-                <label class="radio-label">
-                  <input type="checkbox" name="option" value="friday" />
-                  <span class="custom-radio"></span>
-                  <span class="radio-label">Friday</span>
-                </label>
-              </form>
+              </div>
             </div>
 
             <div class="mt-3">
-              <div class="inputname parttimejob">
-                <input
-                  class="inputtext required-field"
-                  type="text"
-                  placeholder="What hours are you available to work?"
-                />
+              <div class="inputname parttimejob textareah">
+                <textarea
+                  class="inputtext texthiht"
+                  placeholder="Any additional notes about your availability or scheduling preferences?"
+                ></textarea>
               </div>
             </div>
           </div>
 
-          <div class="nextbutton next2 nextemploy lastemploy" id="next2">
-            NEXT
+          <div class="d-flex justify-content-center gap-4 mt-5">
+            <div class="nextbutton next2 nextemploy lastemploy" id="next2">
+              NEXT
+            </div>
           </div>
 
           <div class="applicationtext mt-5">
@@ -462,6 +541,14 @@ transform: translateX(-8%);
         </div>
 
         <div class="formdetail">
+          <!-- Back button -->
+          <div class="back-button" id="back2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            <span>Back</span>
+          </div>
+          
           <div>
             <div class="personalinfo">
               References <span style="color: #ffdd55">(optional)</span>
@@ -471,7 +558,7 @@ transform: translateX(-8%);
               Please provide the contact information for two professional
               references.
             </div>
-            <div class="mt-2 profes">First Professional Reference</div>
+            <div class="mt-2 profes">First Professional Reference</div>
             <div class="d-flex flexwrapinput mt-3 gap-4">
               <div class="inputname">
                 <input class="inputtext" type="text" placeholder="Enter Name" />
@@ -480,7 +567,7 @@ transform: translateX(-8%);
                 <input
                   class="inputtext"
                   type="text"
-                  placeholder="Enter Relationship"
+                  placeholder="Enter Relationship (e.g., Manager, Colleague)"
                 />
               </div>
             </div>
@@ -488,8 +575,9 @@ transform: translateX(-8%);
               <div class="inputname">
                 <input
                   class="inputtext"
-                  type="number"
+                  type="tel"
                   placeholder="Enter Phone Number"
+                  pattern="[0-9]{10}"
                 />
               </div>
               <div class="inputname">
@@ -501,7 +589,7 @@ transform: translateX(-8%);
               </div>
             </div>
 
-            <div class="mt-4 profes">Second Professional Reference</div>
+            <div class="mt-4 profes">Second Professional Reference</div>
             <div class="d-flex flexwrapinput mt-3 gap-4">
               <div class="inputname">
                 <input class="inputtext" type="text" placeholder="Enter Name" />
@@ -510,7 +598,7 @@ transform: translateX(-8%);
                 <input
                   class="inputtext"
                   type="text"
-                  placeholder="Enter Relationship"
+                  placeholder="Enter Relationship (e.g., Manager, Colleague)"
                 />
               </div>
             </div>
@@ -518,8 +606,9 @@ transform: translateX(-8%);
               <div class="inputname">
                 <input
                   class="inputtext"
-                  type="number"
+                  type="tel"
                   placeholder="Enter Phone Number"
+                  pattern="[0-9]{10}"
                 />
               </div>
               <div class="inputname">
@@ -535,18 +624,6 @@ transform: translateX(-8%);
             <div class="personalinfo mt-5">Resume Upload</div>
 
             <div class="mt-3">
-              <!-- <div class="inputname parttimejob">
-                <input
-                  class="inputtext"
-                  type="text"
-                  placeholder="Accepted formats: PDF, DOCX"
-                />
-                <img
-                  src="/assets/images/resumupload.png"
-                  alt=""
-                  class="resumuplod"
-                />
-              </div> -->
               <div class="inputname parttimejob position-relative">
                 <input
                   type="file"
@@ -572,11 +649,29 @@ transform: translateX(-8%);
             <div class="inputname mt-3 parttimejob textareah">
               <textarea
                 class="inputtext texthiht"
-                placeholder="Is there anything else you would like us to know about you?"
+                placeholder="Is there anything else you would like us to know about you? Include any certifications, special skills, or other qualifications relevant to the position."
               ></textarea>
             </div>
+            
+            <div class="mt-4">
+              <div class="personalinfo">Legal Information</div>
+              <div class="mt-3">
+                <label class="radio-label">
+                  <input type="checkbox" name="legal" value="authorized" required />
+                  <span class="custom-radio"></span>
+                  <span class="radio-label">I am legally authorized to work in the United States</span>
+                </label>
+              </div>
+              <div class="mt-2">
+                <label class="radio-label">
+                  <input type="checkbox" name="terms" value="agree" required />
+                  <span class="custom-radio"></span>
+                  <span class="radio-label">I certify that all information provided is true and complete</span>
+                </label>
+              </div>
+            </div>
           </div>
-          <div class="nextbutton lestemploy" id="submit">NEXT</div>
+          <div class="nextbutton lestemploy" id="submit">SUBMIT</div>
 
           <div class="applicationtext mt-5">
             All applications are looked through carefully by our employment
@@ -586,21 +681,32 @@ transform: translateX(-8%);
         </div>
       </div>
 
-     <!-- Success Modal -->
+      <!-- Thank You Form (replaces form after submission) -->
+      <div class="aplcinbg" id="thankYouForm" style="display: none">
+        <div class="formtext">Application Submitted</div>
 
+        <div class="formpara mt-3">
+          Thank you for your interest in joining the Plate of Africa team.
+          Your application has been successfully submitted.
+        </div>
 
-<div class="reviewOuter1" id="successModal" style="display: none;">
-  <div class="reviewSuccess">
-      <div class="reviewModal1">
-          <button class="closeBtdn" id="closeModal"></button>
-          <img src="./assets/images/successmark.png" class="sucessmark" alt="">
-          <div class="thankuText">Thank You</div>
-          <div class="forText">Your Application was Recorded!</div>
+        <div class="bar33 d-flex align-items-center gap-1">
+          <div class="barinner batinner100 completed-bar">
+            <span class="perc33 perc100">100%</span>
+          </div>
+        </div>
+
+        <div class="formdetail thank-you-content">
+          <div class="thank-you-container">
+            <img src="./assets/images/successmark.png" class="sucessmark thank-you-checkmark" alt="">
+            <div class="thankuText thank-you-title">Thank You</div>
+            <div class="forText thank-you-message">Your application has been successfully submitted!</div>
+            <div class="forText thank-you-message mt-3">We will review your application and contact you soon.</div>
+            
+            <div class="nextbutton home-button" id="homeButton">RETURN TO HOME</div>
+          </div>
+        </div>
       </div>
-  </div>
-</div>
-
-
 
     </div>
 
@@ -760,5 +866,769 @@ window.addEventListener('scroll', onScroll);
 onScroll(); 
 
     </script>
+
+    <!-- For testing purposes only - remove in production -->
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: none;">
+      <button id="testThankYou" style="background: #333; color: white; padding: 10px; border-radius: 5px; cursor: pointer;">
+        Test Thank You Form
+      </button>
+    </div>
+    <script>
+      // Test button to manually trigger thank you form (for testing only)
+      document.getElementById('testThankYou')?.addEventListener('click', function() {
+        showThankYouForm();
+      });
+    </script>
+    <!-- End testing code -->
+
+    <!-- Enhanced Form Validation Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Phone number validation
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(input => {
+          input.addEventListener('input', function(e) {
+            // Remove any non-digit characters
+            let value = e.target.value.replace(/\D/g, '');
+            
+            // Limit to 10 digits
+            if (value.length > 10) {
+              value = value.slice(0, 10);
+            }
+            
+            // Update the input value
+            e.target.value = value;
+            
+            // Add visual feedback
+            if (value.length === 10) {
+              this.classList.add('valid-phone');
+              this.classList.remove('invalid-phone');
+            } else if (value.length > 0) {
+              this.classList.add('invalid-phone');
+              this.classList.remove('valid-phone');
+            } else {
+              this.classList.remove('valid-phone');
+              this.classList.remove('invalid-phone');
+            }
+          });
+        });
+
+        // File upload styling
+        const fileInput = document.getElementById('fileUpload');
+        const fileLabel = document.querySelector('.file-label');
+        const fileName = document.getElementById('fileName');
+
+        if (fileInput && fileName) {
+          fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+              fileName.textContent = this.files[0].name;
+              fileLabel.classList.add('valid-file');
+              fileLabel.classList.remove('invalid-input');
+            } else {
+              fileName.textContent = 'Accepted formats: PDF, DOCX';
+              fileLabel.classList.remove('valid-file');
+            }
+          });
+        }
+
+        // Initialize date select options
+        const dateSelect = document.getElementById('dateSelect');
+        if (dateSelect) {
+          // Clear existing options
+          dateSelect.innerHTML = '';
+          
+          // Add default option
+          const defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.textContent = 'Desired Start Date';
+          dateSelect.appendChild(defaultOption);
+          
+          // Add date options for the next 90 days
+          const today = new Date();
+          for (let i = 7; i < 90; i++) {
+            const date = new Date(today);
+            date.setDate(today.getDate() + i);
+            
+            const option = document.createElement('option');
+            option.value = date.toISOString().split('T')[0];
+            
+            // Format date as "Mon, Jan 1, 2024"
+            const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+            option.textContent = date.toLocaleDateString('en-US', options);
+            
+            dateSelect.appendChild(option);
+          }
+        }
+
+        // Apply neutral styling to form elements initially
+        document.querySelectorAll('.inputtext').forEach(element => {
+          element.classList.add('neutral-field');
+        });
+
+        // Form navigation and validation
+        const next1Button = document.getElementById('next1');
+        const next2Button = document.getElementById('next2');
+        const back1Button = document.getElementById('back1');
+        const back2Button = document.getElementById('back2');
+        const submitButton = document.getElementById('submit');
+        const form1 = document.getElementById('form1');
+        const form2 = document.getElementById('form2');
+        const form3 = document.getElementById('form3');
+        const thankYouForm = document.getElementById('thankYouForm');
+        const homeButton = document.getElementById('homeButton');
+        const confettiBg = document.getElementById('confettiBg');
+
+        // Experience radio buttons
+        const experienceRadios = document.querySelectorAll('input[name="experience"]');
+        const experienceTextarea = document.querySelector('.first-textarea');
+
+        // Handle experience radio button changes
+        experienceRadios.forEach(radio => {
+          radio.addEventListener('change', function() {
+            if (this.value === 'yes') {
+              experienceTextarea.style.display = 'block';
+              experienceTextarea.classList.add('slide-in');
+              setTimeout(() => {
+                experienceTextarea.classList.add('show');
+              }, 10);
+            } else {
+              experienceTextarea.classList.remove('show');
+              setTimeout(() => {
+                experienceTextarea.style.display = 'none';
+              }, 300);
+            }
+          });
+        });
+
+        // Form 1 to Form 2 navigation
+        if (next1Button) {
+          next1Button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            let allFilled = true;
+            let firstInvalidField = null;
+            
+            // Check all required fields in form 1
+            document.querySelectorAll('#form1 .required-field').forEach(field => {
+              if (!field.value.trim()) {
+                allFilled = false;
+                field.classList.remove('neutral-field');
+                field.classList.add('invalid-input');
+                if (!firstInvalidField) firstInvalidField = field;
+              } else {
+                field.classList.remove('neutral-field');
+                field.classList.remove('invalid-input');
+              }
+            });
+            
+            // Phone number validation
+            const phoneInput = document.querySelector('#form1 input[type="tel"]');
+            if (phoneInput) {
+              const phoneValue = phoneInput.value.replace(/\D/g, '');
+              if (phoneValue.length !== 10) {
+                allFilled = false;
+                phoneInput.classList.remove('neutral-field');
+                phoneInput.classList.add('invalid-phone');
+                if (!firstInvalidField) firstInvalidField = phoneInput;
+              } else {
+                phoneInput.classList.remove('neutral-field');
+                phoneInput.classList.add('valid-phone');
+              }
+            }
+            
+            if (allFilled) {
+              // Hide form 1 and show form 2
+              form1.style.display = 'none';
+              form2.style.display = 'block';
+              
+              // No need to scroll, just focus on the first field of form 2
+              const firstField = form2.querySelector('input, select, textarea');
+              if (firstField) firstField.focus();
+            } else {
+              // Alert user and focus on first invalid field
+              alert('Please fill in all required fields correctly.');
+              if (firstInvalidField) firstInvalidField.focus();
+            }
+          });
+        }
+
+        // Back button from Form 2 to Form 1
+        if (back1Button) {
+          back1Button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Hide form 2 and show form 1
+            form2.style.display = 'none';
+            form1.style.display = 'block';
+            
+            // Focus on the first field of form 1
+            const firstField = form1.querySelector('input, select, textarea');
+            if (firstField) firstField.focus();
+          });
+        }
+
+        // Form 2 to Form 3 navigation
+        if (next2Button) {
+          next2Button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            let allFilled = true;
+            let firstInvalidField = null;
+            
+            // Check all required fields in form 2
+            document.querySelectorAll('#form2 .required-field').forEach(field => {
+              if (!field.value.trim()) {
+                allFilled = false;
+                field.classList.remove('neutral-field');
+                field.classList.add('invalid-input');
+                if (!firstInvalidField) firstInvalidField = field;
+              } else {
+                field.classList.remove('neutral-field');
+                field.classList.remove('invalid-input');
+              }
+            });
+            
+            // Check if at least one day is selected
+            const daysSelected = document.querySelectorAll('input[name="availability[]"]:checked').length > 0;
+            if (!daysSelected) {
+              allFilled = false;
+              alert('Please select at least one day of availability.');
+            }
+            
+            // Check if at least one shift is selected
+            const shiftsSelected = document.querySelectorAll('input[name="shifts[]"]:checked').length > 0;
+            if (!shiftsSelected) {
+              allFilled = false;
+              alert('Please select at least one preferred shift.');
+            }
+            
+            if (allFilled) {
+              // Hide form 2 and show form 3
+              form2.style.display = 'none';
+              form3.style.display = 'block';
+              
+              // Focus on the first field of form 3
+              const firstField = form3.querySelector('input, select, textarea');
+              if (firstField) firstField.focus();
+            } else {
+              // Focus on first invalid field
+              if (firstInvalidField) firstInvalidField.focus();
+            }
+          });
+        }
+
+        // Back button from Form 3 to Form 2
+        if (back2Button) {
+          back2Button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Hide form 3 and show form 2
+            form3.style.display = 'none';
+            form2.style.display = 'block';
+            
+            // Focus on the first field of form 2
+            const firstField = form2.querySelector('input, select, textarea');
+            if (firstField) firstField.focus();
+          });
+        }
+
+        // Create particle animation function
+        function createParticles() {
+          const particles = document.createElement('div');
+          particles.className = 'particles';
+          document.body.appendChild(particles);
+          
+          // Create 50 particles
+          for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random position, size, and color
+            const size = Math.random() * 10 + 5;
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            const duration = Math.random() * 2 + 1;
+            const delay = Math.random() * 0.5;
+            
+            // Random direction
+            const tx = (Math.random() - 0.5) * 200;
+            const ty = (Math.random() - 0.5) * 200;
+            
+            // Random color (gold, white, or brand color)
+            const colors = ['#ffdd55', '#ffffff', '#ff9955'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Apply styles
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            particle.style.backgroundColor = color;
+            particle.style.position = 'absolute';
+            particle.style.borderRadius = '50%';
+            particle.style.opacity = '0';
+            particle.style.setProperty('--tx', `${tx}px`);
+            particle.style.setProperty('--ty', `${ty}px`);
+            particle.style.animation = `particleAnimation ${duration}s ease-out ${delay}s`;
+            
+            particles.appendChild(particle);
+          }
+          
+          // Remove particles after animation completes
+          setTimeout(() => {
+            particles.remove();
+          }, 3500);
+        }
+
+        // Function to show thank you form with animations
+        function showThankYouForm() {
+          // Prevent any scrolling during the animation
+          document.body.style.overflow = 'hidden';
+          
+          // Save current scroll position before any animations
+          const currentScrollPosition = window.scrollY;
+          
+          // Get progress bar elements
+          const progressBar = document.querySelector('#form3 .barinner');
+          const percentText = document.querySelector('#form3 .perc100');
+          
+          // Animate progress bar to 100% (faster)
+          progressBar.classList.add('progress-animation');
+          percentText.classList.add('percent-animation');
+          
+          // Show confetti immediately
+          confettiBg.classList.add('active');
+          
+          // Create particle animation
+          createParticles();
+          
+          // Prepare the thank you form elements for animation
+          const checkmark = document.querySelector('.thank-you-checkmark');
+          const thankYouTitle = document.querySelector('.thank-you-title');
+          const thankYouMessages = document.querySelectorAll('.thank-you-message');
+          const homeBtn = document.querySelector('.home-button');
+          
+          if (checkmark) checkmark.style.opacity = '0';
+          if (thankYouTitle) thankYouTitle.style.opacity = '0';
+          thankYouMessages.forEach(msg => msg.style.opacity = '0');
+          if (homeBtn) homeBtn.style.opacity = '0';
+          
+          // Make the transition almost immediate
+          // Hide form 3 and show thank you form with minimal delay
+          setTimeout(() => {
+            // Hide form 3
+            form3.style.display = 'none';
+            
+            // Show thank you form
+            thankYouForm.style.display = 'block';
+            thankYouForm.classList.add('form-enter-animation');
+            
+            // Ensure we stay at the same scroll position
+            window.scrollTo({
+              top: currentScrollPosition,
+              behavior: 'auto'
+            });
+            
+            // Re-enable scrolling
+            document.body.style.overflow = 'auto';
+            
+            // Animate elements with minimal sequential delays
+            if (checkmark) {
+              setTimeout(() => {
+                checkmark.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                checkmark.style.opacity = '1';
+                checkmark.style.transform = 'scale(1)';
+                checkmark.style.animation = 'success-pulse-enhanced 1.5s ease-in-out infinite';
+              }, 50);
+            }
+            
+            if (thankYouTitle) {
+              setTimeout(() => {
+                thankYouTitle.style.transition = 'all 0.3s ease';
+                thankYouTitle.style.opacity = '1';
+                thankYouTitle.style.transform = 'translateY(0)';
+              }, 100);
+            }
+            
+            thankYouMessages.forEach((message, index) => {
+              setTimeout(() => {
+                message.style.transition = 'all 0.3s ease';
+                message.style.opacity = '1';
+                message.style.transform = 'translateY(0)';
+              }, 150 + (index * 50));
+            });
+            
+            if (homeBtn) {
+              setTimeout(() => {
+                homeBtn.style.transition = 'all 0.3s ease';
+                homeBtn.style.opacity = '1';
+                homeBtn.style.transform = 'translateY(0)';
+              }, 250);
+            }
+          }, 200); // Very short delay for a more seamless transition
+        }
+
+        // Form submission with animation
+        if (submitButton) {
+          submitButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            let allFilled = true;
+            let firstInvalidField = null;
+            
+            // Check all required fields in form 3
+            document.querySelectorAll('#form3 .required-field').forEach(field => {
+              if (!field.value.trim()) {
+                allFilled = false;
+                field.classList.remove('neutral-field');
+                field.classList.add('invalid-input');
+                if (!firstInvalidField) firstInvalidField = field;
+              } else {
+                field.classList.remove('neutral-field');
+                field.classList.remove('invalid-input');
+              }
+            });
+            
+            // Check if resume is uploaded
+            const resumeField = document.getElementById('fileUpload');
+            const fileLabel = document.querySelector('.file-label');
+            
+            if (resumeField && resumeField.files.length === 0) {
+              allFilled = false;
+              fileLabel.classList.add('invalid-input');
+              if (!firstInvalidField) firstInvalidField = resumeField;
+            } else if (resumeField && resumeField.files.length > 0) {
+              fileLabel.classList.remove('invalid-input');
+              fileLabel.classList.add('valid-file');
+            }
+            
+            // Check legal checkboxes
+            const legalCheckbox = document.querySelector('input[name="legal"]');
+            const termsCheckbox = document.querySelector('input[name="terms"]');
+            
+            if (legalCheckbox && !legalCheckbox.checked) {
+              allFilled = false;
+              alert('Please confirm that you are legally authorized to work in the United States.');
+            }
+            
+            if (termsCheckbox && !termsCheckbox.checked) {
+              allFilled = false;
+              alert('Please certify that all information provided is true and complete.');
+            }
+            
+            if (allFilled) {
+              showThankYouForm();
+            } else {
+              // Focus on first invalid field
+              if (firstInvalidField) firstInvalidField.focus();
+            }
+          });
+        }
+
+        // Home button click handler
+        if (homeButton) {
+          homeButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Fade out confetti
+            confettiBg.classList.remove('active');
+            
+            // Fade out thank you form
+            thankYouForm.style.opacity = '0';
+            thankYouForm.style.transition = 'opacity 0.5s ease';
+            
+            // After animation completes, redirect to home page
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 500);
+          });
+        }
+
+        // Add animation to form elements
+        const formElements = document.querySelectorAll('.aplcinbg .inputtext, .aplcinbg .nextbutton, .aplcinbg .radio-label');
+        formElements.forEach(element => {
+          element.addEventListener('focus', function() {
+            this.classList.add('focused');
+            this.classList.remove('neutral-field');
+          });
+          
+          element.addEventListener('blur', function() {
+            this.classList.remove('focused');
+          });
+        });
+
+        // Initialize the experience textarea based on the default radio selection
+        const defaultExperienceRadio = document.querySelector('input[name="experience"]:checked');
+        if (defaultExperienceRadio) {
+          if (defaultExperienceRadio.value === 'no') {
+            experienceTextarea.style.display = 'none';
+          }
+        }
+      });
+    </script>
+
+    <style>
+      /* Thank you form styling */
+      .thank-you-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+        min-height: 400px;
+      }
+      
+      /* Ensure the thank you form has the same positioning as the form it replaces */
+      #thankYouForm {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+      }
+      
+      .thank-you-checkmark {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 2rem;
+        filter: drop-shadow(0 0 10px rgba(255, 221, 85, 0.5));
+      }
+      
+      .thank-you-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        color: #ffdd55;
+        font-weight: bold;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+      
+      .thank-you-title:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ffdd55, #ff9955);
+        transition: width 1.2s ease;
+      }
+      
+      .form-enter-animation .thank-you-title:after {
+        width: 80%;
+      }
+      
+      .thank-you-message {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #f5f5f5;
+        max-width: 80%;
+        line-height: 1.6;
+      }
+      
+      .home-button {
+        margin-top: 2rem;
+        background: linear-gradient(45deg, #ffdd55, #ff9955) !important;
+        transition: all 0.3s ease;
+        border-radius: 30px !important;
+        padding: 12px 30px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+        color: #1a1a1a !important;
+      }
+      
+      .home-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      .completed-bar {
+        background: linear-gradient(90deg, #ffdd55, #ff9955) !important;
+        width: 100% !important;
+        box-shadow: 0 0 15px rgba(255, 221, 85, 0.7);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .completed-bar:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: shine 2s infinite;
+      }
+      
+      @keyframes shine {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      
+      @keyframes success-pulse-enhanced {
+        0% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 5px rgba(255, 221, 85, 0.5));
+        }
+        50% {
+          transform: scale(1.2);
+          filter: drop-shadow(0 0 15px rgba(255, 221, 85, 0.8));
+        }
+        100% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 5px rgba(255, 221, 85, 0.5));
+        }
+      }
+      
+      /* Particle animation */
+      @keyframes particleAnimation {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(var(--tx, -100px), var(--ty, -100px)) scale(0);
+          opacity: 0;
+        }
+      }
+      
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10001;
+      }
+      
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      
+      /* Form animations */
+      @keyframes formComplete {
+        0% { 
+          transform: scale(1);
+          opacity: 1;
+        }
+        20% { 
+          transform: scale(1.02);
+          opacity: 1;
+        }
+        100% { 
+          transform: scale(0.95);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes formEnter {
+        0% { 
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        100% { 
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      
+      /* Ensure forms have the same dimensions and positioning for smooth transition */
+      #form1, #form2, #form3, #thankYouForm {
+        position: relative;
+        width: 100%;
+        transition: opacity 0.3s ease;
+      }
+      
+      /* Position the thank you form in the exact same spot as form 3 */
+      #thankYouForm {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+      }
+      
+      .form-exit-animation {
+        animation: formComplete 0.4s ease-out forwards;
+      }
+      
+      .form-enter-animation {
+        animation: formEnter 0.4s ease-out forwards;
+      }
+      
+      /* Confetti background */
+      .confetti-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><g><circle cx="10" cy="10" r="3" fill="%23ffdd55"/><circle cx="20" cy="30" r="4" fill="%23ff5555"/><circle cx="40" cy="15" r="2" fill="%2355ff55"/><circle cx="60" cy="35" r="3" fill="%235555ff"/><circle cx="80" cy="10" r="5" fill="%23ff55ff"/><circle cx="90" cy="40" r="2" fill="%2355ffff"/></g></svg>');
+        background-size: 100px 100px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      
+      .confetti-bg.active {
+        opacity: 0.7;
+        animation: celebrationConfetti 10s linear infinite;
+      }
+      
+      @keyframes celebrationConfetti {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 0% 100%; }
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .thank-you-title {
+          font-size: 2rem;
+        }
+        
+        .thank-you-message {
+          font-size: 1rem;
+          max-width: 90%;
+        }
+        
+        .thank-you-checkmark {
+          width: 80px;
+          height: 80px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .thank-you-title {
+          font-size: 1.8rem;
+        }
+        
+        .thank-you-message {
+          font-size: 0.9rem;
+          max-width: 95%;
+        }
+        
+        .thank-you-checkmark {
+          width: 60px;
+          height: 60px;
+          margin-bottom: 1.5rem;
+        }
+        
+        .home-button {
+          padding: 10px 25px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
   </body>
 </html>
