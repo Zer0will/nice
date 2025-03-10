@@ -101,24 +101,49 @@
     
                             <div class="input-box" >
                                 <label for="phone-number"></label>
-                                <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number*" required>
+                                <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number* (10 digits)" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number without spaces or special characters" required>
                             </div>
     
                             <br>
 
                             <div class="input-box-inline">
                                 <label for="date"></label>
-                                <input type="date" id="date" name="date" placeholder="Date of Reservation*" min="2025-02-10" required>
+                                <div class="custom-date-container">
+                                    <input type="text" id="date-display" placeholder="Date of Reservation*" readonly required>
+                                    <input type="date" id="date" name="date" class="hidden-date-input" min="" required>
+                                    <button type="button" class="date-icon-button" onclick="showDatePicker()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0bc6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                    </button>
+                                </div>
         
                                 <label for="time"></label>
-                                <input type="time" id="time" name="time" placeholder="Time*" required>
+                                <div class="custom-time-container">
+                                    <input type="text" id="time-display" placeholder="Time*" readonly required>
+                                    <input type="time" id="time" name="time" class="hidden-time-input" min="11:00" max="22:00" required>
+                                    <button type="button" class="time-icon-button" onclick="showTimePicker()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0bc6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
 
                             <br>
 
-                            <div class="input-box" >
+                            <div class="input-box number-input-container">
                                 <label for="numberGuests"></label>
-                                <input type="number" id="numberGuests" name="numberGuests" placeholder="Number of Guests*"f min="1" required>
+                                <input type="number" id="numberGuests" name="numberGuests" placeholder="Number of Guests* (Max 6)" min="1" max="6" value="1" required>
+                                <div class="number-controls">
+                                    <button type="button" class="increment" onclick="incrementGuests()">+</button>
+                                    <button type="button" class="decrement" onclick="decrementGuests()">-</button>
+                                </div>
+                                <div class="tooltip">Check below for more info.</div>
                             </div>
 
                             <br>
@@ -139,7 +164,17 @@
     
                 </div>
 
-                
+                <!-- Thank You Success Message (Initially Hidden) -->
+                <div class="reviewOuter1" id="successModal" style="display: none;">
+                    <div class="reviewSuccess">
+                        <button class="closeBtdn" id="closeModal">&times;</button>
+                        <div class="reviewModal1">
+                            <img src="./assets/images/successmark.png" class="sucessmark" alt="">
+                            <div class="thankuText">Thank You</div>
+                            <div class="forText">Your Reservation was Recorded!</div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -151,7 +186,7 @@
                 </h1>
 
                 <p id="group-dining-description" class="slide-in">
-                    For those dining in groups of eight or more, we require a special reservation made at least five days before the reservation date. In order to complete a reservation request, reach out directly using the phone number 908-441-9271.
+                    For those dining in groups of seven or more, we require a special reservation made at least five days before the reservation date. In order to complete a reservation request, reach out directly using the phone number 908-441-9271.
                 </p>
 
             </div>
@@ -161,6 +196,543 @@
         <div id="scrolltotop-button">
             <img src="../images/ScrollToTopButton.png" alt="scroll to top">
         </div>
+
+        <style>
+            /* Modal Styles */
+            .reviewOuter1 {
+                width: 100%;
+                padding-top: 50px;
+                max-width: 1255px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 10px;
+                padding-right: 10px;
+                position: relative;
+            }
+
+            .reviewSuccess {
+                width: 100%;
+                background: #1e1e1e;
+                padding: 20px;
+                border-radius: 16px;
+                position: relative;
+                min-height: 350px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #e0bc6b;
+                margin-bottom: 50px;
+            }
+
+            .reviewModal1 {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                z-index: 1001;
+                position: relative;
+                padding: 30px;
+            }
+
+            /* Close button styling - positioned in the top-right corner as a circle with an X */
+            .closeBtdn {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: none;
+                border: 1px solid #e0bc6b;
+                color: #e0bc6b;
+                font-size: 24px;
+                cursor: pointer;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                outline: none;
+                line-height: 1;
+                text-align: center;
+                z-index: 1002; /* Ensure button is above other content */
+            }
+            
+            /* Ensure the X is centered within the button */
+            .closeBtdn:hover {
+                background-color: rgba(224, 188, 107, 0.1);
+            }
+
+            .sucessmark {
+                width: 90px;
+                height: 90px;
+            }
+
+            .thankuText {
+                font-family: "Poppins", sans-serif;
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 54px;
+                color: #e0bc6b;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .forText {
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 30px;
+                text-align: center;
+                color: #ffffff;
+            }
+
+            /* Slide-in Animation */
+            .slide-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .slide-in.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            /* Enhanced Form Styling */
+            #reservation-form {
+                transition: all 0.3s ease;
+            }
+            
+            #reservation-form .form-title {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            #reservation-form .form-title:after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background: linear-gradient(90deg, #e0bc6b, #f7efc1);
+                transition: width 0.3s ease;
+            }
+            
+            #reservation-form:hover .form-title:after {
+                width: 100px;
+            }
+            
+            /* Input field styling */
+            #reservation-form input[type="text"],
+            #reservation-form input[type="email"],
+            #reservation-form input[type="tel"],
+            #reservation-form input[type="date"],
+            #reservation-form input[type="time"],
+            #reservation-form input[type="number"],
+            #reservation-form textarea {
+                transition: all 0.3s ease;
+                border: 1px solid rgba(224, 188, 107, 0.3);
+                background-color: rgba(30, 30, 30, 0.5);
+            }
+            
+            /* Focus effects */
+            #reservation-form input:focus,
+            #reservation-form textarea:focus {
+                border-color: #e0bc6b;
+                box-shadow: 0 0 8px rgba(224, 188, 107, 0.5);
+                transform: translateY(-2px);
+                outline: none;
+            }
+            
+            /* Placeholder styling */
+            #reservation-form input::placeholder,
+            #reservation-form textarea::placeholder {
+                color: rgba(255, 255, 255, 0.6);
+                transition: opacity 0.3s ease;
+            }
+            
+            #reservation-form input:focus::placeholder,
+            #reservation-form textarea:focus::placeholder {
+                opacity: 0.4;
+            }
+            
+            /* Submit button styling */
+            #reservation-form .submit {
+                background: linear-gradient(90deg, #e0bc6b, #f7efc1);
+                color: #1a1a1a;
+                font-weight: bold;
+                border: none;
+                border-radius: 30px;
+                padding: 12px 30px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            #reservation-form .submit:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(224, 188, 107, 0.4);
+            }
+            
+            #reservation-form .submit:active {
+                transform: translateY(-1px);
+            }
+            
+            /* Add ripple effect to submit button */
+            #reservation-form .submit:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 5px;
+                height: 5px;
+                background: rgba(255, 255, 255, 0.5);
+                opacity: 0;
+                border-radius: 100%;
+                transform: scale(1, 1) translate(-50%);
+                transform-origin: 50% 50%;
+            }
+            
+            #reservation-form .submit:focus:not(:active)::after {
+                animation: ripple 1s ease-out;
+            }
+            
+            @keyframes ripple {
+                0% {
+                    transform: scale(0, 0);
+                    opacity: 0.5;
+                }
+                20% {
+                    transform: scale(25, 25);
+                    opacity: 0.3;
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(40, 40);
+                }
+            }
+            
+            /* Valid/Invalid input styling */
+            #reservation-form input:valid:not([type="submit"]),
+            #reservation-form textarea:valid {
+                border-left: 3px solid rgba(40, 167, 69, 0.7);
+            }
+            
+            #reservation-form input:invalid:not(:placeholder-shown):not([type="submit"]),
+            #reservation-form textarea:invalid:not(:placeholder-shown) {
+                border-left: 3px solid rgba(220, 53, 69, 0.7);
+            }
+            
+            /* Date and time input styling */
+            .custom-date-container,
+            .custom-time-container {
+                position: relative;
+                width: 100%;
+            }
+            
+            .hidden-date-input,
+            .hidden-time-input {
+                position: absolute;
+                opacity: 0;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+            }
+            
+            #date-display,
+            #time-display {
+                width: 100%;
+                padding-right: 40px;
+                cursor: pointer;
+                background-color: rgba(30, 30, 30, 0.5);
+                color: rgba(255, 255, 255, 0.8);
+            }
+            
+            .date-icon-button,
+            .time-icon-button {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 2;
+            }
+            
+            .date-icon-button:hover svg,
+            .time-icon-button:hover svg {
+                stroke: #f7efc1;
+                transform: scale(1.1);
+                transition: all 0.2s ease;
+            }
+            
+            #date-display:hover,
+            #time-display:hover {
+                border-color: #e0bc6b;
+                box-shadow: 0 0 5px rgba(224, 188, 107, 0.3);
+            }
+            
+            #date-display.valid-date,
+            #time-display.valid-time {
+                border-left: 3px solid rgba(40, 167, 69, 0.7);
+                background-color: rgba(40, 167, 69, 0.05);
+            }
+            
+            /* Number of guests input styling */
+            #reservation-form input[type="number"] {
+                position: relative;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background: rgba(30, 30, 30, 0.5) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23e0bc6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>') no-repeat;
+                background-position: calc(100% - 45px) center;
+                background-size: 16px;
+                padding-right: 70px;
+            }
+            
+            /* Guest limit indicator */
+            .number-input-container {
+                position: relative;
+            }
+            
+            .number-input-container::after {
+                content: 'Maximum 6 guests per party';
+                position: absolute;
+                bottom: -20px;
+                left: 0;
+                font-size: 12px;
+                color: #e0bc6b;
+                opacity: 0.8;
+                font-style: italic;
+            }
+            
+            /* Highlight when max guests reached */
+            #numberGuests.max-reached {
+                border-color: #e0bc6b;
+                background-color: rgba(224, 188, 107, 0.1);
+            }
+            
+            /* Custom tooltip for guest limit */
+            .number-input-container .tooltip {
+                visibility: hidden;
+                width: 250px;
+                background-color: rgba(30, 30, 30, 0.95);
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 12px;
+                position: absolute;
+                z-index: 10;
+                bottom: 125%;
+                left: 50%;
+                margin-left: -125px;
+                opacity: 0;
+                transition: opacity 0.3s, visibility 0.3s;
+                border: 1px solid #e0bc6b;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                font-size: 14px;
+                line-height: 1.4;
+            }
+            
+            .number-input-container .tooltip::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #e0bc6b transparent transparent transparent;
+            }
+            
+            .number-input-container .tooltip.show-tooltip {
+                visibility: visible;
+                opacity: 1;
+            }
+            
+            #reservation-form input[type="number"]::-webkit-inner-spin-button,
+            #reservation-form input[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            
+            #reservation-form input[type="number"] {
+                -moz-appearance: textfield;
+            }
+            
+            /* Custom number input controls */
+            .input-box {
+                position: relative;
+            }
+            
+            /* Add custom controls for number input */
+            #reservation-form input[type="number"] + .number-controls {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                height: 70%;
+                opacity: 1;
+                transition: opacity 0.3s ease;
+                background: rgba(30, 30, 30, 0.7);
+                border-left: 1px solid rgba(224, 188, 107, 0.3);
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+            
+            #reservation-form .number-controls button {
+                background: none;
+                border: none;
+                color: #e0bc6b;
+                cursor: pointer;
+                font-size: 18px;
+                padding: 0;
+                width: 20px;
+                height: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+            }
+            
+            #reservation-form .number-controls button:hover {
+                color: #f7efc1;
+                transform: scale(1.2);
+            }
+            
+            /* Add animation for input focus */
+            @keyframes input-focus-pulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(224, 188, 107, 0.4);
+                }
+                70% {
+                    box-shadow: 0 0 0 5px rgba(224, 188, 107, 0);
+                }
+                100% {
+                    box-shadow: 0 0 0 0 rgba(224, 188, 107, 0);
+                }
+            }
+            
+            #reservation-form input:focus,
+            #reservation-form textarea:focus {
+                animation: input-focus-pulse 1.5s infinite;
+            }
+            
+            /* Phone number validation styling */
+            #reservation-form input.valid-phone {
+                border-left: 3px solid rgba(40, 167, 69, 0.7);
+                background-color: rgba(40, 167, 69, 0.05);
+            }
+            
+            #reservation-form input.invalid-phone {
+                border-left: 3px solid rgba(220, 53, 69, 0.7);
+                background-color: rgba(220, 53, 69, 0.05);
+            }
+            
+            /* Phone number validation tooltip */
+            #phone-number {
+                position: relative;
+            }
+            
+            #phone-number:focus:invalid {
+                box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+            }
+            
+            #phone-number:focus:valid {
+                box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+            }
+            
+            /* Custom date and time picker dialog styles */
+            .custom-picker-dialog {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #1e1e1e;
+                border: 1px solid #e0bc6b;
+                border-radius: 8px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                width: 90%;
+                max-width: 350px;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .picker-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px;
+                border-bottom: 1px solid rgba(224, 188, 107, 0.3);
+            }
+            
+            .picker-header h3 {
+                margin: 0;
+                color: #e0bc6b;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            
+            .close-picker {
+                background: none;
+                border: none;
+                color: #e0bc6b;
+                font-size: 24px;
+                cursor: pointer;
+                padding: 0;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+            }
+            
+            .close-picker:hover {
+                background-color: rgba(224, 188, 107, 0.1);
+            }
+            
+            .date-options,
+            .time-options {
+                padding: 15px;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+            
+            .date-option,
+            .time-option {
+                padding: 10px 15px;
+                cursor: pointer;
+                border-radius: 4px;
+                margin-bottom: 5px;
+                color: #fff;
+                transition: all 0.2s ease;
+            }
+            
+            .date-option:hover,
+            .time-option:hover {
+                background-color: rgba(224, 188, 107, 0.2);
+            }
+            
+            .date-option.selected,
+            .time-option.selected {
+                background-color: rgba(224, 188, 107, 0.3);
+                border-left: 3px solid #e0bc6b;
+            }
+        </style>
 
         <script>
             var scrolltotop = document.getElementById("scrolltotop-button");
@@ -180,6 +752,192 @@
                     behavior: 'smooth'
                 });
             };
+            
+            // Functions for number of guests controls
+            function incrementGuests() {
+                const input = document.getElementById('numberGuests');
+                const currentValue = parseInt(input.value) || 1;
+                const max = parseInt(input.getAttribute('max')) || 6;
+                if (currentValue < max) {
+                    input.value = currentValue + 1;
+                    // Trigger change event to update validation
+                    const event = new Event('change', { bubbles: true });
+                    input.dispatchEvent(event);
+                } else {
+                    // Show tooltip instead of alert
+                    const tooltip = document.querySelector('.number-input-container .tooltip');
+                    tooltip.classList.add('show-tooltip');
+                    
+                    // Hide tooltip after 3 seconds
+                    setTimeout(() => {
+                        tooltip.classList.remove('show-tooltip');
+                    }, 3000);
+                }
+            }
+            
+            function decrementGuests() {
+                const input = document.getElementById('numberGuests');
+                const currentValue = parseInt(input.value) || 2;
+                const min = parseInt(input.getAttribute('min')) || 1;
+                if (currentValue > min) {
+                    input.value = currentValue - 1;
+                    // Trigger change event to update validation
+                    const event = new Event('change', { bubbles: true });
+                    input.dispatchEvent(event);
+                }
+            }
+            
+            // Functions for custom date and time pickers
+            function showDatePicker() {
+                // Create a custom date picker dialog
+                const dateInput = document.getElementById('date');
+                const dateDisplay = document.getElementById('date-display');
+                
+                // Get current date or default to today
+                const today = new Date();
+                const currentDate = dateInput.value ? new Date(dateInput.value) : today;
+                
+                // Create a simple date picker dialog
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                
+                // Create a date selection for the next 90 days
+                let dateOptions = '';
+                for (let i = 0; i < 90; i++) {
+                    const date = new Date(today);
+                    date.setDate(today.getDate() + i);
+                    
+                    // Format the date for display
+                    const formattedDate = formatDate(date);
+                    const dateValue = date.toISOString().split('T')[0];
+                    
+                    // Check if this date is selected
+                    const isSelected = dateInput.value === dateValue ? 'selected' : '';
+                    
+                    dateOptions += `<div class="date-option ${isSelected}" data-value="${dateValue}">${formattedDate}</div>`;
+                }
+                
+                // Create and show the dialog
+                const dialog = document.createElement('div');
+                dialog.className = 'custom-picker-dialog date-picker-dialog';
+                dialog.innerHTML = `
+                    <div class="picker-header">
+                        <h3>Select a Date</h3>
+                        <button type="button" class="close-picker">&times;</button>
+                    </div>
+                    <div class="date-options">
+                        ${dateOptions}
+                    </div>
+                `;
+                
+                document.body.appendChild(dialog);
+                
+                // Add event listeners
+                dialog.querySelector('.close-picker').addEventListener('click', function() {
+                    document.body.removeChild(dialog);
+                });
+                
+                dialog.querySelectorAll('.date-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        dateInput.value = value;
+                        dateDisplay.value = formatDate(new Date(value));
+                        dateDisplay.classList.add('valid-date');
+                        
+                        // Trigger change event
+                        const event = new Event('change', { bubbles: true });
+                        dateInput.dispatchEvent(event);
+                        
+                        document.body.removeChild(dialog);
+                    });
+                });
+            }
+            
+            function showTimePicker() {
+                // Create a custom time picker dialog
+                const timeInput = document.getElementById('time');
+                const timeDisplay = document.getElementById('time-display');
+                
+                // Get current restrictions
+                const minTime = timeInput.min || "09:00";
+                const maxTime = timeInput.max || "23:00";
+                
+                // Create time options in 30-minute intervals
+                let timeOptions = '';
+                const [minHour, minMinute] = minTime.split(':').map(Number);
+                const [maxHour, maxMinute] = maxTime.split(':').map(Number);
+                
+                const minTimeMinutes = minHour * 60 + minMinute;
+                const maxTimeMinutes = maxHour * 60 + maxMinute;
+                
+                // Generate time options in 30-minute intervals
+                for (let minutes = minTimeMinutes; minutes <= maxTimeMinutes; minutes += 30) {
+                    const hour = Math.floor(minutes / 60);
+                    const minute = minutes % 60;
+                    
+                    const timeValue = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+                    const displayTime = formatTime(timeValue);
+                    
+                    // Check if this time is selected
+                    const isSelected = timeInput.value === timeValue ? 'selected' : '';
+                    
+                    timeOptions += `<div class="time-option ${isSelected}" data-value="${timeValue}">${displayTime}</div>`;
+                }
+                
+                // Create and show the dialog
+                const dialog = document.createElement('div');
+                dialog.className = 'custom-picker-dialog time-picker-dialog';
+                dialog.innerHTML = `
+                    <div class="picker-header">
+                        <h3>Select a Time</h3>
+                        <button type="button" class="close-picker">&times;</button>
+                    </div>
+                    <div class="time-options">
+                        ${timeOptions}
+                    </div>
+                `;
+                
+                document.body.appendChild(dialog);
+                
+                // Add event listeners
+                dialog.querySelector('.close-picker').addEventListener('click', function() {
+                    document.body.removeChild(dialog);
+                });
+                
+                dialog.querySelectorAll('.time-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        const value = this.getAttribute('data-value');
+                        timeInput.value = value;
+                        timeDisplay.value = formatTime(value);
+                        timeDisplay.classList.add('valid-time');
+                        
+                        // Trigger change event
+                        const event = new Event('change', { bubbles: true });
+                        timeInput.dispatchEvent(event);
+                        
+                        document.body.removeChild(dialog);
+                    });
+                });
+            }
+            
+            // Format date for display
+            function formatDate(dateString) {
+                if (!dateString) return '';
+                const date = new Date(dateString);
+                const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+                return date.toLocaleDateString('en-US', options);
+            }
+            
+            // Format time for display
+            function formatTime(timeString) {
+                if (!timeString) return '';
+                const [hours, minutes] = timeString.split(':');
+                const hour = parseInt(hours);
+                const ampm = hour >= 12 ? 'PM' : 'AM';
+                const hour12 = hour % 12 || 12;
+                return `${hour12}:${minutes} ${ampm}`;
+            }
+            
             // on scroll fade in animation
             const elements = document.querySelectorAll('.slide-in'); 
 
@@ -195,106 +953,99 @@ onScroll();
 
         </script>
 
-        <!-- Thank You Popup Modal -->
-        <div id="successModal" class="success-modal">
-            <div class="modal-content">
-                <span id="closeModal" class="close-button">&times;</span>
-                <img src="images/Plate of Africa Logo.png" alt="Plate of Africa Logo" class="modal-logo">
-                <h2>Thank You!</h2>
-                <p>Your reservation request has been submitted successfully.</p>
-                <p>We will confirm your reservation via email or phone within 24 hours.</p>
-                <p>If you have any questions, please contact us at 908-441-9271.</p>
-                <button id="closeModalButton">Close</button>
-            </div>
-        </div>
-
-        <style>
-            /* Modal Styles */
-            .success-modal {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.8);
-                z-index: 1000;
-                justify-content: center;
-                align-items: center;
-            }
-
-            /* Slide-in Animation */
-            .slide-in {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .slide-in.show {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .modal-content {
-                background-color: #1a1a1a;
-                padding: 40px;
-                border-radius: 10px;
-                max-width: 500px;
-                text-align: center;
-                position: relative;
-                border: 1px solid #e0bc6b;
-            }
-
-            .modal-logo {
-                width: 120px;
-                margin-bottom: 20px;
-            }
-
-            .close-button {
-                position: absolute;
-                top: 10px;
-                right: 15px;
-                font-size: 24px;
-                cursor: pointer;
-                color: #e0bc6b;
-            }
-
-            .modal-content h2 {
-                color: #e0bc6b;
-                margin-bottom: 20px;
-                font-size: 28px;
-            }
-
-            .modal-content p {
-                margin-bottom: 15px;
-                color: #fff;
-                font-size: 16px;
-            }
-
-            #closeModalButton {
-                background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
-                color: #000;
-                border: none;
-                padding: 10px 30px;
-                border-radius: 30px;
-                font-weight: bold;
-                cursor: pointer;
-                margin-top: 20px;
-                transition: all 0.3s ease;
-            }
-
-            #closeModalButton:hover {
-                transform: scale(1.05);
-            }
-        </style>
-
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                // Get the form, modal, and close button elements
+                // Get the form element
                 const reservationForm = document.querySelector("#reservation-form-element");
+                const reservationFormContainer = document.getElementById("reservation-form");
                 const successModal = document.getElementById("successModal");
                 const closeModal = document.getElementById("closeModal");
-                const closeModalButton = document.getElementById("closeModalButton");
+                const phoneInput = document.getElementById('phone-number');
+                
+                // Get date and time elements
+                const dateInput = document.getElementById('date');
+                const timeInput = document.getElementById('time');
+                const dateDisplay = document.getElementById('date-display');
+                const timeDisplay = document.getElementById('time-display');
+                
+                // Set up date and time display
+                dateInput.addEventListener('change', function() {
+                    dateDisplay.value = formatDate(this.value);
+                    dateDisplay.classList.add('valid-date');
+                    updateTimeRestrictions();
+                });
+                
+                timeInput.addEventListener('change', function() {
+                    timeDisplay.value = formatTime(this.value);
+                    timeDisplay.classList.add('valid-time');
+                });
+                
+                // Make the display fields also trigger the pickers
+                dateDisplay.addEventListener('click', function() {
+                    showDatePicker();
+                });
+                
+                timeDisplay.addEventListener('click', function() {
+                    showTimePicker();
+                });
+                
+                // Phone number validation
+                phoneInput.addEventListener('input', function(e) {
+                    // Remove any non-digit characters
+                    let value = e.target.value.replace(/\D/g, '');
+                    
+                    // Limit to 10 digits
+                    if (value.length > 10) {
+                        value = value.slice(0, 10);
+                    }
+                    
+                    // Update the input value
+                    e.target.value = value;
+                    
+                    // Add visual feedback
+                    if (value.length === 10) {
+                        phoneInput.classList.add('valid-phone');
+                        phoneInput.classList.remove('invalid-phone');
+                    } else if (value.length > 0) {
+                        phoneInput.classList.add('invalid-phone');
+                        phoneInput.classList.remove('valid-phone');
+                    } else {
+                        phoneInput.classList.remove('valid-phone');
+                        phoneInput.classList.remove('invalid-phone');
+                    }
+                });
+                
+                // Set minimum date to today
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const dd = String(today.getDate()).padStart(2, '0');
+                const formattedToday = `${yyyy}-${mm}-${dd}`;
+                dateInput.min = formattedToday;
+                
+                // Handle time restrictions based on day of week
+                function updateTimeRestrictions() {
+                    const selectedDate = new Date(dateInput.value);
+                    const dayOfWeek = selectedDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
+                    
+                    // Set time restrictions based on day of week
+                    if (dayOfWeek === 0 || dayOfWeek === 6) { // Saturday or Sunday
+                        timeInput.min = "09:00";
+                        timeInput.max = "23:00";
+                    } else { // Monday through Friday
+                        timeInput.min = "11:00";
+                        timeInput.max = "22:00";
+                    }
+                    
+                    // Reset time if it's outside the allowed range
+                    if (timeInput.value && (timeInput.value < timeInput.min || timeInput.value > timeInput.max)) {
+                        timeInput.value = timeInput.min;
+                        timeDisplay.value = formatTime(timeInput.value);
+                    }
+                }
+                
+                // Initialize time restrictions
+                updateTimeRestrictions();
                 
                 // Add submit event listener to the form
                 reservationForm.addEventListener("submit", function(event) {
@@ -310,31 +1061,62 @@ onScroll();
                         }
                     });
                     
+                    // Validate phone number specifically
+                    const phoneValue = phoneInput.value.replace(/\D/g, '');
+                    if (phoneValue.length !== 10) {
+                        allFieldsValid = false;
+                        phoneInput.classList.add('invalid-phone');
+                        phoneInput.focus();
+                        alert("Please enter a valid 10-digit phone number.");
+                        return;
+                    }
+                    
+                    // Validate number of guests
+                    const guestsInput = document.getElementById('numberGuests');
+                    const numGuests = parseInt(guestsInput.value);
+                    if (isNaN(numGuests) || numGuests < 1 || numGuests > 6) {
+                        allFieldsValid = false;
+                        guestsInput.focus();
+                        alert("Please enter a valid number of guests (1-6). For larger groups, please call us directly.");
+                        return;
+                    }
+                    
                     if (allFieldsValid) {
-                        // Show the success modal
-                        successModal.style.display = "flex";
+                        // Hide the form
+                        reservationFormContainer.style.display = "none";
                         
-                        // Optional: Reset the form
+                        // Show the success modal
+                        successModal.style.display = "block";
+                        
+                        // Reset the form
                         reservationForm.reset();
+                        
+                        // Automatically redirect after 3 seconds
+                        setTimeout(() => {
+                            window.location.href = "reservations.html";
+                        }, 3000); // 3 seconds delay
                     }
                 });
                 
-                // Close the modal when the close button is clicked
-                closeModal.addEventListener("click", function() {
-                    successModal.style.display = "none";
-                });
-                
-                // Close the modal when the close button is clicked
-                closeModalButton.addEventListener("click", function() {
-                    successModal.style.display = "none";
-                    // Optional: Redirect to home page
-                    // window.location.href = "index.html";
-                });
-                
-                // Close the modal if the user clicks outside of it
-                window.addEventListener("click", function(event) {
-                    if (event.target === successModal) {
-                        successModal.style.display = "none";
+                // Close modal function
+                if (closeModal) {
+                    closeModal.addEventListener("click", function() {
+                        // Reload the reservations page
+                        window.location.reload();
+                    });
+                }
+
+                // Add event listener for number of guests
+                const guestsInput = document.getElementById('numberGuests');
+                guestsInput.addEventListener('change', function() {
+                    const value = parseInt(this.value) || 0;
+                    const max = parseInt(this.getAttribute('max')) || 6;
+                    
+                    // Add visual indicator when max is reached
+                    if (value >= max) {
+                        this.classList.add('max-reached');
+                    } else {
+                        this.classList.remove('max-reached');
                     }
                 });
             });
