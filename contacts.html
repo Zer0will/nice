@@ -4,48 +4,326 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="assets/images/logo.png" type="image/png">
-        
-        <link rel="stylesheet" href="../css/contact-hero-section.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/contact-hero-section.css">
     
-        <link rel="stylesheet" href="../css/footer.css">
-
-        <link rel="stylesheet" href="../css/contact-form.css">
-        <link rel="stylesheet" href="../css/improved-nav.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/contact-form.css">
+        
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <title>Contact Us</title>
         
+        <style>
+            /* Global Navigation Styles (Inlined from global-nav.css) */
+            .navbar.navbar-expand-lg {
+                position: fixed !important;
+                width: 100% !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1000 !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 10px 2.5% !important;
+                transition: all 0.3s ease !important;
+                background-color: rgba(15, 15, 15, 0.95) !important;
+                backdrop-filter: blur(10px) !important;
+                -webkit-backdrop-filter: blur(10px) !important;
+                max-width: 100vw !important;
+                overflow-x: hidden !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+            }
+
+            /* Styling for scrolled state - will be applied via JavaScript */
+            .navbar.navbar-expand-lg.scrolled {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+            }
+
+            /* Styling for hidden state - will be applied via JavaScript */
+            .navbar.navbar-expand-lg.hidden {
+                transform: translateY(-100%) !important;
+            }
+
+            /* Navigation links */
+            .navbar.navbar-expand-lg .nav-link {
+                font-family: "Poppins" !important;
+                font-weight: 400 !important;
+                font-size: 16px !important;
+                color: white !important;
+                margin: 0 5px !important;
+                position: relative !important;
+                transition: all 0.3s ease !important;
+                white-space: nowrap !important;
+                padding: 5px 5px !important;
+            }
+
+            .navbar.navbar-expand-lg .nav-link:hover {
+                color: #e0bc6b !important;
+            }
+
+            .navbar.navbar-expand-lg .nav-link::after {
+                content: '' !important;
+                position: absolute !important;
+                width: 0 !important;
+                height: 2px !important;
+                background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
+                bottom: -5px !important;
+                left: 0 !important;
+                transition: width 0.3s ease !important;
+            }
+
+            .navbar.navbar-expand-lg .nav-link:hover::after {
+                width: 100% !important;
+            }
+
+            /* Style for active page link */
+            .navbar.navbar-expand-lg .nav-link.active {
+                color: #e0bc6b !important;
+            }
+
+            .navbar.navbar-expand-lg .nav-link.active::after {
+                content: '' !important;
+                position: absolute !important;
+                width: 100% !important;
+                height: 2px !important;
+                background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
+                bottom: -5px !important;
+                left: 0 !important;
+            }
+
+            /* Contact button styling */
+            .navbar.navbar-expand-lg .logbutton {
+                background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
+                color: #0f0f0f !important;
+                border: none !important;
+                border-radius: 30px !important;
+                padding: 10px 25px !important;
+                font-weight: 600 !important;
+                transition: all 0.3s ease !important;
+                white-space: nowrap !important;
+            }
+
+            .navbar.navbar-expand-lg .logbutton:hover {
+                transform: translateY(-3px) !important;
+                box-shadow: 0 5px 15px rgba(224, 188, 107, 0.4) !important;
+                color: #0f0f0f !important; /* Maintain dark text on hover */
+            }
+
+            /* Fix for Contact Us button link */
+            .navbar.navbar-expand-lg a.contact-link {
+                text-decoration: none !important;
+                margin-left: 15px !important;
+            }
+
+            .navbar.navbar-expand-lg a.contact-link:hover, 
+            .navbar.navbar-expand-lg a.contact-link:focus, 
+            .navbar.navbar-expand-lg a.contact-link:active {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+
+            .navbar.navbar-expand-lg .contact-link .btn:hover {
+                color: #0f0f0f !important;
+            }
+
+            /* Mobile menu toggle */
+            .navbar.navbar-expand-lg .navbar-toggler {
+                border: 2px solid rgba(255, 255, 255, 0.5) !important;
+                transition: all 0.3s ease !important;
+                padding: 4px 8px !important;
+            }
+
+            .navbar.navbar-expand-lg .navbar-toggler:hover {
+                border-color: #e0bc6b !important;
+                box-shadow: 0 0 10px rgba(224, 188, 107, 0.7) !important;
+            }
+
+            /* Container width fix */
+            .navbar.navbar-expand-lg .container-fluid {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                margin-right: auto !important;
+                margin-left: auto !important;
+            }
+
+            /* Logo styling */
+            .navbar.navbar-expand-lg .navbar-brand img {
+                max-height: 60px !important;
+                width: auto !important;
+            }
+
+            /* Responsive styles */
+            @media (max-width: 1200px) {
+                .navbar.navbar-expand-lg .navbar-collapse {
+                    background-color: rgba(15, 15, 15, 0.95) !important;
+                    padding: 15px !important;
+                    border-radius: 10px !important;
+                    margin-top: 10px !important;
+                    max-width: 100% !important;
+                }
+                
+                .navbar.navbar-expand-lg .nav-link {
+                    padding: 8px 0 !important;
+                    margin: 3px 5px !important;
+                    font-size: 15px !important;
+                }
+                
+                .navbar.navbar-expand-lg .navbar-nav {
+                    max-width: 100% !important;
+                    text-align: center !important;
+                }
+                
+                .navbar.navbar-expand-lg .logbutton {
+                    padding: 8px 15px !important;
+                    font-size: 14px !important;
+                    margin-top: 10px !important;
+                }
+            }
+
+            @media (max-width: 1050px) {
+                .navbar.navbar-expand-lg {
+                    padding: 8px 2% !important;
+                }
+                
+                .navbar.navbar-expand-lg .logbutton {
+                    padding: 6px 12px !important;
+                    font-size: 13px !important;
+                }
+                
+                .navbar.navbar-expand-lg .nav-link {
+                    font-size: 14px !important;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .navbar.navbar-expand-lg .navbar-brand img {
+                    max-height: 50px !important;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .navbar.navbar-expand-lg {
+                    padding: 5px 1.5% !important;
+                }
+                
+                .navbar.navbar-expand-lg .logbutton {
+                    padding: 5px 10px !important;
+                    font-size: 12px !important;
+                }
+                
+                .navbar.navbar-expand-lg .navbar-brand img {
+                    max-height: 40px !important;
+                }
+                
+                .navbar.navbar-expand-lg .navbar-toggler {
+                    padding: 3px 6px !important;
+                }
+                
+                .navbar.navbar-expand-lg .navbar-toggler-icon {
+                    width: 1em !important;
+                    height: 1em !important;
+                }
+            }
+            
+            /* Fix for main content to account for fixed navbar */
+            main {
+                padding-top: 100px !important;
+                margin-top: 0 !important;
+            }
+            
+            /* Additional styles for navbar toggler icon */
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            }
+            
+            /* Additional responsive fixes */
+            @media (max-width: 991px) {
+                /* Ensure navbar is visible on mobile */
+                .navbar.navbar-expand-lg.hidden {
+                    transform: translateY(0) !important;
+                }
+                
+                /* Improve mobile menu appearance */
+                .navbar-collapse {
+                    max-height: 80vh;
+                    overflow-y: auto;
+                }
+                
+                /* Ensure navbar items don't disappear */
+                .navbar-nav {
+                    width: 100%;
+                }
+                
+                /* Fix for Contact Us button on mobile */
+                .contact-link {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                
+                /* Ensure the navbar doesn't overflow */
+                .navbar.navbar-expand-lg {
+                    overflow-x: visible !important;
+                }
+            }
+        </style>
     </head>
     
     <body>
-        <header>
-            <a href="index.html"><img class="logo" src="../images/Plate of Africa Logo.png" alt="Plate of Africa Logo"></a>
-        <nav>
-            <input type="checkbox" id="sidebar-active">
-            <label for="sidebar-active" class="open-sidebar-button">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-            </label>
-
-            <label id="overlay" for="sidebar-active"></label>
-            <div class="nav-links">
-                <label for="sidebar-active" class="close-sidebar-button"> 
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                </label>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="reservations.html">Reservations</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="OurApproachToVeganism.html">Sustainability</a></li>
-                <li><a href="hoursLocation.html">Hours & Location</a></li>
-                <li><a href="employ.html">Employment</a></li>
-                <li><a href="references.html">References</a></li>
+        <!-- Bootstrap Navbar (matching index page) -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-3">
+                <a class="navbar-brand" href="index.html">
+                    <div class="logo-container">
+                        <img src="images/Plate of Africa Logo.png" alt="Logo" class="logo" />
+                    </div>
+                </a>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto text-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservations.html">Reservations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="OurApproachToVeganism.html">Sustainability</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hoursLocation.html">Hours & Location</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="employ.html">Employment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="references.html">References</a>
+                        </li>
+                    </ul>
+                    <a href="contacts.html" class="contact-link">
+                        <button class="btn logbutton d-none d-lg-block active">Contact Us</button>
+                        <button class="btn logbutton d-lg-none active">Contact</button>
+                    </a>
+                </div>
             </div>
-
         </nav>
-        <a class="cta" href="contacts.html"><button>Contact Us</button></a>
+        <!-- Replace the header with the div that will be populated by script.js -->
         
-        </header>
 
         <main>
             <div id="title-area">
@@ -60,7 +338,7 @@
             <!-- Adding a new intro section similar to reservations page -->
             <div class="contact-intro">
                 <div class="slide-in">
-                    <img src="../images/contact-image.png" alt="Contact Us">
+                    <img src="images/contact-image.png" alt="Contact Us">
                 </div>
 
                 <div class="text-container">
@@ -79,7 +357,7 @@
                 <h2 class="location-heading slide-in">OUR LOCATIONS</h2>
                 
                 <div class="map-container slide-in">
-                    <img src="../images/map.png" alt="Restaurant Location Map" class="location-map">
+                    <img src="images/map.png" alt="Restaurant Location Map" class="location-map">
                     
                     <!-- Location markers -->
                     <div class="location-marker marker-1" data-location="Downtown">
@@ -169,7 +447,7 @@
                 
                 <!-- Thank You Message (Initially Hidden) -->
                 <div id="thank-you-message" class="thank-you-message">
-                    <img src="../images/Plate of Africa Logo.png" alt="Plate of Africa Logo" class="thank-you-logo">
+                    <img src="images/Plate of Africa Logo.png" alt="Plate of Africa Logo" class="thank-you-logo">
                     <h2>Thank You!</h2>
                     <p>Your message has been submitted successfully.</p>
                     <p>We will get back to you as soon as possible.</p>
@@ -181,7 +459,7 @@
 
          <!--SCROLL BUTTON CODE-->
     <div id="scrolltotop-button">
-        <img src="../images/ScrollToTopButton.png" alt="scroll to top">
+        <img src="images/ScrollToTopButton.png" alt="scroll to top">
     </div>
 
     <script>
@@ -812,7 +1090,7 @@
 <footer>
     <div class="row">
         <div class="col">
-            <a href="index.html"><img src="../images/Plate of Africa Logo.png" class="logo" alt="Plate of Africa Logo"></a>
+            <a href="index.html"><img src="images/Plate of Africa Logo.png" class="logo" alt="Plate of Africa Logo"></a>
         </div>
         <div class="col">
             <h3>Quick Links</h3>
@@ -856,12 +1134,66 @@
     <p class="copyright">Plate of Africa © Copyright 2024. All Rights Reserved</p>
 </footer>
 
-<script src="../js/improved-nav.js"></script>
-
+        <!-- Add script.js to load the navigation -->
+        <script src="script.js"></script>
+        
+        <!-- Add Bootstrap JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Fix navbar issues specifically for contacts.html -->
+        <script>
+            // Apply our fix as soon as the DOM is ready
+            document.addEventListener('DOMContentLoaded', applyContactsPageFix);
+            
+            // Also apply it after a short delay to ensure it runs after all other scripts
+            window.addEventListener('load', function() {
+                setTimeout(applyContactsPageFix, 100);
+                
+                // Re-run the fix every time the DOM is modified (to catch any potential changes to the navbar)
+                const observer = new MutationObserver(function(mutations) {
+                    applyContactsPageFix();
+                });
+                
+                // Watch for changes to the body element and its descendants
+                observer.observe(document.body, { 
+                    childList: true,
+                    subtree: true 
+                });
+            });
+            
+            // Main function to fix active classes and navbar behavior
+            function applyContactsPageFix() {
+                // 1. First ensure only Contact Us is active by removing active class from all other nav links
+                document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // 2. Make sure Contact Us buttons stay active
+                const contactButtons = document.querySelectorAll('.contact-link .logbutton');
+                contactButtons.forEach(button => {
+                    button.classList.add('active');
+                });
+                
+                // 3. Ensure the navbar is properly visible and functioning
+                const navbar = document.querySelector('.navbar');
+                if (navbar) {
+                    // 3a. For mobile view, ensure navbar is always visible
+                    if (window.innerWidth < 992) {
+                        navbar.classList.remove('hidden');
+                    }
+                    
+                    // 3b. Make sure the mobile menu toggle works properly
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    
+                    if (navbarToggler && navbarCollapse && !navbarToggler._hasClickListener) {
+                        navbarToggler.addEventListener('click', function() {
+                            navbarCollapse.classList.toggle('show');
+                        });
+                        navbarToggler._hasClickListener = true; // Mark that we've added a listener
+                    }
+                }
+            }
+        </script>
     </body>
-
-
-
-
-
 </html>

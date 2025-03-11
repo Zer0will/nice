@@ -1,14 +1,10 @@
-html {
-    overflow-x:hidden;
-}
 body {
-    margin-top: 100px;
     background-color: rgba(15, 15, 15, 1);
     font-family: "Poppins";
     font-weight: 300;
     line-height: 27px;
     color: rgba(255, 255, 255, 1);
-    background-image: url(../images/reservations-background.png);
+    background-image: url(../images/AboutUsBlackBackground.png);
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -39,6 +35,7 @@ li {
     
 
 
+
 button {
     padding: 9px 25px;
     background: linear-gradient(90deg, #E3D582 0%, #E6B035 100%);
@@ -52,7 +49,7 @@ button {
 
 
 #title-area {
-    background-image: url(../images/menu-header-image.png);
+    background-image: url(../images/AboutUsBackgroundImage.png);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -80,44 +77,11 @@ button {
    
 }
 
-@keyframes Main-title {
-    from {
-        transform: translateY(-10%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0%);
-        opacity: 1;
-      }
-}
-#Main-title {
-    animation: Main-title 1.5s ease-out;
-}
-@keyframes Intro-text {
-    from {
-        transform: translateY(-10%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0%);
-        opacity: 1;
-      }
-}
-#Intro-text {
-    animation: Intro-text 1.5s ease-out;
-    display:flex;
-    
-    justify-content:center;
-    
-
-    
-}
-
 
 #rectangle-header {
     position: absolute;
     width: 100%;
-    height: 105%;
+    height: 94%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,8 +103,8 @@ h1 {
 
 }
 
-/** NAVBAR **/
 
+/** NAVBAR **/
 
 nav svg {
     fill: #E3D582;
@@ -171,7 +135,7 @@ nav svg {
 }
 
 
-@media screen and (min-width:0px ) {
+@media screen and (min-width: 0px){
     .nav-links{
         
         position: fixed;
@@ -215,12 +179,11 @@ nav svg {
     }
 }
 
-@media screen and (max-width:900px){}
+@media screen and (max-width: 900px){
     .hideOnMobile{
-        display: none !important;
+        display: none;
     }
-
-
+}
 
 nav input[type="checkbox"]:checked ~ .nav-links {
     right: 0;
@@ -305,14 +268,14 @@ header button:hover {
     
 }
 
-/** Reference page */
-.Sources a  {
-    color:#E0BC6B;
-    
-}
+/* on scroll animations **/
+.slide-in
+ { opacity: 0; 
+transform: translateX(-8%);
+ transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+ } 
 
-.Sources li {
-    list-style-type:none;
-    text-decoration:underline;
-    text-decoration-color:#E0BC6B;
+.show
+ { opacity: 1;
+ transform: translateX(0); 
 }

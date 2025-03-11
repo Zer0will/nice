@@ -1,13 +1,213 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("header.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("header").innerHTML = data);
+    // Get the current page
+    const currentPage = window.location.pathname.split('/').pop();
+    
+    // List of pages with embedded navbar
+    const pagesWithEmbeddedNavbar = [
+        'aboutus.html',
+        'reservations.html',
+        'OurApproachToVeganism.html',
+        'references.html',
+        'contacts.html',
+    ];
+    
+    // Only load navigation if not on a page with embedded navbar
+    if (!pagesWithEmbeddedNavbar.includes(currentPage)) {
+        // Load navigation from hoursLocation.html instead of header.html
+        fetch("hoursLocation.html")
+            .then(response => response.text())
+            .then(data => {
+                // Create a temporary div to parse the HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = data;
+                
+                // Extract the navigation section from hoursLocation.html
+                const navSection = tempDiv.querySelector('.navbar');
+                
+                // Insert the navigation into the header div
+                if (navSection && document.getElementById("header")) {
+                    document.getElementById("header").innerHTML = navSection.outerHTML;
+                    
+                    // Add scroll effect to navbar using classes instead of inline styles
+                    const navbar = document.querySelector('.navbar');
+                    if (navbar) {
+                        // Ensure the navbar has the navbar-expand-lg class
+                        if (!navbar.classList.contains('navbar-expand-lg')) {
+                            navbar.classList.add('navbar-expand-lg');
+                        }
+                        
+                        // Check initial scroll position
+                        if (window.scrollY > 50) {
+                            navbar.classList.add('scrolled');
+                        } else {
+                            navbar.classList.remove('scrolled');
+                        }
+                        
+                        // Add scroll event listener
+                        window.addEventListener('scroll', function() {
+                            if (window.scrollY > 50) {
+                                navbar.classList.add('scrolled');
+                            } else {
+                                navbar.classList.remove('scrolled');
+                            }
+                        });
+                        
+                        // Add mouse position tracking for showing/hiding navbar
+                        let lastScrollTop = 0;
+                        let isMouseNearTop = false;
+                        
+                        function checkMousePosition(e) {
+                            isMouseNearTop = e.clientY < 100;
+                            
+                            // If mouse is near top, show navbar
+                            if (isMouseNearTop && navbar.classList.contains('hidden')) {
+                                navbar.classList.remove('hidden');
+                            }
+                            
+                            // If mouse is not near top and we've scrolled down, hide navbar
+                            if (!isMouseNearTop && window.scrollY > 100 && !navbar.classList.contains('hidden')) {
+                                navbar.classList.add('hidden');
+                            }
+                        }
+                        
+                        // Hide navbar when scrolling down past 100px
+                        window.addEventListener('scroll', function() {
+                            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                            
+                            if (scrollTop > 100 && scrollTop > lastScrollTop && !isMouseNearTop) {
+                                navbar.classList.add('hidden');
+                            } 
+                            // Show navbar when scrolling up
+                            else if (scrollTop < lastScrollTop) {
+                                navbar.classList.remove('hidden');
+                            }
+                            
+                            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+                        }, false);
+                        
+                        // Add mousemove event listener to detect cursor position
+                        document.addEventListener('mousemove', checkMousePosition);
+                        
+                        // Mobile touch support
+                        document.addEventListener('touchmove', function(e) {
+                            const touch = e.touches[0];
+                            if (touch.clientY < 100) {
+                                isMouseNearTop = true;
+                                navbar.classList.remove('hidden');
+                            } else {
+                                isMouseNearTop = false;
+                            }
+                        });
+                        
+                        // Set active link based on current page
+                        const navLinks = document.querySelectorAll('.nav-link');
+                        navLinks.forEach(link => {
+                            // First remove any existing active classes
+                            link.classList.remove('active');
+                            
+                            const linkHref = link.getAttribute('href');
+                            // Only add active class if the href exactly matches current page
+                            // or if we're on index.html/root and the link is to index.html
+                            if (linkHref === currentPage || 
+                                ((currentPage === '' || currentPage === '/') && linkHref === 'index.html') ||
+                                (currentPage === 'hoursLocation.html' && linkHref === 'hoursLocation.html')) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                }
+            })
+            .catch(error => {
+                console.error("Error loading navigation:", error);
+            });
+    } else {
+        // For pages with embedded navbar, just add the scroll and mouse position effects
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            // Check initial scroll position
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Set active link based on current page for embedded navbars
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                // First remove any existing active classes
+                link.classList.remove('active');
+                
+                const linkHref = link.getAttribute('href');
+                // Only add active class if the href exactly matches current page
+                if (linkHref === currentPage || 
+                    ((currentPage === '' || currentPage === '/') && linkHref === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Add mouse position tracking for showing/hiding navbar
+            let lastScrollTop = 0;
+            let isMouseNearTop = false;
+            
+            function checkMousePosition(e) {
+                isMouseNearTop = e.clientY < 100;
+                
+                // If mouse is near top, show navbar
+                if (isMouseNearTop && navbar.classList.contains('hidden')) {
+                    navbar.classList.remove('hidden');
+                }
+                
+                // If mouse is not near top and we've scrolled down, hide navbar
+                if (!isMouseNearTop && window.scrollY > 100 && !navbar.classList.contains('hidden')) {
+                    navbar.classList.add('hidden');
+                }
+            }
+            
+            // Hide navbar when scrolling down past 100px
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                
+                if (scrollTop > 100 && scrollTop > lastScrollTop && !isMouseNearTop) {
+                    navbar.classList.add('hidden');
+                } 
+                // Show navbar when scrolling up
+                else if (scrollTop < lastScrollTop) {
+                    navbar.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+            }, false);
+            
+            // Add mousemove event listener to detect cursor position
+            document.addEventListener('mousemove', checkMousePosition);
+            
+            // Mobile touch support
+            document.addEventListener('touchmove', function(e) {
+                const touch = e.touches[0];
+                if (touch.clientY < 100) {
+                    isMouseNearTop = true;
+                    navbar.classList.remove('hidden');
+                } else {
+                    isMouseNearTop = false;
+                }
+            });
+        }
+    }
 
+    // Always load the footer
     fetch("footer.html")
         .then(response => response.text())
         .then(data => document.getElementById("footer").innerHTML = data);
 });
-
 
 //Sroll moveTop Click
 const moveTopButton = document.getElementById("movetop");
@@ -28,8 +228,6 @@ moveTopButton.addEventListener("click", function () {
         behavior: "smooth"  // Smooth scroll effect
     });
 });
-
-
 
 // <!-- ?YES OR NO HANDLE -->
 
@@ -87,8 +285,6 @@ document.getElementById("next2").addEventListener("click", function () {
     validateAndShowNextForm("form2", "form3");
 });
 
-
-
 // ?THAMKS 
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".lestemploy").addEventListener("click", function () {
@@ -118,7 +314,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 // ?Doc FIle Upload
 document
     .getElementById("fileUpload")
@@ -131,7 +326,6 @@ document
     });
 
 // Date Selected
-
 
 const select = document.getElementById("dateSelect");
 const today = new Date();

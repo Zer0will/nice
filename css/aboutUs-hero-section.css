@@ -7,19 +7,16 @@ body {
     background-image: url(../images/AboutUsBlackBackground.png);
     background-size: cover;
     background-repeat: no-repeat;
-
-
 }
-
 
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
 }
 
-li, a, button {
+/* Scope these selectors to main content area to avoid affecting navbar */
+main li, main a, main button {
     font-family: "Poppins";
     font-size: 18px;
     font-weight: 300;
@@ -28,15 +25,11 @@ li, a, button {
     text-decoration: none;
 }
 
-
-li {
+main li {
     padding: 10px;
 }
-    
 
-
-
-button {
+main button {
     padding: 9px 25px;
     background: linear-gradient(90deg, #E3D582 0%, #E6B035 100%);
     border-radius: 50px;
@@ -46,7 +39,6 @@ button {
     border: 1px solid;
     outline: none;
 }
-
 
 #title-area {
     background-image: url(../images/AboutUsBackgroundImage.png);
@@ -59,7 +51,6 @@ button {
     justify-content: center;
     align-items: center;
     text-align: center;
-
 }
 
 #title-area p {
@@ -72,11 +63,7 @@ button {
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     width: 45%;
-
-
-   
 }
-
 
 #rectangle-header {
     position: absolute;
@@ -88,7 +75,6 @@ button {
     align-items: center;
     background: rgba(0, 0, 0, 0.36);
     -webkit-backdrop-filter: blur(10px);
-
 }
 
 h1 {
@@ -100,171 +86,22 @@ h1 {
     line-height: 64.38px;
     text-align: center;
     margin-bottom: 50px;
-
-}
-
-
-/** NAVBAR **/
-
-nav svg {
-    fill: #E3D582;
-}
-
-#sidebar-active{
-    display: none;
-}
-
-.open-sidebar-button, .close-sidebar-button{
-    
-    display: none; 
-    cursor: pointer;
-}
-
-.close-sidebar-button{
-    padding-right: 20px;
-    padding-top: 20px;
-}
-
-.open-sidebar-button {
-    position: absolute;
-    top: 20px; 
-    right: 20px; 
-    width: 32px;
-    height: 32px;
-
-}
-
-
-@media screen and (min-width: 0px){
-    .nav-links{
-        
-        position: fixed;
-        flex-direction: column;
-        align-items: flex-start ; 
-        top: 0;
-        height: 100%;
-        right: -100%;
-        z-index: 10;
-        width: 250px;
-        background-color: rgba(30, 30, 30, 1);
-        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
-        transition: 1s ease-out;
-        
-    }
-
-    nav a{
-        
-        height: auto;
-        
-        padding: 20px 30px;
-        
-    }
-
-    .open-sidebar-button, .close-sidebar-button{
-        display: block;
-    }
-        
-    #sidebar-active:checked ~ .nav-links{
-        right: 0;
-    }
-
-    .nav-links li {
-        
-        display: block;
-    
-        text-align: center; 
-        
-
-        
-    }
 }
 
 @media screen and (max-width: 900px){
     .hideOnMobile{
-        display: none !important;
+        display: none;
     }
-
 }
 
-nav input[type="checkbox"]:checked ~ .nav-links {
-    right: 0;
-}
+/* on scroll animations **/
+.slide-in { 
+    opacity: 0; 
+    transform: translateX(-8%);
+    transition: opacity 0.9s ease-in, transform 0.9s ease-out;
+} 
 
-
-
-
-
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    padding: 20px 10%;
-    
-    position: absolute; 
-    
-    width: 100%; 
-    
-    text-align: right;
-    
-    z-index: 10;
-    
-
-    
-    
-}
-
-
-
-
-
-.logo {
-    cursor: pointer;
-    margin-right: auto;
-    width: 118px;
-    height: 118px;
-    
-    top: 36px;
-    left: 90px;
-    
-    gap: 0px;
-    opacity: 0px;
-    float:left;
-}
-
-
-
-.nav-links {
-    list-style: none;
-    
-}
-
-
-
-.nav-links li{
-    display: inline-block;
-}
-
-.nav-links li a {
-    transition: all 0.3s ease 0s;
-}
-
-.nav__links li a:hover {
-    background: linear-gradient(90deg, #E0BC6B 0%, #F7EFC1 100%); 
-}
-
-
-
-#sidebar-active:checked ~ #overlay{
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9;
-}
-
-header button:hover {
-    background: linear-gradient(90deg, #E0BC6B 0%, #F7EFC1 100%); 
-    
+.show { 
+    opacity: 1;
+    transform: translateX(0); 
 }

@@ -12,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/employ.css" />
+    <link rel="stylesheet" href="css/global-nav.css">
+    <!-- Removed improved-nav.css to prevent conflicts with the main navigation system -->
     <!-- <link rel="stylesheet" href="assets/employ-enhanced.css" /> -->
     <!-- <link rel="stylesheet" href="assets/ReviewPage.css" /> -->
 
@@ -29,6 +31,24 @@ transform: translateX(-8%);
  transform: translateX(0); 
 }
 
+/* Enhanced hero section styling */
+.employbg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.employtop {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
   </style>
   <body>
     <!-- Confetti background for celebration animation -->
@@ -39,7 +59,7 @@ transform: translateX(-8%);
       <div id="header"></div>
 
       <!-- Page Content -->
-      <div class="container employtop">
+      <div class="container employtop d-flex flex-column justify-content-center align-items-center text-center">
         <div class="employmentheading slide-in">Employment</div>
         <div class="employtext mt-4 slide-in">
           Are you interested in working for Plate of Africa? We are always
@@ -53,7 +73,7 @@ transform: translateX(-8%);
     <!-- Second  -->
     <div class="position-relative">
       <div class="joinleft">
-        <img src="/assets/images/joinleft.png" alt="" class="bgleft" />
+        <img src="assets/images/joinleft.png" alt="" class="bgleft" />
       </div>
       <div class="jointop">
         <div
@@ -65,7 +85,7 @@ transform: translateX(-8%);
               <div class="d-flex gap-4 mt-sm-5 mt-4">
                 <div class="bgcommun slide-in">
                   <img
-                    src="/assets/images/commun.png"
+                    src="assets/images/commun.png"
                     alt=""
                     class="communimg"
                   />
@@ -81,7 +101,7 @@ transform: translateX(-8%);
               <div class="d-flex gap-4 mt-4">
                 <div class="bgcommun">
                   <img
-                    src="/assets/images/compet.png"
+                    src="assets/images/compet.png"
                     alt=""
                     class="communimg"
                   />
@@ -98,7 +118,7 @@ transform: translateX(-8%);
               <div class="d-flex gap-4 mt-4">
                 <div class="bgcommun">
                   <img
-                    src="/assets/images/impact.png"
+                    src="assets/images/impact.png"
                     alt=""
                     class="communimg"
                   />
@@ -113,11 +133,11 @@ transform: translateX(-8%);
           </div>
           <div class="d-flex gap-3 manimage slide-in">
             <div class="imagebg">
-              <img src="/assets/images/image1.png" alt="" class="image1" />
+              <img src="assets/images/image1.png" alt="" class="image1" />
             </div>
             <div class="imagebg imagebg2">
               <img
-                src="/assets/images/image 2.png"
+                src="assets/images/image 2.png"
                 alt=""
                 class="image1 image2"
               />
@@ -130,10 +150,10 @@ transform: translateX(-8%);
             class="d-flex justify-content-center justify-content-xl-start gap-4 mt-5"
           >
             <div class="mt-5">
-              <img src="/assets/images/image3.png" alt="" class="image3" />
+              <img src="assets/images/image3.png" alt="" class="image3" />
             </div>
             <div class="mt-1">
-              <img src="/assets/images/image4.png" alt="" class="image4" />
+              <img src="assets/images/image4.png" alt="" class="image4" />
             </div>
           </div>
 
@@ -143,7 +163,7 @@ transform: translateX(-8%);
               <div class="d-flex align-items-center gap-4">
                 <div class="bgcommun">
                   <img
-                    src="/assets/images/strong.png"
+                    src="assets/images/strong.png"
                     alt=""
                     class="strongimg"
                     width="29"
@@ -156,7 +176,7 @@ transform: translateX(-8%);
               <div class="d-flex align-items-center gap-4">
                 <div class="bgcommun">
                   <img
-                    src="/assets/images/abilitiy.png"
+                    src="assets/images/abilitiy.png"
                     alt=""
                     class="strongimg"
                     width="29"
@@ -173,7 +193,7 @@ transform: translateX(-8%);
               <div class="d-flex align-items-center gap-4">
                 <div class="bgcommun">
                   <img
-                    src="/assets/images/minimum.png"
+                    src="assets/images/minimum.png"
                     alt=""
                     class="strongimg"
                     width="29"
@@ -188,7 +208,7 @@ transform: translateX(-8%);
               <div class="d-flex align-items-center gap-4">
                 <div class="bgcommun">
                   <img
-                    src="/assets/images/food.png"
+                    src="assets/images/food.png"
                     alt=""
                     class="strongimg"
                     width="29"
@@ -206,11 +226,11 @@ transform: translateX(-8%);
       </div>
 
       <div class="joinright">
-        <img src="/assets/images/joinright.png" alt="" class="bgright" />
+        <img src="assets/images/joinright.png" alt="" class="bgright" />
       </div>
       <div class="joincircleright">
         <img
-          src="/assets/images/joincircleright.png"
+          src="assets/images/joincircleright.png"
           alt=""
           class="bgright bgcircleright"
           width="295"
@@ -223,7 +243,7 @@ transform: translateX(-8%);
     <div class="position-relative">
       <div class="applleftcircle">
         <img
-          src="/assets/images/applileftcircle.png"
+          src="assets/images/applileftcircle.png"
           alt=""
           class="applcieleft"
           width="295"
@@ -635,7 +655,7 @@ transform: translateX(-8%);
                 <label for="fileUpload" class="file-label">
                   <span id="fileName">Accepted formats: PDF, DOCX</span>
                   <img
-                    src="/assets/images/resumupload.png"
+                    src="assets/images/resumupload.png"
                     alt="Upload"
                     class="resumuplod"
                   />
@@ -714,10 +734,10 @@ transform: translateX(-8%);
     </div>
     <!-- Forth -->
     <div class="applright position-relative">
-      <img src="/assets/images/appliright.png" alt="" class="appllright" />
+      <img src="assets/images/appliright.png" alt="" class="appllright" />
     </div>
     <div class="movetop" id="movetop">
-      <img src="/assets/images/movetop.png" alt="" class="movetopimg" />
+      <img src="assets/images/movetop.png" alt="" class="movetopimg" />
     </div>
 
     <!-- Footer -->
