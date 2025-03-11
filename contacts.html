@@ -57,17 +57,73 @@
                 </div>
             </div>
 
+            <!-- Adding a new intro section similar to reservations page -->
+            <div class="contact-intro">
+                <div class="slide-in">
+                    <img src="../images/contact-image.png" alt="Contact Us">
+                </div>
+
+                <div class="text-container">
+                    <h1 class="contact-heading slide-in">
+                        GET IN TOUCH
+                    </h1>
+    
+                    <p class="contact-intro-description slide-in">
+                        We'd love to hear from you! Whether you have a question about our menu, want to provide feedback, or are interested in learning more about our sustainable practices, please fill out the form below and we'll get back to you as soon as possible.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Improved map section with interactive elements - moved above the contact form -->
+            <div class="location-section">
+                <h2 class="location-heading slide-in">OUR LOCATIONS</h2>
+                
+                <div class="map-container slide-in">
+                    <img src="../images/map.png" alt="Restaurant Location Map" class="location-map">
+                    
+                    <!-- Location markers -->
+                    <div class="location-marker marker-1" data-location="Downtown">
+                        <div class="marker-logo"></div>
+                    </div>
+                    <div class="location-marker marker-2" data-location="Westside">
+                        <div class="marker-logo"></div>
+                    </div>
+                    <div class="location-marker marker-3" data-location="Eastside">
+                        <div class="marker-logo"></div>
+                    </div>
+                    
+                    <!-- Location info container -->
+                    <div class="location-info-container" id="location-info-container">
+                        <div class="location-info" id="info-downtown" data-location="Downtown">
+                            <h3>Downtown</h3>
+                            <p><i class="fa-solid fa-location-dot"></i> 123 Main Street</p>
+                            <p><i class="fa-solid fa-clock"></i> Open: 11am - 10pm</p>
+                            <p><i class="fa-solid fa-phone"></i> 908-441-9271</p>
+                            <button class="location-contact-btn" data-location="Downtown">Contact This Location</button>
+                        </div>
+                        <div class="location-info" id="info-westside" data-location="Westside">
+                            <h3>Westside</h3>
+                            <p><i class="fa-solid fa-location-dot"></i> 456 Park Avenue</p>
+                            <p><i class="fa-solid fa-clock"></i> Open: 11am - 11pm</p>
+                            <p><i class="fa-solid fa-phone"></i> 908-441-9271</p>
+                            <button class="location-contact-btn" data-location="Westside">Contact This Location</button>
+                        </div>
+                        <div class="location-info" id="info-eastside" data-location="Eastside">
+                            <h3>Eastside</h3>
+                            <p><i class="fa-solid fa-location-dot"></i> 789 River Road</p>
+                            <p><i class="fa-solid fa-clock"></i> Open: 12pm - 10pm</p>
+                            <p><i class="fa-solid fa-phone"></i> 908-441-9271</p>
+                            <button class="location-contact-btn" data-location="Eastside">Contact This Location</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="contact-form">
-                <div class="form-title">CONTACT FORM</div>
+                <div class="form-title slide-in">CONTACT FORM</div>
 
-                <div class="content">
-                    <form>
-
-                        <!--<input type="hidden" name="access_key" value="d9a66630-4168-4aa6-9a68-72bdc1499718">-->
-                        
-                        
-
-
+                <div class="content slide-in">
+                    <form id="contact-form-element">
                         <div class="input-box-inline">
                             <label for="first-name"></label>
                             <input type="text" id="first-name" name="first-name" placeholder="First Name*" required>
@@ -86,7 +142,14 @@
 
                         <div class="input-box" >
                             <label for="phone-number"></label>
-                            <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number*" required>
+                            <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number*" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number without spaces or special characters" required>
+                        </div>
+
+                        <br>
+
+                        <div class="input-box">
+                            <label for="subject"></label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject*" required>
                         </div>
 
                         <br>
@@ -98,49 +161,22 @@
 
                         <br>
                         
-                        
-
                         <div class="submit-button">
-                            <!--
-                            <input type="submit" class="submit">
-                        -->
-                            <!--
-                                <button type="submit" class="btn" onclick="openPopup()">Submit</button>
-
-                        -->
-                                <!--
-                            <button onclick="alert('Thanks you for reaching out to us, we will get back to you shortly!')">Submit</button>
-                        -->
-                            <button onclick="alert('Thanks you for reaching out to us, we will get back to you shortly!')">Submit</button>
+                            <button type="submit" id="contact-submit-btn">Submit</button>
                         </div>
-
-                        </form>
                     </form>
                 </div>
-
-            </div>
-
-
-            <div class="map-container">
-                <img src="../images/hoursLocation-map.png" alt="map">
-
                 
-
-
-            
-                <div class="location-map-rectangle">
-                    
-                    <div class="location-map-rectangle-content">
-                        <i class="fa-regular fa-clock"></i>
-                        <p>Hours</p>
-                        <p>Monday - Friday: 11:00 AM – 10:00 PM</p>
-                        <p>Saturday - Sunday: 9:00 AM – 11:00 PM</p>
-                    </div>
-                    
+                <!-- Thank You Message (Initially Hidden) -->
+                <div id="thank-you-message" class="thank-you-message">
+                    <img src="../images/Plate of Africa Logo.png" alt="Plate of Africa Logo" class="thank-you-logo">
+                    <h2>Thank You!</h2>
+                    <p>Your message has been submitted successfully.</p>
+                    <p>We will get back to you as soon as possible.</p>
+                    <p>If you have any urgent questions, please contact us at 908-441-9271.</p>
+                    <button id="new-message-btn">Send Another Message</button>
                 </div>
-
             </div>
-
         </main>
 
          <!--SCROLL BUTTON CODE-->
@@ -166,85 +202,597 @@
                 behavior: 'smooth'
             });
         };
+        
+        // Contact form submission handling
+        document.getElementById('contact-form-element').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Hide the form content
+            document.querySelector('#contact-form .content').style.display = 'none';
+            
+            // Hide the form title
+            document.querySelector('#contact-form .form-title').style.display = 'none';
+            
+            // Show thank you message
+            document.getElementById('thank-you-message').style.display = 'block';
+            
+            // Reset form for future use
+            this.reset();
+        });
+        
+        // Return to form when clicking the "Send Another Message" button
+        document.getElementById('new-message-btn').addEventListener('click', function() {
+            // Hide thank you message
+            document.getElementById('thank-you-message').style.display = 'none';
+            
+            // Show the form content
+            document.querySelector('#contact-form .content').style.display = 'block';
+            
+            // Show the form title
+            document.querySelector('#contact-form .form-title').style.display = 'block';
+        });
+        
+        // Add animation to elements with slide-in class
+        document.addEventListener('DOMContentLoaded', function() {
+            const slideInElements = document.querySelectorAll('.slide-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            });
+            
+            slideInElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Check for location parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const locationParam = urlParams.get('location');
+            
+            if (locationParam) {
+                // Pre-fill the subject field with the location
+                const subjectField = document.getElementById('subject');
+                if (subjectField) {
+                    subjectField.value = `Inquiry about ${locationParam} Location`;
+                }
+                
+                // Focus on the message field and add a helpful placeholder
+                const messageField = document.getElementById('message');
+                if (messageField) {
+                    messageField.placeholder = `I'm interested in the ${locationParam} location and would like to know...`;
+                    
+                    // Make sure the form is visible (in case of previous submission)
+                    document.querySelector('#contact-form .content').style.display = 'block';
+                    document.querySelector('#contact-form .form-title').style.display = 'block';
+                    document.getElementById('thank-you-message').style.display = 'none';
+                    
+                    // Scroll to contact form
+                    const contactForm = document.getElementById('contact-form');
+                    contactForm.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Focus on the message field after scrolling
+                    setTimeout(() => {
+                        messageField.focus();
+                    }, 800);
+                }
+            }
+            
+            // Initialize map functionality
+            initLocationMarkers();
+        });
+        
+        // Map functionality
+        function initLocationMarkers() {
+            const locationMarkers = document.querySelectorAll('.location-marker');
+            const infoContainer = document.getElementById('location-info-container');
+            const locationInfos = document.querySelectorAll('.location-info');
+            let currentLocation = null;
+            
+            // Exit if elements don't exist
+            if (!locationMarkers.length || !infoContainer) return;
+            
+            /**
+             * Show location info with enhanced animations
+             * @param {string} locationName - The name of the location to show
+             */
+            function showLocationInfo(locationName) {
+                // If we're already showing this location, do nothing
+                if (currentLocation === locationName) return;
+                
+                // If we're showing a different location, animate the transition
+                if (currentLocation) {
+                    // First hide the current location info with a quick fade
+                    locationInfos.forEach(info => {
+                        if (info.getAttribute('data-location') === currentLocation) {
+                            info.style.opacity = '0';
+                            info.style.transform = 'translateX(10px)';
+                            
+                            // After a short delay, remove active class and show new location
+                            setTimeout(() => {
+                                info.classList.remove('active');
+                                showNewLocation();
+                            }, 150);
+                        }
+                    });
+                } else {
+                    // If no location is currently shown, just show the new one
+                    infoContainer.classList.add('active');
+                    showNewLocation();
+                }
+                
+                /**
+                 * Helper function to show the new location
+                 */
+                function showNewLocation() {
+                    // Show the selected location info
+                    const selectedInfo = document.getElementById('info-' + locationName.toLowerCase());
+                    if (selectedInfo) {
+                        selectedInfo.classList.add('active');
+                        // Ensure the container is visible
+                        infoContainer.classList.add('active');
+                        // Highlight the active marker
+                        highlightMarker(locationName);
+                    }
+                    // Update current location
+                    currentLocation = locationName;
+                }
+            }
+            
+            /**
+             * Highlight the active marker
+             * @param {string} locationName - The name of the location to highlight
+             */
+            function highlightMarker(locationName) {
+                // Reset all markers
+                locationMarkers.forEach(marker => {
+                    marker.style.backgroundColor = '#E0BC6B';
+                    marker.style.transform = 'translate(-50%, -50%)';
+                    marker.style.boxShadow = 'none';
+                    // Make sure logo is properly sized
+                    const logo = marker.querySelector('.marker-logo');
+                    if (logo) {
+                        logo.style.width = '30px';
+                        logo.style.height = '30px';
+                    }
+                });
+                
+                // Highlight the active marker
+                locationMarkers.forEach(marker => {
+                    if (marker.getAttribute('data-location') === locationName) {
+                        marker.style.backgroundColor = '#E6B035';
+                        marker.style.transform = 'translate(-50%, -50%) scale(1.2)';
+                        marker.style.boxShadow = '0 0 15px #E0BC6B';
+                        // Make logo slightly larger on highlighted marker
+                        const logo = marker.querySelector('.marker-logo');
+                        if (logo) {
+                            logo.style.width = '35px';
+                            logo.style.height = '35px';
+                        }
+                    }
+                });
+            }
+            
+            /**
+             * Hide location info
+             */
+            function hideLocationInfo() {
+                infoContainer.classList.remove('active');
+                setTimeout(() => {
+                    locationInfos.forEach(info => {
+                        info.classList.remove('active');
+                    });
+                    // Reset all markers
+                    locationMarkers.forEach(marker => {
+                        marker.style.backgroundColor = '#E0BC6B';
+                        marker.style.transform = 'translate(-50%, -50%)';
+                        marker.style.boxShadow = 'none';
+                        // Reset logo size
+                        const logo = marker.querySelector('.marker-logo');
+                        if (logo) {
+                            logo.style.width = '30px';
+                            logo.style.height = '30px';
+                        }
+                    });
+                    currentLocation = null;
+                }, 300);
+            }
+            
+            // Add event listeners to markers
+            locationMarkers.forEach(marker => {
+                const location = marker.getAttribute('data-location');
+                
+                // Show on hover
+                marker.addEventListener('mouseenter', () => {
+                    showLocationInfo(location);
+                });
+                
+                // Hide when mouse leaves the map container (not just the marker)
+                const mapContainer = document.querySelector('.map-container');
+                if (mapContainer) {
+                    mapContainer.addEventListener('mouseleave', hideLocationInfo);
+                }
+                
+                // For mobile: toggle on click
+                marker.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent bubbling
+                    showLocationInfo(location);
+                });
+            });
+            
+            // Add event listeners to contact buttons
+            document.querySelectorAll('.location-contact-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent bubbling
+                    const location = button.getAttribute('data-location');
+                    
+                    // Scroll to contact form
+                    const contactForm = document.getElementById('contact-form');
+                    contactForm.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Pre-fill the subject field with the location
+                    const subjectField = document.getElementById('subject');
+                    if (subjectField) {
+                        subjectField.value = `Inquiry about ${location} Location`;
+                    }
+                    
+                    // Focus on the message field
+                    setTimeout(() => {
+                        const messageField = document.getElementById('message');
+                        if (messageField) {
+                            messageField.focus();
+                            // Add a helpful placeholder
+                            messageField.placeholder = `I'm interested in the ${location} location and would like to know...`;
+                        }
+                    }, 800); // Wait for scroll to complete
+                });
+            });
+            
+            // Hide when clicking elsewhere on the document (for mobile)
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.location-marker') && !e.target.closest('.location-info-container')) {
+                    hideLocationInfo();
+                }
+            });
+        }
     </script>
 
-    <!-- Thank You Popup Modal -->
-    <div id="successModal" class="success-modal">
-        <div class="modal-content">
-            <span id="closeModal" class="close-button">&times;</span>
-            <img src="images/Plate of Africa Logo.png" alt="Plate of Africa Logo" class="modal-logo">
-            <h2>Thank You!</h2>
-            <p>Your reservation request has been submitted successfully.</p>
-            <p>We will confirm your reservation via email or phone within 24 hours.</p>
-            <p>If you have any questions, please contact us at 908-441-9271.</p>
-            <button id="closeModalButton">Close</button>
-        </div>
-    </div>
-
     <style>
-        /* Modal Styles */
-        .success-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            justify-content: center;
+        /* Contact Intro Section Styles */
+        .contact-intro {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
             align-items: center;
+            margin: 5% 10%;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            gap: 80px;
+        }
+        
+        .contact-intro img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            text-align: left;
+            margin-right: 30px;
+            max-width: 600px;
+        }
+        
+        .contact-heading {
+            font-family: "Lato";
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 58px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact-intro-description {
+            font-family: "Poppins";
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 27px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+        }
+        
+        /* Location Section Styles */
+        .location-section {
+            margin: 100px auto;
+            text-align: center;
+        }
+        
+        .location-heading {
+            font-family: Lato;
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 54.47px;
+            letter-spacing: 0.07em;
+            margin-bottom: 50px;
+        }
+        
+        /* Map Container Styles */
+        .map-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .location-map {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            border: 1px solid #E0BC6B;
+        }
+        
+        /* Location Marker Styles */
+        .location-marker {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            background-color: #E0BC6B;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            z-index: 5;
+        }
+        
+        .location-marker::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background-color: #E0BC6B;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.4;
+            animation: pulse 2s infinite;
+            z-index: -1;
+        }
+        
+        .marker-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-image: url('../images/Plate of Africa Logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .marker-1 {
+            top: 40%;
+            left: 30%;
         }
 
-        /* Slide-in Animation */
+        .marker-2 {
+            top: 60%;
+            left: 70%;
+        }
+
+        .marker-3 {
+            top: 30%;
+            left: 60%;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.4;
+            }
+            70% {
+                transform: translate(-50%, -50%) scale(2.4);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Location Info Styles */
+        .location-info-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 1rem;
+            border-radius: 8px;
+            width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 10;
+            text-align: left;
+            border-right: 3px solid #E0BC6B;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .location-info-container.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .location-info {
+            display: none;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .location-info.active {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .location-info h3 {
+            color: #E0BC6B;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .location-info p {
+            font-family: "Poppins";
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        .location-info i {
+            color: #E0BC6B;
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Location Contact Button Styles */
+        .location-contact-btn {
+            background: linear-gradient(90deg, #F7EFC1 0%, #E0BC6B 100%);
+            color: #1E1E1E;
+            font-family: "Poppins";
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            display: block;
+        }
+        
+        .location-contact-btn:hover {
+            background: linear-gradient(90deg, #E0BC6B 0%, #F7EFC1 100%);
+            transform: scale(1.05);
+        }
+        
+        /* Animation Styles */
         .slide-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-
+        
         .slide-in.show {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .modal-content {
+        
+        /* Submit Button Styles */
+        .submit-button button {
+            width: 100%;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, #F7EFC1 0%, #E0BC6B 100%);
+            color: #1E1E1E;
+            font-family: "Poppins";
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 27px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button button:hover {
+            background: linear-gradient(90deg, #E0BC6B 0%, #F7EFC1 100%);
+            transform: scale(1.02);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .contact-intro {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .location-info-container {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                width: 90%;
+                margin: 20px auto;
+            }
+            
+            .map-container {
+                padding: 0 15px;
+            }
+            
+            .location-marker {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .marker-logo {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        
+        /* Thank You Message Styles */
+        .thank-you-message {
+            display: none;
             background-color: #1a1a1a;
             padding: 40px;
             border-radius: 10px;
-            max-width: 500px;
             text-align: center;
-            position: relative;
             border: 1px solid #e0bc6b;
+            margin: 0 auto;
+            max-width: 90%;
         }
 
-        .modal-logo {
+        .thank-you-logo {
             width: 120px;
             margin-bottom: 20px;
         }
 
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #e0bc6b;
-        }
-
-        .modal-content h2 {
+        .thank-you-message h2 {
             color: #e0bc6b;
             margin-bottom: 20px;
             font-size: 28px;
         }
 
-        .modal-content p {
+        .thank-you-message p {
             margin-bottom: 15px;
             color: #fff;
             font-size: 16px;
         }
 
-        #closeModalButton {
+        #new-message-btn {
             background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
             color: #000;
             border: none;
@@ -256,7 +804,7 @@
             transition: all 0.3s ease;
         }
 
-        #closeModalButton:hover {
+        #new-message-btn:hover {
             transform: scale(1.05);
         }
     </style>

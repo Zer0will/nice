@@ -12,26 +12,32 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 5%;
+  padding: 10px 2.5%;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: rgba(15, 15, 15, 0.9);
+  transition: all 0.3s ease;
+  background-color: rgba(15, 15, 15, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide header when scrolling down */
+header.hidden {
+  transform: translateY(-100%);
 }
 
 /* Add shadow on scroll */
 header.scrolled {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Logo styling */
 .logo {
   cursor: pointer;
-  width: 118px;
+  width: 100px;
   height: auto;
   transition: transform 0.3s ease;
 }
@@ -44,12 +50,12 @@ header.scrolled {
 .nav-links {
   list-style: none;
   display: flex;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 /* Navigation list items */
 .nav-links li {
-  padding: 0 15px;
+  padding: 0 12px;
   position: relative;
 }
 
@@ -57,12 +63,12 @@ header.scrolled {
 .nav-links li a {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   transition: color 0.3s ease;
   display: inline-block;
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
 /* Hover effect for navigation links */
@@ -88,26 +94,27 @@ header.scrolled {
   left: 0;
 }
 
-/* Contact button styling */
+/* Contact button styling - updated to match index page */
 .cta button {
   padding: 10px 25px;
-  background: linear-gradient(90deg, #E3D582 0%, #E6B035 100%);
-  border-radius: 50px;
+  background: linear-gradient(90deg, #F7EFC1 0%, #E0BC6B 100%);
+  border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;    
-  color: rgb(221, 207, 207);
+  color: #0f0f0f;
   border: none;
   outline: none;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  font-weight: 500;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(224, 188, 107, 0.2);
+  letter-spacing: 0.5px;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .cta button:hover {
-  background: linear-gradient(90deg, #E0BC6B 0%, #F7EFC1 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(224, 188, 107, 0.4);
 }
 
 /* Mobile menu toggle */
@@ -154,30 +161,30 @@ nav svg {
 /* Responsive styles */
 @media screen and (max-width: 1024px) {
   header {
-    padding: 15px 5%;
+    padding: 10px 4%;
   }
   
   .nav-links li {
-    padding: 0 10px;
+    padding: 0 8px;
   }
 }
 
 @media screen and (max-width: 768px) {
   header {
-    padding: 15px 5%;
+    padding: 10px 2.5%;
   }
   
   .open-sidebar-button {
     display: block;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
   }
   
   .close-sidebar-button {
     display: block;
     align-self: flex-end;
-    padding: 20px;
+    padding: 15px;
   }
   
   .nav-links {
@@ -192,7 +199,7 @@ nav svg {
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     z-index: 1000;
-    padding-top: 60px;
+    padding-top: 50px;
   }
   
   #sidebar-active:checked ~ .nav-links {
@@ -207,9 +214,10 @@ nav svg {
   
   .nav-links li a {
     display: block;
-    padding: 15px 25px;
+    padding: 12px 20px;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap; /* Prevent text wrapping */
   }
   
   .nav-links li a::after {
@@ -217,7 +225,8 @@ nav svg {
   }
   
   .cta {
-    margin-left: 15px;
+    margin-left: 10px;
+    display: inline-block; /* Ensure button doesn't break */
   }
 }
 
@@ -238,17 +247,17 @@ nav svg {
 
 /* Space for fixed header */
 main {
-  padding-top: 80px;
+  padding-top: 70px;
 }
 
 /* Adjust for smaller screens */
 @media screen and (max-width: 480px) {
   .logo {
-    width: 100px;
+    width: 80px; /* Slightly smaller logo on mobile */
   }
   
   .cta button {
-    padding: 8px 16px;
+    padding: 8px 20px;
     font-size: 14px;
   }
 } 

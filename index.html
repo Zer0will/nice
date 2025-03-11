@@ -13,8 +13,6 @@
   <!-- Slick Slider CSS -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5rqnhtDZIleozIoAqid83iw5obTBO4&libraries=places"></script>
   <style>
     body {
       background: #0f0f0f;
@@ -337,11 +335,205 @@
 
     .map-container {
       width: 100%;
-      height: 400px;
+      height: 100%;
+      max-width: 1200px;
       margin: auto;
       position: relative;
       border-radius: 15px;
       overflow: hidden;
+    }
+
+    /* Interactive Map Styles */
+    .location-map {
+      width: 100%;
+      border-radius: 40px;
+      background-color: #0f0f0f;
+      border: 1px solid #E0BC6B;
+      margin: auto;
+      
+    }
+
+    .location-marker {
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      background-color: var(--color-gold, #E0BC6B);
+      border-radius: 50%;
+      transform: translate(50%, 50%);
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 5;
+    }
+
+    .location-marker::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      z-index: 1;
+    }
+
+    .location-marker::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      background-color: var(--color-gold, #E0BC6B);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.4;
+      animation: pulse 2s infinite;
+      z-index: -1;
+    }
+    
+    /* Logo on top of markers */
+    .location-marker .marker-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background-image: url('assets/images/logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+      }
+      70% {
+        transform: translate(-50%, -50%) scale(2.4);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .location-marker:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    .marker-1 {
+      top: 40%;
+      left: 30%;
+    }
+
+    .marker-2 {
+      top: 60%;
+      left: 70%;
+    }
+
+    .marker-3 {
+      top: 30%;
+      left: 60%;
+    }
+
+    /* Location info styles */
+    .location-info-container {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(30, 30, 30, 0.9);
+      padding: 1rem;
+      border-radius: 8px;
+      width: 280px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+      text-align: left;
+      border-right: 3px solid var(--color-gold, #E0BC6B);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .location-info-container.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .location-info {
+      display: none;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .location-info.active {
+      display: block;
+      opacity: 1;
+      transform: translateX(0);
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .location-info h3 {
+      color: var(--color-gold, #E0BC6B);
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+
+    .location-info p {
+      color: #fff;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    
+    .location-info i {
+      color: #E0BC6B;
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+    
+    /* Location Contact Button Styles */
+    .location-contact-btn {
+      background: linear-gradient(90deg, #F7EFC1 0%, #E0BC6B 100%);
+      color: #1E1E1E;
+      font-family: "Poppins";
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+      display: block;
+    }
+    
+    .location-contact-btn:hover {
+      background: linear-gradient(90deg, #E0BC6B 0%, #F7EFC1 100%);
+      transform: scale(1.05);
+    }
+
+    .main-location {
+      font-weight: 500;
+      margin-top: 1rem;
+      text-align: center;
+      color: #fff;
     }
 
     #map {
@@ -890,7 +1082,7 @@ transform: translateX(-8%);
             <div class="aboutt-heading slide-in">Veganism?</div>
             <br>
             <div class="aboutt-text slide-in">
-              Plate of Africa was founded to celebrate Africa’s rich culinary
+              Plate of Africa was founded to celebrate Africa's rich culinary
               heritage through a modern, plant-based approach. A multitude of African dishes are naturally vegan, making it the perfect foundation for a menu that stays true to tradition.
             </div>
             <br>
@@ -1456,8 +1648,43 @@ document.addEventListener("scroll", function() {
       <div class="faq-heading mt100">OUR MULTIPLE LOCATIONS</div>
       <div class="container">
         <div class="map-container">
-          <div id="map"></div>
+          <img src="images/map.png" alt="Restaurant Locations Map" class="location-map">
+          <!-- Location info container (bottom right) -->
+          <div class="location-info-container" id="location-info-container">
+              <div class="location-info" id="info-downtown" data-location="Downtown">
+                  <h3>Downtown</h3>
+                  <p><i class="fa-solid fa-location-dot"></i> 123 Main Street</p>
+                  <p><i class="fa-solid fa-clock"></i> Open: 11am - 10pm</p>
+                  <p><i class="fa-solid fa-phone"></i> 908-441-9271</p>
+                  <button class="location-contact-btn" data-location="Downtown">Contact This Location</button>
+              </div>
+              <div class="location-info" id="info-westside" data-location="Westside">
+                  <h3>Westside</h3>
+                  <p><i class="fa-solid fa-location-dot"></i> 456 Park Avenue</p>
+                  <p><i class="fa-solid fa-clock"></i> Open: 11am - 11pm</p>
+                  <p><i class="fa-solid fa-phone"></i> 908-441-9271</p>
+                  <button class="location-contact-btn" data-location="Westside">Contact This Location</button>
+              </div>
+              <div class="location-info" id="info-eastside" data-location="Eastside">
+                  <h3>Eastside</h3>
+                  <p><i class="fa-solid fa-location-dot"></i> 789 River Road</p>
+                  <p><i class="fa-solid fa-clock"></i> Open: 12pm - 10pm</p>
+                  <p><i class="fa-solid fa-phone"></i> 908-441-9271</p>
+                  <button class="location-contact-btn" data-location="Eastside">Contact This Location</button>
+              </div>
+          </div>
+          <!-- Location markers -->
+          <div class="location-marker marker-1" data-location="Downtown">
+            <div class="marker-logo"></div>
+          </div>
+          <div class="location-marker marker-2" data-location="Westside">
+            <div class="marker-logo"></div>
+          </div>
+          <div class="location-marker marker-3" data-location="Eastside">
+            <div class="marker-logo"></div>
+          </div>
         </div>
+       
       </div>
     </div>
   </section>
@@ -1681,139 +1908,170 @@ document.addEventListener("scroll", function() {
     });
   </script>
   <script>
-    let activeInfoWindow = null;
-    let isHoveringInfoWindow = false; // Track hover state
-
-    function initMap() {
-      const locations = [
-        {
-          name: "Branch A",
-          lat: 40.73061,
-          lng: -73.935242,
-          address: "Monday - Friday: 11:00 AM – 10:00 PM",
-          timings: "Saturday - Sunday: 9:00 AM – 11:00 PM",
-          link: "menu.html",
-        },
-        {
-          name: "Branch B",
-          lat: 40.74061,
-          lng: -73.925242,
-          address: "Monday - Friday: 11:00 AM – 10:00 PM",
-          timings: "Saturday - Sunday: 9:00 AM – 11:00 PM",
-          link: "menu.html",
-        },
-        {
-          name: "Branch C",
-          lat: 40.75061,
-          lng: -73.915242,
-          address: "Monday - Friday: 11:00 AM – 10:00 PM",
-          timings: "Saturday - Sunday: 9:00 AM – 11:00 PM",
-          link: "menu.html",
-        },
-      ];
-
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 12,
-        center: { lat: 40.73061, lng: -73.935242 },
-        disableDefaultUI: true,
-        keyboardShortcuts: false, // Disables keyboard shortcuts
-        mapTypeControl: false, // Hides map type (Map/Satellite) selector
-        fullscreenControl: false, // Hides fullscreen button
-        styles: [
-          { elementType: "geometry", stylers: [{ color: "#1b1b1b" }] },
-          { elementType: "labels.icon", stylers: [{ visibility: "off" }] }, // Hide place icons
-          {
-            elementType: "labels.text.fill",
-            stylers: [{ visibility: "off" }],
-          }, // Hide place names
-          {
-            elementType: "labels.text.stroke",
-            stylers: [{ visibility: "off" }],
-          }, // Hide stroke around text
-          {
-            featureType: "road",
-            elementType: "geometry",
-            stylers: [{ color: "#222" }],
-          },
-          { featureType: "poi", stylers: [{ visibility: "off" }] }, // Hide points of interest
-          { featureType: "transit", stylers: [{ visibility: "off" }] }, // Hide transit labels
-          { featureType: "administrative", stylers: [{ visibility: "off" }] }, // Hide admin labels
-          {
-            featureType: "water",
-            elementType: "labels",
-            stylers: [{ visibility: "off" }],
-          }, // Hide water labels
-        ],
-      });
-      document
-        .querySelectorAll(".gmnoprint, .gm-style-cc")
-        .forEach((el) => el.remove());
-
-      locations.forEach((loc) => {
-        const marker = new google.maps.Marker({
-          position: { lat: loc.lat, lng: loc.lng },
-          map,
-          icon: {
-            url: "/assets/images/logo.png",
-            scaledSize: new google.maps.Size(40, 40),
-          },
-        });
-
-        const infoWindow = new google.maps.InfoWindow({
-          content: `<div class="info-window" 
-                          onmouseover="isHoveringInfoWindow = true" 
-                          onmouseleave="closeWindow()">
-                          <img src="/assets/images/calander.png" style="width: 40px; height: 40px; border-radius: 50%; display: block;">
-                          <br>
-                          <div class="hours">Hours</div>
-                          <div class="hours">${loc.address}</div>
-                           <div class="hours">${loc.timings}</div>
-                          <button class="view-button" onclick="goToBranch('${loc.link}')">View Menu</button>
-                      </div>`,
-        });
-
-        marker.addListener("mouseover", () => {
-          if (activeInfoWindow) activeInfoWindow.close();
-          infoWindow.open(map, marker);
-          activeInfoWindow = infoWindow;
-        });
-
-        marker.addListener("mouseout", () => {
-          setTimeout(() => {
-            if (!isHoveringInfoWindow) {
-              infoWindow.close();
-              activeInfoWindow = null;
+    /**
+     * Initialize location markers functionality
+     * - Shows location info when markers are hovered/clicked
+     * - Adds smooth transitions between different locations
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+      initLocationMarkers();
+    });
+    
+    function initLocationMarkers() {
+      const locationMarkers = document.querySelectorAll('.location-marker');
+      const infoContainer = document.getElementById('location-info-container');
+      const locationInfos = document.querySelectorAll('.location-info');
+      let currentLocation = null;
+      
+      // Exit if elements don't exist
+      if (!locationMarkers.length || !infoContainer) return;
+      
+      /**
+       * Show location info with enhanced animations
+       * @param {string} locationName - The name of the location to show
+       */
+      function showLocationInfo(locationName) {
+        // If we're already showing this location, do nothing
+        if (currentLocation === locationName) return;
+        
+        // If we're showing a different location, animate the transition
+        if (currentLocation) {
+          // First hide the current location info with a quick fade
+          locationInfos.forEach(info => {
+            if (info.getAttribute('data-location') === currentLocation) {
+              info.style.opacity = '0';
+              info.style.transform = 'translateX(10px)';
+              
+              // After a short delay, remove active class and show new location
+              setTimeout(() => {
+                info.classList.remove('active');
+                showNewLocation();
+              }, 150);
             }
-          }, 300);
-        });
-
-        google.maps.event.addListener(infoWindow, "domready", () => {
-          const infoEl = document.querySelector(".info-window");
-          if (infoEl) {
-            infoEl.addEventListener(
-              "mouseover",
-              () => (isHoveringInfoWindow = true)
-            );
-            infoEl.addEventListener("mouseleave", () => closeWindow());
+          });
+        } else {
+          // If no location is currently shown, just show the new one
+          infoContainer.classList.add('active');
+          showNewLocation();
+        }
+        
+        /**
+         * Helper function to show the new location
+         */
+        function showNewLocation() {
+          // Show the selected location info
+          const selectedInfo = document.getElementById('info-' + locationName.toLowerCase());
+          if (selectedInfo) {
+            selectedInfo.classList.add('active');
+            // Ensure the container is visible
+            infoContainer.classList.add('active');
+            // Highlight the active marker
+            highlightMarker(locationName);
           }
+          // Update current location
+          currentLocation = locationName;
+        }
+      }
+      
+      /**
+       * Highlight the active marker
+       * @param {string} locationName - The name of the location to highlight
+       */
+      function highlightMarker(locationName) {
+        // Reset all markers
+        locationMarkers.forEach(marker => {
+          marker.style.backgroundColor = 'var(--color-gold, #E0BC6B)';
+          marker.style.transform = 'translate(-50%, -50%)';
+          marker.style.boxShadow = 'none';
+          // Make sure logo is properly sized
+          const logo = marker.querySelector('.marker-logo');
+          if (logo) {
+            logo.style.width = '30px';
+            logo.style.height = '30px';
+          }
+        });
+        
+        // Highlight the active marker
+        locationMarkers.forEach(marker => {
+          if (marker.getAttribute('data-location') === locationName) {
+            marker.style.backgroundColor = '#E6B035';
+            marker.style.transform = 'translate(-50%, -50%) scale(1.2)';
+            marker.style.boxShadow = '0 0 15px #E0BC6B';
+            // Make logo slightly larger on highlighted marker
+            const logo = marker.querySelector('.marker-logo');
+            if (logo) {
+              logo.style.width = '35px';
+              logo.style.height = '35px';
+            }
+          }
+        });
+      }
+      
+      /**
+       * Hide location info
+       */
+      function hideLocationInfo() {
+        infoContainer.classList.remove('active');
+        setTimeout(() => {
+          locationInfos.forEach(info => {
+            info.classList.remove('active');
+          });
+          // Reset all markers
+          locationMarkers.forEach(marker => {
+            marker.style.backgroundColor = 'var(--color-gold, #E0BC6B)';
+            marker.style.transform = 'translate(-50%, -50%)';
+            marker.style.boxShadow = 'none';
+            // Reset logo size
+            const logo = marker.querySelector('.marker-logo');
+            if (logo) {
+              logo.style.width = '30px';
+              logo.style.height = '30px';
+            }
+          });
+          currentLocation = null;
+        }, 300);
+      }
+      
+      // Add event listeners to markers
+      locationMarkers.forEach(marker => {
+        const location = marker.getAttribute('data-location');
+        
+        // Show on hover
+        marker.addEventListener('mouseenter', () => {
+          showLocationInfo(location);
+        });
+        
+        // Hide when mouse leaves the map container (not just the marker)
+        const mapContainer = document.querySelector('.map-container');
+        if (mapContainer) {
+          mapContainer.addEventListener('mouseleave', hideLocationInfo);
+        }
+        
+        // For mobile: toggle on click
+        marker.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent bubbling
+          showLocationInfo(location);
         });
       });
-    }
-    function closeWindow() {
-      setTimeout(() => {
-        if (!isHoveringInfoWindow) {
-          if (activeInfoWindow) {
-            activeInfoWindow.close();
-            activeInfoWindow = null;
-          }
+      
+      // Add event listeners to contact buttons
+      document.querySelectorAll('.location-contact-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent bubbling
+          const location = button.getAttribute('data-location');
+          
+          // Redirect to contact page with location parameter
+          window.location.href = 'contacts.html?location=' + encodeURIComponent(location);
+        });
+      });
+      
+      // Hide when clicking elsewhere on the document (for mobile)
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.location-marker') && !e.target.closest('.location-info-container')) {
+          hideLocationInfo();
         }
-      }, 300);
+      });
     }
-
-    function goToBranch(link) {
-      window.location.href = link;
-    }
-    window.onload = initMap;
   </script>
   <script src="script.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
