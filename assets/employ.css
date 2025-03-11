@@ -576,7 +576,7 @@ input[type="checkbox"]:checked + .custom-radio + .radio-label {
 
 #fileName {
   flex-grow: 1;
-  color: #ffffff66;
+  color: rgba(225,225,225,0.775);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1051,7 +1051,7 @@ input[type="checkbox"]:checked + .custom-radio + .radio-label {
 
 /* Placeholder styling */
 .aplcinbg .inputtext::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.775);
   transition: opacity 0.3s ease;
 }
 
