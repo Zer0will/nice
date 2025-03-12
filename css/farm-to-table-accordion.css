@@ -1,0 +1,634 @@
+/* 
+ * PLATE OF AFRICA - FARM TO TABLE ACCORDION
+ * Traditional accordion with vertical scrollbar indicator
+ */
+
+/* Combined Section Styles */
+.combined-section {
+    padding: 5rem 0;
+    background-color: rgba(20, 20, 20, 0.7);
+    position: relative;
+}
+
+.combined-section .section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.combined-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #E6B035;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.combined-section .section-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #E3D582 0%, #E6B035 100%);
+    margin: 0 auto 1.5rem;
+}
+
+.combined-section .section-description {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Two-Column Layout */
+.two-column-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.map-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.accordion-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Map Styles */
+.map-column .map-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.map-column .location-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    border: 1px solid #E0BC6B;
+}
+
+/* Location Marker Styles */
+.location-marker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #E0BC6B;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 5;
+}
+
+.location-marker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: #E0BC6B;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+
+.marker-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    background-image: url('../images/Plate of Africa Logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marker-1 {
+    top: 32%;
+    left: 26%;
+}
+
+.marker-2 {
+    top: 55%;
+    left: 10%;
+}
+
+.marker-3 {
+    top: 60%;
+    left: 45%;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(2.4);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Location Info Styles */
+.location-info-container {
+    position: relative;
+    margin-top: 20px;
+    background-color: rgba(30, 30, 30, 0.9);
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+    text-align: left;
+    border-left: 3px solid #E0BC6B;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.location-info-container::before {
+    content: 'Farm Information';
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #E0BC6B;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(224, 188, 107, 0.3);
+    padding-bottom: 10px;
+}
+
+.location-info-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.location-info {
+    display: none;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.location-info.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.location-info h3 {
+    color: #E0BC6B;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.location-info p {
+    font-family: "Poppins";
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.location-info i {
+    color: #E0BC6B;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Farm to Table Section Container - Original styles kept for compatibility */
+.sustainability-section#farm-to-table {
+    padding: 5rem 0;
+    background-color: rgba(20, 20, 20, 0.7);
+    position: relative;
+}
+
+.interactive-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+/* Section Header */
+.farm-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.farm-header .section-title {
+    font-size: 2.5rem;
+    color: #E6B035;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.farm-header .section-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #E3D582 0%, #E6B035 100%);
+    margin: 0 auto 1.5rem;
+}
+
+.farm-header p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Farm Image - Removed as requested */
+
+/* Accordion Container */
+.sustainability-section .vertical-nav {
+    position: relative;
+    width: 100%;
+}
+
+.sustainability-section .vertical-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+/* Scrollbar Indicator */
+.sustainability-section .scroll-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 0;
+    background: linear-gradient(to bottom, #E3D582, #E6B035);
+    z-index: 3;
+    transition: height 0.3s ease;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(230, 176, 53, 0.3);
+}
+
+/* Accordion Items */
+.sustainability-section .nav-item {
+    position: relative;
+    margin-bottom: 0.75rem;
+    border-radius: 12px;
+    background-color: rgba(30, 30, 30, 0.5);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sustainability-section .nav-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sustainability-section .nav-item.active {
+    background-color: rgba(35, 35, 35, 0.7);
+    border: 1px solid rgba(230, 176, 53, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(230, 176, 53, 0.1);
+}
+
+/* Accordion Headers */
+.sustainability-section .nav-item-header {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    border-left: 5px solid rgba(255, 255, 255, 0.1);
+    justify-content: flex-start;
+}
+
+.sustainability-section .nav-item-header:hover {
+    background-color: rgba(40, 40, 40, 0.7);
+}
+
+.sustainability-section .nav-item.active .nav-item-header {
+    border-left: 5px solid #E6B035;
+    background-color: rgba(40, 40, 40, 0.8);
+}
+
+.sustainability-section .nav-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #E6B035;
+    margin-right: 1rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    min-width: 30px;
+    text-align: center;
+}
+
+.sustainability-section .nav-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    padding-right: 1rem;
+}
+
+.sustainability-section .nav-item.active .nav-number {
+    opacity: 1;
+}
+
+/* Accordion toggle icon */
+.sustainability-section .nav-toggle {
+    display: none;
+}
+
+/* Accordion Content */
+.sustainability-section .nav-item-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, padding 0.3s ease, background-color 0.3s ease;
+    padding: 0 1.5rem;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.sustainability-section .nav-item.active .nav-item-content {
+    max-height: 1000px;
+    padding: 1.5rem 1.8rem;
+    background-color: rgba(25, 25, 25, 0.7);
+}
+
+/* Content styling */
+.sustainability-section .nav-item-content h3 {
+    font-size: 1.4rem;
+    color: #E6B035;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.sustainability-section .nav-item-content p {
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: 0.1s;
+    line-height: 1.5;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.sustainability-section .nav-item-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: 0.2s;
+}
+
+.sustainability-section .nav-item-content li {
+    margin-bottom: 0.6rem;
+    position: relative;
+    padding-left: 0.5rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+}
+
+.sustainability-section .nav-item-content li::before {
+    content: "•";
+    color: #E6B035;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.sustainability-section .nav-item.active .nav-item-content p,
+.sustainability-section .nav-item.active .nav-item-content ul,
+.sustainability-section .nav-item.active .nav-item-content .feature-icons {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
+}
+
+/* Feature Icons */
+.sustainability-section .feature-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: 0.3s;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.icon-item:hover {
+    transform: translateY(-5px);
+}
+
+.icon-item span {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #E6B035;
+    font-weight: 500;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(30, 30, 30, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon i {
+    font-size: 1.5rem;
+    color: #E6B035;
+    transition: all 0.3s ease;
+}
+
+.icon:hover {
+    background: rgba(230, 176, 53, 0.2);
+}
+
+/* Improve visual hierarchy */
+.sustainability-section .nav-item-header:hover .nav-title {
+    color: #E6B035;
+}
+
+.sustainability-section .nav-item.active .nav-title {
+    color: #E6B035;
+    font-weight: 600;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .two-column-layout {
+        flex-direction: column;
+    }
+    
+    .map-column, 
+    .accordion-column {
+        width: 100%;
+    }
+    
+    .map-column {
+        margin-bottom: 3rem;
+    }
+    
+    .location-info-container {
+        margin-top: 15px;
+        padding: 1.2rem;
+    }
+    
+    .location-info-container::before {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .combined-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .combined-section .section-description {
+        font-size: 1rem;
+    }
+    
+    .farm-header .section-title {
+        font-size: 2rem;
+    }
+    
+    .sustainability-section .nav-item-header {
+        padding: 1rem 1.2rem;
+    }
+    
+    .sustainability-section .nav-number {
+        font-size: 1rem;
+        min-width: 25px;
+    }
+    
+    .sustainability-section .nav-title {
+        font-size: 1rem;
+    }
+    
+    .sustainability-section .nav-item-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .icon i {
+        font-size: 1.2rem;
+    }
+    
+    .location-marker {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .marker-logo {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .location-info-container {
+        padding: 1rem;
+    }
+    
+    .location-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .location-info p {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .combined-section .section-title {
+        font-size: 1.7rem;
+    }
+    
+    .combined-section .section-description {
+        font-size: 0.95rem;
+    }
+    
+    .farm-header .section-title {
+        font-size: 1.7rem;
+    }
+    
+    .farm-header p {
+        font-size: 1rem;
+    }
+    
+    .feature-icons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .icon-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    .sustainability-section .nav-item.active .nav-item-content {
+        padding: 1rem;
+    }
+    
+    .location-info-container {
+        padding: 0.8rem;
+    }
+    
+    .location-info-container::before {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+} 

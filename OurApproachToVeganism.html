@@ -5,380 +5,595 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/aboutUs.css">
-    <link rel="stylesheet" href="css/aboutUs-hero-section.css">
+    <link rel="stylesheet" href="css/sustainability.css">
+    <link rel="stylesheet" href="css/sustainability-hero-section.css">
+    <link rel="stylesheet" href="css/sustainability-content.css">
+    <link rel="stylesheet" href="css/farm-to-table-accordion.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Our Approach to Veganism</title>
+    <title>Our Approach to Veganism | Plate of Africa</title>
     
     <style>
-        /* Global Navigation Styles (Inlined from global-nav.css) */
         .navbar.navbar-expand-lg {
-            position: fixed !important;
-            width: 100% !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            z-index: 1000 !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            padding: 10px 2.5% !important;
-            transition: all 0.3s ease !important;
-            background-color: rgba(15, 15, 15, 0.95) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            max-width: 100vw !important;
-            overflow-x: hidden !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-        }
-
-        /* Styling for scrolled state - will be applied via JavaScript */
-        .navbar.navbar-expand-lg.scrolled {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-        }
-
-        /* Styling for hidden state - will be applied via JavaScript */
-        .navbar.navbar-expand-lg.hidden {
-            transform: translateY(-100%) !important;
-        }
-
-        /* Navigation links */
-        .navbar.navbar-expand-lg .nav-link {
-            font-family: "Poppins" !important;
-            font-weight: 400 !important;
-            font-size: 16px !important;
-            color: white !important;
-            margin: 0 5px !important;
-            position: relative !important;
-            transition: all 0.3s ease !important;
-            white-space: nowrap !important;
-            padding: 5px 5px !important;
-        }
-
-        .navbar.navbar-expand-lg .nav-link:hover {
-            color: #e0bc6b !important;
-        }
-
-        .navbar.navbar-expand-lg .nav-link::after {
-            content: '' !important;
-            position: absolute !important;
-            width: 0 !important;
-            height: 2px !important;
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
-            bottom: -5px !important;
-            left: 0 !important;
-            transition: width 0.3s ease !important;
-        }
-
-        .navbar.navbar-expand-lg .nav-link:hover::after {
-            width: 100% !important;
-        }
-
-        /* Style for active page link */
-        .navbar.navbar-expand-lg .nav-link.active {
-            color: #e0bc6b !important;
-        }
-
-        .navbar.navbar-expand-lg .nav-link.active::after {
-            content: '' !important;
-            position: absolute !important;
-            width: 100% !important;
-            height: 2px !important;
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
-            bottom: -5px !important;
-            left: 0 !important;
-        }
-
-        /* Contact button styling */
-        .navbar.navbar-expand-lg .logbutton {
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
-            color: #0f0f0f !important;
-            border: none !important;
-            border-radius: 30px !important;
-            padding: 10px 25px !important;
-            font-weight: 600 !important;
-            transition: all 0.3s ease !important;
-            white-space: nowrap !important;
-        }
-
-        .navbar.navbar-expand-lg .logbutton:hover {
-            transform: translateY(-3px) !important;
-            box-shadow: 0 5px 15px rgba(224, 188, 107, 0.4) !important;
-            color: #0f0f0f !important; /* Maintain dark text on hover */
-        }
-
-        /* Fix for Contact Us button link */
-        .navbar.navbar-expand-lg a.contact-link {
-            text-decoration: none !important;
-            margin-left: 15px !important;
-        }
-
-        .navbar.navbar-expand-lg a.contact-link:hover, 
-        .navbar.navbar-expand-lg a.contact-link:focus, 
-        .navbar.navbar-expand-lg a.contact-link:active {
-            text-decoration: none !important;
-            color: inherit !important;
-        }
-
-        .navbar.navbar-expand-lg .contact-link .btn:hover {
-            color: #0f0f0f !important;
-        }
-
-        /* Mobile menu toggle */
-        .navbar.navbar-expand-lg .navbar-toggler {
-            border: 2px solid rgba(255, 255, 255, 0.5) !important;
-            transition: all 0.3s ease !important;
-            padding: 4px 8px !important;
-        }
-
-        .navbar.navbar-expand-lg .navbar-toggler:hover {
-            border-color: #e0bc6b !important;
-            box-shadow: 0 0 10px rgba(224, 188, 107, 0.7) !important;
-        }
-
-        /* Container width fix */
-        .navbar.navbar-expand-lg .container-fluid {
-            width: 100% !important;
-            max-width: 100% !important;
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-            margin-right: auto !important;
-            margin-left: auto !important;
-        }
-
-        /* Logo styling */
-        .navbar.navbar-expand-lg .navbar-brand img {
-            max-height: 60px !important;
-            width: auto !important;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 1200px) {
-            .navbar.navbar-expand-lg .navbar-collapse {
+                position: fixed !important;
+                width: 100% !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1000 !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 10px 2.5% !important;
+                transition: all 0.3s ease !important;
                 background-color: rgba(15, 15, 15, 0.95) !important;
-                padding: 15px !important;
-                border-radius: 10px !important;
-                margin-top: 10px !important;
-                max-width: 100% !important;
+                backdrop-filter: blur(10px) !important;
+                -webkit-backdrop-filter: blur(10px) !important;
+                max-width: 100vw !important;
+                overflow-x: hidden !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
             }
-            
+
+            /* Styling for scrolled state - will be applied via JavaScript */
+            .navbar.navbar-expand-lg.scrolled {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+            }
+
+            /* Styling for hidden state - will be applied via JavaScript */
+            .navbar.navbar-expand-lg.hidden {
+                transform: translateY(-100%) !important;
+            }
+
+            /* Navigation links */
             .navbar.navbar-expand-lg .nav-link {
-                padding: 8px 0 !important;
-                margin: 3px 5px !important;
-                font-size: 15px !important;
+                font-family: "Poppins" !important;
+                font-weight: 400 !important;
+                font-size: 16px !important;
+                color: white !important;
+                margin: 0 5px !important;
+                position: relative !important;
+                transition: all 0.3s ease !important;
+                white-space: nowrap !important;
+                padding: 5px 5px !important;
             }
-            
-            .navbar.navbar-expand-lg .navbar-nav {
-                max-width: 100% !important;
-                text-align: center !important;
-            }
-            
-            .navbar.navbar-expand-lg .logbutton {
-                padding: 8px 15px !important;
-                font-size: 14px !important;
-                margin-top: 10px !important;
-            }
-        }
 
-        @media (max-width: 1050px) {
-            .navbar.navbar-expand-lg {
-                padding: 8px 2% !important;
+            .navbar.navbar-expand-lg .nav-link:hover {
+                color: #e0bc6b !important;
             }
-            
-            .navbar.navbar-expand-lg .logbutton {
-                padding: 6px 12px !important;
-                font-size: 13px !important;
-            }
-            
-            .navbar.navbar-expand-lg .nav-link {
-                font-size: 14px !important;
-            }
-        }
 
-        @media (max-width: 768px) {
-            .navbar.navbar-expand-lg .navbar-brand img {
-                max-height: 50px !important;
+            .navbar.navbar-expand-lg .nav-link::after {
+                content: '' !important;
+                position: absolute !important;
+                width: 0 !important;
+                height: 2px !important;
+                background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
+                bottom: -5px !important;
+                left: 0 !important;
+                transition: width 0.3s ease !important;
             }
-        }
 
-        @media (max-width: 576px) {
-            .navbar.navbar-expand-lg {
-                padding: 5px 1.5% !important;
+            .navbar.navbar-expand-lg .nav-link:hover::after {
+                width: 100% !important;
             }
-            
+
+            /* Style for active page link */
+            .navbar.navbar-expand-lg .nav-link.active {
+                color: #e0bc6b !important;
+            }
+
+            .navbar.navbar-expand-lg .nav-link.active::after {
+                content: '' !important;
+                position: absolute !important;
+                width: 100% !important;
+                height: 2px !important;
+                background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
+                bottom: -5px !important;
+                left: 0 !important;
+            }
+
+            /* Contact button styling */
             .navbar.navbar-expand-lg .logbutton {
-                padding: 5px 10px !important;
-                font-size: 12px !important;
+                background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%) !important;
+                color: #0f0f0f !important;
+                border: none !important;
+                border-radius: 30px !important;
+                padding: 10px 25px !important;
+                font-weight: 600 !important;
+                transition: all 0.3s ease !important;
+                white-space: nowrap !important;
             }
-            
-            .navbar.navbar-expand-lg .navbar-brand img {
-                max-height: 40px !important;
+
+            .navbar.navbar-expand-lg .logbutton:hover {
+                transform: translateY(-3px) !important;
+                box-shadow: 0 5px 15px rgba(224, 188, 107, 0.4) !important;
+                color: #0f0f0f !important; /* Maintain dark text on hover */
             }
-            
+
+            /* Fix for Contact Us button link */
+            .navbar.navbar-expand-lg a.contact-link {
+                text-decoration: none !important;
+                margin-left: 15px !important;
+            }
+
+            .navbar.navbar-expand-lg a.contact-link:hover, 
+            .navbar.navbar-expand-lg a.contact-link:focus, 
+            .navbar.navbar-expand-lg a.contact-link:active {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+
+            .navbar.navbar-expand-lg .contact-link .btn:hover {
+                color: #0f0f0f !important;
+            }
+
+            /* Mobile menu toggle */
             .navbar.navbar-expand-lg .navbar-toggler {
-                padding: 3px 6px !important;
+                border: 2px solid rgba(255, 255, 255, 0.5) !important;
+                transition: all 0.3s ease !important;
+                padding: 4px 8px !important;
             }
-            
-            .navbar.navbar-expand-lg .navbar-toggler-icon {
-                width: 1em !important;
-                height: 1em !important;
+
+            .navbar.navbar-expand-lg .navbar-toggler:hover {
+                border-color: #e0bc6b !important;
+                box-shadow: 0 0 10px rgba(224, 188, 107, 0.7) !important;
             }
-        }
-        
-        /* Fix for main content to account for fixed navbar */
-        main {
-            padding-top: 100px !important;
-            margin-top: 0 !important;
-        }
-        
-        /* Additional styles for navbar toggler icon */
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-        }
-    </style>
-</head>
 
-<body>
-    <!-- Bootstrap Navbar (matching index page) -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid px-3">
-            <a class="navbar-brand" href="index.html">
-                <div class="logo-container">
-                    <img src="images/Plate of Africa Logo.png" alt="Logo" class="logo" />
-                </div>
-            </a>
-            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto text-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="reservations.html">Reservations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="menu.html">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="OurApproachToVeganism.html">Sustainability</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="hoursLocation.html">Hours & Location</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="employ.html">Employment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="references.html">References</a>
-                    </li>
-                </ul>
-                <a href="contacts.html" class="contact-link">
-                    <button class="btn logbutton d-none d-lg-block">Contact Us</button>
-                    <button class="btn logbutton d-lg-none">Contact</button>
-                </a>
-            </div>
-        </div>
-    </nav>
+            /* Container width fix */
+            .navbar.navbar-expand-lg .container-fluid {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                margin-right: auto !important;
+                margin-left: auto !important;
+            }
 
-    <main>
-        
-        <div id="title-area">
-            <h1>
-                OUR APPROACH TO VEGANISM
-            </h1>
-            <div id="rectangle-header">
-            </div>
-        </div>
-        
-        <div class="approachfullbackground-box">
-            <div class="whereItAllStarted slide-in">
-                    <h1>SUSTAINABILITY</h1>
-                    <div class="sustainabilityIntro-textContainer slide-in">
-                        <p>
-                            Sustainability is one of the core principles that we attempt to uphold here at Plate of Africa. We understand that sustainability is the backbone to not just our restaurant but to the world as a whole. Through the lens of a plant-based approach, we can reduce our carbon footprint greatly, as the resources required to grow plants are much less than that of animal products. By implementing a vegan menu, we greatly decrease the amount of greenhouse gas we emit, water we use, and cut down on deforestation.
-                        </p>
-                        <br>
-                        <p>
-                            While this is all good in theory, it is important to acknowledge the fact that in order to enact real change, we need to take action. Despite other restaurants claiming that they are environmentally-friendly, Plate of Africa takes real steps in order to create real change. We partner with local farmers to provide the freshest ingredients and use seasonal produce in order to cut down on our emissions. This ultimately means that the menu changes with the seasons, showing our commitment to a healthier planet and brighter future.
-                        </p>
-                    </div>
-            </div>
-            <div class="farmToTable">
+            /* Logo styling */
+            .navbar.navbar-expand-lg .navbar-brand img {
+                max-height: 60px !important;
+                width: auto !important;
+            }
+
+            /* Responsive styles */
+            @media (max-width: 1200px) {
+                .navbar.navbar-expand-lg .navbar-collapse {
+                    background-color: rgba(15, 15, 15, 0.95) !important;
+                    padding: 15px !important;
+                    border-radius: 10px !important;
+                    margin-top: 10px !important;
+                    max-width: 100% !important;
+                }
                 
-                <div class ="farmImage slide-in">
-                    <img src="images/farmToTablePhoto.png"> 
-                </div>
-                <div class ="farmToTable-text slide-in">
-                    <h1>FROM FARM TO TABLE</h1>
-                    <p>Our process from farm to table begins with our farmers. We have long-standing relationships with the local farmers in the area, certifying that the ingredients present in the kitchen are that of the highest quality. From our legumes to our hearty greens, all ingredients have been carefully selected with our patrons' palates in mind. From the farms we use, our food is directly shipped to all our locations, with no shipping lasting longer than two days, in order to ensure prompt delivery, freshness, and quality. These ingredients are used in our kitchens, with our highly-trained staff highlighting their natural flavor and intensity. In order to prioritize freshness and sustainability at our locations, our menu shifts with the seasons, guaranteeing maximum quality. This allows our chefs create the culinary masterpieces that you see before you today. This model of farm-to-table dining not only prioritizes quality, but also our commitment to sustainable business, economic, and environmental practices. Through this transparency, we hope you feel proud eating at Plate of Africa, knowing that every bite is from that of ethical farming and with environmental wellness in mind.</p><br>
-                </div>
-            </div>
+                .navbar.navbar-expand-lg .nav-link {
+                    padding: 8px 0 !important;
+                    margin: 3px 5px !important;
+                    font-size: 15px !important;
+                }
+                
+                .navbar.navbar-expand-lg .navbar-nav {
+                    max-width: 100% !important;
+                    text-align: center !important;
+                }
+                
+                .navbar.navbar-expand-lg .logbutton {
+                    padding: 8px 15px !important;
+                    font-size: 14px !important;
+                    margin-top: 10px !important;
+                }
+            }
+
+            @media (max-width: 1050px) {
+                .navbar.navbar-expand-lg {
+                    padding: 8px 2% !important;
+                }
+                
+                .navbar.navbar-expand-lg .logbutton {
+                    padding: 6px 12px !important;
+                    font-size: 13px !important;
+                }
+                
+                .navbar.navbar-expand-lg .nav-link {
+                    font-size: 14px !important;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .navbar.navbar-expand-lg .navbar-brand img {
+                    max-height: 50px !important;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .navbar.navbar-expand-lg {
+                    padding: 5px 1.5% !important;
+                }
+                
+                .navbar.navbar-expand-lg .logbutton {
+                    padding: 5px 10px !important;
+                    font-size: 12px !important;
+                }
+                
+                .navbar.navbar-expand-lg .navbar-brand img {
+                    max-height: 40px !important;
+                }
+                
+                .navbar.navbar-expand-lg .navbar-toggler {
+                    padding: 3px 6px !important;
+                }
+                
+                .navbar.navbar-expand-lg .navbar-toggler-icon {
+                    width: 1em !important;
+                    height: 1em !important;
+                }
+            }
             
-            <div class = "nourishment">
-                <div class="nourishmentImage1 slide-in">
-                    <img src="images/Group 150Nourishment1.png">
+            /* Fix for main content to account for fixed navbar */
+            main {
+                padding-top: 100px !important;
+                margin-top: 0 !important;
+            }
+            
+            /* Additional styles for navbar toggler icon */
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            }
+
+            /* Responsive styles for the nourishment section */
+            @media (max-width: 992px) {
+                .nourishment-flex-container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .nourishment-image-container, 
+                .nourishment-cta {
+                    max-width: 100% !important;
+                    width: 100%;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .nourishment-cta h2 {
+                    font-size: 1.5rem !important;
+                }
+                
+                .nourishment-cta {
+                    padding: 1.5rem !important;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .nourishment-cta h2 {
+                    font-size: 1.3rem !important;
+                }
+                
+                .nourishment-cta p {
+                    font-size: 0.9rem !important;
+                }
+                
+                .cta-button {
+                    padding: 10px 20px !important;
+                    font-size: 0.8rem !important;
+                }
+            }
+            
+            /* Nourishment card hover effects */
+            .nourishment-card {
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            
+            .nourishment-card:hover {
+                transform: scale(1.02);
+            }
+            
+            .nourishment-card:hover .card-overlay {
+                opacity: 1 !important;
+            }
+            
+            /* For touch devices */
+            @media (hover: none) {
+                .nourishment-card .card-overlay {
+                    opacity: 1 !important;
+                    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.3) 100%) !important;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- Bootstrap Navbar (matching index page) -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-3">
+                <a class="navbar-brand" href="index.html">
+                    <div class="logo-container">
+                        <img src="images/Plate of Africa Logo.png" alt="Logo" class="logo" />
+                    </div>
+                </a>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto text-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservations.html">Reservations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="OurApproachToVeganism.html">Sustainability</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hoursLocation.html">Hours & Location</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="employ.html">Employment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="references.html">References</a>
+                        </li>
+                    </ul>
+                    <a href="contacts.html" class="contact-link">
+                        <button class="btn logbutton d-none d-lg-block">Contact Us</button>
+                        <button class="btn logbutton d-lg-none">Contact</button>
+                    </a>
                 </div>
-                <div class ="nourishment-text slide-in">
-                    <h1>NOURISHMENT FOR THE BODY AND SOUL</h1>
-                    <br>
-                    <p>Veganism is not simply about care for the environment, but also care for the individual. At Plate of Africa, we want to ensure that our diners are eating high-quality vegan food that will be a great benefit to their health. The dishes we serve are not only packed with flavor, but with nutrients as well. Plant-based diets are growing in popularity among health groups due to its many physical and psychological benefits. Plant-based diets are typically higher in Vitamins C, D, and A than that of meat-based diets, contributing to healthier bones, skin, and a stronger immune system.</p>
-                </div>
-                <div class="nourishmentImage2 slide-in">
-                    <img src="images/Group 149Nourishment2.png">
-                </div>
-                <br>
             </div>
-            <br>
+        </nav>
+        <main>
+                <section class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">OUR APPROACH TO VEGANISM</h1>
+                <div class="hero-divider"></div>
+                <p class="hero-subtitle">Discover how we're redefining plant-based dining with sustainable practices and exceptional flavors that honor African culinary traditions.</p>
+                <a href="#sustainability-intro" class="hero-button">Learn More</a>
+            </div>
+            <div class="scroll-indicator" id="scroll-down">
+                <i class="fas fa-chevron-down"></i>
         </div>
+        </section>
+        
+        <!-- Sustainability Intro Section -->
+        <section id="sustainability-intro" class="content-section sustainability-intro">
+            <div class="section-content">
+                <h2 class="section-title fade-in">SUSTAINABILITY</h2>
+                <div class="section-divider fade-in"></div>
+                <div class="fade-in">
+                    <p>
+                        Sustainability is one of the core principles that we attempt to uphold here at Plate of Africa. We understand that sustainability is the backbone to not just our restaurant but to the world as a whole. Through the lens of a plant-based approach, we can reduce our carbon footprint greatly, as the resources required to grow plants are much less than that of animal products. By implementing a vegan menu, we greatly decrease the amount of greenhouse gas we emit, water we use, and cut down on deforestation.
+                    </p>
+                    <p>
+                        While this is all good in theory, it is important to acknowledge the fact that in order to enact real change, we need to take action. Despite other restaurants claiming that they are environmentally-friendly, Plate of Africa takes real steps in order to create real change. We partner with local farmers to provide the freshest ingredients and use seasonal produce in order to cut down on our emissions. This ultimately means that the menu changes with the seasons, showing our commitment to a healthier planet and brighter future.
+                    </p>
+                </div>
+                
+                <!-- Sustainability Stats -->
+                <div class="sustainability-stats">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-label">Less Water Usage</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">75%</div>
+                        <div class="stat-label">Lower Carbon Footprint</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Seasonal Ingredients</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FROM FARM TO TABLE SECTION -->
+        <section class="sustainability-section" id="farm-to-table">
+            <div class="interactive-container" style="max-width: 1200px;">
+                <div class="farm-header">
+                    <h2 class="section-title">FROM FARM TO TABLE</h2>
+                    <div class="section-divider"></div>
+                    <p>At Plate of Africa, we believe that the journey of your food is just as important as its taste. Our farm-to-table approach ensures that every ingredient on your plate has been thoughtfully sourced, minimizing environmental impact while maximizing flavor and nutrition.</p>
+                </div>
+                
+                <!-- Two-column layout -->
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+                    <!-- Left column: Map -->
+                    <div style="flex: 1.5; min-width: 400px;">
+                        <div class="map-container fade-in" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);">
+                            <img src="images/susmaplol.png" alt="Local Sourcing Map" class="location-map" style="width: 100%; height: auto; display: block; border-radius: 20px; border: 1px solid #E0BC6B;">
+                            
+                            <!-- Farm Location Markers -->
+                            <div class="location-marker marker-1" data-location="Greenleaf Farms">
+                                <div class="marker-logo"></div>
+                            </div>
+                            <div class="location-marker marker-2" data-location="Sunshine Organics">
+                                <div class="marker-logo"></div>
+                            </div>
+                            <div class="location-marker marker-3" data-location="Heritage Growers">
+                                <div class="marker-logo"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Location Info Container (moved below the map) -->
+                        <div class="location-info-container" id="location-info-container">
+                            <div class="location-info" id="info-greenleaf-farms" data-location="Greenleaf Farms">
+                                <h3>Greenleaf Farms</h3>
+                                <p><i class="fa-solid fa-seedling"></i> Organic Vegetables & Herbs</p>
+                                <p><i class="fa-solid fa-location-dot"></i> 15 miles from our restaurant</p>
+                                <p><i class="fa-solid fa-calendar"></i> Partnered since 2018</p>
+                            </div>
+                            <div class="location-info" id="info-sunshine-organics" data-location="Sunshine Organics">
+                                <h3>Sunshine Organics</h3>
+                                <p><i class="fa-solid fa-seedling"></i> Fruits & Specialty Produce</p>
+                                <p><i class="fa-solid fa-location-dot"></i> 22 miles from our restaurant</p>
+                                <p><i class="fa-solid fa-calendar"></i> Partnered since 2019</p>
+                            </div>
+                            <div class="location-info" id="info-heritage-growers" data-location="Heritage Growers">
+                                <h3>Heritage Growers</h3>
+                                <p><i class="fa-solid fa-seedling"></i> Legumes & Grains</p>
+                                <p><i class="fa-solid fa-location-dot"></i> 18 miles from our restaurant</p>
+                                <p><i class="fa-solid fa-calendar"></i> Partnered since 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right column: Accordion -->
+                    <div style="flex: 1; min-width: 300px;">
+                        <div class="vertical-nav">
+                            <div class="scroll-progress"></div>
+                            <ul>
+                                <li class="nav-item active" data-panel="overview-panel">
+                                    <div class="nav-item-header">
+                                        <span class="nav-number">01</span>
+                                        <span class="nav-title">Overview</span>
+                                    </div>
+                                    <div class="nav-item-content">
+                                        <h3>Our Farm to Table Approach</h3>
+                                        <p>We work directly with local farmers and producers who share our commitment to sustainable and ethical practices, creating a food system that benefits our community, our planet, and your dining experience.</p>
+                                        <div class="feature-icons">
+                                            <div class="icon-item">
+                                                <div class="icon">
+                                                    <i class="fas fa-seedling"></i>
+                                                </div>
+                                                <span>Fresh</span>
+                                            </div>
+                                            <div class="icon-item">
+                                                <div class="icon">
+                                                    <i class="fas fa-leaf"></i>
+                                                </div>
+                                                <span>Sustainable</span>
+                                            </div>
+                                            <div class="icon-item">
+                                                <div class="icon">
+                                                    <i class="fas fa-heart"></i>
+                                                </div>
+                                                <span>Ethical</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item" data-panel="local-sourcing-panel">
+                                    <div class="nav-item-header">
+                                        <span class="nav-number">02</span>
+                                        <span class="nav-title">Local Sourcing</span>
+                                    </div>
+                                    <div class="nav-item-content">
+                                        <h3>Local Sourcing Benefits</h3>
+                                        <p>We source over 80% of our ingredients from farms within a 100-mile radius of our restaurant. This approach offers numerous benefits:</p>
+                                        <ul>
+                                            <li>Reduced carbon footprint from transportation</li>
+                                            <li>Support for local farmers and the local economy</li>
+                                            <li>Fresher, more nutritious produce that hasn't traveled for days</li>
+                                            <li>Preservation of regional food traditions and biodiversity</li>
+                                        </ul>
+                                        <p>By choosing local, we ensure that your meal not only tastes better but also contributes to a more sustainable food system.</p>
+                                    </div>
+                                </li>
+                                <li class="nav-item" data-panel="direct-shipping-panel">
+                                    <div class="nav-item-header">
+                                        <span class="nav-number">03</span>
+                                        <span class="nav-title">Direct Shipping</span>
+                                    </div>
+                                    <div class="nav-item-content">
+                                        <h3>Direct Farm Relationships</h3>
+                                        <p>We've eliminated middlemen by establishing direct relationships with our farmers. This approach allows us to:</p>
+                                        <ul>
+                                            <li>Ensure fair compensation for farmers' hard work</li>
+                                            <li>Reduce food waste through precise ordering</li>
+                                            <li>Maintain quality control from farm to kitchen</li>
+                                            <li>Create custom growing plans for unique African vegetables</li>
+                                        </ul>
+                                        <p>These partnerships enable us to bring you authentic African flavors while supporting sustainable farming practices.</p>
+                                    </div>
+                                </li>
+                                <li class="nav-item" data-panel="seasonal-menus-panel">
+                                    <div class="nav-item-header">
+                                        <span class="nav-number">04</span>
+                                        <span class="nav-title">Seasonal Menus</span>
+                                    </div>
+                                    <div class="nav-item-content">
+                                        <h3>Seasonal Menu Adaptation</h3>
+                                        <p>Our menu evolves with the seasons, reflecting what's currently growing in our region. This seasonal approach offers:</p>
+                                        <ul>
+                                            <li>Peak flavor and nutritional value from in-season produce</li>
+                                            <li>Exciting menu variations throughout the year</li>
+                                            <li>Support for natural growing cycles and biodiversity</li>
+                                            <li>Creative fusion of African traditions with local seasonal ingredients</li>
+                                        </ul>
+                                        <p>Each visit to Plate of Africa offers a unique experience that celebrates the best of what's currently available from our farm partners.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Nourishment Section -->
+        <section class="content-section nourishment-section">
+            <div class="nourishment-container">
+                <div class="nourishment-intro fade-in">
+                    <h2>NOURISHMENT FOR THE BODY AND SOUL</h2>
+                    <p>Veganism is not simply about care for the environment, but also care for the individual. At Plate of Africa, we want to ensure that our diners are eating high-quality vegan food that will be a great benefit to their health. The dishes we serve are not only packed with flavor, but with nutrients as well. Plant-based diets are growing in popularity among health groups due to its many physical and psychological benefits.</p>
+                </div>
+                
+                <!-- New layout with images on sides and CTA in middle -->
+                <div class="nourishment-flex-container" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: stretch; justify-content: center;">
+                    <!-- Left image -->
+                    <div class="nourishment-image-container fade-in" style="flex: 1; min-width: 280px; max-width: 500px; margin-bottom: 1rem;">
+                        <div class="nourishment-card" style="height: 100%; position: relative; overflow: hidden; border-radius: 10px;">
+                            <img src="images/Group 150Nourishment1.png" alt="Nourishing Food" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.4) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; opacity: 0; transition: opacity 0.3s ease;">
+                                <h3 style="color: #E6B035; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600;">Nutrient-Rich Cuisine</h3>
+                                <p style="color: #fff; font-size: 1rem; line-height: 1.6; max-width: 90%;">Our dishes are carefully crafted to provide essential vitamins and minerals that support overall health and wellbeing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Center CTA -->
+                    <div class="nourishment-cta fade-in" style="flex: 1; min-width: 280px; max-width: 500px; text-align: center; padding: 2rem; background-color: rgba(30, 30, 30, 0.7); border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border-left: 3px solid #E6B035; transition: transform 0.3s ease, box-shadow 0.3s ease; margin-bottom: 1rem;">
+                        <h2 style="font-size: 1.8rem; color: #E6B035; margin-bottom: 1rem; text-transform: uppercase;">JOIN US IN MAKING A DIFFERENCE</h2>
+                        <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #E3D582 0%, #E6B035 100%); margin: 0 auto 1.5rem;"></div>
+                        <p style="margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.6;">Experience the delicious flavors of sustainable, plant-based African cuisine while contributing to a healthier planet. Whether you're a committed vegan or simply curious about plant-based dining, we welcome you to join us on this journey.</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                            <a href="menu.html" class="cta-button primary" style="display: inline-block; padding: 12px 25px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; background: linear-gradient(90deg, #E3D582, #E6B035); color: #0F0F0F; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)';">View Our Menu</a>
+                            <a href="reservations.html" class="cta-button secondary" style="display: inline-block; padding: 12px 25px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; background: transparent; color: #E6B035; border: 2px solid #E6B035; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0, 0, 0, 0.3)'; this.style.backgroundColor='rgba(230, 176, 53, 0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.2)'; this.style.backgroundColor='transparent';">Make a Reservation</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right image -->
+                    <div class="nourishment-image-container fade-in" style="flex: 1; min-width: 280px; max-width: 500px; margin-bottom: 1rem;">
+                        <div class="nourishment-card" style="height: 100%; position: relative; overflow: hidden; border-radius: 10px;">
+                            <img src="images/Group 149Nourishment2.png" alt="Healthy Ingredients" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.4) 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; opacity: 0; transition: opacity 0.3s ease;">
+                                <h3 style="color: #E6B035; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600;">Wholesome Ingredients</h3>
+                                <p style="color: #fff; font-size: 1rem; line-height: 1.6; max-width: 90%;">Plant-based diets are typically higher in Vitamins C, D, and A than meat-based diets, contributing to healthier bones, skin, and a stronger immune system.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     
+    <!-- Scroll to Top Button -->
     <div id="scrolltotop-button">
-        <img src="images/ScrollToTopButton.png" alt="scroll to top">
+        <img src="images/ScrollToTopButton.png" alt="Scroll to top">
     </div>
 
-    <script>
-        var scrolltotop = document.getElementById("scrolltotop-button");
-
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrolltotop.style.display = "block";
-            } 
-            else {
-                scrolltotop.style.display = "none";
-            }
-        };
-
-        scrolltotop.onclick = function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        };
-        // on scroll animations
-        const elements = document.querySelectorAll('.slide-in'); 
-
-const onScroll = () => {
-    elements.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
-            el.classList.add('show');                 }
-    });
-};
-
-window.addEventListener('scroll', onScroll);
-onScroll(); 
-
-    </script>
-
+    <!-- Footer -->
 <footer>
     <div class="row">
         <div class="col">
@@ -426,12 +641,337 @@ onScroll();
     <p class="copyright">Plate of Africa © Copyright 2024. All Rights Reserved</p>
 </footer>
 
-    <!-- Add script.js to load the navigation -->
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Scroll to top functionality
+        var scrolltotop = document.getElementById("scrolltotop-button");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrolltotop.style.display = "block";
+            } 
+            else {
+                scrolltotop.style.display = "none";
+            }
+        };
+
+        scrolltotop.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+
+        // Scroll down indicator functionality
+        document.getElementById('scroll-down').addEventListener('click', function() {
+            document.getElementById('sustainability-intro').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+
+        // Enhanced scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const checkFade = () => {
+            fadeElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+        
+        // Navbar scroll behavior
+        const navbar = document.querySelector('.navbar');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+                
+                if (scrollTop > lastScrollTop) {
+                    navbar.classList.add('hidden');
+                } else {
+                    navbar.classList.remove('hidden');
+                }
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Main initialization function for all interactive components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all interactive components
+            initLocationMarkers();
+            initFarmToTableSection();
+            
+            // Initial check for fade elements
+            checkFade();
+        });
+        
+        // Map functionality
+        function initLocationMarkers() {
+            const locationMarkers = document.querySelectorAll('.location-marker');
+            const infoContainer = document.getElementById('location-info-container');
+            const locationInfos = document.querySelectorAll('.location-info');
+            const mapContainer = document.querySelector('.map-container');
+            let currentLocation = null;
+            
+            // Exit if elements don't exist
+            if (!locationMarkers.length || !infoContainer) return;
+            
+            /**
+             * Show location info with enhanced animations
+             * @param {string} locationName - The name of the location to show
+             */
+            function showLocationInfo(locationName) {
+                // If we're already showing this location, do nothing
+                if (currentLocation === locationName) return;
+                
+                // If we're showing a different location, animate the transition
+                if (currentLocation) {
+                    // First hide the current location info with a quick fade
+                    locationInfos.forEach(info => {
+                        if (info.getAttribute('data-location') === currentLocation) {
+                            info.style.opacity = '0';
+                            info.style.transform = 'translateX(10px)';
+                            
+                            // After a short delay, remove active class and show new location
+                            setTimeout(() => {
+                                info.classList.remove('active');
+                                showNewLocation();
+                            }, 150);
+                        }
+                    });
+                } else {
+                    // If no location is currently shown, just show the new one
+                    infoContainer.classList.add('active');
+                    showNewLocation();
+                }
+                
+                /**
+                 * Helper function to show the new location
+                 */
+                function showNewLocation() {
+                    // Show the selected location info
+                    const selectedInfo = document.getElementById('info-' + locationName.toLowerCase().replace(/\s+/g, '-'));
+                    if (selectedInfo) {
+                        selectedInfo.classList.add('active');
+                        // Ensure the container is visible
+                        infoContainer.classList.add('active');
+                        // Highlight the active marker
+                        highlightMarker(locationName);
+                    }
+                    // Update current location
+                    currentLocation = locationName;
+                }
+            }
+            
+            /**
+             * Highlight the active marker
+             * @param {string} locationName - The name of the location to highlight
+             */
+            function highlightMarker(locationName) {
+                // Reset all markers
+                locationMarkers.forEach(marker => {
+                    marker.style.backgroundColor = '#E0BC6B';
+                    marker.style.transform = 'translate(-50%, -50%)';
+                    marker.style.boxShadow = 'none';
+                    // Make sure logo is properly sized
+                    const logo = marker.querySelector('.marker-logo');
+                    if (logo) {
+                        logo.style.width = '30px';
+                        logo.style.height = '30px';
+                    }
+                });
+                
+                // Highlight the active marker
+                locationMarkers.forEach(marker => {
+                    if (marker.getAttribute('data-location') === locationName) {
+                        marker.style.backgroundColor = '#E6B035';
+                        marker.style.transform = 'translate(-50%, -50%) scale(1.2)';
+                        marker.style.boxShadow = '0 0 15px #E0BC6B';
+                        // Make logo slightly larger on highlighted marker
+                        const logo = marker.querySelector('.marker-logo');
+                        if (logo) {
+                            logo.style.width = '35px';
+                            logo.style.height = '35px';
+                        }
+                    }
+                });
+            }
+            
+            /**
+             * Hide location info
+             */
+            function hideLocationInfo() {
+                infoContainer.classList.remove('active');
+                setTimeout(() => {
+                    locationInfos.forEach(info => {
+                        info.classList.remove('active');
+                    });
+                    // Reset all markers
+                    locationMarkers.forEach(marker => {
+                        marker.style.backgroundColor = '#E0BC6B';
+                        marker.style.transform = 'translate(-50%, -50%)';
+                        marker.style.boxShadow = 'none';
+                        // Reset logo size
+                        const logo = marker.querySelector('.marker-logo');
+                        if (logo) {
+                            logo.style.width = '30px';
+                            logo.style.height = '30px';
+                        }
+                    });
+                    currentLocation = null;
+                }, 300);
+            }
+            
+            // Add event listeners to markers
+            locationMarkers.forEach(marker => {
+                const location = marker.getAttribute('data-location');
+                
+                // Show on hover over marker
+                marker.addEventListener('mouseenter', () => {
+                    showLocationInfo(location);
+                });
+                
+                // For mobile: toggle on click
+                marker.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent bubbling
+                    showLocationInfo(location);
+                });
+            });
+            
+            // Hide when clicking elsewhere on the document (for mobile)
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.location-marker') && !e.target.closest('.location-info-container')) {
+                    hideLocationInfo();
+                }
+            });
+            
+            // Add a mouseleave event to the map column to hide info when mouse leaves the entire section
+            const mapColumn = document.querySelector('.map-column') || mapContainer.parentElement;
+            if (mapColumn) {
+                mapColumn.addEventListener('mouseleave', () => {
+                    hideLocationInfo();
+                });
+            }
+        }
+
+        // Function to initialize the Farm to Table section
+        function initFarmToTableSection() {
+            // Select elements from the new combined layout with more specific selectors
+            const navItems = document.querySelectorAll('.sustainability-section .vertical-nav .nav-item');
+            const navHeaders = document.querySelectorAll('.sustainability-section .nav-item-header');
+            const scrollProgress = document.querySelector('.sustainability-section .scroll-progress');
+            const verticalNav = document.querySelector('.sustainability-section .vertical-nav');
+            
+            console.log('Initializing Farm to Table section:', { 
+                navItems: navItems.length, 
+                navHeaders: navHeaders.length,
+                scrollProgress: !!scrollProgress
+            });
+            
+            // Set initial active state
+            if (navItems.length > 0) {
+                // Activate first item by default
+                navItems[0].classList.add('active');
+                
+                // Set initial scroll progress position
+                updateScrollIndicator(0, navItems.length);
+                
+                // Add click event listeners to nav headers
+                navHeaders.forEach((header, index) => {
+                    header.addEventListener('click', function(e) {
+                        // Prevent default behavior
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Get the parent nav item
+                        const parentItem = this.closest('.nav-item');
+                        
+                        // If this item is already active, do nothing
+                        if (parentItem.classList.contains('active')) {
+                            return;
+                        }
+                        
+                        console.log('Nav item clicked:', parentItem.getAttribute('data-panel'));
+                        
+                        // Remove active class from all items
+                        navItems.forEach(item => {
+                            if (item.classList.contains('active')) {
+                                item.classList.remove('active');
+                            }
+                        });
+                        
+                        // Add active class to clicked item
+                        parentItem.classList.add('active');
+                        
+                        // Update scroll indicator
+                        updateScrollIndicator(index, navItems.length);
+                        
+                        // Scroll to the item if it's not fully visible
+                        ensureElementInView(parentItem);
+                    });
+                });
+            }
+        }
+        
+        /**
+         * Update the scroll indicator position based on which accordion item is active
+         * @param {number} activeIndex - The index of the active accordion item
+         * @param {number} totalItems - The total number of accordion items
+         */
+        function updateScrollIndicator(activeIndex, totalItems) {
+            const scrollProgress = document.querySelector('.sustainability-section .scroll-progress');
+            const verticalNav = document.querySelector('.sustainability-section .vertical-nav');
+            
+            if (!scrollProgress || !verticalNav) return;
+            
+            // Calculate the height of the vertical nav
+            const navHeight = verticalNav.offsetHeight;
+            
+            // Calculate the percentage of progress
+            const progressPercentage = (activeIndex / (totalItems - 1)) * 100;
+            
+            // Update scroll progress height
+            scrollProgress.style.height = `${navHeight * (progressPercentage / 100)}px`;
+        }
+
+        /**
+         * Ensures an element is in the viewport, scrolling to it if necessary
+         * @param {HTMLElement} element - The element to ensure is in view
+         */
+        function ensureElementInView(element) {
+            // Only proceed if the element is part of the sustainability section
+            if (!element.closest('.sustainability-section')) return;
+            
+            const rect = element.getBoundingClientRect();
+            const navbarHeight = document.querySelector('.navbar').offsetHeight || 80;
+            
+            // If the element is not fully visible, scroll to it
+            if (rect.top < navbarHeight || rect.bottom > window.innerHeight) {
+                const scrollTarget = window.pageYOffset + rect.top - navbarHeight - 20;
+                
+                window.scrollTo({
+                    top: scrollTarget,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
     
-    <!-- Add Bootstrap JavaScript -->
+    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
 
