@@ -18,6 +18,7 @@
         body {
             background: #0f0f0f;
             color: white;
+            padding-top: 0 !important; /* Override the padding-top from ReviewPage.css */
         }
 
         .home-hero-text {
@@ -50,6 +51,153 @@
             font-family: "Poppins";
             font-size: 18px;
             width: fit-content;
+        }
+
+        /* Back to Menu button */
+        .back-to-menu {
+            position: relative;
+            margin-top: 30px;
+            margin-left: 40px;
+            z-index: 1000;
+            border-radius: 24px;
+            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+            display: inline-flex;
+            height: 44px;
+            padding: 8px 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: #232323;
+            font-family: "Poppins";
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-menu:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: #232323;
+        }
+        
+        .back-to-menu i {
+            margin-right: 8px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-to-menu:hover i {
+            transform: translateX(-4px);
+        }
+        
+        /* Cart Button */
+        .cart-btn {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #030303;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .cart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cart-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Cart Sidebar Styling */
+        .offcanvas {
+            background-color: #0a0a0a;
+            color: white;
+            width: 400px;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid #222;
+        }
+
+        .offcanvas-title {
+            color: #fff;
+            font-family: "Poppins";
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+            justify-content: space-between;
+        }
+
+        .cart-item-title {
+            color: #fff;
+            font-family: "Poppins";
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .cart-item-price {
+            color: #E1C072;
+            font-weight: bold;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .btn-qty {
+            background: none;
+            color: white;
+            border: 1px solid #393939;
+            border-radius: 4px;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .cart-footer {
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+            color: #232323;
+            font-weight: bold;
+            width: 100%;
+            border-radius: 10px;
+            padding: 12px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .ab-small {
@@ -99,6 +247,178 @@
             font-weight: bold;
         }
 
+        /* Add to Cart button animation */
+        .cartBtn {
+            transition: all 0.3s ease;
+        }
+        
+        .cartBtn:active {
+            transform: scale(0.95);
+            background: linear-gradient(90deg, #e0bc6b 0%, #F7EFC1 100%);
+        }
+        
+        .cartBtn-added {
+            background: #4CAF50 !important;
+            color: white;
+            animation: pulse 1s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Improved Review Modal Styling */
+        .reviewSection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        
+        .reviewModal {
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .reviewText {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #E1C072;
+        }
+        
+        .shareText {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        .stars {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+        
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            color: gray;
+            transition: color 0.2s ease;
+        }
+        
+        .reviewTextAreaModal {
+            width: 100%;
+            height: 150px;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: white;
+            resize: none;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        .sendBtn {
+            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+            color: #232323;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        .sendBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .closeBtn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #ccc;
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .closeBtn:hover {
+            color: white;
+        }
+        
+        /* Thank You Modal Styling */
+        .reviewOuter1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        
+        .reviewSuccess {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .reviewModal1 {
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .sucessmark {
+            width: 80px;
+            height: 80px;
+            margin: 20px auto;
+        }
+        
+        .thankuText {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #E1C072;
+        }
+        
+        .forText {
+            font-size: 16px;
+            color: #ccc;
+        }
 
         @media (max-width: 1200px) {
             .ab-small {
@@ -124,6 +444,19 @@
             .home-hero-heading {
                 font-size: 40px;
             }
+            
+            .reviewModal, .reviewModal1 {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .star {
+                font-size: 24px;
+            }
+            
+            .reviewTextAreaModal {
+                height: 120px;
+            }
         }
         /* on scroll animations **/
         .slide-in
@@ -137,15 +470,63 @@ transform: translateX(-8%);
  transform: translateX(0); 
 }
 
+/* Make sure heroSection is visible by default */
+.heroSection.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+    display: block !important;
+    visibility: visible !important;
+    margin-top: 20px;
+}
+
+/* Ensure the heroInner is properly displayed */
+.heroInner {
+    display: flex !important;
+    opacity: 1 !important;
+}
+
     </style>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
 </head>
 
 <body>
+    <!-- Cart Sidebar -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Your Cart</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div id="cart-container"></div>
+            <!-- Footer -->
+            <div class="cart-footer">
+                <div class="d-flex justify-content-between">
+                    <span>Total</span>
+                    <strong class="cart-item-price"><span id="total-price"></span></strong>
+                </div>
+                <a href="/Order.html">
+                    <button class="checkout-btn mt-3">PROCEED TO CHECKOUT</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="home-hero-bg">
         <!-- Header -->
         <div id="header"></div>
 
+        <!-- Back to Menu Button -->
+        <a href="menu.html" class="back-to-menu">
+            <i class="bi bi-arrow-left"></i> Back to Menu
+        </a>
+        
+        <!-- Cart Button -->
+        <div class="cart-btn" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M8.405 20C7.90954 20 7.48555 19.8434 7.13302 19.5304C6.78049 19.2173 6.60393 18.8405 6.60333 18.4C6.60273 17.9594 6.77929 17.5829 7.13302 17.2704C7.48675 16.9578 7.91074 16.801 8.405 16.8C8.89925 16.7989 9.32354 16.9557 9.67787 17.2704C10.0322 17.585 10.2085 17.9616 10.2067 18.4C10.2049 18.8384 10.0286 19.2152 9.67787 19.5304C9.32715 19.8456 8.90286 20.0021 8.405 20ZM17.4133 20C16.9179 20 16.4939 19.8434 16.1413 19.5304C15.7888 19.2173 15.6123 18.8405 15.6117 18.4C15.6111 17.9594 15.7876 17.5829 16.1413 17.2704C16.4951 16.9578 16.9191 16.801 17.4133 16.8C17.9076 16.7989 18.3319 16.9557 18.6862 17.2704C19.0405 17.585 19.2168 17.9616 19.215 18.4C19.2132 18.8384 19.0369 19.2152 18.6862 19.5304C18.3355 19.8456 17.9112 20.0021 17.4133 20ZM6.7835 5.6H20.0708C20.4161 5.6 20.6788 5.7368 20.859 6.0104C21.0392 6.284 21.0467 6.56053 20.8815 6.84L17.6836 11.96C17.5184 12.2267 17.2971 12.4333 17.0197 12.58C16.7422 12.7267 16.438 12.8 16.1071 12.8H9.39591L8.405 14.4H18.3141C18.5694 14.4 18.7835 14.4768 18.9564 14.6304C19.1294 14.784 19.2156 14.9739 19.215 15.2C19.2144 15.4261 19.1279 15.6163 18.9555 15.7704C18.7832 15.9245 18.5694 16.001 18.3141 16H8.405C7.72937 16 7.2189 15.7368 6.87358 15.2104C6.52826 14.684 6.51325 14.1605 6.82854 13.64L8.04466 11.68L4.80167 5.6H3.90084C3.6456 5.6 3.4318 5.5232 3.25944 5.3696C3.08708 5.216 3.0006 5.02613 3 4.8C2.9994 4.57387 3.08588 4.384 3.25944 4.2304C3.433 4.0768 3.6468 4 3.90084 4H5.36469C5.52984 4 5.68749 4.04 5.83762 4.12C5.98776 4.2 6.10037 4.31333 6.17544 4.46L6.7835 5.6Z" fill="#FFF3F3" />
+            </svg>
+        </div>
 
         <div class="heroSection slide-in">
             <div class="heroInner">
@@ -153,7 +534,7 @@ transform: translateX(-8%);
                     <img src="./assets/images/reviewImg10.png" class="mainImgProps" id="mainImg" alt="">
                     <div class="imagesPOuter">
                         <img src="./assets/images/reviewImg6.png" class="imgNeedTo" alt=""
-                            onclick="changeImage('./images/reviewImg6.png', this)">
+                            onclick="changeImage('./assets/images/reviewImg6.png', this)">
                         <img src="./assets/images/reviewImg10.png" class="imgNeedTo" alt=""
                             onclick="changeImage('./assets/images/reviewImg10.png', this)">
                         <img src="./assets/images/reviewImg8.png" class="imgNeedTo" alt=""
@@ -217,7 +598,39 @@ transform: translateX(-8%);
                         <div class="SectedDiu" id="productQuantity">1</div>
                         <div class="plusDiu" onclick="increment()">+</div>
                     </div>
-                    <button class="cartBtn">Add To Cart</button>
+                    <button type="button" class="cartBtn" onclick="addToCart(); return false;">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Modal Section - Moved above the reviews list -->
+        <div class="reviewOuter">
+            <div class="reviewSection">
+                <div class="reviewModal">
+                    <button class="closeBtn">✕</button>
+                    <div class="reviewText">REVIEW</div>
+                    <div class="shareText">SHARE YOUR OPINION</div>
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <textarea placeholder="Enter your message" class="reviewTextAreaModal"></textarea>
+                    <button class="sendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Thank You Modal -->
+        <div class="reviewOuter1">
+            <div class="reviewSuccess">
+                <div class="reviewModal1">
+                    <button class="closeBtn">✕</button>
+                    <img src="./assets/images/successmark.png" class="sucessmark" alt="">
+                    <div class="thankuText">Thank You</div>
+                    <div class="forText">For submitting a review</div>
                 </div>
             </div>
         </div>
@@ -305,38 +718,6 @@ transform: translateX(-8%);
                 </div>
             </div>
         </div>
-
-        <div class="reviewOuter">
-            <div class="reviewSection">
-                <div class="reviewModal">
-                    <button class="closeBtn">✕</button>
-                    <div class="reviewText">REVIEW</div>
-                    <div class="shareText">SHARE YOUR OPINION</div>
-                    <div class="stars">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <textarea placeholder="Enter your message" class="reviewTextAreaModal"></textarea>
-                    <button class="sendBtn">Send</button>
-                </div>
-            </div>
-
-        </div>
-        <div class="reviewOuter1">
-            <div class="reviewSuccess">
-                <div class="reviewModal1">
-                    <button class="closeBtn">✕</button>
-                    <img src="./assets/images/successmark.png" class="sucessmark" alt="">
-                    <div class="thankuText">Thank You</div>
-                    <div class="forText">For submitting a review</div>
-                </div>
-            </div>
-        </div>
-
-
 
     </div>
 
@@ -452,10 +833,46 @@ transform: translateX(-8%);
     <script src="script.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-    <script src="assets/js/ReviewPage.js"></script>
+    <!-- Prevent conflicts with ReviewPage.js by overriding its functions -->
+    <script>
+        // Override ReviewPage.js functions to prevent conflicts
+        window.onload = function() {
+            // This will override the window.onload in ReviewPage.js
+            // and ensure our DOMContentLoaded handler runs properly
+            console.log("Custom onload function running");
+            
+            // Force heroSection to be visible
+            const heroSection = document.querySelector('.heroSection');
+            if (heroSection) {
+                heroSection.style.display = 'block';
+                heroSection.style.visibility = 'visible';
+                heroSection.style.opacity = '1';
+                heroSection.style.transform = 'translateX(0)';
+                heroSection.classList.add('show');
+                console.log('Forcing heroSection to be visible from onload');
+            }
+        };
+    </script>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
     <script>
+        // Global count variable for quantity
+        let count = 1;
+        
+        // Force heroSection to be visible
+        setTimeout(function() {
+            const heroSection = document.querySelector('.heroSection');
+            if (heroSection) {
+                heroSection.style.display = 'block';
+                heroSection.style.visibility = 'visible';
+                heroSection.style.opacity = '1';
+                heroSection.style.transform = 'translateX(0)';
+                heroSection.classList.add('show');
+                console.log('Forcing heroSection to be visible');
+            }
+        }, 500);
+        
         document.addEventListener("DOMContentLoaded", function () {
             const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
 
@@ -463,7 +880,96 @@ transform: translateX(-8%);
                 document.querySelector(".nameText").innerText = selectedItem.name;
                 document.querySelector(".productprice").innerText = selectedItem.price;
                 document.querySelector(".productDetail").innerText = selectedItem.description;
-                // document.getElementById("mainImg").src = selectedItem.image;
+                
+                // Update main product image
+                const mainImg = document.getElementById("mainImg");
+                if (mainImg && selectedItem.image) {
+                    mainImg.src = selectedItem.image;
+                }
+
+                // Generate thumbnail gallery based on product
+                const imagesPOuter = document.querySelector(".imagesPOuter");
+                if (imagesPOuter) {
+                    // Clear existing thumbnails
+                    imagesPOuter.innerHTML = '';
+                    
+                    // Get product name to determine which set of images to use
+                    const productName = selectedItem.name;
+                    
+                    // Define specific images for each product
+                    // You can customize this object to include all your products and their specific images
+                    const productImages = {
+                        "Liberian Fried Okra": [
+                            selectedItem.image, // Main image from menu
+                            "./assets/images/okra_variant1.png", 
+                            "./assets/images/okra_variant2.png",
+                            "./assets/images/okra_variant3.png"
+                        ],
+                        "Jollof Rice": [
+                            selectedItem.image,
+                            "./assets/images/jollof_variant1.png",
+                            "./assets/images/jollof_variant2.png"
+                            // Only 2 variant images for this product
+                        ],
+                        "Bunny Chow": [
+                            selectedItem.image,
+                            "./assets/images/bunny_variant1.png"
+                            // Only 1 variant image for this product
+                        ],
+                        // Add more products as needed
+                    };
+                    
+                    // Default fallback images if product-specific ones aren't found
+                    // We'll only use these if the product isn't in the productImages object
+                    const defaultImages = [
+                        selectedItem.image,
+                        "./assets/images/reviewImg6.png",
+                        "./assets/images/reviewImg8.png",
+                        "./assets/images/reviewImg9.png"
+                    ];
+                    
+                    // Use product-specific images if available, otherwise use defaults
+                    let imagesToUse = productImages[productName] || defaultImages;
+                    
+                    // A more robust approach to handle image display
+                    // This will create a function to preload and check images
+                    function createThumbnailGallery(images) {
+                        // Always display the main image (first in the array)
+                        const mainImage = images[0];
+                        const mainImg = document.createElement('img');
+                        mainImg.src = mainImage;
+                        mainImg.className = 'imgNeedTo selected';
+                        mainImg.alt = selectedItem.name + ' main image';
+                        mainImg.onclick = function() { changeImage(mainImage, this); };
+                        imagesPOuter.appendChild(mainImg);
+                        
+                        // For variant images, we'll add them one by one
+                        // This ensures we only display the exact number of images available
+                        for (let i = 1; i < images.length; i++) {
+                            const variantImg = document.createElement('img');
+                            variantImg.src = images[i];
+                            variantImg.className = 'imgNeedTo';
+                            variantImg.alt = selectedItem.name + ' variant ' + i;
+                            variantImg.onclick = function() { changeImage(images[i], this); };
+                            imagesPOuter.appendChild(variantImg);
+                            
+                            // Add error handling to remove images that fail to load
+                            variantImg.onerror = function() {
+                                console.log(`Image ${images[i]} failed to load and was removed`);
+                                this.remove();
+                            };
+                        }
+                        
+                        console.log(`Created thumbnail gallery with ${images.length} images for ${productName}`);
+                    }
+                    
+                    // Create the thumbnail gallery with the appropriate images
+                    createThumbnailGallery(imagesToUse);
+                    
+                    // Add a comment to explain how to add more product images
+                    console.log("To add more product images, update the productImages object in the code");
+                    console.log("You can add any number of variant images for each product - from 0 to as many as needed");
+                }
 
                 // Update ingredients dynamically
                 document.querySelector(".ingreOuter").innerHTML = selectedItem.ingredients
@@ -472,24 +978,467 @@ transform: translateX(-8%);
             } else {
                 // document.querySelector(".heroSection").innerHTML = "<h2>Item not found</h2>";
             }
+
+            // Initialize quantity counter
+            count = 1; // Reset count to ensure it starts at 1
+            document.getElementById('productQuantity').innerText = count;
+            
+            // Define increment/decrement functions
+            window.increment = function() {
+                count++;
+                document.getElementById('productQuantity').innerText = count;
+            };
+            
+            window.decrement = function() {
+                // Ensure the count does not go below 1
+                if (count > 1) {
+                    count--;
+                    document.getElementById('productQuantity').innerText = count;
+                } else {
+                    // Optional: Show a message
+                    alert("Quantity cannot be less than 1!");
+                }
+            };
+            
+            // Render reviews
+            renderReviews();
+            
+            // Initialize cart
+            renderCart();
+            
+            // Update cart counter on page load
+            updateCartCounter();
+            
+            // Define changeImage function in the global scope
+            window.changeImage = function(src, element) {
+                // Change the main image source
+                document.getElementById('mainImg').src = src;
+
+                // Remove the 'selected' class from all small images
+                var smallImages = document.querySelectorAll('.imgNeedTo');
+                smallImages.forEach(function (img) {
+                    img.classList.remove('selected');
+                });
+
+                // Add the 'selected' class to the clicked small image
+                element.classList.add('selected');
+            };
         });
+        
+        // Function to update cart counter
+        function updateCartCounter() {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const cartCount = cartItems.reduce((total, item) => total + item.productQuantity, 0);
+            
+            // Check if cart counter element exists
+            let cartCounter = document.querySelector(".cart-counter");
+            
+            // If it doesn't exist, create it
+            if (!cartCounter) {
+                // Find the header element
+                const header = document.getElementById("header");
+                if (header) {
+                    // Create cart counter element
+                    cartCounter = document.createElement("div");
+                    cartCounter.className = "cart-counter";
+                    cartCounter.style.position = "absolute";
+                    cartCounter.style.top = "10px";
+                    cartCounter.style.right = "20px";
+                    cartCounter.style.backgroundColor = "#E0BC6B";
+                    cartCounter.style.color = "#232323";
+                    cartCounter.style.borderRadius = "50%";
+                    cartCounter.style.width = "24px";
+                    cartCounter.style.height = "24px";
+                    cartCounter.style.display = "flex";
+                    cartCounter.style.justifyContent = "center";
+                    cartCounter.style.alignItems = "center";
+                    cartCounter.style.fontSize = "14px";
+                    cartCounter.style.fontWeight = "bold";
+                    
+                    // Append to header
+                    header.appendChild(cartCounter);
+                }
+            }
+            
+            // Update counter value
+            if (cartCounter) {
+                cartCounter.textContent = cartCount;
+                cartCounter.style.display = cartCount > 0 ? "flex" : "none";
+            }
+        }
         // on scroll animation
         const elements = document.querySelectorAll('.slide-in'); 
 
         const onScroll = () => {
             elements.forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
-                    el.classList.add('show');                 }
+                    el.classList.add('show');                 
+                }
             });
         };
 
         window.addEventListener('scroll', onScroll);
+        
+        // Make sure elements are visible on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force the heroSection to be visible immediately
+            const heroSection = document.querySelector('.heroSection');
+            if (heroSection) {
+                heroSection.classList.add('show');
+            }
+            
+            // Run onScroll for other elements
         onScroll(); 
+        });
 
+        // Add to Cart functionality
+        function addToCart() {
+            // Debug message
+            console.log("Add to Cart function called");
+            
+            // Get the current product details
+            const productName = document.querySelector(".nameText").innerText;
+            const productPrice = document.querySelector(".productprice").innerText;
+            const productQuantity = parseInt(document.getElementById("productQuantity").innerText);
+            const productImage = document.getElementById("mainImg").src;
+            
+            // Debug message
+            console.log("Adding to cart:", productName, "Quantity:", productQuantity);
+            
+            // Create a cart item object
+            const cartItem = {
+                name: productName,
+                price: productPrice,
+                productQuantity: productQuantity, // Changed from quantity to productQuantity to match menu.html
+                image: productImage,
+                timestamp: new Date().getTime()
+            };
+            
+            // Get existing cart or initialize a new one
+            // Use "cartItems" as the key to match menu.html
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            
+            // Check if item already exists in cart
+            const existingItemIndex = cartItems.findIndex(item => item.name === productName);
+            
+            if (existingItemIndex !== -1) {
+                // Update quantity if item exists
+                cartItems[existingItemIndex].productQuantity += productQuantity;
+                console.log("Updated existing item quantity to:", cartItems[existingItemIndex].productQuantity);
+            } else {
+                // Add new item if it doesn't exist
+                cartItems.push(cartItem);
+                console.log("Added new item to cart");
+            }
+            
+            // Save updated cart to localStorage
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            
+            // Also update the "cart" key for backward compatibility
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            
+            // Update cart counter
+            updateCartCounter();
+            
+            // Visual feedback
+            const cartBtn = document.querySelector(".cartBtn");
+            cartBtn.classList.add("cartBtn-added");
+            cartBtn.innerText = "Added to Cart!";
+            
+            // Render cart items
+            renderCart();
+            
+            // Open the cart sidebar
+            var cartSidebar = new bootstrap.Offcanvas(document.getElementById('cartSidebar'));
+            cartSidebar.show();
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                cartBtn.classList.remove("cartBtn-added");
+                cartBtn.innerText = "Add To Cart";
+                
+                // Reset quantity counter to 1 after adding to cart
+                document.getElementById('productQuantity').innerText = "1";
+                count = 1; // Reset the count variable used by increment/decrement functions
+                console.log("Reset quantity to 1");
+            }, 2000);
+            
+            // Prevent default form submission behavior
+            console.log("Preventing default behavior");
+            return false;
+        }
+        
+        // Function to render cart items
+        function renderCart() {
+            console.log("Rendering cart");
+            
+            let cartContainer = document.getElementById("cart-container");
+            let totalPriceElement = document.getElementById("total-price");
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            let totalPrice = 0;
+            
+            cartContainer.innerHTML = ""; // Clear previous cart items
+            
+            cartItems.forEach((item, index) => {
+                let price = parseFloat(item.price.replace("$", "")) || 0;
+                let itemTotal = price * item.productQuantity; // Calculate total for this item
+                totalPrice += itemTotal; // Add to total price
+                
+                let cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                
+                cartItem.innerHTML = `
+                    <div class="d-flex gap-2">
+                        <img src="${item.image}" alt="Product" style="width: 50px; height: 50px; border-radius: 5px;">
+                        <div>
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">$${price?.toFixed(2)}</div>
+                            <div class="quantity-controls">
+                                <button class="btn-qty" onclick="updateCartQuantity(${index}, -1)">-</button>
+                                <input type="text" value="${item?.productQuantity}" readonly style="width: 40px; text-align: center;">
+                                <button class="btn-qty" onclick="updateCartQuantity(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm" onclick="removeCartItem(${index})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="15" viewBox="0 0 12 15" fill="none">
+                            <path d="M12 0.833333H9L8.14286 0H3.85714L3 0.833333H0V2.5H12M0.857143 13.3333C0.857143 13.7754 1.03775 14.1993 1.35925 14.5118C1.68074 14.8244 2.11677 15 2.57143 15H9.42857C9.88323 15 10.3193 14.8244 10.6408 14.5118C10.9622 14.1993 11.1429 13.7754 11.1429 13.3333V3.33333H0.857143V13.3333Z" fill="#D9D9D9"/>
+                        </svg>
+                    </button>
+                `;
+                
+                cartContainer.appendChild(cartItem);
+            });
+            
+            totalPriceElement.innerText = `$${totalPrice.toFixed(2)}`;
+            console.log("Cart rendered, total price:", totalPrice);
+        }
+        
+        // Function to update cart item quantity
+        function updateCartQuantity(index, change) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            
+            cartItems[index].productQuantity = Math.max(1, cartItems[index].productQuantity + change);
+            
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            localStorage.setItem("cart", JSON.stringify(cartItems)); // For backward compatibility
+            
+            renderCart();
+            updateCartCounter();
+        }
+        
+        // Function to remove cart item
+        function removeCartItem(index) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            
+            cartItems.splice(index, 1);
+            
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            localStorage.setItem("cart", JSON.stringify(cartItems)); // For backward compatibility
+            
+            renderCart();
+            updateCartCounter();
+        }
 
+        // Function to render reviews
+        function renderReviews() {
+            console.log("Rendering reviews");
+            
+            // Sample reviews data - you can replace this with actual data from localStorage or an API
+            const reviews = [
+                {
+                    userName: "Marvin McKinney",
+                    userImage: "./assets/images/user1.png",
+                    daysText: "2 days ago",
+                    reviewTextDetail: "I love this dish! It's so flavorful and authentic. The spices are perfectly balanced and it reminds me of my trip to Africa. Highly recommend!",
+                    rating: 5
+                },
+                {
+                    userName: "Savannah Nguyen",
+                    userImage: "./assets/images/user2.jpg",
+                    daysText: "19 days ago",
+                    reviewTextDetail: "I'm so impressed with the quality of this food! The ingredients were fresh and the flavors were amazing. I'll definitely be ordering again.",
+                    rating: 4
+                },
+                {
+                    userName: "Emma Johnson",
+                    userImage: "./assets/images/user3.jpg",
+                    daysText: "22 days ago",
+                    reviewTextDetail: "This has become my go-to meal! The dish is not only delicious but also incredibly authentic. I recently ordered a few during their sale, and I'm already planning my next purchase. Highly recommend!",
+                    rating: 5
+                },
+                {
+                    userName: "Liam Smith",
+                    userImage: "./assets/images/user4.jpg",
+                    daysText: "26 days ago",
+                    reviewTextDetail: "I had an amazing experience with this dish. The flavors were bold and authentic. The portion size was generous and it's held up really well as leftovers too.",
+                    rating: 4
+                }
+            ];
+            
+            // Get the container for reviews
+            const remainSection = document.getElementById("remainSection");
+            
+            // Clear existing content except scrollLine and overlayClass
+            remainSection.innerHTML = `
+                <div class="scrollLine"></div>
+                <div class="overlayClass"></div>
+            `;
+            
+            // Add each review to the container
+            reviews.forEach(review => {
+                // Create star rating HTML
+                const stars = Array(5).fill('').map((_, i) => 
+                    `<span class="star ${i < review.rating ? 'active' : ''}" style="color: ${i < review.rating ? 'gold' : 'gray'}">★</span>`
+                ).join('');
+                
+                // Create review HTML
+                const reviewHTML = `
+                    <div class="reviewOuterMain">
+                        <div class="reviewUserSection">
+                            <div class="userNameSection">
+                                <img src="${review.userImage}" class="userImg" alt="${review.userName}">
+                                <div class="nameMainOuter">
+                                    <div class="userName">${review.userName}</div>
+                                    <div class="star-rating">${stars}</div>
+                                </div>
+                            </div>
+                            <div class="daysText">${review.daysText}</div>
+                        </div>
+                        <div class="reviewTextDetail">
+                            ${review.reviewTextDetail}
+                        </div>
+                    </div>
+                `;
+                
+                // Insert the review before the overlayClass
+                const overlayClass = remainSection.querySelector('.overlayClass');
+                overlayClass.insertAdjacentHTML('beforebegin', reviewHTML);
+            });
+            
+            console.log("Reviews rendered");
+        }
+
+        // Add review functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize review modal functionality
+            initReviewModal();
+        });
+
+        // Function to initialize the review modal
+        function initReviewModal() {
+            // Get elements
+            const writeReviewBtn = document.querySelector('.writeReviewBtn');
+            const reviewModal = document.querySelector('.reviewModal');
+            const reviewSection = document.querySelector('.reviewSection');
+            const closeBtn = document.querySelectorAll('.closeBtn');
+            const sendBtn = document.querySelector('.sendBtn');
+            const reviewSuccess = document.querySelector('.reviewSuccess');
+            const stars = document.querySelectorAll('.stars .star');
+            
+            // Selected rating
+            let selectedRating = 0;
+            
+            // Add event listener to Write Review button
+            if (writeReviewBtn) {
+                writeReviewBtn.addEventListener('click', function() {
+                    reviewSection.style.display = 'flex';
+                });
+            }
+            
+            // Add event listeners to close buttons
+            closeBtn.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    reviewSection.style.display = 'none';
+                    reviewSuccess.style.display = 'none';
+                });
+            });
+            
+            // Add event listeners to stars
+            stars.forEach(function(star, index) {
+                // Mouse over event
+                star.addEventListener('mouseover', function() {
+                    // Reset all stars
+                    stars.forEach(s => s.style.color = 'gray');
+                    
+                    // Highlight stars up to the current one
+                    for (let i = 0; i <= index; i++) {
+                        stars[i].style.color = 'gold';
+                    }
+                });
+                
+                // Click event
+                star.addEventListener('click', function() {
+                    selectedRating = index + 1;
+                    
+                    // Reset all stars
+                    stars.forEach(s => s.style.color = 'gray');
+                    
+                    // Highlight selected stars
+                    for (let i = 0; i < selectedRating; i++) {
+                        stars[i].style.color = 'gold';
+                    }
+                    
+                    console.log('Selected rating:', selectedRating);
+                });
+            });
+            
+            // Mouse out event for stars container
+            document.querySelector('.stars').addEventListener('mouseout', function() {
+                // Reset all stars
+                stars.forEach(s => s.style.color = 'gray');
+                
+                // Highlight selected stars
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].style.color = 'gold';
+                }
+            });
+            
+            // Add event listener to send button
+            if (sendBtn) {
+                sendBtn.addEventListener('click', function() {
+                    const reviewText = document.querySelector('.reviewTextAreaModal').value;
+                    
+                    if (reviewText.trim() === '') {
+                        alert('Please enter your review text');
+                        return;
+                    }
+                    
+                    if (selectedRating === 0) {
+                        alert('Please select a rating');
+                        return;
+                    }
+                    
+                    // Here you would typically send the review to a server
+                    console.log('Submitting review:', {
+                        rating: selectedRating,
+                        text: reviewText
+                    });
+                    
+                    // For demo purposes, just show success message
+                    reviewSection.style.display = 'none';
+                    reviewSuccess.style.display = 'flex';
+                    
+                    // Reset form
+                    document.querySelector('.reviewTextAreaModal').value = '';
+                    selectedRating = 0;
+                    stars.forEach(s => s.style.color = 'gray');
+                    
+                    // Hide success message after 3 seconds
+                    setTimeout(function() {
+                        reviewSuccess.style.display = 'none';
+                    }, 3000);
+                });
+            }
+            
+            console.log('Review modal initialized');
+        }
     </script>
 
     <!-- Add script.js to load the navigation -->
+    
+    <!-- Load ReviewPage.js at the end to prevent conflicts -->
+    <script src="assets/js/ReviewPage.js"></script>
 </body>
 
 </html>
