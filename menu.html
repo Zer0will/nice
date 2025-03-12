@@ -538,6 +538,29 @@ transform: translateX(-8%);
  { opacity: 1;
  transform: translateX(0); 
 }
+h2 {
+  
+  transition: transform 0.3s ease, text-decoration 0.3s ease;
+
+}
+h2:hover {
+  transform:scale(1.1);
+  
+}
+button {
+  
+  transition: transform 0.3s ease, text-decoration 0.3s ease;
+
+}
+button:hover {
+  transform:scale(1.1);
+  animation: pulseGlow 1.5s infinite alternate;
+  
+}
+@keyframes pulseGlow 
+{ 0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } 
+50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.9); } 
+100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } }
 
   .container h2{
     padding-top: 75px;
@@ -795,7 +818,7 @@ transform: translateX(-8%);
         },
         {
           id: 3,
-          name: "African Spice Grilled Vegetable Skewers",
+          name: "Spice Grilled Vegetable Skewers",
           image: "/images/AfricanSpiceGrilledSkewers.jpg",
           price: "$28",
           ingredients: ["Zucchini", "Peppers", "African Marinade"],
