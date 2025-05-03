@@ -44,7 +44,7 @@ main button {
 }
 
 #title-area {
-    background-image: url(../images/reservations-header-image.png);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(../images/reservationsherosectionbackground.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -106,7 +106,8 @@ main button {
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.36);
-    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(200px);
+    filter: blur(10px);
 }
 
 h1 {
