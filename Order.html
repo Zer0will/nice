@@ -272,9 +272,20 @@
                     </div> -->
                     <div class="totalASection">
                         <div class="productLisOuter">
-                            <div class="liberianText">Total</div>
-                            <div class="abountTxet" id="totalAmount">403.84 US$</div>
+                            <div class="liberianText">Subtotal</div>
+                            <div class="abountTxet" id="subtotalAmount">$0.00</div>
                         </div>
+
+                        <div class="productLisOuter">
+                            <div class="liberianText">Sales Tax (10.25%)</div>
+                            <div class="abountTxet" id="salesTaxAmount">$0.00</div>
+                        </div>
+
+                        <div class="productLisOuter" style="border-top: 1px solid #333; padding-top: 10px;">
+                            <div class="liberianText" style="font-weight: bold;">Total</div>
+                            <div class="abountTxet" id="grandTotalAmount" style="font-weight: bold;">$0.00</div>
+                        </div>
+
                     </div>
                     <div class="paytext">Payment</div>
                     <div class="payBtnsouter">
@@ -514,25 +525,49 @@
                     }
                 });
             }
-            
-            // Function to update the total based on checked items
+
+            // Sales Tax Calculation
+            function calculateSalesTax(subtotal) {
+                const salesTaxRate = 0.1025; // 10.25% sales tax
+                return subtotal * salesTaxRate;
+            }
+
+            // Function to update all amounts
             function updateTotal() {
-                const totalAmountElement = document.getElementById("totalAmount");
-                
-                let totalAmount = 0;
-                
-                // Calculate total based on our cart items data
+                const subtotalElement = document.getElementById("subtotalAmount");
+                const salesTaxElement = document.getElementById("salesTaxAmount");
+                const grandTotalElement = document.getElementById("grandTotalAmount");
+    
+                let subtotal = 0; 
+    
+                // Calculate subtotal based on checked items only
                 cartItemsData.forEach(item => {
                     if (item.checked) {
-                        totalAmount += item.total;
+                        subtotal += item.total;
                     }
                 });
-                
-                // Update total amount
-                if (totalAmountElement) {
-                    totalAmountElement.textContent = `$${totalAmount.toFixed(2)}`;
-                }
+    
+            // Calculate Sales Tax
+            const salesTax = calculateSalesTax(subtotal);
+
+            // Update all display elements
+            if (subtotalElement) {
+                subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
             }
+    
+            if (salesTaxElement) {
+                salesTaxElement.textContent = `$${salesTax.toFixed(2)}`;
+            }
+
+            const grandTotal = subtotal + salesTax;
+
+    
+            if (grandTotalElement) {
+                grandTotalElement.textContent = `$${grandTotal.toFixed(2)}`;
+            }
+        }
+
+            
             
             // Define increment/decrement functions for the quantity controls
             window.incrementItem = function(index) {
