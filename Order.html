@@ -165,9 +165,9 @@
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
                                     <div class="selectedNumber">
-                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="minusDiv" onclick="decrementItem(0)">-</div>
                                         <div class="SelectedDiv" id="counter">2</div>
-                                        <div class="plusDiv" onclick="increment()">+</div>
+                                        <div class="plusDiv" onclick="incrementItem(0)">+</div>
                                     </div>
                                 </div>
                             </div>
@@ -191,9 +191,9 @@
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
                                     <div class="selectedNumber">
-                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="minusDiv" onclick="decrementItem(1)">-</div>
                                         <div class="SelectedDiv" id="counter">2</div>
-                                        <div class="plusDiv" onclick="increment()">+</div>
+                                        <div class="plusDiv" onclick="incrementItem(1)">+</div>
                                     </div>
                                 </div>
                             </div>
@@ -217,9 +217,9 @@
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
                                     <div class="selectedNumber">
-                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="minusDiv" onclick="decrementItem(2)">-</div>
                                         <div class="SelectedDiv" id="counter">2</div>
-                                        <div class="plusDiv" onclick="increment()">+</div>
+                                        <div class="plusDiv" onclick="incrementItem(2)">+</div>
                                     </div>
                                 </div>
                             </div>
@@ -243,9 +243,9 @@
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
                                     <div class="selectedNumber">
-                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="minusDiv" onclick="decrementItem(3)">-</div>
                                         <div class="SelectedDiv" id="counter">2</div>
-                                        <div class="plusDiv" onclick="increment()">+</div>
+                                        <div class="plusDiv" onclick="incrementItem(3)">+</div>
                                     </div>
                                 </div>
                             </div>
@@ -360,6 +360,7 @@
 
     <!-- Add custom JavaScript for Order page functionality -->
     <script>
+
         document.addEventListener("DOMContentLoaded", function() {
             // Back to Menu functionality
             const backToMenuBtn = document.getElementById("backToMenuBtn");
@@ -459,6 +460,14 @@
                     
                     // Initially add to total since checkboxes are checked by default
                     totalAmount += itemTotal;
+
+                    // Update the quantity display in the main product section
+                    const quantityElements = document.querySelectorAll('.SelectedDiv');
+                    if (quantityElements[index]) {
+                        quantityElements[index].textContent = item.productQuantity;
+                    }
+
+
                 });
                 
                 // Update total amount
@@ -480,12 +489,19 @@
                         totalAmountElement.textContent = "$0.00";
                     }
                 }
+
+
+                
                 
                 // Remove checkboxes from the main summary section
                 removeCheckboxesFromSummary();
                 
                 // Add event listeners to checkboxes
                 setupCheckboxListeners();
+
+
+                //Update total immediately after loading into order.html
+                updateTotal();
             }
             
             // Function to remove checkboxes from the main summary section
@@ -542,6 +558,7 @@
     
                 // Calculate subtotal based on checked items only
                 cartItemsData.forEach(item => {
+                    item.total = item.price * item.quantity;
                     if (item.checked) {
                         subtotal += item.total;
                     }
@@ -577,14 +594,21 @@
                     // Increment quantity
                     item.quantity++;
                     
+                    // Update the quantity display 
+                    const quantityElements = document.querySelectorAll('.SelectedDiv');
+                    if (quantityElements[index]) {
+                        quantityElements[index].textContent = item.quantity;
+                    }
+
                     // Update total
                     item.total = item.price * item.quantity;
                     
                     // Update price display in cart summary
                     const priceElement = document.querySelector(`#${item.cartCheckboxId}`).closest('.productLisOuter').querySelector('.item-price');
                     if (priceElement) {
+                        priceElement.textContent = `$${item.total.toFixed(2)}`;
                         priceElement.setAttribute('data-price', item.total.toFixed(2));
-                        priceElement.innerText = `$${item.total.toFixed(2)}`;
+                        //priceElement.innerText = `$${item.total.toFixed(2)}`;
                     }
                     
                     // Update total
@@ -603,6 +627,12 @@
                     if (item.quantity > 1) {
                         // Decrement quantity
                         item.quantity--;
+
+                        // Update the quantity display in the main product section
+                        const quantityElements = document.querySelectorAll('.SelectedDiv');
+                        if (quantityElements[index]) {
+                            quantityElements[index].textContent = item.quantity;
+                        }
                         
                         // Update total
                         item.total = item.price * item.quantity;
@@ -610,8 +640,9 @@
                         // Update price display in cart summary
                         const priceElement = document.querySelector(`#${item.cartCheckboxId}`).closest('.productLisOuter').querySelector('.item-price');
                         if (priceElement) {
+                            priceElement.textContent = `$${item.total.toFixed(2)}`
                             priceElement.setAttribute('data-price', item.total.toFixed(2));
-                            priceElement.innerText = `$${item.total.toFixed(2)}`;
+                            //priceElement.innerText = `$${item.total.toFixed(2)}`;
                         }
                         
                         // Update total
