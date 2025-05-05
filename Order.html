@@ -277,8 +277,13 @@
                         </div>
 
                         <div class="productLisOuter">
-                            <div class="liberianText">Sales Tax (10.25%)</div>
+                            <div class="liberianText">Total Sales Tax (10.25%)</div>
                             <div class="abountTxet" id="salesTaxAmount">$0.00</div>
+                        </div>
+
+                        <div class="productLisOuter">
+                            <div class="liberianText">Washington Spirit Alcohol Tax (20.5%)</div>
+                            <div class="abountTxet" id="alcoholTaxAmount">$0.00</div>
                         </div>
 
                         <div class="productLisOuter" style="border-top: 1px solid #333; padding-top: 10px;">
@@ -360,6 +365,8 @@
 
     <!-- Add custom JavaScript for Order page functionality -->
     <script>
+        const ALCOHOL_TAX_RATE = 0.205;
+        const SALES_TAX_RATE = 0.1025; 
 
         document.addEventListener("DOMContentLoaded", function() {
             // Back to Menu functionality
@@ -441,6 +448,7 @@
                         price: price,
                         quantity: item.productQuantity,
                         total: itemTotal,
+                        isAlcohol: item.isAlcohol || false, 
                         cartCheckboxId,
                         checked: true // Default to checked
                     });
@@ -552,20 +560,57 @@
             function updateTotal() {
                 const subtotalElement = document.getElementById("subtotalAmount");
                 const salesTaxElement = document.getElementById("salesTaxAmount");
+                const alcoholTaxElement = document.getElementById("alcoholTaxAmount");
                 const grandTotalElement = document.getElementById("grandTotalAmount");
     
                 let subtotal = 0; 
+                let alcoholSubtotal = 0; // Total for alcohol items only
+                let nonAlcoholSubtotal = 0; // Total for non-alcohol items
+
     
                 // Calculate subtotal based on checked items only
+
+                /**
                 cartItemsData.forEach(item => {
                     item.total = item.price * item.quantity;
                     if (item.checked) {
                         subtotal += item.total;
                     }
                 });
+
+                **/
+
+                cartItemsData.forEach(item => {
+                    item.total = item.price * item.quantity;
+                    if (item.checked) {
+                        subtotal += item.total;
+                        // Check if item is alcoholic (you'll need to add this property when adding to cart)
+                        if (item.isAlcohol) {
+                            alcoholSubtotal += item.total;
+                        } else {
+                            nonAlcoholSubtotal += item.total;
+                        }
+                    }
+                });
     
             // Calculate Sales Tax
-            const salesTax = calculateSalesTax(subtotal);
+            //const salesTax = calculateSalesTax(subtotal);
+
+            /**
+            const salesTax = nonAlcoholSubtotal * SALES_TAX_RATE;
+            const alcoholTax = alcoholSubtotal * ALCOHOL_TAX_RATE;
+            const totalTax = salesTax + alcoholTax;
+            **/
+
+            const salesTaxOnNonAlcohol = nonAlcoholSubtotal * SALES_TAX_RATE;
+            const salesTaxOnAlcohol = alcoholSubtotal * SALES_TAX_RATE;
+            const totalSalesTax = salesTaxOnNonAlcohol + salesTaxOnAlcohol;
+
+            // Alcohol tax applies ONLY to alcohol items
+            const alcoholTax = alcoholSubtotal * ALCOHOL_TAX_RATE;
+    
+            // Total tax is sum of all taxes
+            const totalTax = totalSalesTax + alcoholTax;
 
             // Update all display elements
             if (subtotalElement) {
@@ -573,10 +618,14 @@
             }
     
             if (salesTaxElement) {
-                salesTaxElement.textContent = `$${salesTax.toFixed(2)}`;
+                salesTaxElement.textContent = `$${totalSalesTax.toFixed(2)}`;
             }
 
-            const grandTotal = subtotal + salesTax;
+            if (alcoholTaxElement) {
+                alcoholTaxElement.textContent = `$${alcoholTax.toFixed(2)}`;
+            }
+
+            const grandTotal = subtotal + totalTax;
 
     
             if (grandTotalElement) {
