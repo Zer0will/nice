@@ -566,7 +566,7 @@
                 let subtotal = 0; 
                 let alcoholSubtotal = 0; // Total for alcohol items only
                 let nonAlcoholSubtotal = 0; // Total for non-alcohol items
-
+                let hasAlcohol = false;
     
                 // Calculate subtotal based on checked items only
 
@@ -587,6 +587,7 @@
                         // Check if item is alcoholic (you'll need to add this property when adding to cart)
                         if (item.isAlcohol) {
                             alcoholSubtotal += item.total;
+                            hasAlcohol = true;
                         } else {
                             nonAlcoholSubtotal += item.total;
                         }
@@ -621,10 +622,22 @@
                 salesTaxElement.textContent = `$${totalSalesTax.toFixed(2)}`;
             }
 
+            /**
             if (alcoholTaxElement) {
                 alcoholTaxElement.textContent = `$${alcoholTax.toFixed(2)}`;
             }
+            **/
 
+            // Show/hide alcohol tax line based on hasAlcohol flag
+            if (alcoholTaxElement) {
+                if (hasAlcohol) {
+                    alcoholTaxElement.textContent = `$${alcoholTax.toFixed(2)}`;
+                    alcoholTaxElement.parentElement.style.display = "flex"; // Show the line
+                } else {
+                    alcoholTaxElement.parentElement.style.display = "none"; // Hide the line
+                }
+            }
+            
             const grandTotal = subtotal + totalTax;
 
     
