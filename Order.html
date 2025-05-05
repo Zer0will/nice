@@ -165,9 +165,9 @@
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
                                     <div class="selectedNumber">
-                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="minusDiv" onclick="decrementItem(0)">-</div>
                                         <div class="SelectedDiv" id="counter">2</div>
-                                        <div class="plusDiv" onclick="increment()">+</div>
+                                        <div class="plusDiv" onclick="incrementItem(0)">+</div>
                                     </div>
                                 </div>
                             </div>
@@ -191,9 +191,9 @@
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
                                     <div class="selectedNumber">
-                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="minusDiv" onclick="decrementItem(1)">-</div>
                                         <div class="SelectedDiv" id="counter">2</div>
-                                        <div class="plusDiv" onclick="increment()">+</div>
+                                        <div class="plusDiv" onclick="incrementItem(1)">+</div>
                                     </div>
                                 </div>
                             </div>
@@ -217,9 +217,9 @@
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
                                     <div class="selectedNumber">
-                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="minusDiv" onclick="decrementItem(2)">-</div>
                                         <div class="SelectedDiv" id="counter">2</div>
-                                        <div class="plusDiv" onclick="increment()">+</div>
+                                        <div class="plusDiv" onclick="incrementItem(2)">+</div>
                                     </div>
                                 </div>
                             </div>
@@ -243,9 +243,9 @@
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
                                     <div class="selectedNumber">
-                                        <div class="minusDiv" onclick="decrement()">-</div>
+                                        <div class="minusDiv" onclick="decrementItem(3)">-</div>
                                         <div class="SelectedDiv" id="counter">2</div>
-                                        <div class="plusDiv" onclick="increment()">+</div>
+                                        <div class="plusDiv" onclick="incrementItem(3)">+</div>
                                     </div>
                                 </div>
                             </div>
@@ -272,9 +272,25 @@
                     </div> -->
                     <div class="totalASection">
                         <div class="productLisOuter">
-                            <div class="liberianText">Total</div>
-                            <div class="abountTxet" id="totalAmount">403.84 US$</div>
+                            <div class="liberianText">Subtotal</div>
+                            <div class="abountTxet" id="subtotalAmount">$0.00</div>
                         </div>
+
+                        <div class="productLisOuter">
+                            <div class="liberianText">Total Sales Tax (10.25%)</div>
+                            <div class="abountTxet" id="salesTaxAmount">$0.00</div>
+                        </div>
+
+                        <div class="productLisOuter">
+                            <div class="liberianText">Washington Spirit Alcohol Tax (20.5%)</div>
+                            <div class="abountTxet" id="alcoholTaxAmount">$0.00</div>
+                        </div>
+
+                        <div class="productLisOuter" style="border-top: 1px solid #333; padding-top: 10px;">
+                            <div class="liberianText" style="font-weight: bold;">Total</div>
+                            <div class="abountTxet" id="grandTotalAmount" style="font-weight: bold;">$0.00</div>
+                        </div>
+
                     </div>
                     <div class="paytext">Payment</div>
                     <div class="payBtnsouter">
@@ -349,6 +365,9 @@
 
     <!-- Add custom JavaScript for Order page functionality -->
     <script>
+        const ALCOHOL_TAX_RATE = 0.205;
+        const SALES_TAX_RATE = 0.1025; 
+
         document.addEventListener("DOMContentLoaded", function() {
             // Back to Menu functionality
             const backToMenuBtn = document.getElementById("backToMenuBtn");
@@ -429,6 +448,7 @@
                         price: price,
                         quantity: item.productQuantity,
                         total: itemTotal,
+                        isAlcohol: item.isAlcohol || false, 
                         cartCheckboxId,
                         checked: true // Default to checked
                     });
@@ -448,6 +468,14 @@
                     
                     // Initially add to total since checkboxes are checked by default
                     totalAmount += itemTotal;
+
+                    // Update the quantity display in the main product section
+                    const quantityElements = document.querySelectorAll('.SelectedDiv');
+                    if (quantityElements[index]) {
+                        quantityElements[index].textContent = item.productQuantity;
+                    }
+
+
                 });
                 
                 // Update total amount
@@ -469,12 +497,19 @@
                         totalAmountElement.textContent = "$0.00";
                     }
                 }
+
+
+                
                 
                 // Remove checkboxes from the main summary section
                 removeCheckboxesFromSummary();
                 
                 // Add event listeners to checkboxes
                 setupCheckboxListeners();
+
+
+                //Update total immediately after loading into order.html
+                updateTotal();
             }
             
             // Function to remove checkboxes from the main summary section
@@ -514,25 +549,104 @@
                     }
                 });
             }
-            
-            // Function to update the total based on checked items
+
+            // Sales Tax Calculation
+            function calculateSalesTax(subtotal) {
+                const salesTaxRate = 0.1025; // 10.25% sales tax
+                return subtotal * salesTaxRate;
+            }
+
+            // Function to update all amounts
             function updateTotal() {
-                const totalAmountElement = document.getElementById("totalAmount");
-                
-                let totalAmount = 0;
-                
-                // Calculate total based on our cart items data
+                const subtotalElement = document.getElementById("subtotalAmount");
+                const salesTaxElement = document.getElementById("salesTaxAmount");
+                const alcoholTaxElement = document.getElementById("alcoholTaxAmount");
+                const grandTotalElement = document.getElementById("grandTotalAmount");
+    
+                let subtotal = 0; 
+                let alcoholSubtotal = 0; // Total for alcohol items only
+                let nonAlcoholSubtotal = 0; // Total for non-alcohol items
+                let hasAlcohol = false;
+    
+                // Calculate subtotal based on checked items only
+
+                /**
                 cartItemsData.forEach(item => {
+                    item.total = item.price * item.quantity;
                     if (item.checked) {
-                        totalAmount += item.total;
+                        subtotal += item.total;
                     }
                 });
-                
-                // Update total amount
-                if (totalAmountElement) {
-                    totalAmountElement.textContent = `$${totalAmount.toFixed(2)}`;
+
+                **/
+
+                cartItemsData.forEach(item => {
+                    item.total = item.price * item.quantity;
+                    if (item.checked) {
+                        subtotal += item.total;
+                        // Check if item is alcoholic (you'll need to add this property when adding to cart)
+                        if (item.isAlcohol) {
+                            alcoholSubtotal += item.total;
+                            hasAlcohol = true;
+                        } else {
+                            nonAlcoholSubtotal += item.total;
+                        }
+                    }
+                });
+    
+            // Calculate Sales Tax
+            //const salesTax = calculateSalesTax(subtotal);
+
+            /**
+            const salesTax = nonAlcoholSubtotal * SALES_TAX_RATE;
+            const alcoholTax = alcoholSubtotal * ALCOHOL_TAX_RATE;
+            const totalTax = salesTax + alcoholTax;
+            **/
+
+            const salesTaxOnNonAlcohol = nonAlcoholSubtotal * SALES_TAX_RATE;
+            const salesTaxOnAlcohol = alcoholSubtotal * SALES_TAX_RATE;
+            const totalSalesTax = salesTaxOnNonAlcohol + salesTaxOnAlcohol;
+
+            // Alcohol tax applies ONLY to alcohol items
+            const alcoholTax = alcoholSubtotal * ALCOHOL_TAX_RATE;
+    
+            // Total tax is sum of all taxes
+            const totalTax = totalSalesTax + alcoholTax;
+
+            // Update all display elements
+            if (subtotalElement) {
+                subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+            }
+    
+            if (salesTaxElement) {
+                salesTaxElement.textContent = `$${totalSalesTax.toFixed(2)}`;
+            }
+
+            /**
+            if (alcoholTaxElement) {
+                alcoholTaxElement.textContent = `$${alcoholTax.toFixed(2)}`;
+            }
+            **/
+
+            // Show/hide alcohol tax line based on hasAlcohol flag
+            if (alcoholTaxElement) {
+                if (hasAlcohol) {
+                    alcoholTaxElement.textContent = `$${alcoholTax.toFixed(2)}`;
+                    alcoholTaxElement.parentElement.style.display = "flex"; // Show the line
+                } else {
+                    alcoholTaxElement.parentElement.style.display = "none"; // Hide the line
                 }
             }
+            
+            const grandTotal = subtotal + totalTax;
+
+    
+            if (grandTotalElement) {
+                grandTotalElement.textContent = `$${grandTotal.toFixed(2)}`;
+            }
+        }
+
+            
             
             // Define increment/decrement functions for the quantity controls
             window.incrementItem = function(index) {
@@ -542,14 +656,21 @@
                     // Increment quantity
                     item.quantity++;
                     
+                    // Update the quantity display 
+                    const quantityElements = document.querySelectorAll('.SelectedDiv');
+                    if (quantityElements[index]) {
+                        quantityElements[index].textContent = item.quantity;
+                    }
+
                     // Update total
                     item.total = item.price * item.quantity;
                     
                     // Update price display in cart summary
                     const priceElement = document.querySelector(`#${item.cartCheckboxId}`).closest('.productLisOuter').querySelector('.item-price');
                     if (priceElement) {
+                        priceElement.textContent = `$${item.total.toFixed(2)}`;
                         priceElement.setAttribute('data-price', item.total.toFixed(2));
-                        priceElement.innerText = `$${item.total.toFixed(2)}`;
+                        //priceElement.innerText = `$${item.total.toFixed(2)}`;
                     }
                     
                     // Update total
@@ -568,6 +689,12 @@
                     if (item.quantity > 1) {
                         // Decrement quantity
                         item.quantity--;
+
+                        // Update the quantity display in the main product section
+                        const quantityElements = document.querySelectorAll('.SelectedDiv');
+                        if (quantityElements[index]) {
+                            quantityElements[index].textContent = item.quantity;
+                        }
                         
                         // Update total
                         item.total = item.price * item.quantity;
@@ -575,8 +702,9 @@
                         // Update price display in cart summary
                         const priceElement = document.querySelector(`#${item.cartCheckboxId}`).closest('.productLisOuter').querySelector('.item-price');
                         if (priceElement) {
+                            priceElement.textContent = `$${item.total.toFixed(2)}`
                             priceElement.setAttribute('data-price', item.total.toFixed(2));
-                            priceElement.innerText = `$${item.total.toFixed(2)}`;
+                            //priceElement.innerText = `$${item.total.toFixed(2)}`;
                         }
                         
                         // Update total
