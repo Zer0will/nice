@@ -898,6 +898,12 @@
                         
                         // Get the parent nav item
                         const parentItem = this.closest('.nav-item');
+                        const wasActive = parentItem.classList.contains('active');
+
+                        // Remove active class from all items first
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                        });
                         
                         // If this item is already active, do nothing
                         if (parentItem.classList.contains('active')) {
@@ -913,14 +919,21 @@
                             }
                         });
                         
+                        if(!wasActive){
+                            parentItem.classList.add('active');
+                            updateScrollIndicator(index, navItems.length);
+                            ensureElementInView(parentItem);
+                        } else{
+                            updateScrollIndicator(-1, navItems.length);
+                        }
                         // Add active class to clicked item
-                        parentItem.classList.add('active');
+                        //parentItem.classList.add('active');
                         
                         // Update scroll indicator
-                        updateScrollIndicator(index, navItems.length);
+                        //updateScrollIndicator(index, navItems.length);
                         
                         // Scroll to the item if it's not fully visible
-                        ensureElementInView(parentItem);
+                        //ensureElementInView(parentItem);
                     });
                 });
             }
@@ -939,12 +952,19 @@
             
             // Calculate the height of the vertical nav
             const navHeight = verticalNav.offsetHeight;
+
+            if (activeIndex === -1) {
+                scrollProgress.style.height = '0';
+            } else {
+                const progressPercentage = (activeIndex / (totalItems - 1)) * 100;
+                scrollProgress.style.height = `${navHeight * (progressPercentage / 100)}px`;
+            }
             
             // Calculate the percentage of progress
-            const progressPercentage = (activeIndex / (totalItems - 1)) * 100;
+            //const progressPercentage = (activeIndex / (totalItems - 1)) * 100;
             
             // Update scroll progress height
-            scrollProgress.style.height = `${navHeight * (progressPercentage / 100)}px`;
+            //scrollProgress.style.height = `${navHeight * (progressPercentage / 100)}px`;
         }
 
         /**
