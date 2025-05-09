@@ -123,6 +123,10 @@
     margin: 0 auto;
 }
 
+#whereItAllStarted-scrollDown{
+    padding-top: 50px;
+}
+
 /* ANIMATIONS */
 @keyframes title-section {
     from {
