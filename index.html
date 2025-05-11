@@ -1105,7 +1105,7 @@ transform: translateX(-8%);
           <div class="col-md-4 ">
             <div class="accordion-container ">
               <div class="accordion-item box">
-                <button class="accordion-header " data-bs-toggle="collapse" data-bs-target="#item1">
+                <button class="accordion-header " data-bs-toggle="collapse" data-target="#item1">
                   <span class="accordion-number">01</span>
                   <span class="accordion-title">Ethical Considerations</span>
                   <span class="accordion-icon">
@@ -1136,7 +1136,7 @@ transform: translateX(-8%);
               </div>
 
               <div class="accordion-item box">
-                <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item2">
+                <button class="accordion-header" data-bs-toggle="collapse" data-target="#item2">
                   <span class="accordion-number">02</span>
                   <span class="accordion-title">Nutritional Content</span>
                   <span class="accordion-icon">
@@ -1167,7 +1167,7 @@ transform: translateX(-8%);
               </div>
 
               <div class="accordion-item box">
-                <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item3">
+                <button class="accordion-header" data-bs-toggle="collapse" data-target="#item3">
                   <span class="accordion-number">03</span>
                   <span class="accordion-title">Quality Ingredients</span>
                   <span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="12"
@@ -1197,7 +1197,7 @@ transform: translateX(-8%);
               </div>
 
               <div class="accordion-item box">
-                <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item4">
+                <button class="accordion-header" data-bs-toggle="collapse" data-target="#item4">
                   <span class="accordion-number">04</span>
                   <span class="accordion-title">Cultural Exploration</span>
                   <span class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="12"
@@ -1228,16 +1228,26 @@ transform: translateX(-8%);
             </div>
           </div>
           <script>
+            
             document.addEventListener("DOMContentLoaded", function () {
-              const accordionButtons =
-                document.querySelectorAll(".accordion-header");
+              const veganismAccordionButtons =
+              document.querySelectorAll(".accordion-container .accordion-header");
 
-              accordionButtons.forEach((button) => {
-                const targetId = button.getAttribute("data-bs-target");
+              veganismAccordionButtons.forEach((button) => {
+                const targetId = button.getAttribute("data-target") || button.getAttribute("href");;
                 const targetElement = document.querySelector(targetId);
                 const icon = button.querySelector(".accordion-icon svg");
 
-                button.addEventListener("click", function () {
+                // Initialize collapse instance
+                const collapseInstance = new bootstrap.Collapse(targetElement, {
+                    toggle: false
+                });
+
+                button.addEventListener("click", function (e) {
+                  e.preventDefault();
+                  const isExpanded = targetElement.classList.contains("show");
+                  
+                  /**
                   // Close any other open accordion items
                   document
                     .querySelectorAll(".collapse.show")
@@ -1259,6 +1269,20 @@ transform: translateX(-8%);
                       }
                     });
 
+                    **/
+                   // Close all other accordion items
+                document.querySelectorAll(".collapse.show").forEach((openItem) => {
+                  if (openItem !== targetElement) {
+                    const openInstance = bootstrap.Collapse.getInstance(openItem);
+                    if (openInstance) openInstance.hide();
+                  const openButton = document.querySelector(`[data-target="#${openItem.id}"]`);
+                  if (openButton) {
+                    const openIcon = openButton.querySelector(".accordion-icon svg");
+                  if (openIcon) openIcon.style.transform = "rotate(0deg)";
+                }
+              }
+            });
+                  /**
                   // Toggle the clicked accordion item
                   const isExpanded = targetElement.classList.contains("show");
                   const collapseInstance = new bootstrap.Collapse(
@@ -1274,18 +1298,43 @@ transform: translateX(-8%);
                   } else {
                     icon.style.transform = "rotate(0deg)"; // Arrow resets for closed item
                   }
+                    **/
+                   // Toggle current item
+                if (isExpanded) {
+                  collapseInstance.hide();
+                  icon.style.transform = "rotate(0deg)";
+                } else {
+                  collapseInstance.show();
+                  icon.style.transform = "rotate(180deg)";
+                }
+            });
+            // Handle when a collapse is shown
+            targetElement.addEventListener("shown.bs.collapse", function () {
+              icon.style.transform = "rotate(180deg)";
+            });
+
+            // Handle when a collapse is hidden
+            targetElement.addEventListener("hidden.bs.collapse", function () {
+              icon.style.transform = "rotate(0deg)";
                 });
               });
             });
+
+            
+
+
+
             //On-scroll fade in animations for non-frq and why veganism section
             const elements = document.querySelectorAll('.slide-in'); 
 
-const onScroll = () => {
-    elements.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
-            el.classList.add('show');                 }
-    });
+            const onScroll = () => {
+            elements.forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+              el.classList.add('show');                 }
+          });
 };
+
+
 
 window.addEventListener('scroll', onScroll);
 onScroll(); 
