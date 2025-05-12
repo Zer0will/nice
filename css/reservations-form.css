@@ -11,7 +11,9 @@
     margin-bottom: 250px;
     gap: 80px; 
 }
-
+#reserveTable-scrollDown{
+    padding-top: 50px;
+}
 .image-container {
     display: flex; /* Optional: Align image inside the container */
     justify-content: center; 

@@ -1,3 +1,4 @@
+
 body {
     background-color: rgba(15, 15, 15, 1);
     font-family: "Poppins";
@@ -15,7 +16,7 @@ body {
     padding: 0;
 }
 
-/* Scope these selectors to main content area to avoid affecting navbar */
+
 main li, main a, main button {
     font-family: "Poppins";
     font-size: 18px;
@@ -94,7 +95,7 @@ h1 {
     }
 }
 
-/* on scroll animations **/
+
 .slide-in { 
     opacity: 0; 
     transform: translateX(-8%);

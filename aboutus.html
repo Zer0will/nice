@@ -6,7 +6,7 @@
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/aboutUs.css">
-    <link rel="stylesheet" href="css/aboutUs-hero-section.css">
+    <link rel="stylesheet" href="css/aboutUs-hero-section-new.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +76,7 @@
             position: absolute;
             width: 80px;
             height: 3px;
-            background: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
+           
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
@@ -356,7 +356,19 @@
         </div>
     </nav>
     <main>
-        
+        <section class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">ABOUT US</h1>
+                <div class="hero-divider"></div>
+                <p class="hero-subtitle">At Plate of Africa, we’re more than a restaurant—we’re a celebration of heritage, flavor, and community. Discover how our passionate chefs turned a love for African cuisine into a mission to redefine vegetarian-based dining, one shared meal at a time.</p>
+            </div>
+            <div class="scroll-indicator" id="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+        </div>
+        </section>
+        <!--
         <div id="title-area">
             <h1 id="Main-title">
                 ABOUT US
@@ -364,13 +376,13 @@
             <div id="rectangle-header">
             </div>
         </div>
-        
+    -->
         <div class="approachfullbackground-box">
-            <div class="whereItAllStarted">
+            <div class="whereItAllStarted" id="whereItAllStarted-scrollDown">
                 <h1 class="slide-in">WHERE IT ALL STARTED</h1>
                 <div class="startedIntro-textContainer slide-in">
                     <p>
-                        When we decided to create Plate of Africa, we envisioned it as more than just a restaurant. Plate of Africa is a place where people of all cultures, and all backgrounds, can come together under the shared passion for culinary excellence. Plate of Africa was created simply by 3 men, each with a passion for cooking. Whether it be a flavorful chickpea curry, or a perfectly baked focaccia, these men were absolutely enthralled with the complexity of food. They found that food was not just about flavor or texture, but about the people you share the food with.
+                        When we decided to create Plate of Africa, we envisioned it as more than just a restaurant. Plate of Africa is a place where people of all cultures, and all backgrounds, can come together under the shared passion for culinary excellence. Plate of Africa was created simply by three men, each with a passion for cooking. Whether it be a flavorful chickpea curry, or a perfectly baked focaccia, these men were absolutely enthralled with the complexity of food. They found that food was not just about flavor or texture, but about the people you share the food with.
                     </p>
                     <br>
                     <p>
@@ -478,6 +490,13 @@
 
         window.addEventListener('scroll', onScroll);
         onScroll(); 
+
+        // Scroll down indicator functionality
+        document.getElementById('scroll-down').addEventListener('click', function() {
+            document.getElementById('whereItAllStarted-scrollDown').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
         
     </script>
 

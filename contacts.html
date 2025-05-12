@@ -326,6 +326,8 @@
         
 
         <main>
+
+            <!--
             <div id="title-area">
                 <h1 id="title-section">
                     CONTACT US
@@ -334,9 +336,24 @@
                 <div id="rectangle-header">
                 </div>
             </div>
+        -->
+            <section class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Contact US</h1>
+                <div class="hero-divider"></div>
+                <p class="hero-subtitle">Have questions or feedback? Reach out below—our team is here to help you experience the best of Plate of Africa.</p>
+                <a href="#contact-form" class="hero-button">Contact Us</a>
+            </div>
+
+            <div class="scroll-indicator" id="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+        </div>
+        </section>
 
             <!-- Adding a new intro section similar to reservations page -->
-            <div class="contact-intro">
+            <div class="contact-intro" id="contact-heading-scrollDown">
                 <div class="slide-in">
                     <img src="images/contact-image.png" alt="Contact Us">
                 </div>
@@ -463,6 +480,15 @@
     </div>
 
     <script>
+
+        // Scroll down indicator functionality
+        document.getElementById('scroll-down').addEventListener('click', function() {
+            document.getElementById('contact-heading-scrollDown').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+
+
         var scrolltotop = document.getElementById("scrolltotop-button");
 
         window.onscroll = function() {

@@ -296,6 +296,8 @@
         </nav>
 
         <main>
+
+            <!--
             <div id="title-area">
                 <br>
                 <h1 id="Main-title">
@@ -317,9 +319,27 @@
 
                 </div>
             </div>
+        -->
+            <section class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Reservations</h1>
+                <div class="hero-divider"></div>
+                <p class="hero-subtitle">
+                    Thank you for choosing Plate of Africa for your choice of fine dining. We look forward to providing you with the most memorable dining experience.
+                    <br><br>
+                    In order to make sure your visit is of the highest quality, we offer online reservations to avoid waiting times. Using the reservation form located below, fill out the requested information, including required contact information.
+                </p>
+
+            </div>
+            <div class="scroll-indicator" id="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+        </div>
+        </section>
             
 
-            <div class="reserve-intro">
+            <div class="reserve-intro" id="reserveTable-scrollDown">
                 
                         <div class="slide-in">
                             <img src="images/reservations-images.png">
@@ -449,7 +469,7 @@
             </div>
         </div>
 
-
+        
             <div class="group-dining-intro slide-in">
                 <h1>
                     GROUP DINING
@@ -1004,6 +1024,13 @@
         </style>
 
         <script>
+
+            // Scroll down indicator functionality
+        document.getElementById('scroll-down').addEventListener('click', function() {
+            document.getElementById('reserveTable-scrollDown').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
             var scrolltotop = document.getElementById("scrolltotop-button");
 
             window.onscroll = function() {
