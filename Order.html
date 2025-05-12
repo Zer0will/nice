@@ -367,8 +367,9 @@
     <script>
         const ALCOHOL_TAX_RATE = 0.205;
         const SALES_TAX_RATE = 0.1025; 
-
+        
         document.addEventListener("DOMContentLoaded", function() {
+ 
             // Back to Menu functionality
             const backToMenuBtn = document.getElementById("backToMenuBtn");
             if (backToMenuBtn) {
@@ -376,6 +377,7 @@
                     // Navigate back to menu page
                     window.location.href = "menu.html";
                 });
+
                 
                 // Add styling to make it look clickable
                 backToMenuBtn.style.cursor = "pointer";
@@ -592,6 +594,7 @@
                             nonAlcoholSubtotal += item.total;
                         }
                     }
+                    
                 });
     
             // Calculate Sales Tax
@@ -735,6 +738,8 @@
             // Call the function to load cart items
             loadCartItems();
         });
+        document.getElementById("plusDiv").addEventListener("click", updateTotal);
+        document.getElementById("minusDiv").addEventListener("click", updateTotal);
     </script>
 </body>
 

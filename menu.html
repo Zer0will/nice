@@ -557,6 +557,13 @@ button:hover {
   animation: pulseGlow 1.5s infinite alternate;
   
 }
+a:hover {
+
+  transform:scale(1.1);
+  animation: pulseGlow 1.5s infinite alternate;
+  
+}
+}
 @keyframes pulseGlow 
 { 0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } 
 50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.9); } 
@@ -565,6 +572,202 @@ button:hover {
   .container h2{
     padding-top: 75px;
   }
+/* 
+ * PLATE OF AFRICA - SUSTAINABILITY HERO SECTION
+ * Enhanced hero section with improved animations and visual effects
+ */
+
+/* Hero Section Styling */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(../images/aboutus_reworkedbackgroundimage.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: scale(1.05);
+    transition: transform 0.5s ease-out;
+}
+
+.hero-section:hover .hero-background {
+    transform: scale(1);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(15, 15, 15, 0.4), rgba(15, 15, 15, 0.8));
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.hero-divider {
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, #E3D582 0%, #E6B035 100%);
+    margin: 0 auto 2rem auto;
+    animation: expandWidth 1.5s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.8s ease-out;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(90deg, #E3D582 0%, #E6B035 100%);
+    color: #0f0f0f;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    animation: fadeIn 2s ease-out;
+    box-shadow: 0 4px 15px rgba(224, 188, 107, 0.3);
+}
+
+.hero-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(224, 188, 107, 0.5);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+.scroll-indicator i {
+    color: #E6B035;
+    font-size: 2rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100px;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-button {
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-divider {
+        width: 80px;
+        height: 4px;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .hero-button {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
+
 
   </style>
 </head>
@@ -599,25 +802,28 @@ button:hover {
        </div>
       </div>
     </div>
-    <div class="menu-hero-bg">
+    
       <div id="header"></div>
-      <div class="container">
-        <div class="d-flex flex-column justify-content-center align-items-center min-h">
-          <div class="text-main slide-in">Menu</div>
-          <div class="text-h slide-in">
-            At Plate of Africa, we pride ourselves on crafting a unique dining
-            experience by offering the best flavors from Africa. Each dish was
-            deliberately chosen to provide an authentic, bold, and unforgettable
-            experience. In line with our sustainability and ethical dining
-            policies, we pride ourselves on 100% vegan-certified offerings. From
+      
+      
+    
+    <section class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">MENU</h1>
+                <div class="hero-divider"></div>
+                <p class="hero-subtitle">At Plate of Africa, we pride ourselves on crafting a unique dining
+            experience by offering the best flavors from Africa. From
             our love for plant-based food, we can create something adventurous
             that strays away from what is mainstream, yet always healthy and in harmony with
             nature. Step into the world of Africa and experience traditional
-            meals, redefined with a contemporary, plant-based flair.
-          </div>
+            meals, redefined with a contemporary, plant-based flair.</p>
+            </div>
+            <div class="scroll-indicator" id="scroll-down">
+                <i class="fas fa-chevron-down"></i>
         </div>
-      </div>
-    </div>
+        </section>
     <!-- Navigation Buttons -->
     <div class="container">
       <div class="filter-buttons">
@@ -634,7 +840,7 @@ button:hover {
     </div>
 
     <!-- Appetizers Section -->
-    <div class="menu-section active" id="appetizers">
+    <div class="menu-section active " id="appetizers">
       <img src="/assets/images/yellow.png" alt="" class="apiImage" />
       <img src="/assets/images/yellowleft.png" alt="" class="apiImage1" />
       <img src="/assets/images/dotbottom.png" alt="" class="apiDot" />
@@ -703,6 +909,7 @@ button:hover {
     </div>
     <div id="footer"></div>
     <script>
+      
       let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
       console.log(cartItems, "cartItems");
 
