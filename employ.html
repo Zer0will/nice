@@ -1309,8 +1309,18 @@ onScroll();
             e.preventDefault(); // Prevent default form submission
             
             let allFilled = true;
+            const requiredFields = form3.querySelectorAll(".required-field")
             let firstInvalidField = null;
-            
+            /**
+            requiredFields.forEach(field => {
+              if (!field.value.trim()) {
+                allFilled = false;
+                field.classList.add('invalid-input');
+              } else {
+                field.classList.remove('invalid-input');
+              }
+            });
+            **/
             // Check all required fields in form 3
             document.querySelectorAll('#form3 .required-field').forEach(field => {
               if (!field.value.trim()) {
@@ -1350,13 +1360,45 @@ onScroll();
               allFilled = false;
               alert('Please certify that all information provided is true and complete.');
             }
+
             
+            if (resumeField.files.length === 0) {
+              allFilled = false;
+              resumeField.classList.add('invalid-input');
+            }
+
+            if (allFilled) {
+              // Hide form 3
+              form3.style.display = 'none';
+      
+              // Show thank you form
+              thankYouForm.style.display = 'block';
+      
+              // Activate confetti
+              confettiBg.classList.add('active');
+      
+              // Scroll to thank you form
+              thankYouForm.scrollIntoView({ behavior: 'smooth' });
+      
+              // Trigger animations
+              setTimeout(() => {
+                thankYouForm.classList.add('form-enter-animation');
+        
+              const checkmark = thankYouForm.querySelector('.thank-you-checkmark');
+              if (checkmark) {
+                checkmark.style.animation = 'success-pulse-enhanced 1.5s infinite';
+              }
+            }, 50);
+
+          }
+            /**
             if (allFilled) {
               showThankYouForm();
             } else {
               // Focus on first invalid field
               if (firstInvalidField) firstInvalidField.focus();
             }
+              **/
           });
         }
 
