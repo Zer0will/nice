@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/employ.css" />
     <link rel="stylesheet" href="css/global-nav.css">
+    <link rel="stylesheet" href="css/employment-hero-section.css" />
     <!-- Removed improved-nav.css to prevent conflicts with the main navigation system -->
     <!-- <link rel="stylesheet" href="assets/employ-enhanced.css" /> -->
     <!-- <link rel="stylesheet" href="assets/ReviewPage.css" /> -->
@@ -59,8 +60,10 @@ transform: translateX(-8%);
       <div id="header"></div>
 
       
-<section class="hero-section">
+<section class="hero-section employbg">
+  
             <div class="hero-background"></div>
+
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1 class="hero-title">EMPLOYMENT</h1>
@@ -81,7 +84,7 @@ transform: translateX(-8%);
       </div>
       <div class="jointop">
         <div
-          class="d-flex joinrvseflexcenter joinrvseflex justify-content-xl-between justify-content-center"
+          class="d-flex joinrvseflexcenter joinrvseflex justify-content-xl-between justify-content-center" id="why-join-scrollDown"
         >
           <div class="joincenter slide-in">
             <div class="whytext slide-in">Why Join?</div>
@@ -898,6 +901,13 @@ onScroll();
       </button>
     </div>
     <script>
+
+      // Scroll down indicator functionality
+        document.getElementById('scroll-down').addEventListener('click', function() {
+            document.getElementById('why-join-scrollDown').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
       // Test button to manually trigger thank you form (for testing only)
       document.getElementById('testThankYou')?.addEventListener('click', function() {
         showThankYouForm();
