@@ -264,6 +264,12 @@
                 background: linear-gradient(90deg, #E0BC6B 0%, #F7EFC1 100%);
                 transform: scale(1.05);
             }
+
+            .group-dining-intro{
+                margin-top: 150px;
+            }
+
+            
 /* Hero Section Styling */
 .hero-section {
     position: relative;
@@ -276,6 +282,7 @@
     align-items: center;
     text-align: center;
     color: #fff;
+    /*margin-bottom: 150px;*/
 }
 
 .hero-background {
@@ -536,7 +543,7 @@
         </section>
 
 
-            <div class="group-dining-intro box">
+            <div class="group-dining-intro box" id="group-dining-intro-scrollDown">
                 <h1>
                     FRAMEWORKS STATEMENT
                 </h1>
@@ -614,6 +621,12 @@
         </div>
 
         <script>
+            // Scroll down indicator functionality
+        document.getElementById('scroll-down').addEventListener('click', function() {
+            document.getElementById('group-dining-intro-scrollDown').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
             var scrolltotop = document.getElementById("scrolltotop-button");
 
             window.onscroll = function() {
