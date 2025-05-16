@@ -572,10 +572,10 @@ a:hover {
   .container h2{
     padding-top: 75px;
   }
-/* 
- * PLATE OF AFRICA - SUSTAINABILITY HERO SECTION
- * Enhanced hero section with improved animations and visual effects
- */
+
+  .ls{
+    padding-top: 100px;
+  }
 
 /* Hero Section Styling */
 .hero-section {
@@ -825,7 +825,7 @@ a:hover {
         </div>
         </section>
     <!-- Navigation Buttons -->
-    <div class="container">
+    <div class="container ls" id="filter-buttons-scrollDown">
       <div class="filter-buttons">
         <button class="active" onclick="scrollToSection('appetizers')">
           Appetizers
@@ -909,6 +909,13 @@ a:hover {
     </div>
     <div id="footer"></div>
     <script>
+
+      // Scroll down indicator functionality
+        document.getElementById('scroll-down').addEventListener('click', function() {
+            document.getElementById('filter-buttons-scrollDown').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
       
       let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
       console.log(cartItems, "cartItems");

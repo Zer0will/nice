@@ -344,7 +344,7 @@
              
 
             <!-- Unified Tab Navigation -->
-            <div class="unified-tabs-container">
+            <div class="unified-tabs-container" id="unified-tabs-scrollDown">
                 <div class="unified-tabs">
                     <button class="unified-tab-button active" data-tab="hours">HOURS</button>
                     <button class="unified-tab-button" data-tab="locations">LOCATIONS</button>
@@ -686,6 +686,13 @@
         </div>
 
         <script>
+
+            // Scroll down indicator functionality
+        document.getElementById('scroll-down').addEventListener('click', function() {
+            document.getElementById('unified-tabs-scrollDown').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
             var scrolltotop = document.getElementById("scrolltotop-button");
 
             window.onscroll = function() {
@@ -761,6 +768,8 @@
 
         <!-- Navbar behavior script -->
         <script>
+
+
             document.addEventListener('DOMContentLoaded', function() {
                 // Variables
                 const navbar = document.querySelector('.navbar');
