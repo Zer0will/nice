@@ -710,7 +710,7 @@ transform: translateX(-8%);
       </div>
 
       <!-- Thank You Form (replaces form after submission) -->
-      <div class="aplcinbg" id="thankYouForm" style="display: none">
+      <div class="aplcinbg" id="thankYouForm">
         <div class="formtext">Application Submitted</div>
 
         <div class="formpara mt-3">
@@ -915,6 +915,7 @@ onScroll();
       });
     </script>
     <!-- End testing code -->
+
 
     <!-- Enhanced Form Validation Script -->
     <script>
@@ -1304,105 +1305,113 @@ onScroll();
         }
 
         // Form submission with animation
-        if (submitButton) {
-          submitButton.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default form submission
-            
-            let allFilled = true;
-            const requiredFields = form3.querySelectorAll(".required-field")
-            let firstInvalidField = null;
-            /**
-            requiredFields.forEach(field => {
-              if (!field.value.trim()) {
-                allFilled = false;
-                field.classList.add('invalid-input');
-              } else {
-                field.classList.remove('invalid-input');
-              }
-            });
-            **/
-            // Check all required fields in form 3
-            document.querySelectorAll('#form3 .required-field').forEach(field => {
-              if (!field.value.trim()) {
-                allFilled = false;
-                field.classList.remove('neutral-field');
-                field.classList.add('invalid-input');
-                if (!firstInvalidField) firstInvalidField = field;
-              } else {
-                field.classList.remove('neutral-field');
-                field.classList.remove('invalid-input');
-              }
-            });
-            
-            // Check if resume is uploaded
-            const resumeField = document.getElementById('fileUpload');
-            const fileLabel = document.querySelector('.file-label');
-            
-            if (resumeField && resumeField.files.length === 0) {
-              allFilled = false;
-              fileLabel.classList.add('invalid-input');
-              if (!firstInvalidField) firstInvalidField = resumeField;
-            } else if (resumeField && resumeField.files.length > 0) {
-              fileLabel.classList.remove('invalid-input');
-              fileLabel.classList.add('valid-file');
-            }
-            
-            // Check legal checkboxes
-            const legalCheckbox = document.querySelector('input[name="legal"]');
-            const termsCheckbox = document.querySelector('input[name="terms"]');
-            
-            if (legalCheckbox && !legalCheckbox.checked) {
-              allFilled = false;
-              alert('Please confirm that you are legally authorized to work in the United States.');
-            }
-            
-            if (termsCheckbox && !termsCheckbox.checked) {
-              allFilled = false;
-              alert('Please certify that all information provided is true and complete.');
-            }
 
-            
-            if (resumeField.files.length === 0) {
-              allFilled = false;
-              resumeField.classList.add('invalid-input');
-            }
-
-            if (allFilled) {
-              // Hide form 3
-              form3.style.display = 'none';
-      
-              // Show thank you form
-              thankYouForm.style.display = 'block';
-      
-              // Activate confetti
-              confettiBg.classList.add('active');
-      
-              // Scroll to thank you form
-              thankYouForm.scrollIntoView({ behavior: 'smooth' });
-      
-              // Trigger animations
-              setTimeout(() => {
-                thankYouForm.classList.add('form-enter-animation');
-        
-              const checkmark = thankYouForm.querySelector('.thank-you-checkmark');
-              if (checkmark) {
-                checkmark.style.animation = 'success-pulse-enhanced 1.5s infinite';
-              }
-            }, 50);
-
-          }
-            /**
-            if (allFilled) {
-              showThankYouForm();
+        document.getElementById("submit").addEventListener("click", function(e) {
+          e.preventDefault();
+    
+          // Validate form
+          let isValid = true;
+          document.querySelectorAll("#form3 .required-field").forEach(field => {
+            if ((field.type === "checkbox" && !field.checked) || 
+            (field.type === "file" && field.files.length === 0) ||
+            (!field.value.trim() && field.type !== "checkbox")) {
+              isValid = false;
+              field.classList.add("invalid-input");
             } else {
-              // Focus on first invalid field
-              if (firstInvalidField) firstInvalidField.focus();
+              field.classList.remove("invalid-input");
             }
-              **/
           });
-        }
 
-        // Home button click handler
+          if (isValid) {
+        
+            document.getElementById("form3").style.display = "none";
+        
+        
+            document.getElementById("thankYouForm").classList.add("active");
+        
+       
+            document.getElementById("confettiBg").classList.add("active");
+
+            setTimeout(() => {
+              confettiBg.classList.remove("active");
+            }, 6000);
+        
+          document.getElementById("thankYouForm").scrollIntoView({ behavior: "smooth" });
+        } else {
+          alert("Please fill all required fields correctly.");
+        }
+      });
+
+  
+    if (submitButton) {
+      submitButton.addEventListener('click', function(e) {
+      e.preventDefault(); 
+    
+      let allFilled = true;
+    
+     
+      document.querySelectorAll('#form3 .required-field').forEach(field => {
+        if (!field.value.trim() && field.type !== 'file' && field.type !== 'checkbox') {
+          field.classList.add('invalid-input');
+          allFilled = false;
+        } else {
+          field.classList.remove('invalid-input');
+        }
+      });
+
+  
+      const resumeField = document.getElementById('fileUpload');
+      if (resumeField.files.length === 0) {
+        document.querySelector('.file-label').classList.add('invalid-input');
+        allFilled = false;
+      } else {
+        document.querySelector('.file-label').classList.remove('invalid-input');
+      }
+
+      
+      const legalCheckbox = document.querySelector('input[name="legal"]');
+      const termsCheckbox = document.querySelector('input[name="terms"]');
+    
+      if (!legalCheckbox.checked) {
+        legalCheckbox.closest('.radio-label').classList.add('invalid-input');
+        allFilled = false;
+      } else {
+        legalCheckbox.closest('.radio-label').classList.remove('invalid-input');
+      }
+    
+      if (!termsCheckbox.checked) {
+        termsCheckbox.closest('.radio-label').classList.add('invalid-input');
+        allFilled = false;
+      } else {
+        termsCheckbox.closest('.radio-label').classList.remove('invalid-input');
+      }
+
+      if (allFilled) {
+        // Hide form 3
+        form3.style.display = 'none';
+      
+        // Show thank you form
+        thankYouForm.style.display = 'block';
+      
+        // Activate confetti
+        confettiBg.classList.add('active');
+      
+        // Scroll to thank you form
+        thankYouForm.scrollIntoView({ behavior: 'smooth' });
+      
+        // Trigger animations
+        setTimeout(() => {
+          thankYouForm.classList.add('form-enter-animation');
+          const checkmark = thankYouForm.querySelector('.thank-you-checkmark');
+          if (checkmark) {
+            checkmark.style.animation = 'success-pulse-enhanced 1.5s infinite';
+          }
+        }, 50);
+      } else {
+        alert('Please complete all required fields');
+      }
+    });
+  }
         if (homeButton) {
           homeButton.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1503,6 +1512,8 @@ onScroll();
         max-width: 80%;
         line-height: 1.6;
       }
+
+      /**
       
       .home-button {
         margin-top: 2rem;
@@ -1521,6 +1532,8 @@ onScroll();
         transform: translateY(-3px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
+
+      **/
       
       .completed-bar {
         background: linear-gradient(90deg, #ffdd55, #ff9955) !important;
