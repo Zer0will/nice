@@ -31,25 +31,27 @@
 }
 
 /* Prevent horizontal scrolling */
+
 html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
 
 /* Override Bootstrap body styles */
+
 body.hours-location-page {
     background-image: url(../images/AboutUsBlackBackground.png) !important; 
-    background-attachment: fixed !important; /* Keeps the background fixed while scrolling */
-    background-position: center top !important; /* Position at the top center */
-    background-size: cover !important; /* Changed to cover to ensure image doesn't disappear */
+    background-attachment: fixed !important; 
+    background-position: center top !important; 
+    background-size: cover !important; 
     background-repeat: no-repeat !important;
     background-color: rgba(15, 15, 15, 1) !important;
     font-family: "Poppins";
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
-    position: relative; /* Added to support z-index property */
-    color: #fff !important; /* Ensure text is visible against dark background */
+    position: relative; 
+    color: #fff !important; 
 }
 
 /* Interactive Map Styles */
