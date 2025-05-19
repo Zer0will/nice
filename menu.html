@@ -350,7 +350,11 @@
 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } }
 
 .cart-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
+  background-color:rgba(255, 255, 255, 0.08);
+  transform: translateY(-5%);
+
+  box-shadow:0 4px 15px black
   
   
 }
@@ -567,12 +571,7 @@ button:hover {
   animation: pulseGlow 1.5s infinite alternate;
   
 }
-a:hover {
 
-  transform:scale(1.1);
-  animation: pulseGlow 1.5s infinite alternate;
-  
-}
 }
 @keyframes pulseGlow 
 { 0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } 
@@ -802,7 +801,7 @@ a:hover {
 
 <body class="position-relative">
   <div data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" class="cart-btn">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none">
       <path
         d="M8.405 20C7.90954 20 7.48555 19.8434 7.13302 19.5304C6.78049 19.2173 6.60393 18.8405 6.60333 18.4C6.60273 17.9594 6.77929 17.5829 7.13302 17.2704C7.48675 16.9578 7.91074 16.801 8.405 16.8C8.89925 16.7989 9.32354 16.9557 9.67787 17.2704C10.0322 17.585 10.2085 17.9616 10.2067 18.4C10.2049 18.8384 10.0286 19.2152 9.67787 19.5304C9.32715 19.8456 8.90286 20.0021 8.405 20ZM17.4133 20C16.9179 20 16.4939 19.8434 16.1413 19.5304C15.7888 19.2173 15.6123 18.8405 15.6117 18.4C15.6111 17.9594 15.7876 17.5829 16.1413 17.2704C16.4951 16.9578 16.9191 16.801 17.4133 16.8C17.9076 16.7989 18.3319 16.9557 18.6862 17.2704C19.0405 17.585 19.2168 17.9616 19.215 18.4C19.2132 18.8384 19.0369 19.2152 18.6862 19.5304C18.3355 19.8456 17.9112 20.0021 17.4133 20ZM6.7835 5.6H20.0708C20.4161 5.6 20.6788 5.7368 20.859 6.0104C21.0392 6.284 21.0467 6.56053 20.8815 6.84L17.6836 11.96C17.5184 12.2267 17.2971 12.4333 17.0197 12.58C16.7422 12.7267 16.438 12.8 16.1071 12.8H9.39591L8.405 14.4H18.3141C18.5694 14.4 18.7835 14.4768 18.9564 14.6304C19.1294 14.784 19.2156 14.9739 19.215 15.2C19.2144 15.4261 19.1279 15.6163 18.9555 15.7704C18.7832 15.9245 18.5694 16.001 18.3141 16H8.405C7.72937 16 7.2189 15.7368 6.87358 15.2104C6.52826 14.684 6.51325 14.1605 6.82854 13.64L8.04466 11.68L4.80167 5.6H3.90084C3.6456 5.6 3.4318 5.5232 3.25944 5.3696C3.08708 5.216 3.0006 5.02613 3 4.8C2.9994 4.57387 3.08588 4.384 3.25944 4.2304C3.433 4.0768 3.6468 4 3.90084 4H5.36469C5.52984 4 5.68749 4.04 5.83762 4.12C5.98776 4.2 6.10037 4.31333 6.17544 4.46L6.7835 5.6Z"
         fill="#FFF3F3" />
@@ -831,8 +830,51 @@ a:hover {
       </div>
     </div>
     
-      <div id="header"></div>
       
+      <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-3">
+                <a class="navbar-brand" href="index.html">
+                    <div class="logo-container">
+                        <img src="images/Plate of Africa Logo.png" alt="Logo" class="logo" />
+                    </div>
+                </a>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto text-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reservations.html">Reservations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="OurApproachToVeganism.html">Sustainability</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hoursLocation.html">Hours & Location</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="employ.html">Employment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="references.html">References</a>
+                        </li>
+                    </ul>
+                    <a href="contacts.html" class="contact-link">
+                        <button class="btn logbutton d-none d-lg-block">Contact Us</button>
+                        <button class="btn logbutton d-lg-none">Contact</button>
+                    </a>
+                </div>
+            </div>
+        </nav>
       
     
     <section class="hero-section">
@@ -847,7 +889,7 @@ a:hover {
             that strays away from what is mainstream, yet always healthy and in harmony with
             nature. Step into the world of Africa and experience traditional
             meals, redefined with a contemporary, plant-based flair.</p>
-            <a href="images/Menu PDF.jpg" class="hero-button">Click for Printable Menu</a>
+            <a href="images/Menu PDF.jpg" class="hero-button"  target="_blank">Click for Printable Menu</a>
             </div>
             <div class="scroll-indicator" id="scroll-down">
                 <i class="fas fa-chevron-down"></i>
