@@ -767,7 +767,25 @@ a:hover {
         font-size: 0.9rem;
     }
 }
+.interactivemenu {
 
+  padding:15px;
+  border-radius:8px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor:pointer;
+
+
+}
+
+.interactivemenu:hover {
+
+  transform: scale(1.02);
+  background-color:rgba(255, 255, 255, 0.08);
+  transform: translateY(-5%);
+
+  box-shadow:0 4px 15px black
+
+}
 
   </style>
 </head>
@@ -1196,6 +1214,8 @@ a:hover {
       const desertContainer = document.getElementById("dessertsd");
       const nonAlcoholicContainer = document.getElementById("drinksd");
       const alcoholicContainer = document.getElementById("ndrinksd");
+      
+
       // <div class="menu-item">
       //     <img src="/assets/images/dish.png" alt="Dish" />
       //     <span class="name">Ugandan Vegetarian Spring Rolls</span>
@@ -1218,7 +1238,7 @@ a:hover {
         );
 
         menuCard.innerHTML = `
-                <div style="cursor:pointer;" onclick="openDetailPage(${ind})">
+                <div style="cursor:pointer;"class="interactivemenu" onclick="openDetailPage(${ind})">
         <div class="menu-item">
             <img src="${item.image}" alt="${item.name}" />
             <span class="name">${item.name}</span>
@@ -1236,6 +1256,7 @@ a:hover {
             .join("")}
             </div>
             <div class="dish">${item.description}</div>
+        </div>
         </div>
         </div>
     `;
@@ -1253,7 +1274,7 @@ a:hover {
         );
 
         menuCard.innerHTML = `
-                <div style="cursor:pointer;" onclick="openDetailPageC(${ind})">
+                <div style="cursor:pointer;" class="interactivemenu" onclick="openDetailPageC(${ind})">
         <div class="menu-item">
             <img src="${item.image}" alt="${item.name}" />
             <span class="name">${item.name}</span>
@@ -1271,6 +1292,7 @@ a:hover {
             .join("")}
             </div>
             <div class="dish">${item.description}</div>
+        </div>
         </div>
         </div>
     `;
@@ -1288,7 +1310,7 @@ a:hover {
         );
 
         menuCard.innerHTML = `
-                <div style="cursor:pointer;" onclick="openDetailPageD(${ind})">
+                <div style="cursor:pointer;" class="interactivemenu" onclick="openDetailPageD(${ind})">
         <div class="menu-item">
             <img src="${item.image}" alt="${item.name}" />
             <span class="name">${item.name}</span>
@@ -1306,6 +1328,7 @@ a:hover {
             .join("")}
             </div>
             <div class="dish">${item.description}</div>
+        </div>
         </div>
         </div>
     `;
@@ -1323,7 +1346,9 @@ a:hover {
         );
 
         menuCard.innerHTML = `
-                <div style="cursor:pointer;" onclick="openDetailPageN(${ind})">
+        <div class="menu"></div>
+                
+                  <div class="interactivemenu" onclick="openDetailPageN(${ind})"> 
         <div class="menu-item">
             <img src="${item.image}" alt="${item.name}" />
             <span class="name">${item.name}</span>
@@ -1341,6 +1366,7 @@ a:hover {
             .join("")}
             </div>
             <div class="dish">${item.description}</div>
+        </div>
         </div>
         </div>
     `;
@@ -1357,7 +1383,7 @@ a:hover {
         );
 
         menuCard.innerHTML = `
-                <div style="cursor:pointer;" onclick="openDetailPageAl(${ind})">
+                <div style="cursor:pointer;" class="interactivemenu" onclick="openDetailPageAl(${ind})">
         <div class="menu-item">
             <img src="${item.image}" alt="${item.name}" />
             <span class="name">${item.name}</span>
@@ -1375,6 +1401,7 @@ a:hover {
             .join("")}
             </div>
             <div class="dish">${item.description}</div>
+        </div>
         </div>
         </div>
     `;
