@@ -336,14 +336,24 @@
       z-index: 1050;
       border-radius: 360px;
       background: #030303;
-      width: 50px;
-      height: 50px;
+      width: 75px;
+      height: 75px;
       display: flex;
       /* flex-shrink: 0; */
       justify-content: center;
       align-items: center;
+      animation: pulseGlow 1.5s infinite alternate;
     }
+@keyframes pulseGlow 
+{ 0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } 
+50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.9); } 
+100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); } }
 
+.cart-btn:hover {
+  transform: scale(1.1);
+  
+  
+}
     /* Offcanvas Custom Styling */
     .offcanvas {
       background-color: #0a0a0a;
@@ -374,8 +384,8 @@
     }
 
     .cart-item img {
-      width: 50px;
-      height: 50px;
+      width: 75px;
+      height: 75px;
       background-color: #444;
       border-radius: 5px;
       margin-right: 10px;
@@ -459,7 +469,7 @@
       border-radius: 40px;
       border: 1px solid rgba(255, 255, 255, 0);
       background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(17.950000762939453px);
+      backdrop-filter: blur(17.950px);
       padding: 10px;
     }
 
