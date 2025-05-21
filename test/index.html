@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plate of Africa - Vegan/Vegetarian African Restaurant</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/PlateOfAfricaLogo.png" type="image/png">
+  
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="Experience Africa's rich culinary traditions reimagined with plant-based ingredients at Plate of Africa. Our vegan and vegetarian restaurant celebrates the continent's diverse flavors.">
+  <meta name="theme-color" content="#0f0f0f">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- Font imports -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+  
+  <!-- Bootstrap CSS & Icons -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Slick Slider CSS -->
+  <link rel="stylesheet" type="text/css" href="css/slick.css">
+  <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/preloader.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="animation-container">
+        <!-- Base plate -->
+        <img id="base-plate" class="svg-element" src="assets/base_plate.svg" alt="Base Plate">
+        
+        <!-- Gold ring -->
+        <object id="gold-ring" class="svg-element" data="assets/gold_ring.svg?v=2" type="image/svg+xml"></object>
+        
+        <!-- Text elements -->
+        <img id="text-plate" class="svg-element text-element" src="assets/text_plate.svg" alt="PLATE">
+        <img id="text-of" class="svg-element text-element" src="assets/text_of.svg" alt="OF">
+        <img id="text-africa-word" class="svg-element text-element" src="assets/text_africa.svg" alt="AFRICA">
+        
+        <!-- Leaves -->
+        <img id="leaves-left" class="svg-element leaves" src="assets/leaves_left.svg" alt="Left Leaves">
+        <img id="leaves-right" class="svg-element leaves" src="assets/leaves_right.svg" alt="Right Leaves">
+        
+        <img id="leaves-bottom" class="svg-element leaves" src="assets/leaves_bottom.svg" alt="Bottom Leaves">
+        
+        
+        <!-- Africa continent -->
+        <img id="continent-africa" class="svg-element" src="assets/continent_africa.svg" alt="Africa Continent">
+        
+    
+        <img id="flame" class="svg-element" src="assets/flame.svg" alt="Flame">
+       
+    </div>
+</div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/PlateOfAfricaLogo.png" alt="Plate of Africa" class="logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#aboutus">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reservations">Reservations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sustainability">Sustainability</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#locations">Hours & Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Employment">Employment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#References">References</a>
+          </li>
+        </ul>
+        <a href="#reservations" class="contact-link">
+          <button class="btn btn-primary reservation-btn">Make a Reservation</button>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container d-flex flex-column justify-content-center text-center text-md-start">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-md-7">
+          <div class="hero-content animate-on-scroll">
+            <h1 class="hero-title">
+              Welcome To <span class="highlight">Plate of Africa</span>
+              <br>
+              <span class="secondary-text">Plant-Based Cuisine</span>
+            </h1>
+            <p class="hero-text">
+              Discover the rich culinary traditions of Africa reimagined with fresh, plant-based ingredients. Our menu 
+              celebrates the diverse flavors from across the continent, crafted with care and passion.
+            </p>
+            <div class="hero-buttons">
+              <a href="#reservations" class="btn btn-primary btn-lg reservation-btn glow-effect">
+                Make a Reservation
+              </a>
+              <a href="#menu" class="btn btn-outline-light btn-lg">
+                Explore Our Menu
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <a href="#about">
+        <img src="assets/images/downarrow.png" alt="Scroll down" class="scroll-arrow">
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section position-relative">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="about-images animate-on-scroll">
+            <div class="row">
+              <div class="col-6">
+                <img src="assets/images/about-1.png" alt="Restaurant interior" class="img-fluid main-img rounded-3 mb-4">
+              </div>
+              <div class="col-6">
+                <img src="assets/images/about-2.png" alt="Chef preparing food" class="img-fluid secondary-img rounded-3 mb-4">
+                <img src="assets/images/about-3.png" alt="Restaurant dishes" class="img-fluid secondary-img rounded-3">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-content animate-on-scroll">
+            <span class="section-subtitle">About Us</span>
+            <h2 class="section-title">Plate of Africa</h2>
+            <p class="section-text">
+              We celebrate the culinary history found throughout Africa by recrafting it
+              into modern, health-conscious dining. Our dishes can be found
+              throughout the continent and include North, South, East, and West
+              African cuisine.
+            </p>
+            <p class="section-text">
+              We commit ourselves to a high standard of culinary excellence, and
+              invite you to experience the vast flavors that Africa has to offer.
+              Many ingredients used in the creation of our dishes are directly
+              shipped from trusted local farmers to ensure quality ingredients, prioritizing excellence without
+              compromise.
+            </p>
+            <a href="aboutus.html" class="btn btn-primary learn-more-btn">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="assets/images/about-down-leaf.png" alt="" class="decoration leaf-1">
+    <img src="assets/images/about-yellow.png" alt="" class="decoration blur-1">
+  </section>
+
+  <!-- Why Veganism Section -->
+  <section id="veganism" class="veganism-section position-relative">
+    <img src="assets/images/found-leaf.png" alt="" class="decoration leaf-2">
+    <img src="assets/images/rightleaf-found.png" alt="" class="decoration leaf-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="veganism-content animate-on-scroll">
+            <span class="section-subtitle">Why</span>
+            <h2 class="section-title">Veganism?</h2>
+            <p class="section-text">
+              Plate of Africa was founded to celebrate Africa's rich culinary
+              heritage through a modern, plant-based approach. A multitude of African dishes are naturally vegan, making it the perfect foundation for a menu that stays true to tradition.
+            </p>
+            <a href="OurApproachToVeganism.html" class="btn btn-primary learn-more-btn">Learn More</a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="veganism-image animate-on-scroll">
+            <img src="assets/images/whofound.png" alt="Vegan ingredients" class="img-fluid rounded-3">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="accordion-container animate-on-scroll">
+            <div class="accordion-item">
+              <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item1">
+                <span class="accordion-number">01</span>
+                <span class="accordion-title">Ethical Considerations</span>
+                <span class="accordion-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="12" viewBox="0 0 24 12" fill="none">
+                    <path d="M7.10053 9.05457C6.80755 9.34755 6.33252 9.34744 6.03968 9.05433C5.74708 8.76145 5.74715 8.28687 6.03984 7.99408L11.287 2.74512C11.3795 2.65197 11.4896 2.57804 11.6109 2.52759C11.7321 2.47714 11.8622 2.45117 11.9935 2.45117C12.1248 2.45117 12.2548 2.47714 12.3761 2.52759C12.4973 2.57804 12.6074 2.65197 12.7 2.74512L17.9499 7.99412C18.2426 8.28683 18.2427 8.76144 17.9499 9.05417C17.6572 9.34686 17.1827 9.34688 16.89 9.05422L12.7021 4.8671C12.3116 4.47664 11.6784 4.47666 11.2879 4.86716L7.10053 9.05457Z" fill="url(#paint0_linear_1_1036)"/>
+                  </svg>
+                </span>
+              </button>
+              <div id="item1" class="collapse">
+                <div class="accordion-body">
+                  Contribute to a healthy planet by cutting your carbon emissions by over 50%.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item2">
+                <span class="accordion-number">02</span>
+                <span class="accordion-title">Nutritional Content</span>
+                <span class="accordion-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="12" viewBox="0 0 24 12" fill="none">
+                    <path d="M7.10053 9.05457C6.80755 9.34755 6.33252 9.34744 6.03968 9.05433C5.74708 8.76145 5.74715 8.28687 6.03984 7.99408L11.287 2.74512C11.3795 2.65197 11.4896 2.57804 11.6109 2.52759C11.7321 2.47714 11.8622 2.45117 11.9935 2.45117C12.1248 2.45117 12.2548 2.47714 12.3761 2.52759C12.4973 2.57804 12.6074 2.65197 12.7 2.74512L17.9499 7.99412C18.2426 8.28683 18.2427 8.76144 17.9499 9.05417C17.6572 9.34686 17.1827 9.34688 16.89 9.05422L12.7021 4.8671C12.3116 4.47664 11.6784 4.47666 11.2879 4.86716L7.10053 9.05457Z" fill="url(#paint0_linear_1_1036)"/>
+                  </svg>
+                </span>
+              </button>
+              <div id="item2" class="collapse">
+                <div class="accordion-body">
+                  Naturally high in vitamins C, A, K, and E.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item3">
+                <span class="accordion-number">03</span>
+                <span class="accordion-title">Quality Ingredients</span>
+                <span class="accordion-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="12" viewBox="0 0 24 12" fill="none">
+                    <path d="M7.10053 9.05457C6.80755 9.34755 6.33252 9.34744 6.03968 9.05433C5.74708 8.76145 5.74715 8.28687 6.03984 7.99408L11.287 2.74512C11.3795 2.65197 11.4896 2.57804 11.6109 2.52759C11.7321 2.47714 11.8622 2.45117 11.9935 2.45117C12.1248 2.45117 12.2548 2.47714 12.3761 2.52759C12.4973 2.57804 12.6074 2.65197 12.7 2.74512L17.9499 7.99412C18.2426 8.28683 18.2427 8.76144 17.9499 9.05417C17.6572 9.34686 17.1827 9.34688 16.89 9.05422L12.7021 4.8671C12.3116 4.47664 11.6784 4.47666 11.2879 4.86716L7.10053 9.05457Z" fill="url(#paint0_linear_1_1036)"/>
+                  </svg>
+                </span>
+              </button>
+              <div id="item3" class="collapse">
+                <div class="accordion-body">
+                  Sourced locally and sustainably from trusted farmers.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" data-bs-toggle="collapse" data-bs-target="#item4">
+                <span class="accordion-number">04</span>
+                <span class="accordion-title">Cultural Exploration</span>
+                <span class="accordion-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="12" viewBox="0 0 24 12" fill="none">
+                    <path d="M7.10053 9.05457C6.80755 9.34755 6.33252 9.34744 6.03968 9.05433C5.74708 8.76145 5.74715 8.28687 6.03984 7.99408L11.287 2.74512C11.3795 2.65197 11.4896 2.57804 11.6109 2.52759C11.7321 2.47714 11.8622 2.45117 11.9935 2.45117C12.1248 2.45117 12.2548 2.47714 12.3761 2.52759C12.4973 2.57804 12.6074 2.65197 12.7 2.74512L17.9499 7.99412C18.2426 8.28683 18.2427 8.76144 17.9499 9.05417C17.6572 9.34686 17.1827 9.34688 16.89 9.05422L12.7021 4.8671C12.3116 4.47664 11.6784 4.47666 11.2879 4.86716L7.10053 9.05457Z" fill="url(#paint0_linear_1_1036)"/>
+                  </svg>
+                </span>
+              </button>
+              <div id="item4" class="collapse">
+                <div class="accordion-body">
+                  Explore the wide variety of vegan cuisine that Africa has to offer.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Preview Section -->
+  <section id="menu" class="menu-section position-relative">
+    <img src="assets/images/explore-leaf.png" alt="" class="decoration leaf-4">
+    <img src="assets/images/exploreleft-dot.png" alt="" class="decoration dot-1">
+    <div class="container text-center">
+      <h2 class="section-title animate-on-scroll">EXPLORE OUR MENU</h2>
+      
+      <div class="filter-buttons animate-on-scroll">
+        <button class="btn filter-btn active" data-filter="all">All</button>
+        <button class="btn filter-btn" data-filter="appetizers">Appetizers</button>
+        <button class="btn filter-btn" data-filter="main-courses">Main Courses</button>
+        <button class="btn filter-btn" data-filter="desserts">Desserts</button>
+      </div>
+      
+      <div class="row menu-container">
+        <!-- Menu item 1 -->
+        <div class="col-md-4 menu-item animate-on-scroll" data-category="appetizers">
+          <div class="menu-card">
+            <div class="menu-card-inner">
+              <div class="menu-card-front">
+                <img src="assets/images/dish2.png" alt="Jollof Quinoa" class="menu-img">
+                <h3 class="menu-title">Jollof Quinoa</h3>
+              </div>
+              <div class="menu-card-back">
+                <h3 class="menu-title">Jollof Quinoa</h3>
+                <p class="menu-price">$18</p>
+                <p class="menu-description">
+                  Our signature dish featuring quinoa cooked in tomato and pepper sauce with aromatic spices.
+                </p>
+                <div class="menu-tags">
+                  <span class="menu-tag">Gluten-Free</span>
+                  <span class="menu-tag">Vegan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Menu item 2 -->
+        <div class="col-md-4 menu-item animate-on-scroll" data-category="main-courses">
+          <div class="menu-card">
+            <div class="menu-card-inner">
+              <div class="menu-card-front">
+                <img src="assets/images/dish1.png" alt="Moroccan Tagine" class="menu-img">
+                <h3 class="menu-title">Moroccan Tagine</h3>
+              </div>
+              <div class="menu-card-back">
+                <h3 class="menu-title">Moroccan Tagine</h3>
+                <p class="menu-price">$22</p>
+                <p class="menu-description">
+                  Slow-cooked vegetables and chickpeas in a savory blend of Moroccan spices served with quinoa.
+                </p>
+                <div class="menu-tags">
+                  <span class="menu-tag">Gluten-Free</span>
+                  <span class="menu-tag">Vegan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Menu item 3 -->
+        <div class="col-md-4 menu-item animate-on-scroll" data-category="desserts">
+          <div class="menu-card">
+            <div class="menu-card-inner">
+              <div class="menu-card-front">
+                <img src="assets/images/dish3.png" alt="Ethiopian Platter" class="menu-img">
+                <h3 class="menu-title">Ethiopian Platter</h3>
+              </div>
+              <div class="menu-card-back">
+                <h3 class="menu-title">Ethiopian Platter</h3>
+                <p class="menu-price">$24</p>
+                <p class="menu-description">
+                  A selection of vibrant stews including Misir Wat (spiced lentils) and Gomen (collard greens) served with injera.
+                </p>
+                <div class="menu-tags">
+                  <span class="menu-tag">Spicy</span>
+                  <span class="menu-tag">Vegan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="menu.html" class="btn btn-primary view-menu-btn animate-on-scroll">View Full Menu</a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container text-center">
+      <h2 class="section-title animate-on-scroll">WHAT OUR GUESTS SAY</h2>
+      
+      <div class="testimonial-slider animate-on-scroll">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="assets/images/user1.png" alt="Customer 1" class="testimonial-img">
+            <div>
+              <h4 class="testimonial-name">Maria Johnson</h4>
+              <p class="testimonial-location">Seattle, WA</p>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "The Moroccan Tagine transported me straight to North Africa. The blend of spices was perfectly balanced and the vegetables were cooked to perfection. Can't wait to come back!"
+          </p>
+          <div class="quote-icon">
+            <img src="assets/images/quotes.png" alt="Quote" width="24">
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="assets/images/reviewImg2.png" alt="Customer 2" class="testimonial-img">
+            <div>
+              <h4 class="testimonial-name">James Wilson</h4>
+              <p class="testimonial-location">Portland, OR</p>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "As someone who recently switched to a plant-based diet, I was blown away by the depth of flavor in every dish. The Jollof Quinoa was a standout - I didn't miss the meat at all!"
+          </p>
+          <div class="quote-icon">
+            <img src="assets/images/quotes.png" alt="Quote" width="24">
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="assets/images/reviewImg3.png" alt="Customer 3" class="testimonial-img">
+            <div>
+              <h4 class="testimonial-name">Sarah Thompson</h4>
+              <p class="testimonial-location">Vancouver, BC</p>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "The atmosphere is as impressive as the food. The authentic decor and warm service made our anniversary dinner truly special. The Ethiopian platter was a taste adventure we'll never forget."
+          </p>
+          <div class="quote-icon">
+            <img src="assets/images/quotes.png" alt="Quote" width="24">
+          </div>
+        </div>
+        
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <img src="assets/images/reviewImg4.png" alt="Customer 4" class="testimonial-img">
+            <div>
+              <h4 class="testimonial-name">David Chen</h4>
+              <p class="testimonial-location">San Francisco, CA</p>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "I've traveled across Africa and was skeptical about vegan versions of traditional dishes, but Plate of Africa exceeded all expectations. Authentic flavors with a modern twist - brilliant!"
+          </p>
+          <div class="quote-icon">
+            <img src="assets/images/quotes.png" alt="Quote" width="24">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section id="locations" class="locations-section position-relative">
+    <img src="assets/images/leftdot-location.png" alt="" class="decoration dot-2">
+    <img src="assets/images/location-rightleaf.png" alt="" class="decoration leaf-5">
+    <div class="container text-center">
+      <h2 class="section-title animate-on-scroll">OUR LOCATIONS</h2>
+      
+      <div class="map-container animate-on-scroll">
+        <img src="images/map.png" alt="Restaurant map" class="location-map">
+        
+        <!-- Location markers -->
+        <div class="location-marker marker-1" data-location="seattle">
+          <div class="marker-logo"></div>
+        </div>
+        
+        <div class="location-marker marker-2" data-location="portland">
+          <div class="marker-logo"></div>
+        </div>
+        
+        <div class="location-marker marker-3" data-location="vancouver">
+          <div class="marker-logo"></div>
+        </div>
+        
+        <!-- Location info container -->
+        <div class="location-info-container">
+          <!-- Seattle location info -->
+          <div class="location-info" id="seattle-info">
+            <h3>Seattle, WA</h3>
+            <p><i class="bi bi-geo-alt-fill"></i> 628 Cara Lodge Harbor Way, Seattle, WA 98154</p>
+            <p><i class="bi bi-telephone-fill"></i> (206) 555-7890</p>
+            <p><i class="bi bi-clock-fill"></i> Mon-Thu: 11am-9pm | Fri-Sun: 11am-11pm</p>
+            <button class="location-contact-btn">Get Directions</button>
+          </div>
+          
+          <!-- Portland location info -->
+          <div class="location-info" id="portland-info">
+            <h3>Portland, OR</h3>
+            <p><i class="bi bi-geo-alt-fill"></i> 412 Rose District Ave, Portland, OR 97205</p>
+            <p><i class="bi bi-telephone-fill"></i> (503) 555-4321</p>
+            <p><i class="bi bi-clock-fill"></i> Mon-Thu: 11am-9pm | Fri-Sun: 11am-10pm</p>
+            <button class="location-contact-btn">Get Directions</button>
+          </div>
+          
+          <!-- Vancouver location info -->
+          <div class="location-info" id="vancouver-info">
+            <h3>Vancouver, BC</h3>
+            <p><i class="bi bi-geo-alt-fill"></i> 215 Gastown Way, Vancouver, BC V6B 1H7</p>
+            <p><i class="bi bi-telephone-fill"></i> (604) 555-9876</p>
+            <p><i class="bi bi-clock-fill"></i> Mon-Thu: 11am-9pm | Fri-Sun: 11am-10pm</p>
+            <button class="location-contact-btn">Get Directions</button>
+          </div>
+        </div>
+      </div>
+      
+      <p class="main-location animate-on-scroll">
+        Visit any of our locations to experience the authentic flavors of Africa with our plant-based menu.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section position-relative">
+    <div class="container">
+      <h2 class="section-title text-center animate-on-scroll">FREQUENTLY ASKED QUESTIONS</h2>
+      
+      <div class="faq-container animate-on-scroll">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <button class="faq-question collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            Are all your dishes vegan?
+            <span class="icon">
+              <img src="assets/images/plus.png" alt="Expand" class="plus-icon">
+            </span>
+          </button>
+          <div id="faq1" class="collapse faq-answer">
+            <p>Yes, all of our dishes are 100% plant-based and vegan-friendly. We carefully craft our menu to ensure authentic African flavors without animal products.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <button class="faq-question collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Do I need to make a reservation?
+            <span class="icon">
+              <img src="assets/images/plus.png" alt="Expand" class="plus-icon">
+            </span>
+          </button>
+          <div id="faq2" class="collapse faq-answer">
+            <p>While walk-ins are welcome, we highly recommend making a reservation, especially for dinner service and weekends. You can easily book a table online through our reservations page or by calling us directly.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <button class="faq-question collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            Are your dishes spicy?
+            <span class="icon">
+              <img src="assets/images/plus.png" alt="Expand" class="plus-icon">
+            </span>
+          </button>
+          <div id="faq3" class="collapse faq-answer">
+            <p>The spice level varies across our menu to represent different African cuisines. We can adjust the heat level for most dishes upon request. Just let your server know your preference when ordering.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <button class="faq-question collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+            Do you offer gluten-free options?
+            <span class="icon">
+              <img src="assets/images/plus.png" alt="Expand" class="plus-icon">
+            </span>
+          </button>
+          <div id="faq4" class="collapse faq-answer">
+            <p>Yes, many of our dishes are naturally gluten-free, and we clearly mark these items on our menu. Our kitchen staff is trained to handle allergen concerns, but please inform your server about any specific dietary restrictions.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <button class="faq-question collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+            Can you accommodate large groups?
+            <span class="icon">
+              <img src="assets/images/plus.png" alt="Expand" class="plus-icon">
+            </span>
+          </button>
+          <div id="faq5" class="collapse faq-answer">
+            <p>Absolutely! We welcome large groups and can accommodate private events. For groups of 8 or more, please contact us in advance so we can ensure the best possible experience for your party.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section (Mini Form) -->
+  <section id="reservations" class="reservations-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="reservation-content animate-on-scroll">
+            <h2 class="section-title">Make a Reservation</h2>
+            <p class="section-text">
+              Reserve your table today and embark on a culinary journey through Africa. Our plant-based menu celebrates the continent's rich flavors and traditions.
+            </p>
+            <div class="reservation-details">
+              <div class="reservation-detail">
+                <i class="bi bi-telephone-fill"></i>
+                <span>Call us: (206) 555-7890</span>
+              </div>
+              <div class="reservation-detail">
+                <i class="bi bi-envelope-fill"></i>
+                <span>Email: reservations@plateofafrica.com</span>
+              </div>
+              <div class="reservation-detail">
+                <i class="bi bi-clock-fill"></i>
+                <span>Hours: Mon-Thu: 11am-9pm | Fri-Sun: 11am-11pm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form class="reservation-form animate-on-scroll">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="nameInput" placeholder="Your Name">
+              <label for="nameInput">Your Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="emailInput" placeholder="Email Address">
+              <label for="emailInput">Email Address</label>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="date" class="form-control" id="dateInput">
+                  <label for="dateInput">Date</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="time" class="form-control" id="timeInput">
+                  <label for="timeInput">Time</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <select class="form-select" id="guestsInput">
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5 People</option>
+                <option value="6">6+ People</option>
+              </select>
+              <label for="guestsInput">Number of Guests</label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="messageInput" placeholder="Special Requests" style="height: 100px"></textarea>
+              <label for="messageInput">Special Requests</label>
+            </div>
+            <button type="submit" class="btn btn-primary reservation-submit-btn">Book My Table</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <!-- Footer content will be loaded dynamically from footer.html -->
+  </footer>
+
+  <!-- Scroll to top button -->
+  <a href="#" id="movetop" class="move-top">
+    <img src="assets/images/movetop.png" alt="Move to top">
+  </a>
+
+  <!-- JavaScript Libraries -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  
+  <!-- Custom Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/preloader.js"></script>
+
+  <!-- SVG Linear Gradient Definitions -->
+  
+</body>
+</html>
