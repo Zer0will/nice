@@ -1382,13 +1382,11 @@ transform: translateX(-8%);
       <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" />
       <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" style="bottom: -473px" />
       <div class="d-flex gap-4 flex-column flex-lg-row col-lg-6 slide-in">
-        
         <img src="/assets/images/about-1.png" alt="" class="ab-l " />
         <div class="d-flex flex-column gap-4">
           <img src="/assets/images/about-2.png" alt="" class="ab-small " />
           <img src="/assets/images/about-3.png" alt="" class="ab-small " />
-          </div>
-        
+        </div>
       </div>
 
       <div class="col-md-6 mt-5 aboutt-section">
@@ -1400,7 +1398,6 @@ transform: translateX(-8%);
           throughout the continent, and includes North, South, East, and West
           African cuisine.
         </div>
-        <br>
         <div class="aboutt-text slide-in">
           We commit ourselves to a high standard of culinary excellence, and
           invite you to experience the vast flavors that Africa has to offer.
@@ -1695,6 +1692,8 @@ document.addEventListener("scroll", function() {
       </div>
     </div>
   </section>
+
+  
   <section>
     <div class="position-relative">
       <img src="/assets/images/explore-leaf.png" alt="" class="rightleaf-explore" />
@@ -1703,178 +1702,597 @@ document.addEventListener("scroll", function() {
       <div class="yellow-explore"></div>
       <div
         class="container menu-section align-items-center justify-content-center position-relative d-flex flex-column">
-        <h2 class="menu-title box">EXPLORE OUR MENU</h2>
+        <h2 class="menu-title box">EXPLORE OUR MOST POPULAR ITEMS</h2>
 
         <div class="d-flex justify-content-center filter-buttons my-4">
-          <button class="btn active mx-2 box " onclick="filterMenu('all')">
-            All
-          </button>
-          <button class="btn mx-2 box " onclick="filterMenu('appetizers')">
+
+
+        
+          <button class="btn active mx-2 box " onclick="filterMenu('appetizers')">
             Appetizers
           </button>
          
           <button class="btn mx-2 box" onclick="filterMenu('main-courses')">
             Main Courses
           </button>
+
+          <button class="btn mx-2 box" onclick="filterMenu('desserts')">
+            Desserts
+          </button>
+
+          <button class="btn mx-2 box" onclick="filterMenu('drinks')">
+            Drinks
+          </button>
+
+          <button class="btn mx-2 box" onclick="filterMenu('alcoholic drinks')">
+            Alcoholic Drinks
+          </button>
         </div>
 
-        <div class="row justify-content-center w-100" id="menu-container">
-          <!-- Menu Items -->
-           
-          <div class="col-md-4 menu-item box" data-category="appetizers">
-            <div class="menu-card default-content ">
-              <img src="/images/SambusaImage.png" alt="Sambusa" />
-              <h5>Sambusa</h5>
-            </div>
-            <div class="menu-card hover-content ">
-              <a href="menu.html" class="menu-buttons">
-              <img src="/images/SambusaImage.png" alt="Sambusa" />
-              <div class="d-flex justify-content-between align-items-center">
-                <h5>Sambusa</h5>
-                <p class="price mb-0">$21</p>
-              </div>
+
+        
               
-              <div class="d-flex justify-content-between align-items-center">
-                <p style="color: #9f9f9f">Crispy Shell</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                  <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
-                </svg>
-              </div>
-            </a>
+
+
+      <div class="menu-carousel-container">
+        
+
+        
+        
+        <div class="menu-carousel" id="menu-container">
+          <!-- Appetizers -->
+              
+          <div class="col-md-4 menu-item box" data-category="appetizers">
+            <div class="menu-card default-content">
+              <img src="/images/AfricanSpiceGrilledSkewers.jpg" alt="Spice Grilled Vegetable Skewers" />
+              <h5>Spice Grilled Vegetable Skewers</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/AfricanSpiceGrilledSkewers.jpg" alt="Spice Grilled Vegetable Skewers" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Spice Grilled Vegetable Skewers</h5>
+                  <p class="price mb-0">$8</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Smoky</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-md-4 menu-item box" data-category="appetizers">
+            <div class="menu-card default-content">
+              <img src="/images/SambusaImage.png" alt="Sambusas" />
+              <h5>Sambusas</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/SambusaImage.png" alt="Sambusas" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Sambusas</h5>
+                  <p class="price mb-0">$13</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Crunchy</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-md-4 menu-item box" data-category="appetizers">
+            <div class="menu-card default-content">
+              <img src="/images/VegetarianPuffPuffImage.png" alt="Vegetarian Puff Puff" />
+              <h5>Vegetarian Puff Puff</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/VegetarianPuffPuffImage.png" alt="Vegetarian Puff Puff" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Vegetarian Puff Puff</h5>
+                  <p class="price mb-0">$12</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Fluffy</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+      
+          
+          <!-- Main Courses -->
+          
+          <div class="col-md-4 menu-item box" data-category="main-courses">
+            <div class="menu-card default-content">
+              <img src="/images/MisirWatImage.png" alt="Misir Wat" />
+              <h5>Misir Wat</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/MisirWatImage.png" alt="Misir Wat" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Misir Wat</h5>
+                  <p class="price mb-0">$26</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Spicy</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
           
           
-          <div class="col-md-4 menu-item box" data-category="appetizers">
-            <div class="menu-card default-content ">
-              <img src="/images/KachumbariImage.png" alt="Sambusa" />
-              <h5>Kachumbari</h5>
+          <div class="col-md-4 menu-item box" data-category="main-courses">
+            <div class="menu-card default-content">
+              <img src="/images/JollofRiceImage.png" alt="Jollof Rice" />
+              <h5>Jollof Rice</h5>
             </div>
-            <div class="menu-card hover-content ">
+            <div class="menu-card hover-content">
               <a href="menu.html" class="menu-buttons">
-              <img src="/images/KachumbariImage.png" alt="Sambusa" />
-              <div class="d-flex justify-content-between align-items-center">
-                <h5>Kachumbari</h5>
-                <p class="price mb-0">$19</p>
-              </div>
-            
-              <div class="d-flex justify-content-between align-items-center">
-                <p style="color: #9f9f9f">Refreshing Flavor</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                  <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
-                </svg>
-              
-              </div>
-            </a>
+                <img src="/images/JollofRiceImage.png" alt="Jollof Rice" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Jollof Rice</h5>
+                  <p class="price mb-0">$27</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Savory</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
           
           <div class="col-md-4 menu-item box" data-category="main-courses">
-            <div class="menu-card default-content ">
-              <img src="/images/MisirWatImage.png" alt="Sambusa" />
-              <h5>Misir Wat</h5>
+            <div class="menu-card default-content">
+              <img src="/images/MorrocanTangineImage.jpg" alt="Moroccan Tagine" />
+              <h5>Moroccan Tagine</h5>
             </div>
-            
-            <div class="menu-card hover-content ">
+            <div class="menu-card hover-content">
               <a href="menu.html" class="menu-buttons">
-              <img src="/images/MisirWatImage.png" alt="Sambusa" />
-              <div class="d-flex justify-content-between align-items-center">
-                <h5>Misir Wat</h5>
-                <p class="price mb-0">$32</p>
-              </div>
-              
-              <div class="d-flex justify-content-between align-items-center">
-                <p style="color: #9f9f9f">Rich Flavor</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                  <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
-                </svg>
-              </div>
+                <img src="/images/MorrocanTangineImage.jpg" alt="Moroccan Tagine" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Moroccan Tagine</h5>
+                  <p class="price mb-0">$28</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Fragrant</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
-        </a>
-        </div>
-      </a>
-        <a href="menu.html">
+          
 
+          
+          <!-- Desserts -->
+          <div class="col-md-4 menu-item box" data-category="desserts">
+            <div class="menu-card default-content">
+              <img src="/images/MalavaPuddingImage.png" alt="Malva Pudding" />
+              <h5>Malva Pudding</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/MalavaPuddingImage.png" alt="Malva Pudding" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Malva Pudding</h5>
+                  <p class="price mb-0">$17</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Sweet</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          
+          <div class="col-md-4 menu-item box" data-category="desserts">
+            <div class="menu-card default-content">
+              <img src="/images/BourraImage.jpg" alt="Bourra" />
+              <h5>Bourra</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/BourraImage.jpg" alt="Bourra" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Bourra</h5>
+                  <p class="price mb-0">$13</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Almond</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-4 menu-item box" data-category="desserts">
+            <div class="menu-card default-content">
+              <img src="/images/AkaraImage.png" alt="Akara" />
+              <h5>Akara</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/AkaraImage.png" alt="Akara" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Akara</h5>
+                  <p class="price mb-0">$12</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Sweet</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Drinks -->
+        
+          
+          <div class="col-md-4 menu-item box" data-category="drinks">
+            <div class="menu-card default-content">
+              <img src="/images/EthiopianCoffeeImage.png" alt="Ethiopian Coffee" />
+              <h5>Ethiopian Coffee</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/EthiopianCoffeeImage.png" alt="Ethiopian Coffee" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Ethiopian Coffee</h5>
+                  <p class="price mb-0">$9</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Traditional</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-md-4 menu-item box" data-category="drinks">
+            <div class="menu-card default-content">
+              <img src="/images/ZoboImage.png" alt="Zobo" />
+              <h5>Zobo</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/ZoboImage.png" alt="Zobo" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Zobo</h5>
+                  <p class="price mb-0">$12</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Tangy</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-4 menu-item box" data-category="drinks">
+            <div class="menu-card default-content">
+              <img src="/images/ChaiTeaImage.png" alt="Chai" />
+              <h5>Chai</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/ChaiTeaImage.png" alt="Chai" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Chai</h5>
+                  <p class="price mb-0">$9</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Sweet and Flavorful</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          
+          
+          <!-- Alcoholic Drinks -->
+          <div class="col-md-4 menu-item box" data-category="alcoholic drinks">
+            <div class="menu-card default-content">
+              <img src="/images/ArumalaImage.png" alt="Amarula" />
+              <h5>Amarula</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/ArumalaImage.png" alt="Amarula" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Amarula</h5>
+                  <p class="price mb-0">$24</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Smooth</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-4 menu-item box" data-category="alcoholic drinks">
+            <div class="menu-card default-content">
+              <img src="/images/ChibukuImage.png" alt="Chibuku" />
+              <h5>Chibuku</h5>
+            </div>
+            <div class="menu-card hover-content">
+              <a href="menu.html" class="menu-buttons">
+                <img src="/images/ChibukuImage.png" alt="Chibuku" />
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5>Chibuku</h5>
+                  <p class="price mb-0">$13</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <p style="color: #9f9f9f">Unforgettable</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+          
+        
+        
+      </div>
+      
+      <a href="menu.html">
         <button class="btn reser-button mx-auto mt-4 buttonn">
           Explore More
         </button>
-       </a>
-      </div>
+      </a>
     </div>
-  </section>
-  <script>
-    document.querySelector(".buttonn").addEventListener("click", function () {
-      const menuContainer = document.getElementById("menu-container");
+  </div>
+</section>
 
-      const newItems = `
-    <div class="col-md-4 menu-item" data-category="appetizers">
-      <div class="menu-card default-content">
-        <img src="/assets/images/dish2.png" alt="New Dish" />
-        <h5>New Dish</h5>
-      </div>
-      <div class="menu-card hover-content">
-        <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
-         <div class="d-flex justify-content-between align-items-center">
-            <h5>Vegetable Skewers</h5>
-            <p class="price mb-0">$50.42</p>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <p style="color: #9f9f9f">Flavor Harmony</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-              <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
-            </svg>
-          </div>
-      </div>
-    </div>
 
-    <div class="col-md-4 menu-item" data-category="entrees">
-      <div class="menu-card default-content">
-        <img src="/assets/images/dish3.png" alt="Another Dish" />
-        <h5>Another Dish</h5>
-      </div>
-      <div class="menu-card hover-content">
-        <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
-         <div class="d-flex justify-content-between align-items-center">
-            <h5>Vegetable Skewers</h5>
-            <p class="price mb-0">$50.42</p>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <p style="color: #9f9f9f">Flavor Harmony</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-              <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
-            </svg>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-4 menu-item" data-category="entrees">
-      <div class="menu-card default-content">
-        <img src="/assets/images/dish2.png" alt="Another Dish" />
-        <h5>Another Dish</h5>
-      </div>
-      <div class="menu-card hover-content">
-        <img src="/assets/images/dish1.png" alt="Vegetable Skewers" />
-         <div class="d-flex justify-content-between align-items-center">
-            <h5>Vegetable Skewers</h5>
-            <p class="price mb-0">$50.42</p>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <p style="color: #9f9f9f">Flavor Harmony</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-              <path d="M5 0V2H11.59L0 13.59L1.41 15L13 3.41V10H15V0H5Z" fill="#FFFDF4" />
-            </svg>
-          </div>
-      </div>
-    </div>
-  `;
+<style>
 
-      menuContainer.innerHTML += newItems; // Append new menu items
+
+  .menu-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-item {
+  width:400px;
+  display: none;
+}
+
+.menu-item.active {
+  display: block;
+}
+
+/* Adjust number of columns based on screen size */
+@media (min-width: 1200px) {
+  .menu-carousel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .menu-carousel {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .menu-carousel {
+    grid-template-columns: 1fr;
+  }
+}
+
+  
+  .menu-section {
+    padding: 50px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  .menu-carousel-container {
+    width: 100%;
+    max-width: 1400px; 
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /*
+  .menu-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center; 
+    gap: 20px;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  
+  .menu-item {
+    width: 400px; 
+    display: none; 
+  }
+
+  
+  .menu-item.active {
+    display: block;
+  }
+*/
+  
+  .menu-card {
+    background-color: #1b1b1b;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+    min-height: 364px;
+    width: 100%; 
+    box-sizing: border-box; 
+  }
+
+  /*
+  
+  @media (max-width: 900px) {
+    .menu-carousel {
+      grid-template-columns: repeat(auto-fill, 350px);
+    }
+    .menu-item {
+      width: 350px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-carousel {
+      grid-template-columns: 1fr;
+    }
+    .menu-item {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+*/
+  
+
+</style>
+
+<script>
+  
+function filterMenu(category) {
+  const items = document.querySelectorAll(".menu-item");
+  const buttons = document.querySelectorAll(".filter-buttons .btn");
+  
+
+  
+
+  
+  items.forEach(item => {
+    item.style.display = "active";
+  });
+  
+  
+  document.querySelectorAll(`.menu-item[data-category="${category}"]`).forEach(item => {
+    item.style.display = "active";
+  });
+
+  
+  buttons.forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+  document.querySelectorAll('.menu-item[data-category="appetizers"]').forEach(item => {
+    item.style.display = "active";
+  });
+  
+
+  const appetizerBtn = document.querySelector('.filter-buttons button[onclick="filterMenu(\'appetizers\')"]');
+  if (appetizerBtn) {
+    appetizerBtn.classList.add('active');
+  }
+});
+
+
+$(document).ready(function () {
+  $(".testimonial-slider").slick({
+    slidesToShow: 3,
+    centerMode: true,
+    arrows: true,
+    prevArrow: '<button type="button" class="slick-prev">❮</button>',
+    nextArrow: '<button type="button" class="slick-next">❯</button>',
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: { slidesToShow: 2 }
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1 }
+      }
+    ]
+  });
+});
+
+
+document.querySelectorAll('.accordion-header').forEach(button => {
+  button.addEventListener('click', () => {
+    const collapse = new bootstrap.Collapse(button.nextElementSibling, {
+      toggle: true
     });
+    
+    // Rotate arrow icon
+    const icon = button.querySelector('.accordion-icon');
+    icon.style.transform = icon.style.transform === 'rotate(180deg)' 
+      ? 'rotate(0deg)' 
+      : 'rotate(180deg)';
+  });
+});
+</script>
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+  
+  document.querySelectorAll('.menu-item[data-category="appetizers"]').forEach(item => {
+    item.style.display = "block";
+  });
+  
+  
+  const appetizerBtn = document.querySelector('.filter-buttons button[onclick="filterMenu(\'appetizers\')"]');
+  if (appetizerBtn) {
+    appetizerBtn.classList.add('active');
+  }
+});
+
+
 
     function filterMenu(category) {
       const items = document.querySelectorAll(".menu-item");
       items.forEach((item) => {
-        if (category === "all" || item.dataset.category === category) {
+        if (item.dataset.category === category) {
           item.style.display = "flex";
         } else {
           item.style.display = "none";
@@ -1888,6 +2306,8 @@ document.addEventListener("scroll", function() {
       event.target.classList.add("active");
     }
   </script>
+
+  
   <section>
     <div class="faq-heading mt-5">WHAT PEOPLE SAY ABOUT US</div>
 
