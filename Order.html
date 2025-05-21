@@ -344,7 +344,7 @@
     <script src="assets/js/Order.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
-
+    <!--
     <script>
         
         
@@ -704,6 +704,276 @@ document.addEventListener('change', updateTotal);
         document.getElementById("minusDiv").addEventListener("click", updateTotal);
         
     </script>
+
+-->
+
+    <script>
+    // Constants
+    const ALCOHOL_TAX_RATE = 0.205;
+    const SALES_TAX_RATE = 0.1025;
+    
+    // Global cart data
+    let cartItemsData = [];
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize the page
+        loadCartItems();
+        setupEventListeners();
+        setupBackToMenuButton();
+        setupCheckoutButton();
+    });
+
+    function loadCartItems() {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const dynamicCartItems = document.getElementById("dynamicCartItems");
+        
+        if (!dynamicCartItems) return;
+        
+        dynamicCartItems.innerHTML = "";
+        cartItemsData = [];
+        
+        // Create cart items display
+        cartItems.forEach((item, index) => {
+            const price = parseFloat(item.price.replace("$", "")) || 0;
+            const itemTotal = price * item.productQuantity;
+            const cartCheckboxId = `cart-item-${index}`;
+            
+            cartItemsData.push({
+                index,
+                name: item.name,
+                price: price,
+                quantity: item.productQuantity,
+                total: itemTotal,
+                isAlcohol: item.isAlcohol || false,
+                cartCheckboxId,
+                checked: true
+            });
+            
+            const itemElement = document.createElement("div");
+            itemElement.className = "productLisOuter";
+            itemElement.innerHTML = `
+                <div class="productNameouter" style="display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="${cartCheckboxId}" checked>
+                    <div class="liberianText">${item.name}</div>
+                </div>
+                <div class="abountTxet item-price" data-price="${itemTotal.toFixed(2)}">$${itemTotal.toFixed(2)}</div>
+            `;
+            
+            dynamicCartItems.appendChild(itemElement);
+            
+            // Update quantity displays in product sections
+            const quantityElements = document.querySelectorAll('.SelectedDiv');
+            if (quantityElements[index]) {
+                quantityElements[index].textContent = item.productQuantity;
+            }
+        });
+        
+        if (cartItems.length === 0) {
+            const emptyCartMessage = document.createElement("div");
+            emptyCartMessage.className = "productLisOuter";
+            emptyCartMessage.innerHTML = `
+                <div class="liberianText" style="color: #999; text-align: center; width: 100%;">Your cart is empty</div>
+            `;
+            dynamicCartItems.appendChild(emptyCartMessage);
+        }
+        
+        removeCheckboxesFromSummary();
+        setupCheckboxListeners();
+        updateTotal();
+    }
+
+    function removeCheckboxesFromSummary() {
+        document.querySelectorAll('.sumaryMain .productNameouter input[type="checkbox"]').forEach(checkbox => {
+            const parent = checkbox.parentElement;
+            if (parent) {
+                checkbox.remove();
+                parent.style.display = 'flex';
+                parent.style.justifyContent = 'space-between';
+            }
+        });
+    }
+
+    function setupCheckboxListeners() {
+        cartItemsData.forEach(item => {
+            const cartCheckbox = document.getElementById(item.cartCheckboxId);
+            if (cartCheckbox) {
+                cartCheckbox.addEventListener('change', function() {
+                    item.checked = this.checked;
+                    updateTotal();
+                });
+            }
+        });
+    }
+
+    function setupEventListeners() {
+        // Quantity buttons
+        document.querySelectorAll('.plusDiv').forEach((button, index) => {
+            button.addEventListener('click', () => incrementItem(index));
+            button.setAttribute('data-index', index);
+        });
+
+        document.querySelectorAll('.minusDiv').forEach((button, index) => {
+            button.addEventListener('click', () => decrementItem(index));
+            button.setAttribute('data-index', index);
+        });
+
+        // Payment method toggles
+        document.getElementById("paypalBtn")?.addEventListener('click', () => togglePaymentMethod('paypal'));
+        document.getElementById("visaBtn")?.addEventListener('click', () => togglePaymentMethod('visa'));
+    }
+
+    function incrementItem(index) {
+        if (index >= 0 && index < cartItemsData.length) {
+            cartItemsData[index].quantity++;
+            updateItemDisplay(index);
+            updateTotal();
+            updateCartInLocalStorage();
+        }
+    }
+
+    function decrementItem(index) {
+        if (index >= 0 && index < cartItemsData.length && cartItemsData[index].quantity > 1) {
+            cartItemsData[index].quantity--;
+            updateItemDisplay(index);
+            updateTotal();
+            updateCartInLocalStorage();
+        }
+    }
+
+    function updateItemDisplay(index) {
+        const item = cartItemsData[index];
+        item.total = item.price * item.quantity;
+        
+        // Update quantity in product section
+        const quantityElements = document.querySelectorAll('.SelectedDiv');
+        if (quantityElements[index]) {
+            quantityElements[index].textContent = item.quantity;
+        }
+        
+        // Update price in cart summary
+        const priceElements = document.querySelectorAll('.item-price');
+        if (priceElements[index]) {
+            priceElements[index].textContent = `$${item.total.toFixed(2)}`;
+            priceElements[index].setAttribute('data-price', item.total.toFixed(2));
+        }
+    }
+
+    function updateTotal() {
+        const subtotalElement = document.getElementById("subtotalAmount");
+        const salesTaxElement = document.getElementById("salesTaxAmount");
+        const alcoholTaxElement = document.getElementById("alcoholTaxAmount");
+        const grandTotalElement = document.getElementById("grandTotalAmount");
+
+        let subtotal = 0;
+        let alcoholSubtotal = 0;
+        let nonAlcoholSubtotal = 0;
+        let hasAlcohol = false;
+
+        // Recalculate all totals based on current quantities
+        cartItemsData.forEach(item => {
+            // First update the item's total based on current quantity
+            item.total = item.price * item.quantity;
+            
+            if (item.checked) {
+                subtotal += item.total;
+                if (item.isAlcohol) {
+                    alcoholSubtotal += item.total;
+                    hasAlcohol = true;
+                } else {
+                    nonAlcoholSubtotal += item.total;
+                }
+            }
+        });
+
+        const salesTaxOnNonAlcohol = nonAlcoholSubtotal * SALES_TAX_RATE;
+        const salesTaxOnAlcohol = alcoholSubtotal * SALES_TAX_RATE;
+        const totalSalesTax = salesTaxOnNonAlcohol + salesTaxOnAlcohol;
+        const alcoholTax = alcoholSubtotal * ALCOHOL_TAX_RATE;
+        const totalTax = totalSalesTax + alcoholTax;
+        const grandTotal = subtotal + totalTax;
+
+        // Update all display elements
+        if (subtotalElement) subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+        if (salesTaxElement) salesTaxElement.textContent = `$${totalSalesTax.toFixed(2)}`;
+        
+        if (alcoholTaxElement) {
+            if (hasAlcohol) {
+                alcoholTaxElement.textContent = `$${alcoholTax.toFixed(2)}`;
+                alcoholTaxElement.parentElement.style.display = "flex";
+            } else {
+                alcoholTaxElement.parentElement.style.display = "none";
+            }
+        }
+        
+        if (grandTotalElement) grandTotalElement.textContent = `$${grandTotal.toFixed(2)}`;
+    }
+
+    function updateCartInLocalStorage() {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        
+        cartItemsData.forEach((item, index) => {
+            if (index < cartItems.length) {
+                cartItems[index].productQuantity = item.quantity;
+            }
+        });
+        
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+
+    function togglePaymentMethod(method) {
+        document.getElementById("paypalSection").style.display = method === 'paypal' ? 'block' : 'none';
+        document.getElementById("visaSection").style.display = method === 'visa' ? 'block' : 'none';
+        
+        document.getElementById("paypalBtn").className = method === 'paypal' ? 'paypalBtnSelected' : 'paypalBtnUnselected';
+        document.getElementById("visaBtn").className = method === 'visa' ? 'paypalBtnSelected' : 'paypalBtnUnselected';
+    }
+
+    function setupBackToMenuButton() {
+        const backToMenuBtn = document.getElementById("backToMenuBtn");
+        if (backToMenuBtn) {
+            backToMenuBtn.addEventListener("click", function() {
+                window.location.href = "menu.html";
+            });
+
+            backToMenuBtn.style.cursor = "pointer";
+            backToMenuBtn.style.textDecoration = "underline";
+            backToMenuBtn.style.color = "#E1C072";
+            backToMenuBtn.style.fontWeight = "bold";
+            backToMenuBtn.style.transition = "all 0.3s ease";
+            
+            backToMenuBtn.addEventListener("mouseover", function() {
+                this.style.transform = "translateY(-2px)";
+                this.style.textShadow = "0 2px 4px rgba(0,0,0,0.3)";
+            });
+            
+            backToMenuBtn.addEventListener("mouseout", function() {
+                this.style.transform = "translateY(0)";
+                this.style.textShadow = "none";
+            });
+        }
+    }
+
+    function setupCheckoutButton() {
+        const checkoutBtn = document.getElementById("checkoutBtn");
+        if (checkoutBtn) {
+            checkoutBtn.style.backgroundColor = "#555";
+            checkoutBtn.style.cursor = "not-allowed";
+            checkoutBtn.style.opacity = "0.7";
+            checkoutBtn.setAttribute("title", "Checkout functionality is not available at this time");
+            
+            checkoutBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                alert("Checkout is currently unavailable. Please check back later!");
+            });
+        }
+    }
+
+    document.getElementById("plusDiv").addEventListener("click", updateTotal);
+    document.getElementById("minusDiv").addEventListener("click", updateTotal);
+</script>
+
+
+
 </body>
 
 </html>
