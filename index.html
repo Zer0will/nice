@@ -23,18 +23,26 @@
       overflow-x: hidden;
     }
     body {
-      background: #0f0f0f;
-      color: white;
+      background-image: url(images/AboutUsBlackBackground.png) !important; 
+                background-attachment: fixed !important; 
+                background-position: center top !important; 
+                background-size: cover !important; 
+                background-repeat: no-repeat !important;
+                background-color: rgba(15, 15, 15, 1) !important;
+                color: #fff !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+                padding: 0 !important;
+                margin: 0 !important;
     }
 
     @font-face {
       font-family: "Gilroy";
-      src: url("/assets//fonts/gilroy//Gilroy-Regular.ttf") format("woff2");
+      src: url("assets/fonts/gilroy/Gilroy-Regular.ttf") format("woff2");
     }
 
     .faq-heading {
       color: #fff;
-      font-family: "Gilroy";
       font-size: 44px;
       font-style: normal;
       font-weight: 600;
@@ -358,7 +366,6 @@
       background-color: #0f0f0f;
       border: 1px solid #E0BC6B;
       margin: auto;
-      
     }
 
     .location-marker {
@@ -659,7 +666,10 @@
 
     .aboutt-section {
       max-width: 517px;
-      position: relative;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .aboutt-title {
@@ -673,8 +683,7 @@
     .aboutt-heading {
       color: white;
       font-size: 44px;
-      font-family: "Gilroy", sans-serif;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
     }
 
@@ -697,6 +706,13 @@
     .accordion-container {
       width: 450px;
       margin: auto;
+    }
+
+    @media (max-width: 576px) {
+      .accordion-container {
+        width: 100%;
+        padding: 0 15px;
+      }
     }
 
     .accordion-item {
@@ -785,138 +801,25 @@
       height: 171px;
       aspect-ratio: 57/73;
     }
+  
 
-    .ab-yellow {
-      position: absolute;
-      bottom: -236px;
-      right: 0px;
-      width: 271px;
-      height: 471px;
-      aspect-ratio: 57/73;
-    }
+   
 
-    .found-leaf {
-      position: absolute;
-      top: 32px;
-      left: 0;
-      width: 171px;
-      height: 171px;
-      aspect-ratio: 57/73;
-    }
 
-    .rightleaf-found {
-      position: absolute;
-      bottom: -455px;
-      left: -116px;
-      width: 471px;
-      height: 471px;
-      aspect-ratio: 57/73;
-    }
+    
 
-    .leftleaf-found {
-      position: absolute;
-      bottom: -255px;
-      /* left: -116px; */
-      width: 250px;
-      height: 250px;
-      aspect-ratio: 57/73;
-    }
-
-    .rightdot-found {
-      position: absolute;
-      bottom: -111px;
-      right: 0;
-      width: 171px;
-      height: 171px;
-      aspect-ratio: 57/73;
-    }
-
-    .yellow-explore {
-      border-radius: 295px;
-      background: linear-gradient(90deg,
-          rgba(247, 239, 193, 0.52) 0%,
-          rgba(224, 188, 107, 0.52) 100%);
-      filter: blur(178px);
-      width: 295px;
-      height: 295px;
-      position: absolute;
-      bottom: -196px;
-      right: 0px;
-    }
-
-    .rightleaf-explore {
-      position: absolute;
-      bottom: -111px;
-      right: 0;
-      width: 250px;
-      height: 250px;
-      aspect-ratio: 57/73;
-    }
-
-    .leftdot-explore {
-      position: absolute;
-      bottom: -256px;
-      left: 32px;
-      width: 250px;
-      height: 250px;
-      aspect-ratio: 57/73;
-    }
-
-    .location-yellow {
-      border-radius: 295px;
-      background: linear-gradient(90deg,
-          rgba(247, 239, 193, 0.52) 0%,
-          rgba(224, 188, 107, 0.52) 100%);
-      filter: blur(178px);
-      width: 295px;
-      height: 295px;
-      position: absolute;
-      bottom: 0px;
-    }
+    
 
     .mt100 {
       margin-top: 200px;
     }
 
-    .leftleaf-location {
-      position: absolute;
-      top: -150px;
-      left: 0px;
-      width: 250px;
-      height: 250px;
-      aspect-ratio: 57/73;
-    }
 
-    .leftdot-location {
-      position: absolute;
-      bottom: -381px;
-      left: 0px;
-      width: 250px;
-      height: 250px;
-      aspect-ratio: 57/73;
-    }
 
-    .rightleaf-location {
-      position: absolute;
-      bottom: -281px;
-      right: 0px;
-      width: 171px;
-      height: 171px;
-      aspect-ratio: 57/73;
-    }
 
-    .faq-yellow {
-      border-radius: 295px;
-      background: linear-gradient(90deg,
-          rgba(247, 239, 193, 0.52) 0%,
-          rgba(224, 188, 107, 0.52) 100%);
-      filter: blur(178px);
-      width: 295px;
-      height: 295px;
-      position: absolute;
-      bottom: -196px;
-      right: 0px;
-    }
+
+
+   
 
     @media (max-width: 1200px) {
       .ab-small {
@@ -1324,39 +1227,39 @@ transform: translateX(-8%);
             100% { transform: translateX(0) scale(1); }
         }
 #flexywrap {
-
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
-  width:100%;
-  height:auto;
-  position:relative;
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  height: auto;
+  position: relative;
 }
+
 .hoveranimator {
-  transition:transform 0.3s;
+  transition: transform 0.3s;
 }
 .hoveranimator:hover {
-  transform: translateX(-2%)
+  transform: translateX(-2%);
 }
 .hoveranimator1 {
-  transition:transform 0.3s;
+  transition: transform 0.3s;
 }
 .hoveranimator1:hover {
-  transform: translateY(-8%)
+  transform: translateY(-8%);
 }
 .hoveranimator2 {
-  transition:transform 0.3s;
+  transition: transform 0.3s;
 }
 .hoveranimator2:hover {
-  transform: translateY(-3%)
+  transform: translateY(-3%);
 }
 .hoveranimator3 {
-  transition:transform 0.3s;
+  transition: transform 0.3s;
 }
 .hoveranimator3:hover {
-  transform: scale(1.025)
-</style>
+  transform: scale(1.025);
+}
+  </style>
 </head>
   <div id="preloader">
     <div class="animation-container">
@@ -1388,7 +1291,7 @@ transform: translateX(-8%);
 </div>
 <body class="position-relative">
   <section>
-    <div style="position: fixed; height: 100vh; width: 100%; z-index: 1223; pointer-events: none;" class="handledown">
+    <div class="handledown" style="position: fixed; height: 100vh; width: 100%; z-index: 1223; pointer-events: none;">
       <img src="assets/images/downarrow.png" alt="" class="downarrow"/>
     </div>
   </section>
@@ -1414,51 +1317,46 @@ transform: translateX(-8%);
     </div>
   </section>
   <!-- About Section -->
-  <section>
-    <div class="d-flex flex-wrap gap-4 mx-4 mx-sm-0 mt-5 justify-content-center position-relative">
-      <img src="/assets/images/about-down-leaf.png" alt="" class="ab-down" />
-      <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" />
-      <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" style="bottom: -473px" />
-      <div class="d-flex gap-4 flex-column flex-lg-row  slide-in">
-        <div id="flexywrap">
-        <img src="/assets/images/about-1.png" alt="" class="ab-l " />
-        <div class="d-flex flex-column gap-4">
-          <img src="/assets/images/about-2.png" alt="" class="ab-small " />
-          <img src="/assets/images/about-3.png" alt="" class="ab-small " />
+  <section class="position-relative">
+    <!-- Decorative elements positioned absolutely -->
+    
+    <div class="container py-5">
+      <div class="d-flex flex-wrap gap-4 mx-4 mx-sm-0 mt-5 justify-content-between">
+        <!-- Images column -->
+        <div id="flexywrap" class="slide-in" style="max-width: 45%;">
+          <img src="assets/images/about-1.png" alt="" class="ab-l" />
+          <div class="d-flex flex-column gap-4">
+            <img src="assets/images/about-2.png" alt="" class="ab-small" />
+            <img src="assets/images/about-3.png" alt="" class="ab-small" />
           </div>
         </div>
-      </div>
 
-      <div class="col-md-6 mt-5 aboutt-section">
-        <div class="aboutt-title slide-in">About</div>
-        <div class="aboutt-heading slide-in">Plate of Africa</div>
-        <div class="aboutt-text slide-in">
-          We celebrate the culinary history found throughout Africa, by recrafting it
-          into modern, health-conscious dining. Our dishes can be found
-          throughout the continent, and includes North, South, East, and West
-          African cuisine.
+        <!-- Text column -->
+        <div class="col-md-6 mt-5 aboutt-section">
+          <div class="aboutt-title slide-in">About</div>
+          <div class="aboutt-heading slide-in">Plate of Africa</div>
+          <div class="aboutt-text slide-in mb-4">
+            We celebrate the culinary history found throughout Africa, by recrafting it
+            into modern, health-conscious dining. Our dishes can be found
+            throughout the continent, and includes North, South, East, and West
+            African cuisine.
+          </div>
+          <div class="aboutt-text slide-in mb-4">
+            We commit ourselves to a high standard of culinary excellence, and
+            invite you to experience the vast flavors that Africa has to offer.
+            Many ingredients used in the creation of our dishes are directly
+            shipped from trusted local farmers to ensure quality ingredients, prioritizing excellence without
+            compromise.
+          </div>
+          <a href="aboutus.html">
+            <div class="btn reser-button ms-0 mt-4 buttonn slide-in">Learn More</div>
+          </a>
         </div>
-        <div class="aboutt-text slide-in">
-          We commit ourselves to a high standard of culinary excellence, and
-          invite you to experience the vast flavors that Africa has to offer.
-          Many ingredients used in the creation of our dishes are directly
-          shipped from trusted local farmers to ensure quality ingredients, prioritizing excellence without
-          compromise.
-        </div>
-        <a href="aboutus.html">
-        <div class="btn reser-button mx-auto mt-4 buttonn slide-in">Learn More</div>
-      </a>
       </div>
     </div>
   </section>
   <section>
     <div class="position-relative">
-      <img src="/assets/images/found-leaf.png" alt="" class="found-leaf" />
-      <img src="/assets/images/found-yellow-left.png" alt="" class="rightleaf-found" />
-      <img src="/assets/images/foundleft-leaf.png" alt="" class="leftleaf-found" />
-      <div>
-        <img src="/assets/images/rightdot-found.png" alt="" class="rightdot-found" />
-      </div>
 
       <div class="container pdf">
         <div class="row justify-content-center mx-2 gap-5 gap-md-0 mx-sm-0 align-items-center">
@@ -1478,7 +1376,7 @@ transform: translateX(-8%);
             </a>
           </div>
           <div class="col-md-4">
-            <img src="/assets/images/whofound.png" alt="" class="ab-l slide-in" />
+            <img src="assets/images/whofound.png" alt="" class="ab-l slide-in" />
           </div>
           <div class="col-md-4 ">
             <div class="accordion-container ">
@@ -1736,10 +1634,6 @@ document.addEventListener("scroll", function() {
   
   <section>
     <div class="position-relative">
-      <img src="/assets/images/explore-leaf.png" alt="" class="rightleaf-explore" />
-      <img src="/assets/images/exploreleft-dot.png" alt="" class="leftdot-explore" />
-      <img src="/assets/images/explore-dot.png" alt="" class="rightleaf-explore" style="bottom: -230px" />
-      <div class="yellow-explore"></div>
       <div
         class="container menu-section align-items-center justify-content-center position-relative d-flex flex-column">
         <h2 class="menu-title box">EXPLORE OUR MOST POPULAR ITEMS</h2>
@@ -2443,10 +2337,6 @@ document.querySelectorAll('.accordion-header').forEach(button => {
   
   <section>
     <div class="position-relative">
-      <div class="location-yellow"></div>
-      <img src="assets/images/location-leaf.png" alt="" class="leftleaf-location" />
-      <img src="assets/images/leftdot-location.png" alt="" class="leftdot-location" />
-      <img src="assets/images/location-rightleaf.png" alt="" class="rightleaf-location" />
       <div class="faq-heading mt100">OUR MULTIPLE LOCATIONS</div>
       <div class="container">
         <div class="map-container">
@@ -2493,7 +2383,6 @@ document.querySelectorAll('.accordion-header').forEach(button => {
 
   <section>
     <div class="position-relative">
-      <div class="faq-yellow"></div>
       <div class="container my-5">
         <div class="faq-heading mt100">Frequently Asked Questions</div>
         <div class="faq-section">
@@ -2737,7 +2626,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
           .collapse("hide")
           .prev()
           .find(".icon")
-          .html('<img style="" src="/assets/images/plus.png" alt="">');
+          .html('<img style="" src="assets/images/plus.png" alt="">');
       });
 
       // When an FAQ is closed, reset its icon to '+'
@@ -2745,86 +2634,34 @@ document.querySelectorAll('.accordion-header').forEach(button => {
         $(this)
           .prev()
           .find(".icon")
-          .html('<img style="" src="/assets/images/plus.png" alt="">');
-      });
-
-      // When an FAQ is opened, set its icon to '-'
-      $(".faq-item .collapse").on("shown.bs.collapse", function () {
-        $(this)
-          .prev()
-          .find(".icon")
-          .html(
-            '<div style="    background: #E0BC6B;width: 20px;height: 3px;margin-top: 15px;border-radius: 35px;"></div>'
-          );
+          .html('<img style="" src="assets/images/plus.png" alt="">');
       });
     });
-  </script>
-  <script>
-    
-  $(document).ready(function () {
-    $(".faq-question").click(function () {
-      const $collapse = $(this).next('.collapse');
-      $collapse.collapse('toggle'); // Explicitly toggle the clicked FAQ
-    });
 
-    $('.faq-item .collapse').on('shown.bs.collapse', function () {
-      $(this).prev().find('.icon').html(
-        '<div style="background: #E0BC6B;width: 20px;height: 3px;margin-top: 15px;border-radius: 35px;"></div>'
-      );
-    });
-
-    $('.faq-item .collapse').on('hidden.bs.collapse', function () {
-      $(this).prev().find('.icon').html(
-        '<img src="assets/images/plus.png" alt="Plus icon">'
-      );
-    });
-  });
-    /**
-     * Initialize location markers functionality
-     * - Shows location info when markers are hovered/clicked
-     * - Adds smooth transitions between different locations
-     */
+    // Initialize the interactive map
     document.addEventListener('DOMContentLoaded', function() {
-      initLocationMarkers();
-    });
-    
-    function initLocationMarkers() {
+      // Get all location markers and info elements
       const locationMarkers = document.querySelectorAll('.location-marker');
-      const infoContainer = document.getElementById('location-info-container');
       const locationInfos = document.querySelectorAll('.location-info');
+      const infoContainer = document.getElementById('location-info-container');
       let currentLocation = null;
       
-      // Exit if elements don't exist
-      if (!locationMarkers.length || !infoContainer) return;
-      
       /**
-       * Show location info with enhanced animations
+       * Show location info for a specific location
        * @param {string} locationName - The name of the location to show
        */
       function showLocationInfo(locationName) {
         // If we're already showing this location, do nothing
         if (currentLocation === locationName) return;
         
-        // If we're showing a different location, animate the transition
-        if (currentLocation) {
-          // First hide the current location info with a quick fade
-          locationInfos.forEach(info => {
-            if (info.getAttribute('data-location') === currentLocation) {
-              info.style.opacity = '0';
-              info.style.transform = 'translateX(10px)';
-              
-              // After a short delay, remove active class and show new location
-              setTimeout(() => {
-                info.classList.remove('active');
-                showNewLocation();
-              }, 150);
-            }
-          });
-        } else {
-          // If no location is currently shown, just show the new one
-          infoContainer.classList.add('active');
-          showNewLocation();
-        }
+        // Hide any currently shown location info
+        locationInfos.forEach(info => {
+          info.classList.remove('active');
+        });
+        
+        // If there's no current location shown, just show the new one
+        infoContainer.classList.add('active');
+        showNewLocation();
         
         /**
          * Helper function to show the new location
@@ -2942,7 +2779,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
           hideLocationInfo();
         }
       });
-    }
+    });
   </script>
   <script src="script.js"></script>
   <!--
