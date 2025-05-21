@@ -1745,6 +1745,45 @@ document.addEventListener("scroll", function() {
 
 <style>
 
+
+  .menu-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-item {
+  width:400px;
+  display: none;
+}
+
+.menu-item.active {
+  display: block;
+}
+
+/* Adjust number of columns based on screen size */
+@media (min-width: 1200px) {
+  .menu-carousel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .menu-carousel {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .menu-carousel {
+    grid-template-columns: 1fr;
+  }
+}
+
   
   .menu-section {
     padding: 50px 0;
@@ -1762,7 +1801,7 @@ document.addEventListener("scroll", function() {
     padding: 0 20px;
   }
 
-  
+  /*
   .menu-carousel {
     display: grid;
     grid-template-columns: repeat(auto-fill, 400px);
@@ -1782,7 +1821,7 @@ document.addEventListener("scroll", function() {
   .menu-item.active {
     display: block;
   }
-
+*/
   
   .menu-card {
     background-color: #1b1b1b;
@@ -1795,7 +1834,7 @@ document.addEventListener("scroll", function() {
     box-sizing: border-box; 
   }
 
-  
+  /*
   
   @media (max-width: 900px) {
     .menu-carousel {
@@ -1815,7 +1854,7 @@ document.addEventListener("scroll", function() {
       max-width: 400px;
     }
   }
-
+*/
   
 
 </style>
