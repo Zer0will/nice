@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/aboutUs-hero-section-new.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
+    <link rel="stylesheet" href="css/global-nav.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,14 @@
 
     <title>About Us - Plate of Africa</title>
     <style>
+
+        /* Mobile menu toggle */
+.navbar.navbar-expand-lg .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    transition: all 0.3s ease !important;
+    padding: 4px 8px !important;
+}
+
         /* Additional styles to fix compatibility issues */
         .approachfullbackground-box {
             padding-bottom: 100px;
@@ -225,7 +233,7 @@
 
         /* Logo styling */
         .navbar.navbar-expand-lg .navbar-brand img {
-            max-height: 60px !important;
+            max-height: 100px !important;
             width: auto !important;
         }
 
@@ -408,7 +416,12 @@
       opacity: 1;
       transform: translateY(0);
     }
-
+.hoveranimator1:hover {
+  transform: translateY(-5%)
+}
+.hoveranimator1 {
+  transition:transform 0.3s;
+}
     </style>
 </head>
 
@@ -502,11 +515,11 @@
                 </div>
             </div>
             <section class="values-section">
-    <div class="container ">
+    <div class="container">
       <h2 class="section-title text-center box">Our Core Values</h2>
       <div class="row">
         <div class="col-md-4">
-          <div class="value-card box">
+          <div class="value-card box hoveranimator1">
             <div class="value-icon">
               <i class="bi bi-heart-fill"></i>
             </div>
@@ -516,7 +529,7 @@
         </div>
         
         <div class="col-md-4">
-          <div class="value-card box">
+          <div class="value-card box hoveranimator1">
             <div class="value-icon">
               <i class="bi bi-tree-fill"></i>
             </div>
@@ -526,7 +539,7 @@
         </div>
         
         <div class="col-md-4">
-          <div class="value-card box">
+          <div class="value-card box hoveranimator1">
             <div class="value-icon">
               <i class="bi bi-people-fill"></i>
             </div>

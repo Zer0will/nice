@@ -1323,6 +1323,39 @@ transform: translateX(-8%);
             50% { transform: translateX(0) scale(1.05); }
             100% { transform: translateX(0) scale(1); }
         }
+#flexywrap {
+
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  width:100%;
+  height:auto;
+  position:relative;
+  
+}
+.hoveranimator {
+  transition:transform 0.3s;
+}
+.hoveranimator:hover {
+  transform: translateX(-2%)
+}
+.hoveranimator1 {
+  transition:transform 0.3s;
+}
+.hoveranimator1:hover {
+  transform: translateY(-8%)
+}
+.hoveranimator2 {
+  transition:transform 0.3s;
+}
+.hoveranimator2:hover {
+  transform: translateY(-3%)
+}
+.hoveranimator3 {
+  transition:transform 0.3s;
+}
+.hoveranimator3:hover {
+  transform: scale(1.025)
 </style>
 </head>
   <div id="preloader">
@@ -1386,11 +1419,13 @@ transform: translateX(-8%);
       <img src="/assets/images/about-down-leaf.png" alt="" class="ab-down" />
       <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" />
       <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" style="bottom: -473px" />
-      <div class="d-flex gap-4 flex-column flex-lg-row col-lg-6 slide-in">
+      <div class="d-flex gap-4 flex-column flex-lg-row  slide-in">
+        <div id="flexywrap">
         <img src="/assets/images/about-1.png" alt="" class="ab-l " />
         <div class="d-flex flex-column gap-4">
           <img src="/assets/images/about-2.png" alt="" class="ab-small " />
           <img src="/assets/images/about-3.png" alt="" class="ab-small " />
+          </div>
         </div>
       </div>
 
@@ -1447,7 +1482,7 @@ transform: translateX(-8%);
           </div>
           <div class="col-md-4 ">
             <div class="accordion-container ">
-              <div class="accordion-item box">
+              <div class="accordion-item box hoveranimator">
                 <button class="accordion-header " data-bs-toggle="collapse" data-target="#item1">
                   <span class="accordion-number">01</span>
                   <span class="accordion-title">Ethical Considerations</span>
@@ -1478,7 +1513,7 @@ transform: translateX(-8%);
                 </div>
               </div>
 
-              <div class="accordion-item box">
+              <div class="accordion-item box hoveranimator">
                 <button class="accordion-header" data-bs-toggle="collapse" data-target="#item2">
                   <span class="accordion-number">02</span>
                   <span class="accordion-title">Nutritional Content</span>
@@ -1509,7 +1544,7 @@ transform: translateX(-8%);
                 </div>
               </div>
 
-              <div class="accordion-item box">
+              <div class="accordion-item box hoveranimator">
                 <button class="accordion-header" data-bs-toggle="collapse" data-target="#item3">
                   <span class="accordion-number">03</span>
                   <span class="accordion-title">Quality Ingredients</span>
@@ -1539,7 +1574,7 @@ transform: translateX(-8%);
                 </div>
               </div>
 
-              <div class="accordion-item box">
+              <div class="accordion-item box hoveranimator">
                 <button class="accordion-header" data-bs-toggle="collapse" data-target="#item4">
                   <span class="accordion-number">04</span>
                   <span class="accordion-title">Cultural Exploration</span>
@@ -1713,23 +1748,23 @@ document.addEventListener("scroll", function() {
 
 
         
-          <button class="btn active mx-2 box " onclick="filterMenu('appetizers')">
+          <button class="btn active mx-2 box hoveranimator1" onclick="filterMenu('appetizers')">
             Appetizers
           </button>
          
-          <button class="btn mx-2 box" onclick="filterMenu('main-courses')">
+          <button class="btn mx-2 box hoveranimator1" onclick="filterMenu('main-courses')">
             Main Courses
           </button>
 
-          <button class="btn mx-2 box" onclick="filterMenu('desserts')">
+          <button class="btn mx-2 box hoveranimator1" onclick="filterMenu('desserts')">
             Desserts
           </button>
 
-          <button class="btn mx-2 box" onclick="filterMenu('drinks')">
+          <button class="btn mx-2 box hoveranimator1" onclick="filterMenu('drinks')">
             Drinks
           </button>
 
-          <button class="btn mx-2 box" onclick="filterMenu('alcoholic drinks')">
+          <button class="btn mx-2 box hoveranimator1" onclick="filterMenu('alcoholic drinks')">
             Alcoholic Drinks
           </button>
         </div>
@@ -2275,7 +2310,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
 
     <div class="testimonial-slider ">
       <!-- Testimonial 1 -->
-      <div class="testimonial-card ">
+      <div class="testimonial-card hoveranimator2 ">
         <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
         <div class="testimonial-header ">
           <img src="images/JohnWellbergImage.png" alt="User" />
@@ -2292,7 +2327,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
       </div>
 
       <!-- Testimonial 2 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card hoveranimator2">
         <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
         <div class="testimonial-header">
           <img src="images/NettieHardinImage.png" alt="User" />
@@ -2309,7 +2344,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
       </div>
 
       <!-- Testimonial 3 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card hoveranimator2">
         <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
         <div class="testimonial-header">
           <img src="images/StellaGallegosImage.png" alt="User" />
@@ -2325,7 +2360,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
         </p>
       </div>
       <!-- Testimonial 1 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card hoveranimator2">
         <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
         <div class="testimonial-header">
           <img src="images/ZeinebaTesfayeImage.png" alt="User" />
@@ -2340,7 +2375,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
       </div>
 
       <!-- Testimonial 2 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card hoveranimator2">
         <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
         <div class="testimonial-header">
           <img src="images/MadisonLeImage.png" alt="User" />
@@ -2355,7 +2390,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
       </div>
 
       <!-- Testimonial 3 -->
-      <div class="testimonial-card">
+      <div class="testimonial-card hoveranimator2">
         <span class="quote-icon"><img src="assets/images/quotes.png" alt="" style="width: 24px; height: 24px" /></span>
         <div class="testimonial-header">
           <img src="images/SarahPrichettImage.png" alt="User" />
@@ -2464,7 +2499,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
         <div class="faq-section">
 
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq1">
+            <button class="faq-question btn btn-dark w-100 text-start box hoveranimator3" data-bs-toggle="collapse" data-bs-target="#faq1">
               What type of cuisine does Plate of Africa serve?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>
@@ -2478,7 +2513,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
           
 
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq3">
+            <button class="faq-question btn btn-dark w-100 text-start box hoveranimator3" data-bs-toggle="collapse" data-bs-target="#faq3">
               Do you offer takeout or delivery services?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>
@@ -2490,7 +2525,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
           </div>
 
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq4">
+            <button class="faq-question btn btn-dark w-100 text-start box hoveranimator3" data-bs-toggle="collapse" data-bs-target="#faq4">
               Where do you source your ingredients from?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>
@@ -2503,7 +2538,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
           </div>
 
           <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq5">
+            <button class="faq-question btn btn-dark w-100 text-start box hoveranimator3" data-bs-toggle="collapse" data-bs-target="#faq5">
               Does Plate of Africa accommodate those with mobility disabilities?
               <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
             </button>

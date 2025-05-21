@@ -159,8 +159,7 @@
                                     <input type="checkbox" checked>
                                 </div>
                                 <div class="productDetailText">
-                                    Lorem ipsum dolor sit amet consectetur. Dolor enim faucibus porttitor a fringilla.
-                                    Placerat malesuada facilisis sed sed a
+                                   ${item.description}
                                 </div>
                                 <div class="priceSection">
                                     <div class="priceText">100.84 US$</div>
@@ -365,6 +364,8 @@
 
     <!-- Add custom JavaScript for Order page functionality -->
     <script>
+        //hopefully updates total without refreshing
+        
         
         const ALCOHOL_TAX_RATE = 0.205;
         const SALES_TAX_RATE = 0.1025; 
@@ -676,6 +677,11 @@
                         priceElement.setAttribute('data-price', item.total.toFixed(2));
                         //priceElement.innerText = `$${item.total.toFixed(2)}`;
                     }
+                    // Listen for any input changes on the page
+document.addEventListener('input', updateTotal);
+
+// Also catch dropdowns, checkboxes, etc. that trigger 'change' events
+document.addEventListener('change', updateTotal);
                     
                     // Update total
                     updateTotal();
