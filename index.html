@@ -2005,11 +2005,71 @@ document.addEventListener("scroll", function() {
 
 
 <style>
+.menu-section {
+  padding: 50px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-carousel-container {
+  width: 100%;
+  max-width: 1400px; 
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.menu-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 20px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.menu-item {
+  width: 400px; 
+  display: none; 
+}
+
+.menu-item.active {
+  display: block; 
+}
+
+.menu-card {
+  background-color: #1b1b1b;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s;
+  min-height: 364px;
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+
+@media (max-width: 900px) {
+  .menu-item {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-carousel {
+    grid-template-columns: 1fr;
+  }
+  .menu-item {
+    width: 100%;
+    max-width: 400px;
+  }
+}
 
 
   
 
-
+/*
   
   .menu-section {
     padding: 50px 0;
@@ -2058,6 +2118,7 @@ document.addEventListener("scroll", function() {
     min-height: 364px;
     width: 100%; 
     box-sizing: border-box; 
+    
   }
 
   
@@ -2080,7 +2141,7 @@ document.addEventListener("scroll", function() {
       max-width: 400px;
     }
   }
-
+*/
   
 
 </style>
