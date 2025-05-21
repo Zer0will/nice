@@ -1323,6 +1323,16 @@ transform: translateX(-8%);
             50% { transform: translateX(0) scale(1.05); }
             100% { transform: translateX(0) scale(1); }
         }
+#flexywrap {
+
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  width:100%;
+  height:auto;
+  position:relative;
+  
+}
 </style>
 </head>
   <div id="preloader">
@@ -1386,11 +1396,13 @@ transform: translateX(-8%);
       <img src="/assets/images/about-down-leaf.png" alt="" class="ab-down" />
       <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" />
       <img src="/assets/images/about-yellow.png" alt="" class="ab-yellow" style="bottom: -473px" />
-      <div class="d-flex gap-4 flex-column flex-lg-row col-lg-6 slide-in">
+      <div class="d-flex gap-4 flex-column flex-lg-row  slide-in">
+        <div id="flexywrap">
         <img src="/assets/images/about-1.png" alt="" class="ab-l " />
         <div class="d-flex flex-column gap-4">
           <img src="/assets/images/about-2.png" alt="" class="ab-small " />
           <img src="/assets/images/about-3.png" alt="" class="ab-small " />
+          </div>
         </div>
       </div>
 
