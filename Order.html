@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/OnlineOrder.css" />
     <link rel="stylesheet" href="css/global-nav.css">
-    <!-- Removed improved-nav.css to prevent conflicts with the main navigation system -->
+    
     <style>
         body {
             margin-top: 100px;
@@ -66,34 +66,30 @@
             width: 20px;
             height: 20px;
             background-color: transparent;
-            /* Transparent background initially */
             border: 2px solid white;
-            /* White border */
+            
             cursor: pointer;
             position: relative;
             border-radius: 4px;
-            /* Optional: Rounded corners */
+            
         }
 
-        /* Style for the checked state */
+
         input[type="checkbox"]:checked {
             background-color: yellow;
-            /* Yellow background when checked */
+            
             border-color: black;
-            /* Black border when checked */
+            
         }
 
         input[type="checkbox"]:checked::after {
             content: "✔";
-            /* Unicode for checkmark */
             font-size: 14px;
             color: black;
-            /* Black checkmark */
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            /* Center the checkmark */
             font-weight: bold;
         }
 
@@ -128,7 +124,7 @@
 
 <body>
     <div class="home-hero-bg">
-        <!-- Header -->
+       
         <div id="header"></div>
 
 
@@ -254,21 +250,7 @@
                 <div class="orderSectionOuter">
                     <div class="ordertEXT">Order Summary</div>
                     <div id="dynamicCartItems"></div>
-                    <!-- <div class="productLisOuter">
-                        <div class="liberianText">Liberian Fried Okra</div>
-                        <div class="abountTxet">100.84 US$</div>
-                    </div>
-                    <div class="productLisOuter">
-                        <div class="liberianText">African Spice Grilled Vege...</div>
-                        <div class="abountTxet">100.84 US$</div>
-                    </div>
-                    <div class="productLisOuter">
-                        <div class="liberianText">unny Chow</div>
-                        <div class="abountTxet">100.84 US$</div>
-                    </div> -->
-                    <!-- <div class="productLisOuter">
-                        <div class="liberianText">Liberian Fried Okra</div>
-                    </div> -->
+                    
                     <div class="totalASection">
                         <div class="productLisOuter">
                             <div class="liberianText">Subtotal</div>
@@ -362,9 +344,9 @@
     <script src="assets/js/Order.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Add custom JavaScript for Order page functionality -->
+
     <script>
-        //hopefully updates total without refreshing
+        
         
         
         const ALCOHOL_TAX_RATE = 0.205;
@@ -372,23 +354,22 @@
         
         document.addEventListener("DOMContentLoaded", function() {
  
-            // Back to Menu functionality
+            
             const backToMenuBtn = document.getElementById("backToMenuBtn");
             if (backToMenuBtn) {
                 backToMenuBtn.addEventListener("click", function() {
-                    // Navigate back to menu page
                     window.location.href = "menu.html";
                 });
 
                 
-                // Add styling to make it look clickable
+
                 backToMenuBtn.style.cursor = "pointer";
                 backToMenuBtn.style.textDecoration = "underline";
                 backToMenuBtn.style.color = "#E1C072";
                 backToMenuBtn.style.fontWeight = "bold";
                 backToMenuBtn.style.transition = "all 0.3s ease";
                 
-                // Add hover effect
+            
                 backToMenuBtn.addEventListener("mouseover", function() {
                     this.style.transform = "translateY(-2px)";
                     this.style.textShadow = "0 2px 4px rgba(0,0,0,0.3)";
@@ -400,29 +381,29 @@
                 });
             }
             
-            // Disable checkout button with message
+        
             const checkoutBtn = document.getElementById("checkoutBtn");
             if (checkoutBtn) {
-                // Style the disabled button
+                
                 checkoutBtn.style.backgroundColor = "#555";
                 checkoutBtn.style.cursor = "not-allowed";
                 checkoutBtn.style.opacity = "0.7";
                 
-                // Add tooltip/message when hovering over the button
+                
                 checkoutBtn.setAttribute("title", "Checkout functionality is not available at this time");
                 
-                // Prevent any click events
+                
                 checkoutBtn.addEventListener("click", function(e) {
                     e.preventDefault();
-                    // Show a message to the user
+                
                     alert("Checkout is currently unavailable. Please check back later!");
                 });
             }
             
-            // Store references to cart items and their checkboxes
+            
             let cartItemsData = [];
             
-            // Load cart items from localStorage
+
             function loadCartItems() {
                 const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
                 const dynamicCartItems = document.getElementById("dynamicCartItems");
@@ -430,22 +411,21 @@
                 
                 if (!dynamicCartItems) return;
                 
-                // Clear existing items
                 dynamicCartItems.innerHTML = "";
                 
                 let totalAmount = 0;
-                cartItemsData = []; // Reset the cart items data
+                cartItemsData = []; 
                 
-                // Add each cart item to the summary
+
                 cartItems.forEach((item, index) => {
-                    // Extract price as a number
+                    
                     const price = parseFloat(item.price.replace("$", "")) || 0;
                     const itemTotal = price * item.productQuantity;
                     
-                    // Create unique IDs for checkboxes
+                    
                     const cartCheckboxId = `cart-item-${index}`;
                     
-                    // Store item data for reference
+                
                     cartItemsData.push({
                         index,
                         name: item.name,
@@ -454,10 +434,10 @@
                         total: itemTotal,
                         isAlcohol: item.isAlcohol || false, 
                         cartCheckboxId,
-                        checked: true // Default to checked
+                        checked: true 
                     });
                     
-                    // Create item element for cart summary
+                    
                     const itemElement = document.createElement("div");
                     itemElement.className = "productLisOuter";
                     itemElement.innerHTML = `
@@ -470,10 +450,10 @@
                     
                     dynamicCartItems.appendChild(itemElement);
                     
-                    // Initially add to total since checkboxes are checked by default
+                    
                     totalAmount += itemTotal;
 
-                    // Update the quantity display in the main product section
+                   
                     const quantityElements = document.querySelectorAll('.SelectedDiv');
                     if (quantityElements[index]) {
                         quantityElements[index].textContent = item.productQuantity;
@@ -482,12 +462,12 @@
 
                 });
                 
-                // Update total amount
+             
                 if (totalAmountElement) {
                     totalAmountElement.textContent = `$${totalAmount.toFixed(2)}`;
                 }
                 
-                // If cart is empty, show a message
+           
                 if (cartItems.length === 0) {
                     const emptyCartMessage = document.createElement("div");
                     emptyCartMessage.className = "productLisOuter";
@@ -496,7 +476,7 @@
                     `;
                     dynamicCartItems.appendChild(emptyCartMessage);
                     
-                    // Update total to zero
+            
                     if (totalAmountElement) {
                         totalAmountElement.textContent = "$0.00";
                     }
@@ -505,62 +485,62 @@
 
                 
                 
-                // Remove checkboxes from the main summary section
+         
                 removeCheckboxesFromSummary();
                 
-                // Add event listeners to checkboxes
+           
                 setupCheckboxListeners();
 
 
-                //Update total immediately after loading into order.html
+              
                 updateTotal();
             }
             
-            // Function to remove checkboxes from the main summary section
+ 
             function removeCheckboxesFromSummary() {
-                // Find all checkboxes in the main summary section
+              
                 const summaryCheckboxes = document.querySelectorAll('.sumaryMain .productNameouter input[type="checkbox"]');
                 
-                // Remove each checkbox
+          
                 summaryCheckboxes.forEach(checkbox => {
-                    // Get the parent element (productNameouter)
+                  
                     const parent = checkbox.parentElement;
                     if (parent) {
-                        // Remove the checkbox
+                      
                         checkbox.remove();
                         
-                        // Adjust styling if needed
+                     
                         parent.style.display = 'flex';
                         parent.style.justifyContent = 'space-between';
                     }
                 });
             }
             
-            // Function to set up checkbox event listeners
+       
             function setupCheckboxListeners() {
-                // For each item in our cart data
+               
                 cartItemsData.forEach(item => {
                     const cartCheckbox = document.getElementById(item.cartCheckboxId);
                     
                     if (cartCheckbox) {
                         cartCheckbox.addEventListener('change', function() {
-                            // Update the item's checked status
+                         
                             item.checked = this.checked;
                             
-                            // Update the total
+                       
                             updateTotal();
                         });
                     }
                 });
             }
 
-            // Sales Tax Calculation
+           
             function calculateSalesTax(subtotal) {
                 const salesTaxRate = 0.1025; // 10.25% sales tax
                 return subtotal * salesTaxRate;
             }
 
-            // Function to update all amounts
+          
             function updateTotal() {
                 const subtotalElement = document.getElementById("subtotalAmount");
                 const salesTaxElement = document.getElementById("salesTaxAmount");
@@ -572,23 +552,13 @@
                 let nonAlcoholSubtotal = 0; // Total for non-alcohol items
                 let hasAlcohol = false;
     
-                // Calculate subtotal based on checked items only
-
-                /**
-                cartItemsData.forEach(item => {
-                    item.total = item.price * item.quantity;
-                    if (item.checked) {
-                        subtotal += item.total;
-                    }
-                });
-
-                **/
+                
 
                 cartItemsData.forEach(item => {
                     item.total = item.price * item.quantity;
                     if (item.checked) {
                         subtotal += item.total;
-                        // Check if item is alcoholic (you'll need to add this property when adding to cart)
+                       
                         if (item.isAlcohol) {
                             alcoholSubtotal += item.total;
                             hasAlcohol = true;
@@ -599,15 +569,7 @@
                     
                 });
     
-            // Calculate Sales Tax
-            //const salesTax = calculateSalesTax(subtotal);
-
-            /**
-            const salesTax = nonAlcoholSubtotal * SALES_TAX_RATE;
-            const alcoholTax = alcoholSubtotal * ALCOHOL_TAX_RATE;
-            const totalTax = salesTax + alcoholTax;
-            **/
-
+          
             const salesTaxOnNonAlcohol = nonAlcoholSubtotal * SALES_TAX_RATE;
             const salesTaxOnAlcohol = alcoholSubtotal * SALES_TAX_RATE;
             const totalSalesTax = salesTaxOnNonAlcohol + salesTaxOnAlcohol;
@@ -627,19 +589,12 @@
                 salesTaxElement.textContent = `$${totalSalesTax.toFixed(2)}`;
             }
 
-            /**
-            if (alcoholTaxElement) {
-                alcoholTaxElement.textContent = `$${alcoholTax.toFixed(2)}`;
-            }
-            **/
-
-            // Show/hide alcohol tax line based on hasAlcohol flag
             if (alcoholTaxElement) {
                 if (hasAlcohol) {
                     alcoholTaxElement.textContent = `$${alcoholTax.toFixed(2)}`;
-                    alcoholTaxElement.parentElement.style.display = "flex"; // Show the line
+                    alcoholTaxElement.parentElement.style.display = "flex"; 
                 } else {
-                    alcoholTaxElement.parentElement.style.display = "none"; // Hide the line
+                    alcoholTaxElement.parentElement.style.display = "none";
                 }
             }
             
@@ -653,7 +608,7 @@
 
             
             
-            // Define increment/decrement functions for the quantity controls
+       
             window.incrementItem = function(index) {
                 if (index >= 0 && index < cartItemsData.length) {
                     const item = cartItemsData[index];

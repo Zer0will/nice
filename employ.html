@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="assets/employ.css" />
     <link rel="stylesheet" href="css/global-nav.css">
     <link rel="stylesheet" href="css/employment-hero-section.css" />
-    <!-- Removed improved-nav.css to prevent conflicts with the main navigation system -->
-    <!-- <link rel="stylesheet" href="assets/employ-enhanced.css" /> -->
-    <!-- <link rel="stylesheet" href="assets/ReviewPage.css" /> -->
+    
 
   </head>
   <style>
@@ -752,129 +750,7 @@ transform: translateX(-8%);
     <div class="position-relative" id="footer"></div>
 
     <script src="script.js"></script>
-    <!-- <script>
-      document
-        .querySelector(".nextemploy")
-        .addEventListener("click", function () {
-          window.location.href = "employnext.html"; // Yahan About Page ka path likhein
-        });
-    </script> -->
-
-    <!-- <script>
-      document
-        .querySelector(".nextemploy")
-        .addEventListener("click", function () {
-          // Saari required fields ko check karna
-          let allFilled = true;
-          document.querySelectorAll(".required-field").forEach((field) => {
-            if (!field.value.trim()) {
-              allFilled = false;
-            }
-          });
-
-          if (allFilled) {
-            // Saari fields filled hain to next page par le jao
-            window.location.href = "employnext.html";
-          } else {
-            alert("Please fill all required fields.");
-          }
-        });
-    </script> -->
-
-    <!-- JavaScript for Form Switch -->
-    <!-- <script>
-      document
-        .querySelector(".nextemploy")
-        .addEventListener("click", function () {
-          // Validate Required Fields
-          let allFilled = true;
-          document
-            .querySelectorAll("#form1 .required-field")
-            .forEach((field) => {
-              if (!field.value.trim()) {
-                allFilled = false;
-              }
-            });
-
-          if (allFilled) {
-            // Hide first form and show second form
-            document.getElementById("form1").style.display = "none";
-            document.getElementById("form2").style.display = "block";
-          } else {
-            alert("Please fill all required fields");
-          }
-        });
-    </script> -->
-
-   
-
-
-<!-- 
-<script>
-  // document.addEventListener("DOMContentLoaded", function () {
-  //   document.querySelector(".lestemploy").addEventListener("click", function () {
-  //     let resumeField = document.getElementById("fileUpload");
-
-  //     if (resumeField.files.length > 0) {
-  //       // Form 3 hide karein
-  //       document.getElementById("form3").style.display = "none";
-  //       // Modal show karein
-  //       document.getElementById("successModal").style.display = "flex";
-  //     } else {
-  //       alert("Please upload your resume.");
-  //     }
-  //   });
-
-  //   // Close modal function
-  //   document.getElementById("closeModal").addEventListener("click", function () {
-  //     // Modal hide karein
-  //     document.getElementById("successModal").style.display = "none";
-  //     // Form 3 wapas show karein
-  //     document.getElementById("form3").style.display = "block";
-  //   });
-  // });
-  document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector(".lestemploy").addEventListener("click", function () {
-    let resumeField = document.getElementById("fileUpload");
-
-    if (resumeField.files.length > 0) {
-      // Form 3 hide karein
-      document.getElementById("form3").style.display = "none";
-      // Modal show karein
-      document.getElementById("successModal").style.display = "flex";
-    } else {
-      alert("Please upload your resume.");
-    }
-  });
-
-  // Close modal function
-  document.getElementById("closeModal").addEventListener("click", function () {
-    setTimeout(() => {
-      window.location.reload();
-    }, 0); 
-    // Index page par redirect karein
-    window.location.href = "index.html";
     
-  });
-});
-
-</script> -->
-
-
-
-
-<!-- JavaScript -->
-<!-- <script>
-  document.getElementById("submit").addEventListener("click", function () {
-    // Show Success Modal
-    document.getElementById("successModal").style.display = "block";
-  });
-
-  document.getElementById("closeModal").addEventListener("click", function () {
-    // Hide Success Modal
-    document.getElementById("successModal").style.display = "none";
-  });
-</script> -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
@@ -895,7 +771,7 @@ onScroll();
 
     </script>
 
-    <!-- For testing purposes only - remove in production -->
+    
     <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: none;">
       <button id="testThankYou" style="background: #333; color: white; padding: 10px; border-radius: 5px; cursor: pointer;">
         Test Thank You Form
@@ -903,22 +779,17 @@ onScroll();
     </div>
     <script>
 
-      // Scroll down indicator functionality
+      
         document.getElementById('scroll-down').addEventListener('click', function() {
             document.getElementById('why-join-scrollDown').scrollIntoView({ 
                 behavior: 'smooth' 
             });
         });
-      // Test button to manually trigger thank you form (for testing only)
+      
       document.getElementById('testThankYou')?.addEventListener('click', function() {
         showThankYouForm();
       });
     </script>
-    <!-- End testing code -->
-
-
-    <!-- Enhanced Form Validation Script -->
-
     
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -1522,27 +1393,6 @@ onScroll();
         line-height: 1.6;
       }
 
-      /**
-      
-      .home-button {
-        margin-top: 2rem;
-        background: linear-gradient(45deg, #ffdd55, #ff9955) !important;
-        transition: all 0.3s ease;
-        border-radius: 30px !important;
-        padding: 12px 30px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        position: relative;
-        overflow: hidden;
-        color: #1a1a1a !important;
-      }
-      
-      .home-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      **/
       
       .completed-bar {
         background: linear-gradient(90deg, #ffdd55, #ff9955) !important;
@@ -1665,7 +1515,7 @@ onScroll();
         animation: formEnter 0.4s ease-out forwards;
       }
       
-      /* Confetti background */
+      
       .confetti-bg {
         position: fixed;
         top: 0;
