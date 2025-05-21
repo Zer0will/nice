@@ -21,7 +21,7 @@
     </head>
     
     <body>
-        <!-- Bootstrap Navbar (matching index page) -->
+        
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid px-3">
                 <a class="navbar-brand" href="index.html">
@@ -66,21 +66,12 @@
                 </div>
             </div>
         </nav>
-        <!-- Replace the header with the div that will be populated by script.js -->
+        
         
 
         <main>
 
-            <!--
-            <div id="title-area">
-                <h1 id="title-section">
-                    CONTACT US
-                </h1>
-                
-                <div id="rectangle-header">
-                </div>
-            </div>
-        -->
+            
             <section class="hero-section">
             <div class="hero-background"></div>
             <div class="hero-overlay"></div>
@@ -96,7 +87,7 @@
         </div>
         </section>
 
-            <!-- Adding a new intro section similar to reservations page -->
+           
             <div class="contact-intro" id="contact-heading-scrollDown">
                 <div class="slide-in">
                     <img src="images/contact-image.png" alt="Contact Us">
@@ -113,14 +104,14 @@
                 </div>
             </div>
 
-            <!-- Improved map section with interactive elements - moved above the contact form -->
+            
             <div class="location-section">
                 <h2 class="location-heading slide-in">OUR LOCATIONS</h2>
                 
                 <div class="map-container slide-in">
                     <img src="images/map.png" alt="Restaurant Location Map" class="location-map">
                     
-                    <!-- Location markers -->
+                    
                     <div class="location-marker marker-1" data-location="Downtown">
                         <div class="marker-logo"></div>
                     </div>
@@ -131,7 +122,7 @@
                         <div class="marker-logo"></div>
                     </div>
                     
-                    <!-- Location info container -->
+                    
                     <div class="location-info-container" id="location-info-container">
                         <div class="location-info" id="info-downtown" data-location="Downtown">
                             <h3>Downtown</h3>
@@ -206,7 +197,7 @@
                     </form>
                 </div>
                 
-                <!-- Thank You Message (Initially Hidden) -->
+                
                 <div id="thank-you-message" class="thank-you-message">
                     <img src="images/Plate of Africa Logo.png" alt="Plate of Africa Logo" class="thank-you-logo">
                     <h2>Thank You!</h2>
@@ -218,14 +209,14 @@
             </div>
         </main>
 
-         <!--SCROLL BUTTON CODE-->
+        
     <div id="scrolltotop-button">
         <img src="images/ScrollToTopButton.png" alt="scroll to top">
     </div>
 
     <script>
 
-        // Scroll down indicator functionality
+        
         document.getElementById('scroll-down').addEventListener('click', function() {
             document.getElementById('contact-heading-scrollDown').scrollIntoView({ 
                 behavior: 'smooth' 
@@ -251,36 +242,36 @@
             });
         };
         
-        // Contact form submission handling
+        
         document.getElementById('contact-form-element').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // Hide the form content
+            
             document.querySelector('#contact-form .content').style.display = 'none';
             
-            // Hide the form title
+            
             document.querySelector('#contact-form .form-title').style.display = 'none';
             
-            // Show thank you message
+            
             document.getElementById('thank-you-message').style.display = 'block';
             
-            // Reset form for future use
+            
             this.reset();
         });
         
-        // Return to form when clicking the "Send Another Message" button
+        
         document.getElementById('new-message-btn').addEventListener('click', function() {
-            // Hide thank you message
+            
             document.getElementById('thank-you-message').style.display = 'none';
             
-            // Show the form content
+            
             document.querySelector('#contact-form .content').style.display = 'block';
             
-            // Show the form title
+            
             document.querySelector('#contact-form .form-title').style.display = 'block';
         });
         
-        // Add animation to elements with slide-in class
+       
         document.addEventListener('DOMContentLoaded', function() {
             const slideInElements = document.querySelectorAll('.slide-in');
             
@@ -296,50 +287,50 @@
                 observer.observe(element);
             });
             
-            // Check for location parameter in URL
+           
             const urlParams = new URLSearchParams(window.location.search);
             const locationParam = urlParams.get('location');
             
             if (locationParam) {
-                // Pre-fill the subject field with the location
+           
                 const subjectField = document.getElementById('subject');
                 if (subjectField) {
                     subjectField.value = `Inquiry about ${locationParam} Location`;
                 }
                 
-                // Focus on the message field and add a helpful placeholder
+              
                 const messageField = document.getElementById('message');
                 if (messageField) {
                     messageField.placeholder = `I'm interested in the ${locationParam} location and would like to know...`;
                     
-                    // Make sure the form is visible (in case of previous submission)
+                   
                     document.querySelector('#contact-form .content').style.display = 'block';
                     document.querySelector('#contact-form .form-title').style.display = 'block';
                     document.getElementById('thank-you-message').style.display = 'none';
                     
-                    // Scroll to contact form
+               
                     const contactForm = document.getElementById('contact-form');
                     contactForm.scrollIntoView({ behavior: 'smooth' });
                     
-                    // Focus on the message field after scrolling
+                  
                     setTimeout(() => {
                         messageField.focus();
                     }, 800);
                 }
             }
             
-            // Initialize map functionality
+         
             initLocationMarkers();
         });
         
-        // Map functionality
+     
         function initLocationMarkers() {
             const locationMarkers = document.querySelectorAll('.location-marker');
             const infoContainer = document.getElementById('location-info-container');
             const locationInfos = document.querySelectorAll('.location-info');
             let currentLocation = null;
             
-            // Exit if elements don't exist
+         
             if (!locationMarkers.length || !infoContainer) return;
             
             /**
