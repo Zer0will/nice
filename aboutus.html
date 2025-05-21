@@ -399,6 +399,16 @@
     .section-title{
         margin-bottom: 50px;
     }
+    .box {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.5s ease-out;
+    }
+.box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     </style>
 </head>
 
@@ -472,8 +482,8 @@
     -->
         <div class="approachfullbackground-box">
             <div class="whereItAllStarted" id="whereItAllStarted-scrollDown">
-                <h1 class="slide-in">WHERE IT ALL STARTED</h1>
-                <div class="startedIntro-textContainer slide-in">
+                <h1 class="box">WHERE IT ALL STARTED</h1>
+                <div class="startedIntro-textContainer box">
                     <p>
                         When we decided to create Plate of Africa, we envisioned it as more than just a restaurant. Plate of Africa is a place where people of all cultures, and all backgrounds, can come together under the shared passion for culinary excellence. Plate of Africa was created simply by three men, each with a passion for cooking. Whether it be a flavorful chickpea curry, or a perfectly baked focaccia, these men were absolutely enthralled with the complexity of food. They found that food was not just about flavor or texture, but about the people you share the food with.
                     </p>
@@ -491,9 +501,44 @@
                     </p>
                 </div>
             </div>
-            
+            <section class="values-section">
+    <div class="container ">
+      <h2 class="section-title text-center box">Our Core Values</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="value-card box">
+            <div class="value-icon">
+              <i class="bi bi-heart-fill"></i>
+            </div>
+            <h3>Cultural Authenticity</h3>
+            <p>We honor the rich culinary traditions of the African continent, preserving authentic flavors and cooking techniques while innovating for today's diners.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="value-card box">
+            <div class="value-icon">
+              <i class="bi bi-tree-fill"></i>
+            </div>
+            <h3>Environmental Stewardship</h3>
+            <p>Our plant-based approach significantly reduces environmental impact. We strive to minimize waste, conserve water, and source ingredients sustainably.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="value-card box">
+            <div class="value-icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h3>Community Connection</h3>
+            <p>We create spaces where people can connect through food, celebrating the communal aspect of dining that is central to African culture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
             <div class="whatMakesUsSpecial">
-                <div class="whatMakesUsSpecial-image slide-in">
+                <div class="whatMakesUsSpecial-image box">
                     <img src="images/WhatMakesUsSpecialReal.png" alt="What Makes Us Special"> 
                 </div>
                 <div class="whatMakesUsSpecial-text slide-in">
@@ -523,7 +568,7 @@
             </div>
 
             <div class="ourCommunity">
-                <div class="ourCommunity-textContainer slide-in">
+                <div class="ourCommunity-textContainer box">
                     <h1>OUR COMMUNITY</h1>
                     <p>
                         Community drives everything we do here at Plate of Africa. Our restaurant is more than just a place to eat, it is a space where people come together to share food, stories, and connection. We are dedicated to cultivating an inclusive community, a friendly and welcoming space where everyone feels at home; we're into establishing relationships that go beyond the meal.
@@ -590,46 +635,24 @@
                 behavior: 'smooth' 
             });
         });
-        
+        // On-scroll fade in animation for frq and why veganism section
+document.addEventListener("scroll", function() {
+      const boxes = document.querySelectorAll(".box");
+      const triggerBottom = window.innerHeight / 5 * 4;
+
+      boxes.forEach(function(box) {
+        const boxTop = box.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          box.classList.add("visible");
+        } else {
+          box.classList.remove("visible");
+        }
+      });
+    });
     </script>
 
 
-    <section class="values-section">
-    <div class="container">
-      <h2 class="section-title text-center">Our Core Values</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="value-card animate-on-scroll">
-            <div class="value-icon">
-              <i class="bi bi-heart-fill"></i>
-            </div>
-            <h3>Cultural Authenticity</h3>
-            <p>We honor the rich culinary traditions of the African continent, preserving authentic flavors and cooking techniques while innovating for today's diners.</p>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="value-card animate-on-scroll">
-            <div class="value-icon">
-              <i class="bi bi-tree-fill"></i>
-            </div>
-            <h3>Environmental Stewardship</h3>
-            <p>Our plant-based approach significantly reduces environmental impact. We strive to minimize waste, conserve water, and source ingredients sustainably.</p>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="value-card animate-on-scroll">
-            <div class="value-icon">
-              <i class="bi bi-people-fill"></i>
-            </div>
-            <h3>Community Connection</h3>
-            <p>We create spaces where people can connect through food, celebrating the communal aspect of dining that is central to African culture.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    
 
     <footer>
         <div class="row">
