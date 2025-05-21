@@ -539,7 +539,48 @@
         padding: 0 1rem;
     }
 }
+.box {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.5s ease-out;
+    }
+.box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+.hoveranimator {
+  transition:transform 0.3s;
+}
+.hoveranimator:hover {
+  transform: translateX(-2%)
+}
+.hoveranimator1 {
+  transition:transform 0.3s;
+}
+.hoveranimator1:hover {
+  transform: translateY(-8%)
+}
+.hoveranimator2 {
+  transition:transform 0.3s;
+}
+.hoveranimator2:hover {
+  transform: translateY(-3%)
+}
+.hoveranimator3 {
+  transition:transform 0.3s;
+}
+.hoveranimator3:hover {
+  transform: scale(1.025) }
+  .new-content {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.5s ease, max-height 0.5s ease;
+    }
 
+    .new-content.show {
+      opacity: 1;
+      max-height: 500px; } /* big enough to fit your content */
 /* Interactive Split Screen Layout - Enhanced Functionality */
 /* Removing this section as it's now handled by farm-to-table-accordion.css */
 /* End of removed section */
