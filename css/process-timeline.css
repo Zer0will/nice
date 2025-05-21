@@ -1,0 +1,309 @@
+/* General Styles for the Process Timeline */
+body { /* Assuming a dark theme from the image */
+    background-color: #121212; /* Dark background for the page */
+    color: #ffffff; /* Light text color */
+    font-family: 'Poppins', sans-serif; /* Consistent font */
+}
+
+.process-timeline-container {
+    width: 90%;
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 50px auto; /* Centering and spacing */
+    padding: 20px;
+    border-radius: 10px;
+    position: relative; /* This is important for the ::before pseudo-element (the line) and absolute children */
+    /* background-color: #1a1a1a; Slightly lighter than body for visual separation, if needed */
+}
+
+.process-timeline-title {
+    text-align: center;
+    font-size: 2.5rem; /* Large title */
+    font-weight: 700;
+    color: #ffffff; /* Gold color for titles, as seen in image */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.process-step {
+    display: flex; /* Still useful for alignment of content if it has internal flex items */
+    margin-bottom: 60px;
+    position: relative; 
+    min-height: 100px; 
+    padding-top: 5px; 
+}
+
+/* Remove old positioning from odd/even icon containers */
+.process-step:nth-child(odd) .step-icon-container,
+.process-step:nth-child(even) .step-icon-container {
+    order: initial; /* Remove flex order */
+    left: initial;  /* Remove old positioning attempt */
+    right: initial; /* Remove old positioning attempt */
+    /* flex-basis and margins are removed from the base .step-icon-container rule */
+}
+
+.step-icon-container {
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5px; /* Align icon with the start of the step-content block */
+    display: flex;
+    /* flex-direction: column; /* No longer needed as only .step-icon is direct child */
+    align-items: center; 
+    width: auto; 
+    z-index: 3; 
+    flex-basis: auto; 
+    margin: 0; 
+}
+
+.step-icon { 
+    width: 60px;
+    height: 60px;
+    background-color: #E0BC6B;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(224, 188, 107, 0.5);
+}
+
+.step-number { /* Now part of step-content flow */
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #E0BC6B;
+    padding: 5px 15px;
+    border: 2px solid #E0BC6B;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    /* text-align: left; /* Or center if parent .step-content has text-align: center for odd/even items */
+    /* Depending on how .step-content aligns text, .step-number might need specific alignment */
+}
+
+.step-content {
+    width: calc(50% - 45px); 
+    box-sizing: border-box;
+}
+
+
+.process-step:nth-child(odd) .step-content { /* Text on the LEFT for 1st, 3rd, 5th... */
+    margin-right: calc(50% + 45px); /* Push off the right edge, creating space to its right */
+    text-align: left; /* Changed from right to left */
+    margin-left: 0; /* Ensure no unintended left margin */
+}
+
+.process-step:nth-child(even) .step-content { /* Text on the RIGHT for 2nd, 4th... */
+    margin-left: calc(50% + 45px); /* Push off the left edge, creating space to its left */
+    text-align: left; /* Text aligns away from the center line */
+    margin-right: 0; /* Ensure no unintended right margin */
+}
+
+.step-icon img {
+    max-width: 80%; /* Ensure icon fits within the circle */
+    max-height: 80%;
+    filter: invert(1); /* Assuming icons are dark and need to be white on gold bg */
+}
+
+.step-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff; /* Gold color */
+    margin-bottom: 20px;
+}
+
+.step-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #cccccc; /* Light gray for description */
+    margin-bottom: 15px;
+}
+
+.step-details ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.step-details li {
+    margin-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 40px;
+    /* User updated background: gradient from black to transparent black */
+    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.005));
+    /* Removed previous background-color, background-size, background-repeat */
+    color: #ffffff; /* White text */
+    display: flex;
+    align-items: center;
+}
+
+.step-details li::before { 
+    content: '\2713'; /* Checkmark */
+    color: #E0BC6B; /* Gold checkmark */
+    font-size: 1.2rem;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.step-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E0BC6B; /* Gold button */
+    color: #121212; /* Dark text on gold button */
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.step-button:hover {
+    background-color: #cda750; /* Darker gold on hover */
+    transform: translateY(-2px);
+}
+
+/* Vertical connecting line */
+.process-timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 90px; /* Start below the main title */
+    bottom: 50px; /* End before the container padding */
+    width: 4px;
+    background-color: #E0BC6B; /* Gold line color */
+    transform: translateX(-50%);
+    z-index: 1; /* Behind icons */
+    border-radius: 2px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .process-step:nth-child(odd) .step-content,
+    .process-step:nth-child(even) .step-content {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: left; /* All text left aligned on smaller screens */
+    }
+
+    .process-step:nth-child(even) .step-icon-container {
+         right: auto; /* Reset for stacking */
+    }
+    .process-step:nth-child(odd) .step-icon-container {
+        left: auto; /* Reset for stacking */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .process-timeline-container::before {
+        left: 30px; 
+        transform: translateX(0);
+    }
+
+    .process-step {
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding-top: 0;
+        min-height: 0; 
+    }
+    
+    /* On mobile, icon container is in flow, not absolute */
+    .step-icon-container {
+        position: relative; 
+        left: 0; 
+        transform: translateX(0); 
+        top: auto; 
+        margin-bottom: 20px; 
+        align-self: flex-start;
+        margin-left: 5px; 
+    }
+
+    .step-number { /* Adjust for mobile flow if needed */
+        /* margin-left: 0; /* Ensure it aligns with other text if step-content has padding */
+        /* margin-bottom: 10px; /* Adjust mobile gap */
+        /* The existing margin-bottom: 15px might be fine, or could be reduced for mobile */
+    }
+
+    /* On mobile, content takes full width and respects its natural margin from icon */
+    .process-step:nth-child(odd) .step-content,
+    .process-step:nth-child(even) .step-content {
+        width: 100%;
+        margin-left: 0; 
+        margin-right: 0; 
+        text-align: left; 
+        padding-left: 0; /* Remove old padding, step-number now part of this block */
+        /* If step-number and title should be indented from icon, add padding here or to a wrapper */
+    }
+    /* Consider if .step-content needs padding to align its contents (now including .step-number) */
+    /* away from the .step-icon-container on mobile. */
+    /* E.g., if icon line is at 30px, and icon is 50px wide, content might start around 60px from left. */
+    /* So, .step-content might need padding-left: 60px (or similar) in mobile view. */
+    /* The old rule had padding-left: 60px. Let's ensure that is still sensible. */
+    .process-step:nth-child(odd) .step-content,
+    .process-step:nth-child(even) .step-content {
+         padding-left: 60px; /* Re-evaluate this padding for mobile */
+    }
+    .step-icon img{
+        width: 100%;
+    }
+    .step-icon{
+        position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: #1e1e1e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px #FFD700;
+      z-index: 10; 
+    }
+    
+    .step-title {
+        font-size: 1.5rem;
+    }
+
+    .step-description, .step-details li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-timeline-title {
+        font-size: 2rem;
+    }
+    .step-title {
+        font-size: 1.3rem;
+    }
+     .process-timeline-container::before {
+        left: 25px; 
+    }
+    .step-icon-container{
+        left: -13px;
+    }
+     .process-step:nth-child(odd) .step-content,
+    .process-step:nth-child(even) .step-content {
+        padding-left: 50px; 
+    }
+}
+
+/* Additions for specific elements from image */
+.process-step:nth-child(1) .step-details ul, /* Harvesting */
+.process-step:nth-child(3) .step-details ul  /* Culinary */ {
+    columns: 2; /* Two columns for ingredients list */
+    gap: 20px;
+}
+
+@media (max-width: 500px) { /* Single column for smaller screens */
+    .process-step:nth-child(1) .step-details ul,
+    .process-step:nth-child(3) .step-details ul {
+        columns: 1;
+    }
+} 
