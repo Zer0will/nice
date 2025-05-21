@@ -789,11 +789,7 @@ document.addEventListener("scroll", function() {
       });
     });
         
-        /**
-         * Update the scroll indicator position based on which accordion item is active
-         * @param {number} activeIndex - The index of the active accordion item
-         * @param {number} totalItems - The total number of accordion items
-         */
+        
         function updateScrollIndicator(activeIndex, totalItems) {
             const scrollProgress = document.querySelector('.sustainability-section .scroll-progress');
             const verticalNav = document.querySelector('.sustainability-section .vertical-nav');
@@ -810,17 +806,10 @@ document.addEventListener("scroll", function() {
                 scrollProgress.style.height = `${navHeight * (progressPercentage / 100)}px`;
             }
             
-            // Calculate the percentage of progress
-            //const progressPercentage = (activeIndex / (totalItems - 1)) * 100;
             
-            // Update scroll progress height
-            //scrollProgress.style.height = `${navHeight * (progressPercentage / 100)}px`;
         }
 
-        /**
-         * Ensures an element is in the viewport, scrolling to it if necessary
-         * @param {HTMLElement} element - The element to ensure is in view
-         */
+       
         function ensureElementInView(element) {
             // Only proceed if the element is part of the sustainability section
             if (!element.closest('.sustainability-section')) return;
