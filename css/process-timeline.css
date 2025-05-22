@@ -33,18 +33,29 @@ body { /* Assuming a dark theme from the image */
 }
 
 /* Remove old positioning from odd/even icon containers */
-.process-step:nth-child(odd) .step-icon-container,
+.process-step:nth-child(odd) .step-icon-container{
+    order: initial; /* Remove flex order */
+    right: initial;  /* Remove old positioning attempt */
+    right: initial; /* Remove old positioning attempt */
+    /* flex-basis and margins are removed from the base .step-icon-container rule */
+    left: 85%; /* Move odd icons more to the right (increased from 50%) */
+}
 .process-step:nth-child(even) .step-icon-container {
     order: initial; /* Remove flex order */
     left: initial;  /* Remove old positioning attempt */
-    right: initial; /* Remove old positioning attempt */
+    
     /* flex-basis and margins are removed from the base .step-icon-container rule */
+}
+
+/* Target the last even-numbered step icon container */
+.process-step:nth-child(6) .step-icon-container {
+    bottom: -32px; /* Move it down from the default 5px */
 }
 
 .step-icon-container {
     position: absolute; 
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(0);
     top: 5px; /* Align icon with the start of the step-content block */
     display: flex;
     /* flex-direction: column; /* No longer needed as only .step-icon is direct child */
@@ -56,15 +67,12 @@ body { /* Assuming a dark theme from the image */
 }
 
 .step-icon { 
-    width: 60px;
-    height: 60px;
-    background-color: #E0BC6B;
     border-radius: 50%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 10px;
-    box-shadow: 0 0 15px rgba(224, 188, 107, 0.5);
+    margin-left: 10px;
+    padding: 2px;
+    box-shadow: 0 0 32px rgba(224, 188, 107, 0.5);
 }
 
 .step-number { /* Now part of step-content flow */
@@ -100,11 +108,7 @@ body { /* Assuming a dark theme from the image */
     margin-right: 0; /* Ensure no unintended right margin */
 }
 
-.step-icon img {
-    max-width: 80%; /* Ensure icon fits within the circle */
-    max-height: 80%;
-    filter: invert(1); /* Assuming icons are dark and need to be white on gold bg */
-}
+
 
 .step-title {
     font-size: 1.8rem;
@@ -170,18 +174,73 @@ body { /* Assuming a dark theme from the image */
     content: '';
     position: absolute;
     left: 50%;
-    top: 90px; /* Start below the main title */
-    bottom: 50px; /* End before the container padding */
-    width: 4px;
-    background-color: #E0BC6B; /* Gold line color */
-    transform: translateX(-50%);
-    z-index: 1; /* Behind icons */
-    border-radius: 2px;
+    top: 220px; /* Position from top */
+    bottom: 220px; /* Position from bottom */
+    width: 390px; /* Width of the box */
+    background-color: transparent; /* Transparent background */
+    transform: translateX(-100%); /* Center the box */
+    z-index: 1; /* Layer positioning */
+    border: 4px solid #E0BC6B; /* Gold border/stroke */
+    border-left: none; /* Remove left border as requested */
+    border-radius: 0 48px 48px 0; /* Rounded corners on the right side */
 }
 
+/* Top horizontal line of the timeline - straight approach */
+.process-timeline-container::after {
+    content: '';
+    position: absolute;
+    left: 49.81%; /* Align with vertical line */
+    top: 29.5%; /* Position above vertical line */
+    width: 500px; /* Width of horizontal line */
+    height: 4px; /* Match border thickness */
+    background-color: #E0BC6B; /* Gold line matching timeline */
+    z-index: 1; /* Ensures consistent layering with vertical line */
+}
+
+/* Bottom horizontal line of the timeline */
+.process-step:last-child::after {
+    content: '';
+    position: absolute;
+    right: 50%; /* Start from the far left */
+    top: -230%; /* Position below the last step */
+    width: 500px; /* Extend to the middle of the container */
+    height: 4px; /* Match border thickness */
+    background-color: #E0BC6B; /* Gold line matching timeline */
+    z-index: 1; /* Ensures consistent layering with other elements */
+}
+.process-step:last-child::before {
+    content: '';
+    position: absolute;
+    left: 50%; /* Start from the far left */
+    top: -48%; /* Position below the last step */
+    width: 500px; /* Extend to the middle of the container */
+    height: 4px; /* Match border thickness */
+    background-color: #E0BC6B; /* Gold line matching timeline */
+    z-index: 1; /* Ensures consistent layering with other elements */
+}
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
+@media (max-width: 1250px) {
+    /* Hide SVGs and decorative elements at smaller screen sizes */
+    .process-timeline-container::before,
+    .process-timeline-container::after,
+    .process-step:last-child::after,
+    .process-step:last-child::before {
+        display: none !important; /* Force hiding with !important */
+    }
+    
+    /* Hide all images in step icons */
+    .step-icon img {
+        display: none !important;
+    }
+    
+    /* Hide SVGs if they exist */
+    .process-step svg,
+    .step-icon svg,
+    .process-timeline-container svg {
+        display: none !important;
+    }
+    
     .process-step:nth-child(odd) .step-content,
     .process-step:nth-child(even) .step-content {
         padding-left: 20px;
@@ -194,14 +253,60 @@ body { /* Assuming a dark theme from the image */
     }
     .process-step:nth-child(odd) .step-icon-container {
         left: auto; /* Reset for stacking */
+        left: 65%; /* Adjust for medium screens */
+    }
+    
+    /* Create a simple fallback for decorative elements */
+    .process-timeline-container {
+        position: relative;
+    }
+    
+    /* Create a simple vertical timeline for medium screens */
+    .process-timeline-container::before {
+        display: block !important; /* Override the previous display: none */
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 120px;
+        bottom: 50px;
+        width: 4px;
+        background-color: #E0BC6B;
+        transform: translateX(-50%);
+        border: none;
+        border-radius: 2px;
     }
 }
 
 
 @media (max-width: 768px) {
+    /* Reset all special positioning for mobile */
+    .process-step:nth-child(odd) .step-icon-container {
+        left: auto; /* Reset custom positioning */
+    }
+    
+    .process-step:nth-child(6) .step-icon-container {
+        bottom: 0; /* Reset special positioning */
+    }
+    
+    /* Hide decorative elements on mobile */
+    .process-timeline-container::before,
+    .process-timeline-container::after,
+    .process-step:last-child::after,
+    .process-step:last-child::before {
+        display: none; /* Hide all decorative lines on mobile */
+    }
+    
+    /* Create a simple vertical line for mobile */
     .process-timeline-container::before {
-        left: 30px; 
+        display: block; /* Show only the main vertical line */
+        left: 30px;
+        width: 4px; /* Thin line */
         transform: translateX(0);
+        border: none;
+        background-color: #E0BC6B; /* Solid line */
+        top: 120px;
+        bottom: 50px;
+        border-radius: 2px;
     }
 
     .process-step {
@@ -222,12 +327,6 @@ body { /* Assuming a dark theme from the image */
         margin-left: 5px; 
     }
 
-    .step-number { /* Adjust for mobile flow if needed */
-        /* margin-left: 0; /* Ensure it aligns with other text if step-content has padding */
-        /* margin-bottom: 10px; /* Adjust mobile gap */
-        /* The existing margin-bottom: 15px might be fine, or could be reduced for mobile */
-    }
-
     /* On mobile, content takes full width and respects its natural margin from icon */
     .process-step:nth-child(odd) .step-content,
     .process-step:nth-child(even) .step-content {
@@ -236,34 +335,27 @@ body { /* Assuming a dark theme from the image */
         margin-right: 0; 
         text-align: left; 
         padding-left: 0; /* Remove old padding, step-number now part of this block */
-        /* If step-number and title should be indented from icon, add padding here or to a wrapper */
     }
-    /* Consider if .step-content needs padding to align its contents (now including .step-number) */
-    /* away from the .step-icon-container on mobile. */
-    /* E.g., if icon line is at 30px, and icon is 50px wide, content might start around 60px from left. */
-    /* So, .step-content might need padding-left: 60px (or similar) in mobile view. */
-    /* The old rule had padding-left: 60px. Let's ensure that is still sensible. */
+    
     .process-step:nth-child(odd) .step-content,
     .process-step:nth-child(even) .step-content {
          padding-left: 60px; /* Re-evaluate this padding for mobile */
     }
-    .step-icon img{
-        width: 100%;
-    }
+    
     .step-icon{
         position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background: #1e1e1e;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 20px #FFD700;
-      z-index: 10; 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: #1e1e1e;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 32px #FFD700;
+        z-index: 10; 
     }
     
     .step-title {

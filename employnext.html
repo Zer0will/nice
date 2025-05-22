@@ -359,9 +359,50 @@
           document.querySelectorAll(".required-field").forEach((field) => {
             if (!field.value.trim()) {
               allFilled = false;
+              // You might want to add some visual feedback to the user here
+              // For example, adding a class to highlight the empty field
+              field.classList.add('is-invalid'); 
+            } else {
+              field.classList.remove('is-invalid');
             }
           });
 
+          // Check the conditionally visible textarea for experience details
+          const conditionalTextareaContainer = document.querySelector(".first-textarea");
+          if (conditionalTextareaContainer) {
+            const conditionalTextarea = conditionalTextareaContainer.querySelector("textarea");
+            // Check if the container is visible (style.display is not 'none') and the textarea is empty
+            if (conditionalTextareaContainer.style.display !== 'none' && conditionalTextarea && !conditionalTextarea.value.trim()) {
+              allFilled = false;
+              conditionalTextarea.classList.add('is-invalid'); // Optional: visual feedback
+            } else if (conditionalTextarea) {
+              conditionalTextarea.classList.remove('is-invalid'); // Optional: visual feedback
+            }
+          }
+          
+          // Check that at least one day of availability is selected
+          const availabilityCheckboxes = document.querySelectorAll('input[type="checkbox"][name="option"]');
+          let atLeastOneDaySelected = false;
+          
+          availabilityCheckboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+              atLeastOneDaySelected = true;
+            }
+          });
+          
+          if (!atLeastOneDaySelected) {
+            allFilled = false;
+            // Add visual indication that days are required
+            availabilityCheckboxes.forEach((checkbox) => {
+              checkbox.parentElement.classList.add('invalid-selection');
+            });
+            alert("Please select at least one day of availability.");
+          } else {
+            availabilityCheckboxes.forEach((checkbox) => {
+              checkbox.parentElement.classList.remove('invalid-selection');
+            });
+          }
+          
           if (allFilled) {
             // Saari fields filled hain to next page par le jao
             window.location.href = "employlast.html";
@@ -432,5 +473,15 @@
     />
     
     <!-- Add script.js to load the navigation -->
+    <style>
+      .invalid-selection {
+        border: 1px solid red;
+        border-radius: 5px;
+        padding: 2px;
+      }
+      .is-invalid {
+        border: 1px solid red !important;
+      }
+    </style>
   </body>
 </html>
