@@ -41,7 +41,7 @@ body {
 .imagesPOuter {
     display: flex;
     margin-top: 15px;
-    justify-content: space-between;
+    
     gap: 10px;
     /* overflow-x: scroll; */
 }
