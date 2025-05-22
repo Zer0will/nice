@@ -176,4 +176,18 @@ function renderOrderSummary() {
 renderOrderSummary();
 
 
+function deleteItem(index) {
+    if (cartItems[index]) {
+        // Remove the item from the cartItems array
+        cartItems.splice(index, 1);
+
+        // Save the updated cartItems array to localStorage
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        // Re-render the cart items
+        renderCartItems();
+        renderOrderSummary();
+    }
+}
+
 
