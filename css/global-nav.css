@@ -1,10 +1,4 @@
-/* 
- * global-nav.css
- * Global navigation styles that apply to all pages
- * These styles have high specificity to override any conflicting styles
- */
 
-/* Ensure the navbar has the correct base styling */
 .navbar.navbar-expand-lg {
     position: fixed !important;
     width: 100% !important;
@@ -25,12 +19,12 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Styling for scrolled state - will be applied via JavaScript */
+
 .navbar.navbar-expand-lg.scrolled {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Styling for hidden state - will be applied via JavaScript */
+
 .navbar.navbar-expand-lg.hidden {
     transform: translateY(-100%) !important;
 }

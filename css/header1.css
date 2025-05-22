@@ -1,10 +1,4 @@
-/* 
- * header1.css
- * Styles for the header component
- * Extracted from header1.html for better code organization
- */
 
-/* Base Styles */
 :root {
     --primary-gradient: linear-gradient(90deg, #f7efc1 0%, #e0bc6b 100%);
     --dark-bg: #0f0f0f;
