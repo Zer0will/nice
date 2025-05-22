@@ -1523,29 +1523,7 @@ transform: translateX(-8%);
                   e.preventDefault();
                   const isExpanded = targetElement.classList.contains("show");
                   
-                  /**
-                  // Close any other open accordion items
-                  document
-                    .querySelectorAll(".collapse.show")
-                    .forEach((openItem) => {
-                      if (openItem.id !== targetId.replace("#", "")) {
-                        new bootstrap.Collapse(openItem, { toggle: true });
-
-                        // Reset icon rotation for closed items
-                        const openButton = document.querySelector(
-                          `[data-bs-target="#${openItem.id}"]`
-                        );
-                        if (openButton) {
-                          const openIcon = openButton.querySelector(
-                            ".accordion-icon svg"
-                          );
-                          if (openIcon)
-                            openIcon.style.transform = "rotate(0deg)";
-                        }
-                      }
-                    });
-
-                    **/
+              
                    // Close all other accordion items
                 document.querySelectorAll(".collapse.show").forEach((openItem) => {
                   if (openItem !== targetElement) {
@@ -1558,23 +1536,7 @@ transform: translateX(-8%);
                 }
               }
             });
-                  /**
-                  // Toggle the clicked accordion item
-                  const isExpanded = targetElement.classList.contains("show");
-                  const collapseInstance = new bootstrap.Collapse(
-                    targetElement,
-                    {
-                      toggle: true,
-                    }
-                  );
-
-                  // Handle icon rotation
-                  if (!isExpanded) {
-                    icon.style.transform = "rotate(180deg)"; // Arrow points down for opened item
-                  } else {
-                    icon.style.transform = "rotate(0deg)"; // Arrow resets for closed item
-                  }
-                    **/
+                  
                    // Toggle current item
                 if (isExpanded) {
                   collapseInstance.hide();
@@ -2010,80 +1972,6 @@ document.addEventListener("scroll", function() {
 
   
 
-/*
-  
-  .menu-section {
-    padding: 50px 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  
-  .menu-carousel-container {
-    width: 100%;
-    max-width: 1400px; 
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  
-  .menu-carousel {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
-    justify-content: center; 
-    gap: 20px;
-    padding: 20px 0;
-    width: 100%;
-  }
-
-  
-  .menu-item {
-    width: 400px; 
-    display: none; 
-  }
-
-  
-  .menu-item.active {
-    display: block;
-  }
-
-  
-  .menu-card {
-    background-color: #1b1b1b;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: 0.3s;
-    min-height: 364px;
-    width: 100%; 
-    box-sizing: border-box; 
-    
-  }
-
-  
-  
-  @media (max-width: 900px) {
-    .menu-carousel {
-      grid-template-columns: repeat(auto-fill, 350px);
-    }
-    .menu-item {
-      width: 350px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .menu-carousel {
-      grid-template-columns: 1fr;
-    }
-    .menu-item {
-      width: 100%;
-      max-width: 400px;
-    }
-  }
-*/
-  
 
 </style>
 
@@ -2438,52 +2326,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
             </div>
           </div>
 
-          <!--
-
-          <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq6">
-              Do you host private events or parties?
-              <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
-            </button>
-            <div id="faq6" class="collapse">
-              <div class="faq-answer p-3 text-white">
-                Yes! We are delighted to host private events, from intimate gatherings to special celebrations. For more details, including availability, seating capacity, and customized menus, please contact us at 908-441-9271. 
-              </div>
-            </div>
-          </div>
-
-        -->
-
-          <!--
           
-          <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq7">
-              What is the average wait time during peak hours?
-              <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
-            </button>
-            <div id="faq7" class="collapse">
-              <div class="faq-answer p-3 text-white">
-                Our peak hours are generally from 6 PM to 9 PM. During these hours, customers without reservations may wait up to 35 minutes for a table. 
-              </div>
-            </div>
-          </div>
-
-        -->
-
-          <!--
-
-          <div class="faq-item">
-            <button class="faq-question btn btn-dark w-100 text-start box" data-bs-toggle="collapse" data-bs-target="#faq8">
-              Do you have happy hour or any special discounts?
-              <span class="icon float-end"><img src="assets/images/plus.png" alt="" /></span>
-            </button>
-            <div id="faq8" class="collapse">
-              <div class="faq-answer p-3 text-white">
-                Our restuarant does not have happy hour. However, we do ocassionaly host special discounts for holidays like Mother's Day and Veteran's Day. Please check our social media page to be updated with our most recent specials!
-              </div>
-            </div>
-          </div>
-        -->
         
         </div>
       </div>
@@ -2782,13 +2625,9 @@ document.querySelectorAll('.accordion-header').forEach(button => {
     });
   </script>
   <script src="script.js"></script>
-  <!--
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
--->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-  <!--
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
--->
+  
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </body>
 
