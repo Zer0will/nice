@@ -50,7 +50,9 @@
     navToggle.addEventListener('click', function () {
       navToggle.classList.toggle('nav__toggle--active');
       navMobile.classList.toggle('nav__mobile--active');
-      document.body.style.overflow = navMobile.classList.contains('nav__mobile--active') ? 'hidden' : '';
+      var isOpen = navMobile.classList.contains('nav__mobile--active');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
     // Close mobile nav on link click
@@ -138,11 +140,13 @@
     btn.addEventListener('click', function () {
       const category = this.dataset.category;
 
-      // Update active state
+      // Update active state and ARIA
       filterButtons.forEach(function (b) {
         b.classList.remove('menu-filter--active');
+        b.setAttribute('aria-selected', 'false');
       });
       this.classList.add('menu-filter--active');
+      this.setAttribute('aria-selected', 'true');
 
       // Filter items
       menuItems.forEach(function (item) {
@@ -213,7 +217,7 @@
     });
   }
 
-  // --- Food Card Parallax on Hover ---
+  // --- Food Card Touch/Hover Support ---
   const foodCards = document.querySelectorAll('.food-card');
   foodCards.forEach(function (card) {
     card.addEventListener('mouseenter', function () {
@@ -222,6 +226,19 @@
     card.addEventListener('mouseleave', function () {
       this.querySelector('.food-card__overlay').style.opacity = '';
     });
+    // Touch support for mobile
+    card.addEventListener('touchstart', function (e) {
+      // Toggle overlay on tap
+      var overlay = this.querySelector('.food-card__overlay');
+      var isVisible = overlay.style.opacity === '1';
+      // Hide all other overlays first
+      foodCards.forEach(function (c) {
+        c.querySelector('.food-card__overlay').style.opacity = '';
+      });
+      if (!isVisible) {
+        overlay.style.opacity = '1';
+      }
+    }, { passive: true });
   });
 
   // --- Initialize ---
