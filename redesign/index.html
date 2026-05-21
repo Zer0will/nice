@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plate of Africa — Plant-based African cuisine celebrating the continent's rich culinary heritage through modern, refined dining.">
+  <title>Plate of Africa</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo.png" type="image/png">
+
+  <style>
+    /* Override display font to use Playfair Display as Canela fallback */
+    :root {
+      --font-display: 'Playfair Display', 'Georgia', serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav__logo" aria-label="Plate of Africa Home">
+      <img src="images/logo.png" alt="Plate of Africa Logo" width="48" height="48">
+      <span class="nav__logo-text">Plate of Africa</span>
+    </a>
+
+    <ul class="nav__links">
+      <li><a href="#philosophy" class="nav__link">Philosophy</a></li>
+      <li><a href="#food" class="nav__link">Food</a></li>
+      <li><a href="#menu" class="nav__link">Menu</a></li>
+      <li><a href="#experience" class="nav__link">Experience</a></li>
+      <li><a href="#locations" class="nav__link">Locations</a></li>
+      <li><a href="#reserve" class="nav__cta">Reserve a Table</a></li>
+    </ul>
+
+    <!-- Mobile Toggle -->
+    <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="nav__mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="#philosophy">Philosophy</a>
+    <a href="#food">Food</a>
+    <a href="#menu">Menu</a>
+    <a href="#experience">Experience</a>
+    <a href="#locations">Locations</a>
+    <a href="#reserve">Reserve</a>
+  </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Welcome">
+      <div class="hero__bg">
+        <img src="images/AfricanSpiceGrilledSkewers-rni.jpg" alt="Grilled vegetable skewers with African spices" width="1200" height="800" loading="eager">
+      </div>
+      <div class="hero__content">
+        <p class="hero__label">Plant-Based African Cuisine</p>
+        <h1 class="hero__title">Where the Continent Gathers at the Table</h1>
+        <p class="hero__subtitle">A celebration of Africa's culinary heritage, reimagined through the art of plant-based gastronomy.</p>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="philosophy section--large" aria-label="Our Philosophy">
+      <div class="container">
+        <div class="reveal">
+          <blockquote class="philosophy__text">
+            We do not adapt African cuisine to be plant-based. We reveal that it <em>always was</em>. Centuries of tradition, rooted in the earth, expressed through fire and spice.
+          </blockquote>
+          <p class="philosophy__attribution">— The Kitchen at Plate of Africa</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Food Showcase -->
+    <section id="food" class="food-showcase section" aria-label="Featured Dishes">
+      <div class="container">
+        <div class="food-showcase__header reveal">
+          <h2 class="food-showcase__title">The Food</h2>
+          <a href="#menu" class="food-showcase__link">View Full Menu &rarr;</a>
+        </div>
+        <div class="food-showcase__grid stagger">
+          <div class="food-card" role="article" aria-label="Jollof Rice">
+            <img class="food-card__image" src="images/JollofRiceImage-rni.png" alt="Jollof Rice — West African spiced rice with tomatoes and herbs" width="621" height="540" loading="lazy">
+            <div class="food-card__overlay">
+              <h3 class="food-card__name">Jollof Rice</h3>
+              <div class="food-card__detail">
+                <span class="food-card__flavor">Savory</span>
+                <span class="food-card__price">$27</span>
+              </div>
+            </div>
+          </div>
+          <div class="food-card" role="article" aria-label="Misir Wat">
+            <img class="food-card__image" src="images/MisirWatImage-rni.png" alt="Misir Wat — Ethiopian spiced red lentil stew" width="621" height="540" loading="lazy">
+            <div class="food-card__overlay">
+              <h3 class="food-card__name">Misir Wat</h3>
+              <div class="food-card__detail">
+                <span class="food-card__flavor">Spicy</span>
+                <span class="food-card__price">$26</span>
+              </div>
+            </div>
+          </div>
+          <div class="food-card" role="article" aria-label="Sambusas">
+            <img class="food-card__image" src="images/SambusaImage-rni.png" alt="Sambusas — Crispy filled pastries with spiced vegetables" width="621" height="540" loading="lazy">
+            <div class="food-card__overlay">
+              <h3 class="food-card__name">Sambusas</h3>
+              <div class="food-card__detail">
+                <span class="food-card__flavor">Crunchy</span>
+                <span class="food-card__price">$13</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="experience section--large" aria-label="The Experience">
+      <div class="container">
+        <div class="experience__grid">
+          <div class="experience__content reveal">
+            <p class="experience__label">The Experience</p>
+            <h2 class="experience__title">Gather Around the Fire</h2>
+            <p class="experience__text">
+              Every dish at Plate of Africa carries a story — of grandmothers who cooked by instinct, of spice routes that connected civilizations, of ingredients that have nourished communities for millennia. We invite you to sit, to slow down, and to taste a continent.
+            </p>
+            <p class="experience__text">
+              Our three locations each offer a distinct atmosphere, but the same unwavering commitment: plant-based cuisine that honors tradition while embracing the future of dining.
+            </p>
+          </div>
+          <div class="experience__image reveal reveal--delay-2">
+            <img src="images/about-1.png" alt="Interior ambiance of Plate of Africa restaurant" width="600" height="500" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section section" aria-label="Our Menu">
+      <div class="container">
+        <div class="menu-section__header reveal">
+          <h2 class="menu-section__title">The Menu</h2>
+          <p class="menu-section__subtitle">Plant-based dishes from across the African continent</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="menu-filters reveal" role="tablist" aria-label="Menu categories">
+          <button class="menu-filter menu-filter--active" data-category="all" role="tab" aria-selected="true">All</button>
+          <button class="menu-filter" data-category="appetizers" role="tab" aria-selected="false">Appetizers</button>
+          <button class="menu-filter" data-category="mains" role="tab" aria-selected="false">Main Courses</button>
+          <button class="menu-filter" data-category="desserts" role="tab" aria-selected="false">Desserts</button>
+          <button class="menu-filter" data-category="drinks" role="tab" aria-selected="false">Drinks</button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid reveal" role="tabpanel">
+          <!-- Appetizers -->
+          <article class="menu-item" data-category="appetizers">
+            <img class="menu-item__image" src="images/AfricanSpiceGrilledSkewers-rni.jpg" alt="Spice Grilled Vegetable Skewers" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Spice Grilled Vegetable Skewers</h3>
+              <p class="menu-item__description">Smoky, charred seasonal vegetables with African spice blend</p>
+            </div>
+            <span class="menu-item__price">$8</span>
+          </article>
+
+          <article class="menu-item" data-category="appetizers">
+            <img class="menu-item__image" src="images/SambusaImage-rni.png" alt="Sambusas" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Sambusas</h3>
+              <p class="menu-item__description">Crispy pastry filled with spiced lentils and vegetables</p>
+            </div>
+            <span class="menu-item__price">$13</span>
+          </article>
+
+          <!-- Main Courses -->
+          <article class="menu-item" data-category="mains">
+            <img class="menu-item__image" src="images/MisirWatImage-rni.png" alt="Misir Wat" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Misir Wat</h3>
+              <p class="menu-item__description">Ethiopian spiced red lentil stew with berbere and injera</p>
+            </div>
+            <span class="menu-item__price">$26</span>
+          </article>
+
+          <article class="menu-item" data-category="mains">
+            <img class="menu-item__image" src="images/JollofRiceImage-rni.png" alt="Jollof Rice" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Jollof Rice</h3>
+              <p class="menu-item__description">West African spiced tomato rice with roasted vegetables</p>
+            </div>
+            <span class="menu-item__price">$27</span>
+          </article>
+
+          <article class="menu-item" data-category="mains">
+            <img class="menu-item__image" src="images/VegetableSkewers1-rni.jpeg" alt="Moroccan Tagine" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Moroccan Vegetable Tagine</h3>
+              <p class="menu-item__description">Slow-cooked vegetables with preserved lemon and olives</p>
+            </div>
+            <span class="menu-item__price">$24</span>
+          </article>
+
+          <!-- Desserts -->
+          <article class="menu-item" data-category="desserts">
+            <img class="menu-item__image" src="images/MalavaPuddingImage-rni.png" alt="Malva Pudding" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Malva Pudding</h3>
+              <p class="menu-item__description">South African caramelized sponge with apricot glaze</p>
+            </div>
+            <span class="menu-item__price">$17</span>
+          </article>
+
+          <article class="menu-item" data-category="desserts">
+            <img class="menu-item__image" src="images/BourraImage-rni.jpg" alt="Bourra" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Bourra</h3>
+              <p class="menu-item__description">North African almond pastry with orange blossom honey</p>
+            </div>
+            <span class="menu-item__price">$13</span>
+          </article>
+
+          <!-- Drinks -->
+          <article class="menu-item" data-category="drinks">
+            <img class="menu-item__image" src="images/EthiopianCoffeeImage-rni.png" alt="Ethiopian Coffee" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Ethiopian Coffee Ceremony</h3>
+              <p class="menu-item__description">Traditional roasted and brewed Ethiopian coffee</p>
+            </div>
+            <span class="menu-item__price">$9</span>
+          </article>
+
+          <article class="menu-item" data-category="drinks">
+            <img class="menu-item__image" src="images/ZoboImage-rni.png" alt="Zobo" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Zobo</h3>
+              <p class="menu-item__description">Nigerian hibiscus flower drink with ginger and clove</p>
+            </div>
+            <span class="menu-item__price">$12</span>
+          </article>
+
+          <article class="menu-item" data-category="drinks">
+            <img class="menu-item__image" src="images/ArumalaImage-rni.png" alt="Amarula" width="80" height="80" loading="lazy">
+            <div class="menu-item__info">
+              <h3 class="menu-item__name">Amarula</h3>
+              <p class="menu-item__description">South African marula fruit cream liqueur</p>
+            </div>
+            <span class="menu-item__price">$24</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section" aria-label="Guest Testimonials">
+      <div class="container">
+        <div class="testimonials__header reveal">
+          <h2 class="testimonials__title">What Our Guests Say</h2>
+        </div>
+        <div class="testimonials__track" role="list">
+          <article class="testimonial-card" role="listitem">
+            <p class="testimonial-card__quote">"Absolutely transformative. I came expecting good food and left feeling like I'd traveled across a continent in a single evening."</p>
+            <p class="testimonial-card__author">John Wellberg</p>
+          </article>
+          <article class="testimonial-card" role="listitem">
+            <p class="testimonial-card__quote">"Plate of Africa just nails it every time. So many incredible vegan options — the Jollof Rice alone is worth the trip."</p>
+            <p class="testimonial-card__author">Nettie Hardin</p>
+          </article>
+          <article class="testimonial-card" role="listitem">
+            <p class="testimonial-card__quote">"So grateful this restaurant opened near me. Whenever I'm craving something extraordinary, this is the first place I think of."</p>
+            <p class="testimonial-card__author">Stella Gallegos</p>
+          </article>
+          <article class="testimonial-card" role="listitem">
+            <p class="testimonial-card__quote">"The food was so authentic — I was surprised to discover it was entirely vegan. A 10/10 experience from start to finish."</p>
+            <p class="testimonial-card__author">Zeineba Tesfaye</p>
+          </article>
+          <article class="testimonial-card" role="listitem">
+            <p class="testimonial-card__quote">"You cannot compete with the quality here. Every dish is flavorful, filling, and crafted with genuine care."</p>
+            <p class="testimonial-card__author">Madison Le</p>
+          </article>
+          <article class="testimonial-card" role="listitem">
+            <p class="testimonial-card__quote">"The Liberian Fried Okra alone is reason enough to visit. Make sure to try it first — you won't regret it."</p>
+            <p class="testimonial-card__author">Sarah Prichett</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations -->
+    <section id="locations" class="locations section" aria-label="Our Locations">
+      <div class="container">
+        <div class="locations__header reveal">
+          <h2 class="locations__title">Find Us</h2>
+          <p class="locations__subtitle">Three locations, one unwavering standard</p>
+        </div>
+        <div class="locations__grid stagger">
+          <article class="location-card">
+            <h3 class="location-card__name">Downtown</h3>
+            <div class="location-card__info">
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                123 Main Street, Seattle
+              </p>
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                11:00 AM — 10:00 PM
+              </p>
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (908) 441-9271
+              </p>
+            </div>
+          </article>
+          <article class="location-card">
+            <h3 class="location-card__name">Westside</h3>
+            <div class="location-card__info">
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                456 Park Avenue, Seattle
+              </p>
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                11:00 AM — 11:00 PM
+              </p>
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (908) 441-9271
+              </p>
+            </div>
+          </article>
+          <article class="location-card">
+            <h3 class="location-card__name">Eastside</h3>
+            <div class="location-card__info">
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                789 River Road, Seattle
+              </p>
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                12:00 PM — 10:00 PM
+              </p>
+              <p class="location-card__detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (908) 441-9271
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservation CTA -->
+    <section id="reserve" class="reservation-cta section--large" aria-label="Make a Reservation">
+      <div class="container">
+        <div class="reservation-cta__inner reveal">
+          <h2 class="reservation-cta__title">Join Us at the Table</h2>
+          <p class="reservation-cta__text">
+            Whether it is your first visit or your hundredth, every meal at Plate of Africa is an invitation to discover something new. We look forward to welcoming you.
+          </p>
+          <a href="#reserve" class="reservation-cta__button">Reserve Your Table</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-logo">
+            <img src="images/logo.png" alt="Plate of Africa" width="40" height="40">
+            <span class="footer__brand-name">Plate of Africa</span>
+          </div>
+          <p class="footer__brand-text">
+            Celebrating Africa's culinary heritage through modern, plant-based gastronomy. Three locations in Seattle.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer__column-title">Navigate</h4>
+          <ul class="footer__links">
+            <li><a href="#philosophy" class="footer__link">Philosophy</a></li>
+            <li><a href="#food" class="footer__link">Food</a></li>
+            <li><a href="#menu" class="footer__link">Menu</a></li>
+            <li><a href="#experience" class="footer__link">Experience</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__column-title">Visit</h4>
+          <ul class="footer__links">
+            <li><a href="#locations" class="footer__link">Downtown</a></li>
+            <li><a href="#locations" class="footer__link">Westside</a></li>
+            <li><a href="#locations" class="footer__link">Eastside</a></li>
+            <li><a href="#reserve" class="footer__link">Reservations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__column-title">Connect</h4>
+          <ul class="footer__links">
+            <li><a href="mailto:info@plateofafrica.com" class="footer__link">info@plateofafrica.com</a></li>
+            <li><a href="tel:+19084419271" class="footer__link">(908) 441-9271</a></li>
+            <li><a href="#" class="footer__link">Instagram</a></li>
+            <li><a href="#" class="footer__link">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 Plate of Africa. All rights reserved.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="Instagram">IG</a>
+          <a href="#" class="footer__social" aria-label="TikTok">TK</a>
+          <a href="#" class="footer__social" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
