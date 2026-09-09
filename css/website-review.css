@@ -1,0 +1,18 @@
+/* Shared refinements for the educational portfolio edition. */
+.project-notice { max-width: 840px; margin: 18px auto; padding: 12px 18px; border: 1px solid #cdaa66; border-radius: 10px; background: #fff7e8; color: #33261b !important; font: 500 14px/1.55 system-ui, sans-serif; letter-spacing: normal; text-transform: none; text-shadow: none; }
+.project-update { padding: 18px; border-left: 3px solid #cdaa66; line-height: 1.7; }
+.review-section-title { font-size: clamp(1.7rem, 4vw, 3rem); line-height: 1.2; }
+:focus-visible { outline: 3px solid #b17c20 !important; outline-offset: 4px; }
+.review-field-label { display: block !important; width: auto !important; margin: 0 0 8px; color: inherit; font-size: 15px; font-weight: 600; line-height: 1.4; }
+#reservation-form .input-box-inline, #contact-form .input-box-inline { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.review-field { min-width: 0; }
+.review-field input { width: 100% !important; }
+#date-display, #time-display, .date-icon-button, .time-icon-button { display: none !important; }
+#reservation-form .hidden-date-input, #reservation-form .hidden-time-input { display: block !important; visibility: visible !important; opacity: 1 !important; position: static !important; width: 100% !important; height: auto !important; pointer-events: auto !important; color-scheme: dark; }
+input, select, textarea { font-size: 16px !important; }
+button.nextbutton { border: 0; font: inherit; cursor: pointer; }
+@media (max-width: 600px) { #reservation-form .input-box-inline, #contact-form .input-box-inline { grid-template-columns: 1fr; } .project-notice { font-size: 13px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+.review-page-heading { margin: 24px auto; padding: 0 20px; max-width: 1200px; font-size: clamp(1.8rem, 5vw, 3rem); }
+h1.home-hero-heading, h1.employmentheading { font-weight: inherit; }

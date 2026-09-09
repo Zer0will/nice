@@ -18,7 +18,9 @@
         <title>Contact Us</title>
         
         
-    </head>
+    <link rel="stylesheet" href="css/website-review.css">
+<script src="js/website-review.js" defer></script>
+</head>
     
     <body>
         
@@ -76,7 +78,7 @@
             <div class="hero-background"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1 class="hero-title">Contact US</h1>
+                <h1 class="hero-title">Contact US</h1><p class="project-notice">Educational restaurant concept · Forms are demonstrations. No reservations, payments, or messages are sent.</p>
                 <div class="hero-divider"></div>
                 <p class="hero-subtitle">Have questions or feedback? Reach out below—our team is here to help you experience the best of Plate of Africa.</p>
                 <a href="#contact-form" class="hero-button">Contact Us</a>
@@ -94,12 +96,12 @@
                 </div>
 
                 <div class="text-container">
-                    <h1 class="contact-heading slide-in">
+                    <h2 class="review-section-title contact-heading slide-in">
                         GET IN TOUCH
-                    </h1>
+                    </h2>
     
                     <p class="contact-intro-description slide-in">
-                        We'd love to hear from you! Whether you have a question about our menu, want to provide feedback, or are interested in learning more about our sustainable practices, please fill out the form below and we'll get back to you as soon as possible.
+                        This contact form is part of an educational restaurant concept. Use sample details to preview the interaction; no message is delivered.
                     </p>
                 </div>
             </div>
@@ -155,44 +157,44 @@
                 <div class="content slide-in">
                     <form id="contact-form-element">
                         <div class="input-box-inline">
-                            <label for="first-name"></label>
-                            <input type="text" id="first-name" name="first-name" placeholder="First Name*" required>
-                            <label for="last-name"></label>
-                            <input type="text" id="last-name" name="last-name" placeholder="Last Name*" required>
+                            <div class="review-field"><label for="first-name" class="review-field-label">First name *</label>
+                            <input type="text" id="first-name" name="first-name" placeholder="First Name*" required></div>
+                            <div class="review-field"><label for="last-name" class="review-field-label">Last name *</label>
+                            <input type="text" id="last-name" name="last-name" placeholder="Last Name*" required></div>
                         </div>
 
                         <br>
 
                         <div class="input-box">
-                            <label for="email"></label>
+                            <label for="email" class="review-field-label">Email *</label>
                             <input type="email" id="email" name="email" placeholder="Email*" required>
                         </div>
 
                         <br>
 
                         <div class="input-box" >
-                            <label for="phone-number"></label>
+                            <label for="phone-number" class="review-field-label">Phone number *</label>
                             <input type="tel" id="phone-number" name="phone-number" placeholder="Phone Number*" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number without spaces or special characters" required>
                         </div>
 
                         <br>
 
                         <div class="input-box">
-                            <label for="subject"></label>
+                            <label for="subject" class="review-field-label">Subject *</label>
                             <input type="text" id="subject" name="subject" placeholder="Subject*" required>
                         </div>
 
                         <br>
 
                         <div class="input-box">
-                            <label for="message"></label>
+                            <label for="message" class="review-field-label">Message or requests</label>
                             <textarea id="message" name="message" placeholder="Your message..."></textarea>
                         </div>
 
                         <br>
                         
                         <div class="submit-button">
-                            <button type="submit" id="contact-submit-btn">Submit</button>
+                            <button type="submit" id="contact-submit-btn">Preview message</button>
                         </div>
                     </form>
                 </div>
@@ -201,7 +203,7 @@
                 <div id="thank-you-message" class="thank-you-message">
                     <img src="images/Plate of Africa Logo.png" alt="Plate of Africa Logo" class="thank-you-logo">
                     <h2>Thank You!</h2>
-                    <p>Your message has been submitted successfully.</p>
+                    <p>Message preview complete. Nothing was sent.</p>
                     <p>We will get back to you as soon as possible.</p>
                     <p>If you have any urgent questions, please contact us at 908-441-9271.</p>
                     <button id="new-message-btn">Send Another Message</button>
@@ -884,9 +886,9 @@
         <div class="col">
             <h3>Stay Connected</h3>
         <div class="social-icons">
-          <a href="https://www.instagram.com/official_plateofafrica/" target="_blank"><i class="fa-brands fa-instagram"></i> </a>
-          <a href="https://www.tiktok.com/@plateofafrica?lang=en" target="_blank"><i class="fa-brands fa-tiktok"></i> </a>
-         <a href="https://www.facebook.com/profile.php?id=61573958166880" target="_blank"> <i class="fa-brands fa-facebook"></i> </a>
+          <a href="https://www.instagram.com/official_plateofafrica/" target="_blank" aria-label="Plate of Africa on Instagram"><i class="fa-brands fa-instagram"></i> </a>
+          <a href="https://www.tiktok.com/@plateofafrica?lang=en" target="_blank" aria-label="Plate of Africa on TikTok"><i class="fa-brands fa-tiktok"></i> </a>
+         <a href="https://www.facebook.com/profile.php?id=61573958166880" target="_blank" aria-label="Plate of Africa on Facebook"> <i class="fa-brands fa-facebook"></i> </a>
         </div>
       </div>
     </div>
