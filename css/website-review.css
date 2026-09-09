@@ -15,4 +15,4 @@ button.nextbutton { border: 0; font: inherit; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 
 .review-page-heading { margin: 24px auto; padding: 0 20px; max-width: 1200px; font-size: clamp(1.8rem, 5vw, 3rem); }
-h1.home-hero-heading, h1.employmentheading { font-weight: inherit; }
+h1.home-hero-heading, h1.employmentheading { font-weight: inherit; margin: 0; }
